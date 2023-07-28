@@ -1146,4 +1146,4 @@ def compute_archetype_dataframe(G,df):
 
 def save_graph(G):
     
-    nx.write_gpickle(G, "test.gpickle")
+    #nx.write_gpickle(G, "test.gpickle")

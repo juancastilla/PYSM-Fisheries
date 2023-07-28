@@ -1145,5 +1145,5 @@ def compute_archetype_dataframe(G,df):
     return df_merged
 
 def save_graph(G):
-    
     #nx.write_gpickle(G, "test.gpickle")
+    return None

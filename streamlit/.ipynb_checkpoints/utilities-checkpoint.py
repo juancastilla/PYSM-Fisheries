@@ -38,7 +38,6 @@ matplotlib.rcParams['font.family'] = "sans-serif"
 def read_markdown_file(markdown_file):
     return Path(str(main_path.joinpath(markdown_file))).read_text()
 
-@st.cache
 def convert_df(df):
    return df.to_csv().encode('utf-8')
 

@@ -153,7 +153,7 @@ def plot_domains():
     nt.from_nx(G)
     nt.force_atlas_2based(gravity=-300)
     #nt.show_buttons(filter_=['physics'])
-    nt.show("G_domains.html")
+    nt.show("G_domains.html", notebook=False)
     HtmlFile = open('G_domains.html','r',encoding='utf-8')
     components.html(HtmlFile.read(),height=1000)
     
@@ -307,7 +307,7 @@ def plot_factors():
     nt.from_nx(G)
     nt.force_atlas_2based(gravity=-50)
     # nt.show_buttons(filter_=['physics'])
-    nt.show("G_factors.html")
+    nt.show("G_factors.html", notebook=False)
     HtmlFile = open('G_factors.html','r',encoding='utf-8')
     components.html(HtmlFile.read(),height=1800)
 
@@ -1049,7 +1049,7 @@ def plot_icucpaths(G,path_intended,path_unintended):
         nt = net.Network(width='1500px', height='1000px', directed=True)
         nt.from_nx(G_sub)
         nt.inherit_edge_colors(False)
-        nt.show("icucpaths.html")
+        nt.show("icucpaths.html", notebook=False)
         HtmlFile = open('icucpaths.html','r',encoding='utf-8')
         components.html(HtmlFile.read(),height=700)
 

@@ -1,0 +1,8 @@
+streamlit
+pandas
+pyvis
+streamlit-aggrid
+plotly
+control
+networkx
+gspread

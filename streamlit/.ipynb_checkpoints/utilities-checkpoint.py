@@ -487,7 +487,7 @@ def load_centrality(G):
     average_ranks = pd.DataFrame(round(centrality_ranks.mean(axis=1)).astype(int), columns=["average_rank"])
     average_ranks.insert(loc=0, column='node', value=centrality_summary_df["label"])
     
-    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[1:]), cmap='PuBu_r').set_precision(2)
+    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[1:]), cmap='PuBu_r')
     centrality_summary_df_styled.to_html('centrality_summary_df_styled.html')
     
     centrality_ranks_df_styled = df_nodes.join(centrality_ranks.drop(['group'], axis=1), how='left').style.background_gradient(subset=list(centrality_ranks.columns[1:]),cmap='PuBu')

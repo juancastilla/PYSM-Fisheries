@@ -110,7 +110,7 @@ def load_domains_template_table():
 def load_domains(sheet_id):
     
     if st.session_state.language == 'English':
-        sheet_name = 'DOMAINS_en'
+        sheet_name = 'DOMAINS'
     if st.session_state.language == 'Finnish':
         sheet_name = 'DOMAINS_fi'
     url = f'https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}'
@@ -153,7 +153,7 @@ def plot_domains():
     nt.from_nx(G)
     nt.force_atlas_2based(gravity=-300)
     #nt.show_buttons(filter_=['physics'])
-    nt.show("G_domains.html", notebook=False)
+    nt.show("G_domains.html")
     HtmlFile = open('G_domains.html','r',encoding='utf-8')
     components.html(HtmlFile.read(),height=1000)
     
@@ -179,7 +179,7 @@ def load_factors_template_table():
 def load_factors(sheet_id):
     
     if st.session_state.language == 'English':
-        sheet_name = 'FACTORS_en'
+        sheet_name = 'FACTORS'
     if st.session_state.language == 'Finnish':
         sheet_name = 'FACTORS_fi_FINAL'
     url = f'https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}'
@@ -307,7 +307,7 @@ def plot_factors():
     nt.from_nx(G)
     nt.force_atlas_2based(gravity=-50)
     # nt.show_buttons(filter_=['physics'])
-    nt.show("G_factors.html", notebook=False)
+    nt.show("G_factors.html")
     HtmlFile = open('G_factors.html','r',encoding='utf-8')
     components.html(HtmlFile.read(),height=1800)
 
@@ -324,7 +324,7 @@ def load_relationships_template_table():
         sheet_name = 'RELATIONSHIPS'
         url = f'https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}'
         df_relationships=pd.read_csv(url)
-        df_relationships = df_relationships.loc[:, ~df_elationships.columns.str.contains('^Unnamed')]
+        df_relationships = df_relationships.loc[:, ~df_relationships.columns.str.contains('^Unnamed')]
         st.session_state.df_relationships = df_relationships
         
     
@@ -332,7 +332,7 @@ def load_relationships_template_table():
 def load_relationships(sheet_id):
     
     if st.session_state.language == 'English':
-        sheet_name = 'RELATIONSHIPS_en'
+        sheet_name = 'RELATIONSHIPS'
     if st.session_state.language == 'Finnish':
         sheet_name = 'RELATIONSHIPS_fi_FINAL'
     url = f'https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}'
@@ -377,27 +377,8 @@ def plot_relationships():
 
     for index, row in st.session_state.df_factors.iterrows():
         size=15
-        if row['short_name']=='FOCAL_FACTOR': size=40
-        group = str(row.loc["domain_id"])
-        if group == '1':
-            color = 'lightblue'
-        elif group == '2':
-            color = 'lemonchiffon'
-        elif group == '3':
-            color = 'salmon'
-        elif group == '4':
-            color = 'lightgreen'
-        elif group == '5':
-            color = 'orchid'
-        elif group == '6':
-            color = 'blue'
-        elif group == '0':
-            color = 'purple'
-        else:
-            color= 'black'
-        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
-
-    show_weights = False
+        if row['domain_id']==0: size=40
+        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=row['color'])
 
     for index, row in st.session_state.df_relationships.iterrows():
 
@@ -405,16 +386,24 @@ def plot_relationships():
         edge_to = row['to_factor_id']
         polarity = row['polarity']
         
-        if polarity == 'positive': pol = 1
-        if polarity == 'negative': pol = -1
+        if polarity == 'positive': 
+            title = 'positive'
+            edge_color = 'lightgreen'  # choose your color for positive polarity
+        if polarity == 'negative': 
+            title = 'negative'
+            edge_color = 'lightcoral'  # choose your color for negative polarity
 
-        if show_weights==True:
-            if row['Strength']=='weak': value=1
-            if row['Strength']=='medium': value=2
-            if row['Strength']=='strong': value=3
-            #G.add_edge(edge_from, edge_to, value=value)
+        if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
+            weight=0.1
+            distance = 1/weight
+        if row['strength']=='medium': 
+            weight=4
+            distance = 1/weight
+        if row['strength']=='strong': 
+            weight=10
+            distance = 1/weight
 
-        G.add_edge(edge_from, edge_to, polarity=pol, hidden=False)
+        G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color)
 
     # physics = st.checkbox('Show physics?')
     # if physics:
@@ -422,7 +411,7 @@ def plot_relationships():
     # else:
     #     nt = net.Network(width='2000px', height='1800px', directed=True)
     
-    nt = net.Network(width='2500px', height='1800px', directed=True)
+    nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line')
     nt.from_nx(G)
     nt.force_atlas_2based(gravity=-50)
     
@@ -442,7 +431,7 @@ def plot_relationships():
     
     
 #     """)
-    nt.show('G_factors_and_relationships.html', notebook=False)
+    nt.show('G_factors_and_relationships.html')
     HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
     components.html(HtmlFile.read(),height=1800)
     save_graph(G)

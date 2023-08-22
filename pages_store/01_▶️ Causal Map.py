@@ -1,6 +1,6 @@
 from utilities import *
 
-st.set_page_config(page_title='Workshop 2 (Validation)', layout="wide", page_icon="🔬")
+st.set_page_config(page_title='Causal Map', layout="wide", page_icon="🔬")
 
 #######################################
 ############ INIT STATE ###############
@@ -36,23 +36,19 @@ if 'df_relationships' not in st.session_state:
 
 #### LOAD DATA (AUTOMATIC ON STARTUP) ####
 
-# Verification workshop mode: Consolidated map factors and relationships are automatically loaded
-# sheet_id = '1YDsfTegWgBnH4KB4FJ5g7fegaaKFFItTkuOF3Fbc3Vc'
-# load_factors(sheet_id)
-# load_relationships(sheet_id)
-# load_domains(sheet_id)
+sheet_id = st.session_state.sheet_id
+load_factors(sheet_id)
+load_relationships(sheet_id)
+load_domains(sheet_id)
 
 #### LOAD DATA (MANUAL) ####
 
 ### Original data ###
 if st.sidebar.button('Load Data'):
-    sheet_id = '1YDsfTegWgBnH4KB4FJ5g7fegaaKFFItTkuOF3Fbc3Vc'
+    sheet_id = st.session_state.sheet_id
     load_factors(sheet_id)
     load_relationships(sheet_id)
     load_domains(sheet_id)
-    st.session_state.domains_counter = 6
-    st.session_state.factors_counter = 50
-    st.session_state.relationships_counter = 155
     
 if platform.system() == 'Darwin':
     filename='service_account.json'
@@ -62,20 +58,20 @@ else:
 gc = gspread.service_account(filename=filename)
 sh = gc.open("PYSM templates")
 
-if st.session_state.app_mode == 'Workshop' and st.session_state.breakout_room == '1':
-    st.session_state.domains_backup_wks = sh.worksheet('DOM_BACKUP_1')
-    st.session_state.factors_backup_wks = sh.worksheet('FAC_BACKUP_1')
-    st.session_state.relationships_backup_wks = sh.worksheet('REL_BACKUP_1')
+# if st.session_state.app_mode == 'Workshop' and st.session_state.breakout_room == '1':
+#     st.session_state.domains_backup_wks = sh.worksheet('DOM_BACKUP_1')
+#     st.session_state.factors_backup_wks = sh.worksheet('FAC_BACKUP_1')
+#     st.session_state.relationships_backup_wks = sh.worksheet('REL_BACKUP_1')
     
-if st.session_state.app_mode == 'Workshop' and st.session_state.breakout_room == '2':
-    st.session_state.domains_backup_wks = sh.worksheet('DOM_BACKUP_2')
-    st.session_state.factors_backup_wks = sh.worksheet('FAC_BACKUP_2')
-    st.session_state.relationships_backup_wks = sh.worksheet('REL_BACKUP_2')
+# if st.session_state.app_mode == 'Workshop' and st.session_state.breakout_room == '2':
+#     st.session_state.domains_backup_wks = sh.worksheet('DOM_BACKUP_2')
+#     st.session_state.factors_backup_wks = sh.worksheet('FAC_BACKUP_2')
+#     st.session_state.relationships_backup_wks = sh.worksheet('REL_BACKUP_2')
     
-if st.session_state.app_mode == 'Analysis':
-    st.session_state.domains_backup_wks = sh.worksheet('DOM_BACKUP')
-    st.session_state.factors_backup_wks = sh.worksheet('FAC_BACKUP')
-    st.session_state.relationships_backup_wks = sh.worksheet('REL_BACKUP')
+# if st.session_state.app_mode == 'Analysis':
+#     st.session_state.domains_backup_wks = sh.worksheet('DOM_BACKUP')
+#     st.session_state.factors_backup_wks = sh.worksheet('FAC_BACKUP')
+#     st.session_state.relationships_backup_wks = sh.worksheet('REL_BACKUP')
     
 ### Load backup data
 if st.sidebar.button('Load Backup'):

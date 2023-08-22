@@ -1,5 +1,34 @@
 from utilities import *
 
+sheet_id = st.session_state.sheet_id
+load_factors(sheet_id)
+load_relationships(sheet_id)
+load_domains(sheet_id)
+
+with st.expander('CLD'):
+
+    tab1, tab2, tab3, tab4 = st.tabs(["System Map", "Domains", "Factors", "Relationships"])
+
+    with tab1:
+        st.markdown('### System Map')
+        G=plot_relationships()
+
+    with tab2:
+        st.markdown('### Domains Table')
+        AgGrid(st.session_state.df_domains, fit_columns_on_grid_load=False, width='100%')
+        plot_domains()
+
+    with tab3:
+        st.markdown('### Factors Table')
+        AgGrid(st.session_state.df_factors, fit_columns_on_grid_load=False, width='100%')
+        plot_factors()
+
+    with tab4:
+        st.markdown('### Relationships Table')
+        AgGrid(st.session_state.df_relationships, fit_columns_on_grid_load=True, width='100%')
+        G=plot_relationships()
+
+
 st.sidebar.header("Choose analysis")
 
 st.sidebar.markdown("#### Node Importance")
@@ -19,11 +48,8 @@ analysis_choice_8 = st.sidebar.checkbox('Archetype detection')
 
 st.sidebar.markdown("#### Fuzzy Cognitive Maps")
 
-with st.expander("Relationships Plot"):
+st.sidebar.markdown("#### MapGPT")
 
-    st.markdown('### What is the system?')
-    
-    G = plot_relationships()
 
 if analysis_choice_1:
     

@@ -50,7 +50,7 @@ if analysis_choice_1:
         col1, col2= st.columns(2)
 
         with col1:
-            FORCEDIRECTED_rel_choice = st.radio('Choose which relationships to display', ('All', 'Strong only'), index=0, key='FORCEDIRECTED_rel_choice')
+            FORCEDIRECTED_rel_choice = st.selectbox('Choose which relationships to display', ('All', 'Strong only'), index=0, key='FORCEDIRECTED_rel_choice')
 
         with col2:
             FORCEDIRECTED_isolates_choice = st.checkbox('Hide isolate nodes', key='FORCEDIRECTED_isolates_choice')
@@ -84,7 +84,7 @@ if analysis_choice_4:
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            SUBMAP_rel_choice = st.radio('Choose which relationships to display', ('All', 'Strong only'), index=0, key='SUBMAP_rel_choice')
+            SUBMAP_rel_choice = st.selectbox('Choose which relationships to display', ('All', 'Strong only'), index=0, key='SUBMAP_rel_choice')
 
         with col2:
             SUBMAP_steps_choice = st.selectbox('How many steps upstream/downstream?', (1, 2, 3), index=0, key='SUBMAP_steps_choice')

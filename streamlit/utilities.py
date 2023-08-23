@@ -462,6 +462,119 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice):
     components.html(HtmlFile.read(),height=1800)
     save_graph(G)
     return G   
+
+def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_factor_id):
+    
+    G=nx.empty_graph(create_using=nx.DiGraph())
+
+    for index, row in st.session_state.df_factors.iterrows():
+        if row['domain_id']==1:
+            size=15
+            color='cornflowerblue'
+        if row['domain_id']==0: 
+            size=40
+            color='yellow'
+        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
+
+    if SUBMAP_rel_choice == 'All':
+
+        for index, row in st.session_state.df_relationships.iterrows():
+
+            edge_from = row['from_factor_id']
+            edge_to = row['to_factor_id']
+            polarity = row['polarity']
+            
+            if polarity == 'positive': 
+                title = 'positive'
+                edge_color = 'lightgreen'  # choose your color for positive polarity
+            if polarity == 'negative': 
+                title = 'negative'
+                edge_color = 'lightcoral'  # choose your color for negative polarity
+
+            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
+                weight=0.1
+                distance = 1/weight
+            if row['strength']=='medium': 
+                weight=4
+                distance = 1/weight
+            if row['strength']=='strong': 
+                weight=10
+                distance = 1/weight
+
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color)
+
+    if SUBMAP_rel_choice == 'Strong only':
+
+        for index, row in st.session_state.df_relationships_S.iterrows():
+
+            edge_from = row['from_factor_id']
+            edge_to = row['to_factor_id']
+            polarity = row['polarity']
+            
+            if polarity == 'positive': 
+                title = 'positive'
+                edge_color = 'lightgreen'  # choose your color for positive polarity
+            if polarity == 'negative': 
+                title = 'negative'
+                edge_color = 'lightcoral'  # choose your color for negative polarity
+
+            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
+                weight=0.1
+                distance = 1/weight
+            if row['strength']=='medium': 
+                weight=4
+                distance = 1/weight
+            if row['strength']=='strong': 
+                weight=10
+                distance = 1/weight
+
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color)
+
+    # Ensure selected_factor_id is an integer
+    selected_factor_id = int(selected_factor_id)
+
+    # Check if selected_factor_id exists in the graph
+    if selected_factor_id in G.nodes:
+        # Create a subgraph two steps upstream and downstream from the selected node
+        G_sub = nx.ego_graph(G, selected_factor_id, radius=SUBMAP_steps_choice, undirected=True)
+    else:
+        st.error(f"Factor ID {selected_factor_id} does not exist in the graph.")
+        return
+
+    # if CLD_isolates_choice == True:
+    #     G.remove_nodes_from(list(nx.isolates(G)))
+
+    # physics = st.checkbox('Show physics?')
+    # if physics:
+    #     nt = net.Network(width='1500px', height='1800px', directed=True)
+    # else:
+    #     nt = net.Network(width='2000px', height='1800px', directed=True)
+    
+    nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line')
+    nt.from_nx(G_sub)
+    nt.force_atlas_2based(gravity=-50)
+    
+    # if physics:
+    #     nt.show_buttons(filter_=['physics'])
+    nt.inherit_edge_colors(False)
+#     nt.set_options("""
+#     var options = {
+#   "physics": {
+#     "forceAtlas2Based": {
+#       "springLength": 100
+#     },
+#     "minVelocity": 0.75,
+#     "solver": "forceAtlas2Based"
+#   }
+# }
+    
+    
+#     """)
+    nt.show('G_submap.html')
+    HtmlFile = open('G_submap.html','r',encoding='utf-8')
+    components.html(HtmlFile.read(),height=1800)
+    save_graph(G_sub)
+    return G_sub   
     
 ###############################
 ########## ANALYSIS ###########

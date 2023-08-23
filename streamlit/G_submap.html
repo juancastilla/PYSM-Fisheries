@@ -969,13 +969,15 @@ var tomSelect=function(e,t){return new TomSelect(e,t)}
                             >
                                 <option selected>Select a Node by ID</option>
                                 
-                                    <option value="33">33</option>
+                                    <option value="3">3</option>
+                                
+                                    <option value="4">4</option>
                                 
                                     <option value="5">5</option>
                                 
-                                    <option value="18">18</option>
+                                    <option value="6">6</option>
                                 
-                                    <option value="4">4</option>
+                                    <option value="10">10</option>
                                 
                             </select>
                         </div>
@@ -1197,8 +1199,8 @@ var tomSelect=function(e,t){return new TomSelect(e,t)}
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"group": 1, "id": 33, "label": "Harvest spawning females", "shape": "dot", "size": 15}, {"group": 1, "id": 5, "label": "Spawning females", "shape": "dot", "size": 15}, {"group": 0, "id": 18, "label": "Fisher compliance (e.g. ban period \u0026 \u003e1kg)", "shape": "dot", "size": 40}, {"group": 0, "id": 4, "label": "Octopus abundance", "shape": "dot", "size": 40}]);
-                  edges = new vis.DataSet([{"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 33, "hidden": false, "to": 5, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 18, "hidden": false, "to": 5, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 4, "hidden": false, "to": 5, "width": 10}]);
+                  nodes = new vis.DataSet([{"group": 1, "id": 3, "label": "Juveniles", "shape": "dot", "size": 15}, {"group": 0, "id": 4, "label": "Octopus abundance", "shape": "dot", "size": 40}, {"group": 1, "id": 5, "label": "Spawning females", "shape": "dot", "size": 15}, {"group": 1, "id": 6, "label": "Individual catch per effort", "shape": "dot", "size": 15}, {"group": 1, "id": 10, "label": "Total landings", "shape": "dot", "size": 15}]);
+                  edges = new vis.DataSet([{"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 3, "hidden": false, "to": 4, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 4, "hidden": false, "to": 5, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 4, "hidden": false, "to": 6, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 10, "hidden": false, "to": 4, "width": 10}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });

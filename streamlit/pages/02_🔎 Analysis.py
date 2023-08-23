@@ -7,56 +7,59 @@ load_domains(sheet_id)
 
 st.sidebar.header("Choose analysis")
 
-st.sidebar.markdown("#### CLD")
+st.sidebar.markdown("#### Map visualisation")
+analysis_choice_0 = st.sidebar.checkbox('CLD', key='0')
 analysis_choice_1 = st.sidebar.checkbox('Force-directed graph', key='1')
+analysis_choice_2 = st.sidebar.checkbox('Chord diagram', key='2')
+analysis_choice_3 = st.sidebar.checkbox('Dendogram (hierarchical clustering)', key='3')
 
 st.sidebar.markdown("#### Structural Analysis")
-analysis_choice_2 = st.sidebar.checkbox('Upstream/Downstream Submaps', key='2')
+analysis_choice_4 = st.sidebar.checkbox('Upstream/Downstream Submaps', key='4')
 
 st.sidebar.markdown("#### Hierarchical clustering")
-analysis_choice_3 = st.sidebar.checkbox('Dendograms', key='3')
+analysis_choice_5 = st.sidebar.checkbox('Dendograms', key='5')
 
 st.sidebar.markdown("#### Node Importance")
-analysis_choice_4 = st.sidebar.checkbox('Centrality Metrics', key='4')
-analysis_choice_5 = st.sidebar.checkbox('Centrality Archetypes', key='5')
+analysis_choice_6 = st.sidebar.checkbox('Centrality Metrics', key='6')
+analysis_choice_7 = st.sidebar.checkbox('Centrality Archetypes', key='7')
 
 st.sidebar.markdown("#### Network Controllability")
-analysis_choice_6 = st.sidebar.checkbox('Control Centrality: Individual Factors', key='6')
-analysis_choice_7 = st.sidebar.checkbox('Control Centrality: Multiple Factors', key='7')
-analysis_choice_8 = st.sidebar.checkbox('Robust Controllability (Liu method)', key='8')
-analysis_choice_9 = st.sidebar.checkbox('Global Controllability (Jia method)', key='9')
+analysis_choice_8 = st.sidebar.checkbox('Control Centrality: Individual Factors', key='8')
+analysis_choice_9 = st.sidebar.checkbox('Control Centrality: Multiple Factors', key='9')
+analysis_choice_10 = st.sidebar.checkbox('Robust Controllability (Liu method)', key='10')
+analysis_choice_11 = st.sidebar.checkbox('Global Controllability (Jia method)', key='11')
 #analysis_choice_6 = st.sidebar.checkbox('Structural permeability (Lo ludice et al)')
 
 st.sidebar.markdown("#### Path Analysis")
-analysis_choice_10 = st.sidebar.checkbox('Intended & Unintended Consequences', key='10')
-analysis_choice_11 = st.sidebar.checkbox('Archetype detection', key='11')
+analysis_choice_12 = st.sidebar.checkbox('Intended & Unintended Consequences', key='12')
+analysis_choice_13 = st.sidebar.checkbox('Archetype detection', key='13')
 
 st.sidebar.markdown("#### Tradeoff Analysis")
-analysis_choice_12 = st.sidebar.checkbox('Intended & Unintended Consequences', key='12')
+analysis_choice_14 = st.sidebar.checkbox('Intended & Unintended Consequences', key='14')
 
 st.sidebar.markdown("#### Scenario Analysis")
-analysis_choice_13 = st.sidebar.checkbox('Fuzzy Cognitive Mapping', key='13')
+analysis_choice_15 = st.sidebar.checkbox('Fuzzy Cognitive Mapping', key='15')
 
 st.sidebar.markdown("#### MapGPT")
-analysis_choice_14 = st.sidebar.checkbox('MapGPT', key='14')
+analysis_choice_16 = st.sidebar.checkbox('MapGPT', key='16')
 
 if analysis_choice_1:
 
-    with st.expander('CLD'):
+    with st.expander('Force-directed graph'):
 
         col1, col2= st.columns(2)
 
         with col1:
-            CLD_rel_choice = st.radio('Choose which relationships to display', ('All', 'Strong only'), index=0)
+            FORCEDIRECTED_rel_choice = st.radio('Choose which relationships to display', ('All', 'Strong only'), index=0, key='FORCEDIRECTED_rel_choice')
 
         with col2:
-            CLD_isolates_choice = st.checkbox('Hide isolate nodes')
+            FORCEDIRECTED_isolates_choice = st.checkbox('Hide isolate nodes', key='FORCEDIRECTED_isolates_choice')
 
         tab1, tab2, tab3, tab4 = st.tabs(["System Map", "Domains", "Factors", "Relationships"])
 
         with tab1:
             st.markdown('### System Map')
-            G=plot_relationships(CLD_rel_choice,CLD_isolates_choice)
+            G=plot_relationships(FORCEDIRECTED_rel_choice,FORCEDIRECTED_isolates_choice)
 
         with tab2:
             st.markdown('### Domains Table')
@@ -71,9 +74,28 @@ if analysis_choice_1:
         with tab4:
             st.markdown('### Relationships Table')
             AgGrid(st.session_state.df_relationships, fit_columns_on_grid_load=True, width='100%')
-            G=plot_relationships(CLD_rel_choice,CLD_isolates_choice)
+            G=plot_relationships(FORCEDIRECTED_rel_choice,FORCEDIRECTED_isolates_choice)
+
 
 if analysis_choice_4:
+        
+    with st.expander('Submaps'):
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            SUBMAP_rel_choice = st.radio('Choose which relationships to display', ('All', 'Strong only'), index=0, key='SUBMAP_rel_choice')
+
+        with col2:
+            SUBMAP_steps_choice = st.selectbox('How many steps upstream/downstream?', (1, 2, 3), index=0, key='SUBMAP_steps_choice')
+
+        with col3:
+            SUBMAP_factor_choice = st.selectbox('Choose a factor:', st.session_state.df_factors.long_name, index=0, key='SUBMAP_factor_choice')
+            selected_factor_id = st.session_state.df_factors[st.session_state.df_factors['long_name'] == SUBMAP_factor_choice]['factor_id'].values[0]
+
+        G=plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_factor_id)
+
+if analysis_choice_6:
     
     node_colors, centrality_summary_df = load_centrality(G)
     
@@ -148,20 +170,20 @@ if analysis_choice_3:
             multiple_factor_controllability = controllability_multiple(G,factors)
             plot_controllability_gauge(multiple_factor_controllability)
 
-if analysis_choice_4:
+# if analysis_choice_4:
 
-    with st.expander('Robust Controllability (Liu et al)'):
+#     with st.expander('Robust Controllability (Liu et al)'):
         
-        st.markdown('### How important is the removal of a factor in mantaining control of the whole system?')
-        st.markdown('##### Indispensable, Dispensable and Neutral factors')
-        st.markdown('**Overview**')
-        st.markdown('In robust controllability (by Liu et al. [38], pictured in Fig. 1b), the MIS is re-calculated (size ND′) after removing each node from the network. The node is then classified by its effect on the manipulation required to control the network, where an increase in the size of the MIS makes it more difficult to control the network and a decrease in the size of the MIS makes it easier to control the network. The removal of: an indispensable node increases the number of driver nodes (ND′ > ND), a dispensable node decreases the number of driver nodes (ND′ < ND), and a neutral node has no effect on the number of driver nodes (ND′ = ND). This method has previously been applied to many network types such as gene regulatory networks, food webs, citation networks, and PPI networks to better understand what drives the dynamics of each system [29, 38]. While it is useful to observe the structural changes to the network after the removal of singular nodes, this method only considers one possible MIS.')
+#         st.markdown('### How important is the removal of a factor in mantaining control of the whole system?')
+#         st.markdown('##### Indispensable, Dispensable and Neutral factors')
+#         st.markdown('**Overview**')
+#         st.markdown('In robust controllability (by Liu et al. [38], pictured in Fig. 1b), the MIS is re-calculated (size ND′) after removing each node from the network. The node is then classified by its effect on the manipulation required to control the network, where an increase in the size of the MIS makes it more difficult to control the network and a decrease in the size of the MIS makes it easier to control the network. The removal of: an indispensable node increases the number of driver nodes (ND′ > ND), a dispensable node decreases the number of driver nodes (ND′ < ND), and a neutral node has no effect on the number of driver nodes (ND′ = ND). This method has previously been applied to many network types such as gene regulatory networks, food webs, citation networks, and PPI networks to better understand what drives the dynamics of each system [29, 38]. While it is useful to observe the structural changes to the network after the removal of singular nodes, this method only considers one possible MIS.')
         
-        G_bipartite, left_nodes = directed_to_bipartite(G)
-        ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
-        liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
-        st.dataframe(liu_class_summary_df)
-        #AgGrid(liu_class_summary_df)
+#         G_bipartite, left_nodes = directed_to_bipartite(G)
+#         ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
+#         liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
+#         st.dataframe(liu_class_summary_df)
+#         #AgGrid(liu_class_summary_df)
     
 if analysis_choice_5:
 

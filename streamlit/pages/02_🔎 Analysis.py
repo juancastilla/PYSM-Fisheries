@@ -5,53 +5,75 @@ load_factors(sheet_id)
 load_relationships(sheet_id)
 load_domains(sheet_id)
 
-with st.expander('CLD'):
-
-    tab1, tab2, tab3, tab4 = st.tabs(["System Map", "Domains", "Factors", "Relationships"])
-
-    with tab1:
-        st.markdown('### System Map')
-        G=plot_relationships()
-
-    with tab2:
-        st.markdown('### Domains Table')
-        AgGrid(st.session_state.df_domains, fit_columns_on_grid_load=False, width='100%')
-        plot_domains()
-
-    with tab3:
-        st.markdown('### Factors Table')
-        AgGrid(st.session_state.df_factors, fit_columns_on_grid_load=False, width='100%')
-        plot_factors()
-
-    with tab4:
-        st.markdown('### Relationships Table')
-        AgGrid(st.session_state.df_relationships, fit_columns_on_grid_load=True, width='100%')
-        G=plot_relationships()
-
-
 st.sidebar.header("Choose analysis")
 
-st.sidebar.markdown("#### Node Importance")
-analysis_choice_1 = st.sidebar.checkbox('Centrality Metrics')
-analysis_choice_9 = st.sidebar.checkbox('Centrality Archetypes')
-
-st.sidebar.markdown("#### Network Controllability")
-analysis_choice_2 = st.sidebar.checkbox('Control Centrality: Individual Factors')
-analysis_choice_3 = st.sidebar.checkbox('Control Centrality: Multiple Factors')
-analysis_choice_4 = st.sidebar.checkbox('Robust Controllability (Liu et al)')
-analysis_choice_5 = st.sidebar.checkbox('Global Controllability (Jia et al)')
-#analysis_choice_6 = st.sidebar.checkbox('Structural permeability (Lo ludice et al)')
+st.sidebar.markdown("#### CLD")
+analysis_choice_1 = st.sidebar.checkbox('Force-directed graph', key='1')
 
 st.sidebar.markdown("#### Structural Analysis")
-analysis_choice_7 = st.sidebar.checkbox('Intended & Unintended Consequences')
-analysis_choice_8 = st.sidebar.checkbox('Archetype detection')
+analysis_choice_2 = st.sidebar.checkbox('Upstream/Downstream Submaps', key='2')
 
-st.sidebar.markdown("#### Fuzzy Cognitive Maps")
+st.sidebar.markdown("#### Hierarchical clustering")
+analysis_choice_3 = st.sidebar.checkbox('Dendograms', key='3')
+
+st.sidebar.markdown("#### Node Importance")
+analysis_choice_4 = st.sidebar.checkbox('Centrality Metrics', key='4')
+analysis_choice_5 = st.sidebar.checkbox('Centrality Archetypes', key='5')
+
+st.sidebar.markdown("#### Network Controllability")
+analysis_choice_6 = st.sidebar.checkbox('Control Centrality: Individual Factors', key='6')
+analysis_choice_7 = st.sidebar.checkbox('Control Centrality: Multiple Factors', key='7')
+analysis_choice_8 = st.sidebar.checkbox('Robust Controllability (Liu method)', key='8')
+analysis_choice_9 = st.sidebar.checkbox('Global Controllability (Jia method)', key='9')
+#analysis_choice_6 = st.sidebar.checkbox('Structural permeability (Lo ludice et al)')
+
+st.sidebar.markdown("#### Path Analysis")
+analysis_choice_10 = st.sidebar.checkbox('Intended & Unintended Consequences', key='10')
+analysis_choice_11 = st.sidebar.checkbox('Archetype detection', key='11')
+
+st.sidebar.markdown("#### Tradeoff Analysis")
+analysis_choice_12 = st.sidebar.checkbox('Intended & Unintended Consequences', key='12')
+
+st.sidebar.markdown("#### Scenario Analysis")
+analysis_choice_13 = st.sidebar.checkbox('Fuzzy Cognitive Mapping', key='13')
 
 st.sidebar.markdown("#### MapGPT")
-
+analysis_choice_14 = st.sidebar.checkbox('MapGPT', key='14')
 
 if analysis_choice_1:
+
+    with st.expander('CLD'):
+
+        col1, col2= st.columns(2)
+
+        with col1:
+            CLD_rel_choice = st.radio('Choose which relationships to display', ('All', 'Strong only'), index=0)
+
+        with col2:
+            CLD_isolates_choice = st.checkbox('Hide isolate nodes')
+
+        tab1, tab2, tab3, tab4 = st.tabs(["System Map", "Domains", "Factors", "Relationships"])
+
+        with tab1:
+            st.markdown('### System Map')
+            G=plot_relationships(CLD_rel_choice,CLD_isolates_choice)
+
+        with tab2:
+            st.markdown('### Domains Table')
+            AgGrid(st.session_state.df_domains, fit_columns_on_grid_load=False, width='100%')
+            plot_domains()
+
+        with tab3:
+            st.markdown('### Factors Table')
+            AgGrid(st.session_state.df_factors, fit_columns_on_grid_load=False, width='100%')
+            plot_factors()
+
+        with tab4:
+            st.markdown('### Relationships Table')
+            AgGrid(st.session_state.df_relationships, fit_columns_on_grid_load=True, width='100%')
+            G=plot_relationships(CLD_rel_choice,CLD_isolates_choice)
+
+if analysis_choice_4:
     
     node_colors, centrality_summary_df = load_centrality(G)
     

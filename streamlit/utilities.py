@@ -330,8 +330,8 @@ def load_relationships(sheet_id):
     df_relationships = df_relationships.loc[:, ~df_relationships.columns.str.contains('^Unnamed')]
     st.session_state.df_relationships = df_relationships
     st.session_state.df_relationships['relationship_id'] = st.session_state.df_relationships.index
+    st.session_state.df_relationships_S = st.session_state.df_relationships[st.session_state.df_relationships['strength'].isin(['strong'])]
 
-    
 def add_relationship(relationship_from,
                      relationship_to,
                      relationship_polarity,
@@ -361,7 +361,7 @@ def delete_relationship(index_to_delete):
     
     st.session_state.df_relationships = st.session_state.df_relationships.drop(index_to_delete)
 
-def plot_relationships():
+def plot_relationships(CLD_rel_choice,CLD_isolates_choice):
     
     G=nx.empty_graph(create_using=nx.DiGraph())
 
@@ -374,30 +374,62 @@ def plot_relationships():
             color='yellow'
         G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
 
-    for index, row in st.session_state.df_relationships.iterrows():
+    if CLD_rel_choice == 'All':
 
-        edge_from = row['from_factor_id']
-        edge_to = row['to_factor_id']
-        polarity = row['polarity']
-        
-        if polarity == 'positive': 
-            title = 'positive'
-            edge_color = 'lightgreen'  # choose your color for positive polarity
-        if polarity == 'negative': 
-            title = 'negative'
-            edge_color = 'lightcoral'  # choose your color for negative polarity
+        for index, row in st.session_state.df_relationships.iterrows():
 
-        if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-            weight=0.1
-            distance = 1/weight
-        if row['strength']=='medium': 
-            weight=4
-            distance = 1/weight
-        if row['strength']=='strong': 
-            weight=10
-            distance = 1/weight
+            edge_from = row['from_factor_id']
+            edge_to = row['to_factor_id']
+            polarity = row['polarity']
+            
+            if polarity == 'positive': 
+                title = 'positive'
+                edge_color = 'lightgreen'  # choose your color for positive polarity
+            if polarity == 'negative': 
+                title = 'negative'
+                edge_color = 'lightcoral'  # choose your color for negative polarity
 
-        G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color)
+            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
+                weight=0.1
+                distance = 1/weight
+            if row['strength']=='medium': 
+                weight=4
+                distance = 1/weight
+            if row['strength']=='strong': 
+                weight=10
+                distance = 1/weight
+
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color)
+
+    if CLD_rel_choice == 'Strong only':
+
+        for index, row in st.session_state.df_relationships_S.iterrows():
+
+            edge_from = row['from_factor_id']
+            edge_to = row['to_factor_id']
+            polarity = row['polarity']
+            
+            if polarity == 'positive': 
+                title = 'positive'
+                edge_color = 'lightgreen'  # choose your color for positive polarity
+            if polarity == 'negative': 
+                title = 'negative'
+                edge_color = 'lightcoral'  # choose your color for negative polarity
+
+            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
+                weight=0.1
+                distance = 1/weight
+            if row['strength']=='medium': 
+                weight=4
+                distance = 1/weight
+            if row['strength']=='strong': 
+                weight=10
+                distance = 1/weight
+
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color)
+
+    if CLD_isolates_choice == True:
+        G.remove_nodes_from(list(nx.isolates(G)))
 
     # physics = st.checkbox('Show physics?')
     # if physics:

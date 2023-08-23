@@ -47,13 +47,10 @@ if analysis_choice_1:
 
     with st.expander('Force-directed graph'):
 
-        col1, col2= st.columns(2)
 
-        with col1:
-            FORCEDIRECTED_rel_choice = st.selectbox('Choose which relationships to display', ('All', 'Strong only'), index=0, key='FORCEDIRECTED_rel_choice')
+        FORCEDIRECTED_rel_choice = st.selectbox('Choose which relationships to display', ('All', 'Strong only'), index=0, key='FORCEDIRECTED_rel_choice')
 
-        with col2:
-            FORCEDIRECTED_isolates_choice = st.checkbox('Hide isolate nodes', key='FORCEDIRECTED_isolates_choice')
+        FORCEDIRECTED_isolates_choice = st.checkbox('Hide isolate nodes', key='FORCEDIRECTED_isolates_choice')
 
         tab1, tab2, tab3, tab4 = st.tabs(["System Map", "Domains", "Factors", "Relationships"])
 

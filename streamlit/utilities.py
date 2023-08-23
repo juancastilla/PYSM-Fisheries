@@ -144,10 +144,12 @@ def plot_domains():
 
     for index, row in st.session_state.df_domains.iterrows():
         if row['domain_id'] == 0:
-            size = 100
-        else:
-            size=50
-        G.add_node(row['domain_id'], label=row['domain_name'], color=row['domain_colour'], size=size, shadow=True, font={'size': 20})
+            size = 40
+            color='yellow'
+        if row['domain_id'] == 1:
+            size=15
+            color='cornflowerblue'
+        G.add_node(row['domain_id'], label=row['domain_name'], color=color, size=size, shadow=True, font={'size': 20})
         
     nt = net.Network(width='1500px', height='1000px', directed=True)
     nt.from_nx(G)
@@ -282,25 +284,13 @@ def plot_factors():
     G=nx.empty_graph()
 
     for index, row in st.session_state.df_factors.iterrows():
-        size=15
-        if row['short_name']=='FOCAL_FACTOR': size=40
-        group = str(row.loc["domain_id"])
-        if group == '1':
-            color = 'lightblue'
-        elif group == '2':
-            color = 'lemonchiffon'
-        elif group == '3':
-            color = 'salmon'
-        elif group == '4':
-            color = 'lightgreen'
-        elif group == '5':
-            color = 'orchid'
-        elif group == '6':
-            color = 'blue'
-        elif group == '0':
-            color = 'purple'
-        else:
-            color= 'black'
+        if row['domain_id']==0: 
+            size=40
+            color='yellow'
+        if row['domain_id']==1: 
+            size=15
+            color='cornflowerblue'
+
         G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
         
     nt = net.Network(width='2000px', height='1800px', directed=True)
@@ -376,9 +366,13 @@ def plot_relationships():
     G=nx.empty_graph(create_using=nx.DiGraph())
 
     for index, row in st.session_state.df_factors.iterrows():
-        size=15
-        if row['domain_id']==0: size=40
-        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=row['color'])
+        if row['domain_id']==1:
+            size=15
+            color='cornflowerblue'
+        if row['domain_id']==0: 
+            size=40
+            color='yellow'
+        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
 
     for index, row in st.session_state.df_relationships.iterrows():
 

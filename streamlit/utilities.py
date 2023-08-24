@@ -18,6 +18,12 @@ import copy
 import itertools
 import ast
 import gspread
+from IPython.display import SVG
+from sknetwork.hierarchy import LouvainHierarchy, Paris
+from sknetwork.hierarchy import cut_straight, dasgupta_score, tree_sampling_divergence
+from sknetwork.visualization import svg_graph, svg_bigraph, svg_dendrogram
+import base64
+import textwrap
 # import googletrans
 # from googletrans import Translator
 
@@ -32,6 +38,14 @@ else:
 
 matplotlib.rcParams['font.sans-serif'] = "DIN Alternate"
 matplotlib.rcParams['font.family'] = "sans-serif"
+
+### RENDER SVG ###
+
+def render_svg(svg):
+    """Renders the given svg string."""
+    b64 = base64.b64encode(svg.encode('utf-8')).decode("utf-8")
+    html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
+    st.write(html, unsafe_allow_html=True)
 
 ### HELPER FUNCTIONS ###
 
@@ -361,7 +375,7 @@ def delete_relationship(index_to_delete):
     
     st.session_state.df_relationships = st.session_state.df_relationships.drop(index_to_delete)
 
-def plot_relationships(CLD_rel_choice,CLD_isolates_choice):
+def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
     
     G=nx.empty_graph(create_using=nx.DiGraph())
 
@@ -374,7 +388,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice):
             color='yellow'
         G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
 
-    if CLD_rel_choice == 'All':
+    if CLD_rel_choice == 'All relationships':
 
         for index, row in st.session_state.df_relationships.iterrows():
 
@@ -437,30 +451,33 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice):
     # else:
     #     nt = net.Network(width='2000px', height='1800px', directed=True)
     
-    nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line')
-    nt.from_nx(G)
-    nt.force_atlas_2based(gravity=-50)
-    
-    # if physics:
-    #     nt.show_buttons(filter_=['physics'])
-    nt.inherit_edge_colors(False)
-#     nt.set_options("""
-#     var options = {
-#   "physics": {
-#     "forceAtlas2Based": {
-#       "springLength": 100
-#     },
-#     "minVelocity": 0.75,
-#     "solver": "forceAtlas2Based"
-#   }
-# }
-    
-    
-#     """)
-    nt.show('G_factors_and_relationships.html')
-    HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
-    components.html(HtmlFile.read(),height=1800)
-    save_graph(G)
+    if mode == 'display':
+
+        nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line')
+        nt.from_nx(G)
+        nt.force_atlas_2based(gravity=-50)
+        
+        # if physics:
+        #     nt.show_buttons(filter_=['physics'])
+        nt.inherit_edge_colors(False)
+    #     nt.set_options("""
+    #     var options = {
+    #   "physics": {
+    #     "forceAtlas2Based": {
+    #       "springLength": 100
+    #     },
+    #     "minVelocity": 0.75,
+    #     "solver": "forceAtlas2Based"
+    #   }
+    # }
+        
+        
+    #     """)
+        nt.show('G_factors_and_relationships.html')
+        HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
+        components.html(HtmlFile.read(),height=1800)
+        save_graph(G)
+
     return G   
 
 def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_factor_id):

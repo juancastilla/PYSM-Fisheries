@@ -182,7 +182,6 @@ if analysis_choice_5:
         st.markdown('### Centrality — Average Ranking')
         st.markdown('*white = more important | dark blue = less important*')
         st.dataframe(average_ranks_df_styled,width=400, use_container_width=True)
-
     
     f = draw_centralities(G)
         
@@ -198,6 +197,27 @@ if analysis_choice_5:
 
             st.dataframe(centrality_summary_df)
         
+    with st.expander('Centrality Correlations'):
+
+        col1, col2 = st.columns(2, gap="small")
+
+        sns.set(font="Arial")
+        sns.set_style("ticks")  
+
+        with col1:
+            st.title("Pairplot")
+            pairplot_dict = {1:"cornflowerblue", 0:"gold"}
+            pairplot = sns.pairplot(centrality_summary_df, hue="group", palette=pairplot_dict, corner=True)
+            st.pyplot(pairplot)
+        
+        with col2:
+            st.title("Heatmap")
+            corr = centrality_summary_df.drop('group', axis=1).corr()
+            fig, ax = plt.subplots() #solved by add this line 
+            ax = sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns, cmap="Blues", annot=True)
+            st.pyplot(fig)
+
+
 if analysis_choice_6:
     
     with st.expander('Centrality Archetypes'):

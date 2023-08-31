@@ -493,7 +493,7 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
             color='yellow'
         G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
 
-    if SUBMAP_rel_choice == 'All':
+    if SUBMAP_rel_choice == 'All relationships':
 
         for index, row in st.session_state.df_relationships.iterrows():
 

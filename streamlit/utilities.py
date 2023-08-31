@@ -598,50 +598,96 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
 ###############################
 
 def load_centrality(G):
+
     df_nodes = pd.DataFrame.from_dict(dict(G.nodes(data=True)), orient='index')
-    node_colors = df_nodes.color.to_list()
-    df_nodes.drop(['size', 'color'], axis=1, inplace=True)
-    
+    # node_colors = df_nodes.color.to_list()
+    df_nodes.drop(['size'], axis=1, inplace=True)
+    # df_nodes.drop(0, inplace=True)
+
     in_degree_centrality_df = pd.DataFrame(nx.in_degree_centrality(G).items(), columns=["node", "in_degree_centrality"])
-    
     out_degree_centrality_df = pd.DataFrame(nx.out_degree_centrality(G).items(), columns=["node", "out_degree_centrality"])
-    
-    closeness_centrality_df = pd.DataFrame(nx.closeness_centrality(G).items(), columns=["node", "closeness_centrality"])
-    
-    betweenness_centrality_df = pd.DataFrame(nx.betweenness_centrality(G).items(), columns=["node", "betweenness_centrality"])
-    
-    pagerank_centrality_df = pd.DataFrame(nx.pagerank(G).items(), columns=["node", "pagerank_centrality"])
-    
-    hub_scores, auth_scores = nx.hits(G)
-    hub_centrality_df = pd.DataFrame(hub_scores.items(), columns=["node", "hub_centrality"])
-    auth_centrality_df = pd.DataFrame(auth_scores.items(), columns=["node", "auth_centrality"])
-    
-    centrality_summary_df = in_degree_centrality_df\
+
+    closeness_centrality_df = pd.DataFrame(nx.closeness_centrality(G, distance='distance').items(), columns=["node", "closeness_centrality"])
+    current_flow_closeness_centrality_df = pd.DataFrame(nx.current_flow_closeness_centrality(G.to_undirected(), weight='edge_value').items(), columns=["node", "flow_closeness_centrality"])
+
+    betweenness_centrality_df = pd.DataFrame(nx.betweenness_centrality(G, weight='distance').items(), columns=["node", "betweenness_centrality"])
+    current_flow_betweenness_centrality_df = pd.DataFrame(nx.current_flow_betweenness_centrality(G.to_undirected(), weight='edge_value').items(), columns=["node", "flow_betweenness_centrality"])
+
+    pagerank_centrality_df = pd.DataFrame(nx.pagerank(G, weight='edge_value').items(), columns=["node", "pagerank_centrality"])
+
+    centrality_summary_df =\
+    in_degree_centrality_df\
     .merge(out_degree_centrality_df, on="node")\
-    .merge(pagerank_centrality_df, on="node")\
-    .merge(closeness_centrality_df, on="node")\
-    .merge(betweenness_centrality_df, on="node")\
-    .merge(hub_centrality_df, on="node")\
-    .merge(auth_centrality_df, on="node")
+    .merge(current_flow_closeness_centrality_df, on="node")\
+    .merge(current_flow_betweenness_centrality_df, on="node")\
+    .merge(pagerank_centrality_df, on="node")
 
-    centrality_summary_df = df_nodes.join(centrality_summary_df).drop(['node'], axis=1)
-
+    centrality_summary_df.set_index('node', inplace=True)
+    centrality_summary_df = df_nodes.join(centrality_summary_df)
+    
     centrality_ranks = centrality_summary_df.rank(ascending=False, numeric_only=True, method="dense").astype(int, errors='ignore')
     
     # compute the average ranking using the above ranks
     average_ranks = pd.DataFrame(round(centrality_ranks.mean(axis=1)).astype(int), columns=["average_rank"])
     average_ranks.insert(loc=0, column='node', value=centrality_summary_df["label"])
     
-    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[1:]), cmap='PuBu_r').format(precision=2)
-    centrality_summary_df_styled.to_html('centrality_summary_df_styled.html')
+    centrality_summary_df_styled = centrality_summary_df.drop(['group','color'], axis=1).style.background_gradient(subset=list(centrality_ranks.columns[1:]), cmap='PuBu_r').set_precision(4)
+    # centrality_summary_df_styled.to_html('PULPO_Chile_centrality_summary_df_styled_ALL.html')
     
-    centrality_ranks_df_styled = df_nodes.join(centrality_ranks.drop(['group'], axis=1), how='left').style.background_gradient(subset=list(centrality_ranks.columns[1:]),cmap='PuBu')
-    centrality_ranks_df_styled.to_html('centrality_ranks_df_styled.html')
+    centrality_ranks_df_styled = df_nodes.join(centrality_ranks.drop(['group'], axis=1), how='left').drop(['group','color'], axis=1).style.background_gradient(subset=list(centrality_ranks.columns[1:]),cmap='PuBu')
+    # centrality_ranks_df_styled.to_html('PULPO_Chile_centrality_ranks_df_styled_ALL.html')
 
     average_ranks_df_styled = average_ranks.sort_values("average_rank").style.background_gradient(subset=["average_rank"], cmap='PuBu')
-    average_ranks_df_styled.to_html('average_ranks_df_styled.html')
+    # average_ranks_df_styled.to_html('PULPO_Chile_average_ranks_df_styled_ALL.html')
     
-    return node_colors, centrality_summary_df
+    centrality_ranks_df = df_nodes.join(centrality_ranks.drop(['group'], axis=1)).drop(['group', 'color'], axis=1)
+    
+    return centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df
+
+    # df_nodes = pd.DataFrame.from_dict(dict(G.nodes(data=True)), orient='index')
+    # node_colors = df_nodes.color.to_list()
+    # df_nodes.drop(['size', 'color'], axis=1, inplace=True)
+    
+    # in_degree_centrality_df = pd.DataFrame(nx.in_degree_centrality(G).items(), columns=["node", "in_degree_centrality"])
+    
+    # out_degree_centrality_df = pd.DataFrame(nx.out_degree_centrality(G).items(), columns=["node", "out_degree_centrality"])
+    
+    # closeness_centrality_df = pd.DataFrame(nx.closeness_centrality(G).items(), columns=["node", "closeness_centrality"])
+    
+    # betweenness_centrality_df = pd.DataFrame(nx.betweenness_centrality(G).items(), columns=["node", "betweenness_centrality"])
+    
+    # pagerank_centrality_df = pd.DataFrame(nx.pagerank(G).items(), columns=["node", "pagerank_centrality"])
+    
+    # hub_scores, auth_scores = nx.hits(G)
+    # hub_centrality_df = pd.DataFrame(hub_scores.items(), columns=["node", "hub_centrality"])
+    # auth_centrality_df = pd.DataFrame(auth_scores.items(), columns=["node", "auth_centrality"])
+    
+    # centrality_summary_df = in_degree_centrality_df\
+    # .merge(out_degree_centrality_df, on="node")\
+    # .merge(pagerank_centrality_df, on="node")\
+    # .merge(closeness_centrality_df, on="node")\
+    # .merge(betweenness_centrality_df, on="node")\
+    # .merge(hub_centrality_df, on="node")\
+    # .merge(auth_centrality_df, on="node")
+
+    # centrality_summary_df = df_nodes.join(centrality_summary_df).drop(['node'], axis=1)
+
+    # centrality_ranks = centrality_summary_df.rank(ascending=False, numeric_only=True, method="dense").astype(int, errors='ignore')
+    
+    # # compute the average ranking using the above ranks
+    # average_ranks = pd.DataFrame(round(centrality_ranks.mean(axis=1)).astype(int), columns=["average_rank"])
+    # average_ranks.insert(loc=0, column='node', value=centrality_summary_df["label"])
+    
+    # centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[1:]), cmap='PuBu_r').format(precision=2)
+    # centrality_summary_df_styled.to_html('centrality_summary_df_styled.html')
+    
+    # centrality_ranks_df_styled = df_nodes.join(centrality_ranks.drop(['group'], axis=1), how='left').style.background_gradient(subset=list(centrality_ranks.columns[1:]),cmap='PuBu')
+    # centrality_ranks_df_styled.to_html('centrality_ranks_df_styled.html')
+
+    # average_ranks_df_styled = average_ranks.sort_values("average_rank").style.background_gradient(subset=["average_rank"], cmap='PuBu')
+    # average_ranks_df_styled.to_html('average_ranks_df_styled.html')
+    
+    # return node_colors, centrality_summary_df
         
 def draw(G, pos, measures, measure_name, ax):
     

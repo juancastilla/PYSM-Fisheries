@@ -155,37 +155,39 @@ if analysis_choice_4:
 
 if analysis_choice_5:
     
-    node_colors, centrality_summary_df = load_centrality(G)
+    G=plot_relationships('All relationships',False,'no_display')
+
+    centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
+
+    # node_colors, centrality_summary_df = load_centrality(G)
     
     with st.expander('Centrality Tables'):
         
-        st.markdown('## Node Importance: Centrality')
-        centrality_md = read_markdown_file("centrality_explained.md")
-        st.markdown(centrality_md, unsafe_allow_html=True)
+        # st.markdown('## Node Importance: Centrality')
+        # centrality_md = read_markdown_file("centrality_explained.md")
+        # st.markdown(centrality_md, unsafe_allow_html=True)
         
         st.markdown('### Centrality — Summary')
 
-        AgGrid(centrality_summary_df.round(2))
-        
+        st.dataframe(centrality_summary_df_styled,width=400, use_container_width=True)
         st.markdown('*white = more important | dark blue = less important*')
-        HtmlFile_centrality_summary_df_styled = open('centrality_summary_df_styled.html','r',encoding='utf-8')
-        components.html(HtmlFile_centrality_summary_df_styled.read(),height=2000)
         
         st.markdown('### Centrality — All Rankings')
+
+        st.dataframe(centrality_ranks_df_styled,width=400, use_container_width=True)
         st.markdown('*white = more important | dark blue = less important*')
-        HtmlFile_centrality_ranks_df_styled = open('centrality_ranks_df_styled.html','r',encoding='utf-8')
-        components.html(HtmlFile_centrality_ranks_df_styled.read(),height=2000)
         
         st.markdown('### Centrality — Average Ranking')
+
+        st.dataframe(average_ranks_df_styled,width=400, use_container_width=False)
         st.markdown('*white = more important | dark blue = less important*')
-        HtmlFile_average_ranks_df_styled = open('average_ranks_df_styled.html','r',encoding='utf-8')
-        components.html(HtmlFile_average_ranks_df_styled.read(),height=2000)
+
     
-    f = draw_centralities(G,node_colors)
+    # f = draw_centralities(G,node_colors)
         
-    with st.expander('Centrality Plots'):
+    # with st.expander('Centrality Plots'):
         
-        st.pyplot(f)
+    #     st.pyplot(f)
         
 if analysis_choice_6:
     

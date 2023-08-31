@@ -162,32 +162,41 @@ if analysis_choice_5:
     # node_colors, centrality_summary_df = load_centrality(G)
     
     with st.expander('Centrality Tables'):
+
+        col1,col2 =  st.columns(2)
         
         # st.markdown('## Node Importance: Centrality')
         # centrality_md = read_markdown_file("centrality_explained.md")
         # st.markdown(centrality_md, unsafe_allow_html=True)
         
-        st.markdown('### Centrality — Summary')
+        with col1:
+            st.markdown('### Centrality — Summary')
+            st.markdown('*white = more important | dark blue = less important*')
+            st.dataframe(centrality_summary_df_styled,width=400, use_container_width=True)
 
-        st.dataframe(centrality_summary_df_styled,width=400, use_container_width=True)
-        st.markdown('*white = more important | dark blue = less important*')
-        
-        st.markdown('### Centrality — All Rankings')
-
-        st.dataframe(centrality_ranks_df_styled,width=400, use_container_width=True)
-        st.markdown('*white = more important | dark blue = less important*')
+        with col2:
+            st.markdown('### Centrality — All Rankings')
+            st.markdown('*white = more important | dark blue = less important*')    
+            st.dataframe(centrality_ranks_df_styled,width=400, use_container_width=True)
         
         st.markdown('### Centrality — Average Ranking')
-
-        st.dataframe(average_ranks_df_styled,width=400, use_container_width=False)
         st.markdown('*white = more important | dark blue = less important*')
+        st.dataframe(average_ranks_df_styled,width=400, use_container_width=True)
 
     
-    # f = draw_centralities(G,node_colors)
+    f = draw_centralities(G)
         
-    # with st.expander('Centrality Plots'):
+    with st.expander('Centrality Plots'):
+
+        col1, col2 = st.columns(2, gap="small")
+
+        with col1:
         
-    #     st.pyplot(f)
+            st.pyplot(f)
+
+        with col2:
+
+            st.dataframe(centrality_summary_df)
         
 if analysis_choice_6:
     
@@ -195,6 +204,8 @@ if analysis_choice_6:
         
         st.markdown('## Centrality Archetypes')
         
+        G=plot_relationships('All relationships',False,'no_display')
+
         plot_centrality_archetypes(G)
                
         

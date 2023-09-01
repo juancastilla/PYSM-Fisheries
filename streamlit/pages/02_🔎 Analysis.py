@@ -20,6 +20,7 @@ analysis_choice_4 = st.sidebar.checkbox('Dendograms', key='4')
 
 st.sidebar.markdown("#### Node Importance")
 analysis_choice_5 = st.sidebar.checkbox('Centrality Metrics', key='5')
+analysis_choice_16 = st.sidebar.checkbox('Centrality Clustermaps', key='16')
 analysis_choice_6 = st.sidebar.checkbox('Centrality Archetypes', key='6')
 
 st.sidebar.markdown("#### Network Controllability")
@@ -69,7 +70,6 @@ if analysis_choice_1:
             st.markdown('### Relationships Table')
             AgGrid(st.session_state.df_relationships, fit_columns_on_grid_load=True, width='100%')
             G=plot_relationships(FORCEDIRECTED_rel_choice,FORCEDIRECTED_isolates_choice,'display')
-
 
 if analysis_choice_3:
         
@@ -217,7 +217,6 @@ if analysis_choice_5:
             ax = sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns, cmap="Blues", annot=True)
             st.pyplot(fig)
 
-
 if analysis_choice_6:
     
     with st.expander('Centrality Archetypes'):
@@ -228,7 +227,6 @@ if analysis_choice_6:
 
         plot_centrality_archetypes(G)
                
-        
 if analysis_choice_7:
     
     with st.expander('Control Centrality: Individual Factors'):
@@ -375,8 +373,7 @@ if analysis_choice_11:
                 path_to_sentence(G,path_unintended)
         
         if sel_row_intended or sel_row_unintended: plot_icucpaths(G,path_intended,path_unintended)
-
-            
+         
 if analysis_choice_12:            
             
     with st.expander('Problem Archetype Detection'):
@@ -460,3 +457,30 @@ if analysis_choice_12:
                 if path_polarity == -1: st.write('➡️ This is a **BALANCING** loop')
                 
         if sel_row_archetype: plot_icucpaths(G,ic_path,uc_path)
+
+
+if analysis_choice_16:
+    
+        with st.expander('Centrality Clustermaps'):
+            
+            st.markdown('### How are the factors clustered in terms of their centrality?')
+
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.title('All relationships')
+                G=plot_relationships('All relationships',False,'no_display')
+                centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
+                df = centrality_summary_df.set_index('label').drop(['group','color'], axis=1)
+                clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')
+                st.pyplot(clustermap)
+    
+            with col2:
+                st.title('Strong only')
+                G=plot_relationships('Strong only',True,'no_display')
+                largest = max(nx.weakly_connected_components(G), key=len)
+                G = G.subgraph(largest)
+                centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
+                df = centrality_summary_df.set_index('label').drop(['group','color'], axis=1)
+                clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')
+                st.pyplot(clustermap)

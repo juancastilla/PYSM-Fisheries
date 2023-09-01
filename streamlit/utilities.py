@@ -25,6 +25,8 @@ from sknetwork.hierarchy import cut_straight, dasgupta_score, tree_sampling_dive
 from sknetwork.visualization import svg_graph, svg_bigraph, svg_dendrogram
 import base64
 import textwrap
+import math
+from sklearn.preprocessing import MinMaxScaler
 # import googletrans
 # from googletrans import Translator
 
@@ -798,54 +800,53 @@ def draw_centralities(G):
 
 def plot_centrality_archetypes(G):
         
-        node_colors, centrality_summary_df = load_centrality(G)
-        
-        labels = centrality_summary_df['label'].values
-        rows = centrality_summary_df.index.values
-        centrality_names = ['IN','OUT','INFLUENCE','BROADCAST','BRIDGE','HUB','AUTHORITY']
-        
-        fig = make_subplots(rows=23, cols=4, specs=[[{'type': 'polar'}]*4]*23, subplot_titles=labels, vertical_spacing = 0.01)
+        centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
 
-        row_counter = 1
-        column_counter = 1
+        # Select 'label' column and the last five columns for the radar charts
+        centrality_summary_df = centrality_summary_df.loc[:, ['label'] + list(centrality_summary_df.columns[-5:])]
 
-        for count,value in enumerate(rows,start=1):
+        # Create a scaler object
+        scaler = MinMaxScaler()
 
-            modulus = count%4
+        # Fit and transform the data in the DataFrame (excluding the 'label' column)
+        centrality_summary_df.iloc[:, 1:] = scaler.fit_transform(centrality_summary_df.iloc[:, 1:])
+        # Number of variables we're plotting.
+        num_vars = len(centrality_summary_df.columns) - 1  # Subtract 1 for the label column
 
-            if modulus != 0:
+        # Split the circle into even parts and save the angles
+        # so we know where to put each axis.
+        angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
 
-                fig.add_trace(go.Scatterpolar(name = "", r=np.log(centrality_summary_df.iloc[value].values.tolist()[2:]), theta=centrality_names), row_counter, column_counter)
+        # The plot is a circle, so we need to "complete the loop"
+        # and append the start to the end.
+        angles += angles[:1]
 
-                column_counter = column_counter + 1
+        # Calculate number of rows needed for subplots
+        num_rows = math.ceil(centrality_summary_df.shape[0] / 4)
 
-            if modulus == 0:
+        fig, axs = plt.subplots(nrows=num_rows, ncols=4, subplot_kw=dict(polar=True), figsize=(24, 3.5*num_rows))
 
-                fig.add_trace(go.Scatterpolar(name = "", r=np.log(centrality_summary_df.iloc[value].values.tolist()[2:]), theta=centrality_names), row_counter, column_counter)
+        # Flatten the axis array and remove extra subplots
+        axs = axs.flatten()[:centrality_summary_df.shape[0]]
 
-                column_counter = 1
-                row_counter = row_counter + 1
+        # Calculate the global y-limits
+        ylim_global = (centrality_summary_df.iloc[:, 1:].min().min(), centrality_summary_df.iloc[:, 1:].max().max())
 
-        fig.update_layout(
-            polar_radialaxis_showticklabels=False,
-            autosize=False,
-            width=2000,
-            height=13000,
-            margin=dict(
-                l=50,
-                r=50,
-                b=50,
-                t=50,
-                pad=0
-            ))
+        for i, ax in enumerate(axs):
+            row = centrality_summary_df.iloc[i, 1:].tolist()  # Exclude the label column
+            row += row[:1]
 
+            ax.fill(angles, row, color='blue', alpha=0.25)
+            ax.set_yticklabels([])
+            ax.set_xticks(angles[:-1])
+            ax.set_xticklabels(centrality_summary_df.columns[1:])  # Exclude the label column
+            ax.set_title(centrality_summary_df.iloc[i]['label'], fontsize=20, fontweight='bold')  # Set the title of the subplot to the label
+            ax.set_ylim(ylim_global)  # Set the same y-limits for all subplots
 
-        fig.update_polars(radialaxis=dict(range=[-9, 0]), radialaxis_showticklabels=False)
-        fig.update_annotations(font_size=25)
-        fig.update_traces(fill='toself')
-        fig.layout.showlegend = False
+        plt.tight_layout()
 
-        st.plotly_chart(fig, use_container_width=True)   
+        # Display the plot in Streamlit
+        st.pyplot(fig)
 
 def control_centrality_single(G):
     

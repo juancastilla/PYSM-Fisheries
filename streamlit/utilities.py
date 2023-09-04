@@ -878,7 +878,7 @@ def control_centrality_single(G):
 
 def controllability_multiple(G,factors):
     
-    A = nx.to_numpy_matrix(G).T          ##### <---- CHECK WHY TRANSPOSE IS NEEDED
+    A = nx.to_numpy_matrix(G).T         ##### <---- CHECK WHY TRANSPOSE IS NEEDED
     N = G.number_of_nodes()
     B = np.zeros((N,len(factors)))
     

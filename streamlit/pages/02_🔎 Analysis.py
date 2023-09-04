@@ -24,8 +24,7 @@ analysis_choice_16 = st.sidebar.checkbox('Centrality Clustermaps', key='16')
 analysis_choice_6 = st.sidebar.checkbox('Centrality Archetypes', key='6')
 
 st.sidebar.markdown("#### Network Controllability")
-analysis_choice_7 = st.sidebar.checkbox('Control Centrality: Individual Factors', key='7')
-analysis_choice_8 = st.sidebar.checkbox('Control Centrality: Multiple Factors', key='8')
+analysis_choice_7 = st.sidebar.checkbox('Control Centrality', key='7')
 analysis_choice_9 = st.sidebar.checkbox('Robust Controllability (Liu method)', key='9')
 analysis_choice_10 = st.sidebar.checkbox('Global Controllability (Jia method)', key='10')
 #analysis_choice_6 = st.sidebar.checkbox('Structural permeability (Lo ludice et al)')
@@ -229,10 +228,10 @@ if analysis_choice_6:
                
 if analysis_choice_7:
     
-    with st.expander('Control Centrality: Individual Factors'):
+    CONTROLCENTRALITY_rel_choice = st.selectbox('Choose which relationships to display', ('All relationships', 'Strong only'), index=0, key='CONTROLCENTRALITY_rel_choice')
+    CONTROLCENTRALITY_isolates_choice = st.checkbox('Hide isolate nodes', key='CONTROLCENTRALITY_isolates_choice')
 
-        CONTROLCENTRALITY_rel_choice = st.selectbox('Choose which relationships to display', ('All relationships', 'Strong only'), index=0, key='CONTROLCENTRALITY_rel_choice')
-        CONTROLCENTRALITY_isolates_choice = st.checkbox('Hide isolate nodes', key='CONTROLCENTRALITY_isolates_choice')
+    with st.expander('Control Centrality: Individual Factors'):
         
         st.markdown('### To what extent can a single factor control the system?')
 
@@ -264,28 +263,37 @@ if analysis_choice_7:
             ax.set_ylabel('Factors')
 
             st.pyplot(fig)  # Display the plot in Streamlit
-
-
-if analysis_choice_8:
     
     with st.expander('Control Centrality: Multiple Factors'):
 
         st.markdown('### To what extent can a policy (influencing a specific group of factors) control the system?')
     
-        st.markdown('##### Use the checkboxes below to select those factors that are part of a candidate policy. The gauge will display the % of the system that can be potentially controlled by these factors')
-        gd = GridOptionsBuilder.from_dataframe(st.session_state.df_factors)
-        gd.configure_selection(selection_mode='multiple', use_checkbox=True)
-        gridoptions = gd.build()
-        grid_table = AgGrid(st.session_state.df_factors, 
-                            gridOptions=gridoptions, 
-                            update_mode = GridUpdateMode.SELECTION_CHANGED)
-        sel_rows = grid_table["selected_rows"]
+        col1, col2 = st.columns(2)
+
+        with col1:    
+
+            st.markdown('##### Use the checkboxes below to select those factors that are part of a candidate policy. The gauge will display the % of the system that can be potentially controlled by these factors')
+            gd = GridOptionsBuilder.from_dataframe(st.session_state.df_factors.drop(['domain_id','domain_name','factor_id','short_name','Comentario'], axis=1))
+            gd.configure_selection(selection_mode='multiple', use_checkbox=True)
+            gridoptions = gd.build()
+            grid_table = AgGrid(st.session_state.df_factors, 
+                                gridOptions=gridoptions, 
+                                update_mode = GridUpdateMode.SELECTION_CHANGED)
+            sel_rows = grid_table["selected_rows"]
         
-        if sel_rows:
-            sel_rows_df = pd.DataFrame(sel_rows)
-            factors = sel_rows_df.factor_id.to_list()
-            multiple_factor_controllability = controllability_multiple(G,factors)
-            plot_controllability_gauge(multiple_factor_controllability)
+        with col2:
+
+            # G=plot_relationships(CONTROLCENTRALITYCOMPOUND_rel_choice,CONTROLCENTRALITYCOMPOUND_isolates_choice,'no_display')
+            # largest = max(nx.weakly_connected_components(G), key=len)
+            # G = G.subgraph(largest)
+
+            if sel_rows:
+                sel_rows_df = pd.DataFrame(sel_rows)
+                factors = sel_rows_df.factor_id.to_list()
+                multiple_factor_controllability = controllability_multiple(G,factors)
+                plot_controllability_gauge(multiple_factor_controllability)
+
+
 
 if analysis_choice_9:
 

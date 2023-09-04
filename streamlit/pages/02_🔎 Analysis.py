@@ -40,8 +40,8 @@ analysis_choice_13 = st.sidebar.checkbox('Intended & Unintended Consequences', k
 st.sidebar.markdown("#### Scenario Analysis")
 analysis_choice_14 = st.sidebar.checkbox('Fuzzy Cognitive Mapping', key='14')
 
-st.sidebar.markdown("#### MapGPT")
-analysis_choice_15 = st.sidebar.checkbox('MapGPT', key='15')
+st.sidebar.markdown("#### FishGPT")
+analysis_choice_15 = st.sidebar.checkbox('FishGPT QA Chatbot', key='15')
 
 if analysis_choice_1:
 
@@ -230,13 +230,41 @@ if analysis_choice_6:
 if analysis_choice_7:
     
     with st.expander('Control Centrality: Individual Factors'):
+
+        CONTROLCENTRALITY_rel_choice = st.selectbox('Choose which relationships to display', ('All relationships', 'Strong only'), index=0, key='CONTROLCENTRALITY_rel_choice')
+        CONTROLCENTRALITY_isolates_choice = st.checkbox('Hide isolate nodes', key='CONTROLCENTRALITY_isolates_choice')
         
         st.markdown('### To what extent can a single factor control the system?')
-        
-        st.markdown('##### The values for control centrality indicate the % of the system that can be potentially controlled by each factor')
+
+        col1, col2 = st.columns(2)
+
+        with col1:
     
-        single_factor_control_centralities_df  = control_centrality_single(G)
-        AgGrid(single_factor_control_centralities_df)
+            G=plot_relationships(CONTROLCENTRALITY_rel_choice,CONTROLCENTRALITY_isolates_choice,'display')
+        
+        
+        with col2:
+
+            st.markdown('##### The values for control centrality indicate the % of the system that can be potentially controlled by each factor')
+            
+            largest = max(nx.weakly_connected_components(G), key=len)
+            G = G.subgraph(largest)
+            single_factor_control_centralities_df  = control_centrality_single(G)
+
+            # Sort the dataframe by the 'control_centrality' column in ascending order
+            sorted_df = single_factor_control_centralities_df.sort_values('control_centrality', ascending=False)
+
+            #st.dataframe(sorted_df)
+
+            # Plot the horizontal bar chart
+            fig, ax = plt.subplots(figsize=(10, 15))  # Increase the figure size
+            sorted_df.plot.barh(y='control_centrality', x='label', ax=ax, legend=False)
+            ax.set_title('Control Centrality')
+            ax.set_xlabel('Control Centrality Value')
+            ax.set_ylabel('Factors')
+
+            st.pyplot(fig)  # Display the plot in Streamlit
+
 
 if analysis_choice_8:
     
@@ -457,7 +485,6 @@ if analysis_choice_12:
                 if path_polarity == -1: st.write('➡️ This is a **BALANCING** loop')
                 
         if sel_row_archetype: plot_icucpaths(G,ic_path,uc_path)
-
 
 if analysis_choice_16:
     

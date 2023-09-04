@@ -844,6 +844,7 @@ def plot_centrality_archetypes(G):
             ax.set_ylim(ylim_global)  # Set the same y-limits for all subplots
 
         plt.tight_layout()
+        plt.subplots_adjust(hspace=0.5)  # Adjust the vertical spacing
 
         # Display the plot in Streamlit
         st.pyplot(fig)
@@ -867,7 +868,7 @@ def control_centrality_single(G):
     
     cc_df = pd.DataFrame(factor_control_centralities, columns=['control_centrality'])
     
-    df_nodes = pd.DataFrame.from_dict(dict(G.nodes(data=True)), orient='index')
+    df_nodes = pd.DataFrame.from_dict(dict(G.nodes(data=True)), orient='index').reset_index()
     factor_control_centralities_df = df_nodes.join(cc_df).drop(['size','color'], axis=1)
     
     factor_control_centralities_df

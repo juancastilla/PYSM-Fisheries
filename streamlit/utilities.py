@@ -939,8 +939,10 @@ def directed_to_bipartite(G_directed):
     bipartite_edge_list = list(zip(from_list,to_list))
 
     G_bipartite.add_edges_from(bipartite_edge_list)
+
+    st.text(G_bipartite.nodes(data=True))
     
-    left_nodes = {n for n, d in G_bipartite.nodes(data=True) if d["bipartite"] == 1}
+    left_nodes = {n for n, d in G_bipartite.nodes(data=True) if d['bipartite'] == 1}
     
     return G_bipartite, left_nodes
 

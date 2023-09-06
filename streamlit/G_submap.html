@@ -969,31 +969,17 @@ var tomSelect=function(e,t){return new TomSelect(e,t)}
                             >
                                 <option selected>Select a Node by ID</option>
                                 
+                                    <option value="42">42</option>
+                                
+                                    <option value="44">44</option>
+                                
+                                    <option value="45">45</option>
+                                
                                     <option value="33">33</option>
                                 
-                                    <option value="34">34</option>
+                                    <option value="46">46</option>
                                 
-                                    <option value="5">5</option>
-                                
-                                    <option value="2">2</option>
-                                
-                                    <option value="3">3</option>
-                                
-                                    <option value="4">4</option>
-                                
-                                    <option value="6">6</option>
-                                
-                                    <option value="7">7</option>
-                                
-                                    <option value="39">39</option>
-                                
-                                    <option value="10">10</option>
-                                
-                                    <option value="8">8</option>
-                                
-                                    <option value="11">11</option>
-                                
-                                    <option value="18">18</option>
+                                    <option value="47">47</option>
                                 
                             </select>
                         </div>
@@ -1215,8 +1201,8 @@ var tomSelect=function(e,t){return new TomSelect(e,t)}
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"group": 1, "id": 33, "label": "Harvest spawning females", "shape": "dot", "size": 15}, {"group": 1, "id": 34, "label": "Landings with bad practices", "shape": "dot", "size": 15}, {"group": 1, "id": 5, "label": "Spawning females", "shape": "dot", "size": 15}, {"group": 1, "id": 2, "label": "Larval input", "shape": "dot", "size": 15}, {"group": 1, "id": 3, "label": "Juveniles", "shape": "dot", "size": 15}, {"group": 0, "id": 4, "label": "Octopus abundance", "shape": "dot", "size": 40}, {"group": 1, "id": 6, "label": "Individual catch per effort", "shape": "dot", "size": 15}, {"group": 1, "id": 7, "label": "Fisher effort", "shape": "dot", "size": 15}, {"group": 1, "id": 39, "label": "Distance traveled during fishing trips", "shape": "dot", "size": 15}, {"group": 1, "id": 10, "label": "Total landings", "shape": "dot", "size": 15}, {"group": 1, "id": 8, "label": "Fisher landings", "shape": "dot", "size": 15}, {"group": 1, "id": 11, "label": "Total number of fishers", "shape": "dot", "size": 15}, {"group": 0, "id": 18, "label": "Fisher compliance (e.g. ban period \u0026 \u003e1kg)", "shape": "dot", "size": 40}]);
-                  edges = new vis.DataSet([{"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 33, "hidden": false, "to": 34, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 33, "hidden": false, "to": 5, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 2, "hidden": false, "to": 3, "width": 4}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 3, "hidden": false, "to": 4, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 4, "hidden": false, "to": 5, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 4, "hidden": false, "to": 6, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 6, "hidden": false, "to": 7, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 6, "hidden": false, "to": 39, "width": 4}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 34, "hidden": false, "to": 10, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 7, "hidden": false, "to": 8, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 8, "hidden": false, "to": 10, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 10, "hidden": false, "to": 4, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 10, "hidden": false, "to": 11, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 11, "hidden": false, "to": 10, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 18, "hidden": false, "to": 2, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 18, "hidden": false, "to": 5, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 18, "hidden": false, "to": 34, "width": 4}]);
+                  nodes = new vis.DataSet([{"group": 1, "id": 42, "label": "Temporal discounting", "shape": "dot", "size": 15}, {"group": 1, "id": 44, "label": "Fishers\u0027 concern towards sustainability", "shape": "dot", "size": 15}, {"group": 1, "id": 45, "label": "Collective actions", "shape": "dot", "size": 15}, {"group": 1, "id": 33, "label": "Harvest spawning females", "shape": "dot", "size": 15}, {"group": 1, "id": 46, "label": "Knowledge", "shape": "dot", "size": 15}, {"group": 1, "id": 47, "label": "Awareness", "shape": "dot", "size": 15}]);
+                  edges = new vis.DataSet([{"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 42, "hidden": false, "to": 44, "width": 4}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 44, "hidden": false, "to": 45, "width": 4}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightcoral", "from": 44, "hidden": false, "to": 33, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 45, "hidden": false, "to": 46, "width": 4}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 46, "hidden": false, "to": 47, "width": 10}, {"arrowStrikethrough": false, "arrows": "to", "color": "lightgreen", "from": 47, "hidden": false, "to": 44, "width": 10}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });

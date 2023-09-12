@@ -447,6 +447,8 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
 
     if CLD_isolates_choice == True:
         G.remove_nodes_from(list(nx.isolates(G)))
+        # largest = max(nx.weakly_connected_components(G), key=len)
+        # G = G.subgraph(largest) # largest connected component subgraph
 
     # physics = st.checkbox('Show physics?')
     # if physics:
@@ -917,7 +919,10 @@ def directed_to_bipartite(G_directed):
     bipartite_left_names = []
     bipartite_right_names = []
 
-    for node in np.arange(0,N):
+    node_df = pd.DataFrame.from_dict(dict(G_directed.nodes(data=True)), orient='index')
+    node_list = node_df.index.tolist()
+
+    for node in node_list:
 
         bipartite_left = str(node) + '+'
         bipartite_right = str(node) + '-'
@@ -939,8 +944,6 @@ def directed_to_bipartite(G_directed):
     bipartite_edge_list = list(zip(from_list,to_list))
 
     G_bipartite.add_edges_from(bipartite_edge_list)
-
-    st.text(G_bipartite.nodes(data=True))
     
     left_nodes = {n for n, d in G_bipartite.nodes(data=True) if d['bipartite'] == 1}
     
@@ -989,13 +992,16 @@ def highlight_liu_classes(s):
 
 def compute_liu_classes(G_directed, G_bipartite, ND):
     
-    N = G_directed.number_of_nodes()
+    # N = G_directed.number_of_nodes()
+
+    node_df = pd.DataFrame.from_dict(dict(G_directed.nodes(data=True)), orient='index')
+    node_list = node_df.index.tolist()
 
     liu_class_list = []
 
-    for node in np.arange(0,N):
+    for node in node_list:
 
-        G_directed_trimmed = copy.deepcopy(G_directed)
+        G_directed_trimmed = nx.DiGraph(G_directed)
         G_directed_trimmed.remove_node(node)
 
         G_bipartite_trimmed, left_nodes_trimmed = remove_bipartite_node(G_directed, G_bipartite, node)
@@ -1008,10 +1014,15 @@ def compute_liu_classes(G_directed, G_bipartite, ND):
 
         liu_class_list.append(liu_class)
 
-    df_nodes = pd.DataFrame.from_dict(dict(G_directed.nodes(data=True)), orient='index')
-    liu_class_summary_df = df_nodes.join(pd.DataFrame(liu_class_list, columns=['Liu_class'])).drop(['size', 'color', 'group'], axis=1)
-    
-    return liu_class_summary_df.style.apply(highlight_liu_classes, axis=1)
+    liu_class_summary_df = node_df.join(pd.DataFrame(list(zip(liu_class_list,node_list)), columns=['Liu_class','node']).set_index('node')).drop(['size', 'group'], axis=1)
+
+    df_mapping = pd.DataFrame({'class': ['indispensable','neutral','dispensable']})
+    sort_mapping = df_mapping.reset_index().set_index('class')
+
+    liu_class_summary_df['class_num'] = liu_class_summary_df['Liu_class'].map(sort_mapping['index'])
+    liu_class_summary_df.drop('color', axis=1).sort_values('class_num')
+
+    return liu_class_summary_df.drop('color', axis=1).sort_values('class_num').style.apply(highlight_liu_classes, axis=1)
 
 
 def highlight_jia_classes(s):

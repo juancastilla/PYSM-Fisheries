@@ -45,9 +45,9 @@ analysis_choice_15 = st.sidebar.checkbox('FishGPT QA Chatbot', key='15')
 if analysis_choice_0:
 
     with st.expander('CLD Diagram'):
-    
-        st.image('OctopusChile.png', use_column_width=True)
 
+        st.title('Causal Loop Diagram')
+        st.image('OctopusChile.png', use_column_width=True)
 
 if analysis_choice_1:
 
@@ -306,18 +306,23 @@ if analysis_choice_9:
         
         st.markdown('### How important is the removal of a factor in mantaining control of the whole system?')
         st.markdown('##### Indispensable, Dispensable and Neutral factors')
-        st.markdown('**Overview**')
-        st.markdown('In robust controllability (by Liu et al. [38], pictured in Fig. 1b), the MIS is re-calculated (size ND′) after removing each node from the network. The node is then classified by its effect on the manipulation required to control the network, where an increase in the size of the MIS makes it more difficult to control the network and a decrease in the size of the MIS makes it easier to control the network. The removal of: an indispensable node increases the number of driver nodes (ND′ > ND), a dispensable node decreases the number of driver nodes (ND′ < ND), and a neutral node has no effect on the number of driver nodes (ND′ = ND). This method has previously been applied to many network types such as gene regulatory networks, food webs, citation networks, and PPI networks to better understand what drives the dynamics of each system [29, 38]. While it is useful to observe the structural changes to the network after the removal of singular nodes, this method only considers one possible MIS.')
+        # st.markdown('**Overview**')
+        # st.markdown('In robust controllability (by Liu et al. [38], pictured in Fig. 1b), the MIS is re-calculated (size ND′) after removing each node from the network. The node is then classified by its effect on the manipulation required to control the network, where an increase in the size of the MIS makes it more difficult to control the network and a decrease in the size of the MIS makes it easier to control the network. The removal of: an indispensable node increases the number of driver nodes (ND′ > ND), a dispensable node decreases the number of driver nodes (ND′ < ND), and a neutral node has no effect on the number of driver nodes (ND′ = ND). This method has previously been applied to many network types such as gene regulatory networks, food webs, citation networks, and PPI networks to better understand what drives the dynamics of each system [29, 38]. While it is useful to observe the structural changes to the network after the removal of singular nodes, this method only considers one possible MIS.')
         
-        G=plot_relationships('Strong only',True,'display')
-        largest = max(nx.weakly_connected_components(G), key=len)
-        G = G.subgraph(largest)
+        col1, col2 = st.columns(2)
 
-        G_bipartite, left_nodes = directed_to_bipartite(G)
-        ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
-        liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
-        st.dataframe(liu_class_summary_df)
-        #AgGrid(liu_class_summary_df)
+        with col1:
+
+            G=plot_relationships('Strong only',True,'display')
+            largest = max(nx.weakly_connected_components(G), key=len)
+            G = G.subgraph(largest)
+
+        with col2:
+            G_bipartite, left_nodes = directed_to_bipartite(G)
+            ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
+            liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
+            st.dataframe(liu_class_summary_df)
+            #AgGrid(liu_class_summary_df)
     
 if analysis_choice_10:
 

@@ -321,7 +321,7 @@ if analysis_choice_9:
             G_bipartite, left_nodes = directed_to_bipartite(G)
             ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
             liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
-            st.dataframe(liu_class_summary_df)
+            st.dataframe(liu_class_summary_df, use_container_width=True)
             #AgGrid(liu_class_summary_df)
     
 if analysis_choice_10:
@@ -330,9 +330,13 @@ if analysis_choice_10:
 
         st.markdown('### How important is a factor in controlling the whole system?')
         st.markdown('##### Critical, Intermittent and Redundant factors')        
-        st.markdown('**Overview**')
-        st.markdown('A second global controllability method by Jia et al. [39] (Pictured in Fig. 1c) classifies a node by its role across all possible MISs. A critical node is included in all possible MISs, an intermittent node is included in some possible MISs, and a redundant node is not included in any possible MISs. This method places each node in the broader context of all possible control configurations.')
-             
+        # st.markdown('**Overview**')
+        # st.markdown('A second global controllability method by Jia et al. [39] (Pictured in Fig. 1c) classifies a node by its role across all possible MISs. A critical node is included in all possible MISs, an intermittent node is included in some possible MISs, and a redundant node is not included in any possible MISs. This method places each node in the broader context of all possible control configurations.')
+
+        G=plot_relationships('Strong only',True,'no_display')
+        largest = max(nx.weakly_connected_components(G), key=len)
+        G = G.subgraph(largest)
+
         G_bipartite, left_nodes = directed_to_bipartite(G)
         ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
         jia_class_summary_df = compute_jia_classes(G,G_bipartite,ND)

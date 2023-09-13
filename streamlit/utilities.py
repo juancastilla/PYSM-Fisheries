@@ -991,8 +991,6 @@ def highlight_liu_classes(s):
         return ['background-color: lightgray'] * len(s)
 
 def compute_liu_classes(G_directed, G_bipartite, ND):
-    
-    # N = G_directed.number_of_nodes()
 
     node_df = pd.DataFrame.from_dict(dict(G_directed.nodes(data=True)), orient='index')
     node_list = node_df.index.tolist()
@@ -1035,17 +1033,19 @@ def highlight_jia_classes(s):
 
 def compute_jia_classes(G_directed,G_bipartite,ND):
 
-    N = G_directed.number_of_nodes()
+    node_df = pd.DataFrame.from_dict(dict(G_directed.nodes(data=True)), orient='index')
+    node_list = node_df.index.tolist()
+
     nodes_in_all_MDS = list(node for node, in_degree in G_directed.in_degree() if in_degree == 0)
     never_MDS = 0
     some_MDS = 0
     all_MDS = 0
     jia_class_list = []
 
-    for node in np.arange(0,N):
+    for node in node_list:
 
-        G_directed_trimmed = copy.deepcopy(G_directed)
-        G_bipartite_trimmed = copy.deepcopy(G_bipartite)
+        G_directed_trimmed = nx.DiGraph(G_directed)
+        G_bipartite_trimmed = nx.DiGraph(G_bipartite)
 
         G_bipartite_trimmed.remove_node(str(node) + "-")
         G_bipartite_trimmed.add_node(str(node) + "-", bipartite=0)
@@ -1064,9 +1064,10 @@ def compute_jia_classes(G_directed,G_bipartite,ND):
 
         jia_class_list.append(jia_class)
 
-    df_nodes = pd.DataFrame.from_dict(dict(G_directed.nodes()), orient='index')
-    jia_class_summary_df = df_nodes.join(pd.DataFrame(jia_class_list, columns=['Jia_class'])).drop(['size', 'color', 'group'], axis=1)
-    
+    # df_nodes = pd.DataFrame.from_dict(dict(G_directed.nodes()), orient='index')
+    jia_class_summary_df = node_df.join(pd.DataFrame(list(zip(jia_class_list,node_list)), columns=['Jia_class','node']).set_index('node')).drop(['size', 'group'], axis=1)
+    jia_class_summary_df = jia_class_summary_df.drop('color', axis=1).sort_values('Jia_class')
+
     return jia_class_summary_df
 
 def compute_all_MIS(G_directed,jia_class_summary_df,ND):
@@ -1080,6 +1081,7 @@ def compute_all_MIS(G_directed,jia_class_summary_df,ND):
     intermittent_candidate_combinations = list(itertools.combinations(intermittent_list, ND-len(critical_list)))
 
     MIS_list = []
+    f_list = pd.DataFrame(all_factors,columns=['factor_id'])
 
     for i, combination in enumerate(intermittent_candidate_combinations):
 
@@ -1091,10 +1093,12 @@ def compute_all_MIS(G_directed,jia_class_summary_df,ND):
 
         for i,factor_id in enumerate(candidate_MIS):
 
-            B[factor_id,i]=1
+            pos = f_list.index[f_list['factor_id'] == factor_id].tolist()[0]
+
+            B[pos,i]=1
 
         C = control.ctrb(A,B)
-        Cc = np.linalg.matrix_rank(C,tol=1.0e-10)
+        Cc = np.linalg.matrix_rank(C,tol=1.0e-20)
         cc = Cc/N
 
         if cc == 1: MIS_list.append(candidate_MIS)
@@ -1121,8 +1125,10 @@ def compute_all_MIS(G_directed,jia_class_summary_df,ND):
     
         for factor_id in row.to_list():
 
+            pos = f_list.index[f_list['factor_id'] == factor_id].tolist()[0]
+
             column = 'MIS_' + str(index + 1)
-            MIS_df.loc[factor_id,column] = 'X'
+            MIS_df.loc[pos,column] = 'X'
 
         MIS_df = MIS_df.fillna('')
 

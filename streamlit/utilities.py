@@ -648,8 +648,7 @@ def load_centrality(G):
     centrality_ranks_df = df_nodes.join(centrality_ranks.drop(['group'], axis=1)).drop(['group', 'color'], axis=1)
     
     return centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df
-
-        
+      
 def draw(G, pos, measures, measure_name, ax):
     
     nodes = nx.draw_networkx_nodes(G, pos, ax=ax, node_size=250, cmap=plt.cm.plasma, 
@@ -663,7 +662,6 @@ def draw(G, pos, measures, measure_name, ax):
     plt.colorbar(nodes)
     plt.axis('off')
     plt.show()
-    
     
 def draw_centralities(G):
     
@@ -877,7 +875,6 @@ def control_centrality_single(G):
 
     return factor_control_centralities_df.round(2)
 
-
 def controllability_multiple(G,factors):
     
     A = nx.to_numpy_matrix(G).T         ##### <---- CHECK WHY TRANSPOSE IS NEEDED
@@ -893,7 +890,6 @@ def controllability_multiple(G,factors):
     cc = Cc/N
 
     return cc.round(2)
-
 
 def plot_controllability_gauge(cc):
     
@@ -981,7 +977,6 @@ def remove_bipartite_node(G_directed, G_bipartite, node):
     
     return G_bipartite_trimmed, left_nodes_trimmed
 
-
 def highlight_liu_classes(s):
     if s.Liu_class == 'neutral':
         return ['background-color: lightblue'] * len(s)
@@ -1020,8 +1015,7 @@ def compute_liu_classes(G_directed, G_bipartite, ND):
     liu_class_summary_df['class_num'] = liu_class_summary_df['Liu_class'].map(sort_mapping['index'])
     liu_class_summary_df.drop('color', axis=1).sort_values('class_num')
 
-    return liu_class_summary_df.drop('color', axis=1).sort_values('class_num').style.apply(highlight_liu_classes, axis=1)
-
+    return liu_class_summary_df.drop('color', axis=1).sort_values('class_num')
 
 def highlight_jia_classes(s):
     if s.Jia_class == 'Intermittent':
@@ -1134,7 +1128,6 @@ def compute_all_MIS(G_directed,jia_class_summary_df,ND):
 
     return MIS_df
 
-
 ### Path Analysis — Intended and Unintended Consequences ###
 
 def compute_path_polarity(G_directed, path):
@@ -1149,7 +1142,6 @@ def compute_path_polarity(G_directed, path):
         if edge_polarity == 'negative': path_polarity = path_polarity * -1
                     
     return int(path_polarity)
-
 
 def icuc_heatmap(G_directed):
 
@@ -1203,7 +1195,6 @@ def icuc_heatmap(G_directed):
 
     return result_ic, result_uc, result_both, node_pairs_names
 
-
 def compute_icucpath_analysis(G_directed, source_index, target_index):
 
     intended_df = pd.DataFrame(columns=['Path','Polarity','Delay'])
@@ -1231,7 +1222,6 @@ def compute_icucpath_analysis(G_directed, source_index, target_index):
 
 
     return intended_df, unintended_df
-
 
 def path_to_sentence(G,path):
     
@@ -1284,7 +1274,113 @@ def plot_icucpaths(G,path_intended,path_unintended):
         components.html(HtmlFile.read(),height=700)
 
 
-        
+### Tradeoff Analysis — Interactive Parallel Coordinate Plot
+
+def pcp_preprocess():
+
+    df = pd.DataFrame()
+
+    sheet_id = "1KyvP07oU4zuGlLQ61W12bSDDKyEtyFRJIthEPk0Iito"
+    sheet_name_factors = "factors"
+    sheet_name_relationships = "relationships"
+    url_factors = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name_factors}"
+    url_relationships = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name_relationships}"
+
+    df_factors = pd.read_csv(url_factors)
+
+    df_factors.set_index('factor_id', inplace=True)
+
+    G = plot_relationships('All relationships',True,'no_display')
+
+    # Run and load centrality analyses
+    centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
+    
+    # Run and load control centralities
+    largest = max(nx.weakly_connected_components(G), key=len)
+    G = G.subgraph(largest)
+    factor_control_centralities_df  = control_centrality_single(G)
+
+    # Run and load Jia analysis
+
+    G_bipartite, left_nodes = directed_to_bipartite(G)
+    ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
+    jia_class_summary_df = compute_jia_classes(G,G_bipartite,ND)
+
+    # Run and load Liu analysis
+
+    G_bipartite, left_nodes = directed_to_bipartite(G)
+    ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
+    liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
+
+    # Join the dataframes   
+
+    df=df_factors[['controllability','level of knowledge','predictability', 'measurability cost']].join(centrality_summary_df).join(factor_control_centralities_df['control_centrality']).join(liu_class_summary_df['Liu_class']).join(jia_class_summary_df['Jia_class'])
+
+    df = df.rename(columns={'in_degree_centrality': 'in_degree', 'out_degree_centrality': 'out_degree', 'flow_closeness_centrality': 'closeness', 'flow_betweenness_centrality': 'betweenness', 'pagerank_centrality': 'pagerank', 'Liu_class': 'robust_control', 'Jia_class': 'global_control'})
+
+    cols = [
+    'label',
+    'group',
+    'controllability',
+    'level of knowledge',
+    'predictability',
+    'measurability cost',
+    'in_degree',
+    'out_degree',
+    'closeness',
+    'pagerank',
+    'betweenness',
+    'control_centrality',
+    'robust_control',
+    'global_control']
+
+    cols.reverse()
+
+    df = df[cols]
+
+    df.loc[(df['controllability'] == 'uncontrollable'), 'controllability'] = '0_uncontrollable'
+    df.loc[(df['controllability'] == 'low'), 'controllability'] = '1_low'
+    df.loc[(df['controllability'] == 'medium'), 'controllability'] = '2_medium'
+    df.loc[(df['controllability'] == 'high'), 'controllability'] = '3_high'
+
+    df.loc[(df['level of knowledge'] == 'low'), 'level of knowledge'] = '1_low'
+    df.loc[(df['level of knowledge'] == 'medium'), 'level of knowledge'] = '2_medium'
+    df.loc[(df['level of knowledge'] == 'high'), 'level of knowledge'] = '3_high'
+
+    df.loc[(df['predictability'] == 'low'), 'predictability'] = '1_low'
+    df.loc[(df['predictability'] == 'medium'), 'predictability'] = '2_medium'
+    df.loc[(df['predictability'] == 'high'), 'predictability'] = '3_high'
+
+    df.loc[(df['measurability cost'] == 'low'), 'measurability cost'] = '1_low'
+    df.loc[(df['measurability cost'] == 'medium'), 'measurability cost'] = '2_medium'
+    df.loc[(df['measurability cost'] == 'high'), 'measurability cost'] = '3_high'
+
+    df.loc[(df['robust_control'] == 'dispensable'), 'robust_control'] = '1_dispensable'
+    df.loc[(df['robust_control'] == 'neutral'), 'robust_control'] = '2_neutral'
+    df.loc[(df['robust_control'] == 'indispensable'), 'robust_control'] = '3_indispensable'
+
+    df.loc[(df['global_control'] == 'Redundant'), 'global_control'] = '1_redundant'
+    df.loc[(df['global_control'] == 'Intermittent'), 'global_control'] = '2_intermittent'
+    df.loc[(df['global_control'] == 'Critical'), 'global_control'] = '3_critical'
+
+    df = df.dropna()
+
+    # List of columns to change
+    cols_to_change = ['global_control','robust_control','measurability cost','predictability','level of knowledge','controllability']
+
+    # Iterate over each specified column
+    for col in cols_to_change:
+        df[col] = df[col].str.split('_').str[0]
+
+    st.dataframe(df)
+
+    df.to_csv('Parasol.csv')
+
+    HtmlFile = open('PULPO_Chile_Parasol.html','r',encoding='utf-8')
+    components.html(HtmlFile.read(),height=1800)
+
+
+
 ### Archetype Detection — Generic Structural Problems ###
 
 def find_loops(G_directed, target_node):

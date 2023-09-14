@@ -1,0 +1,34 @@
+factor_id,label,Global Controllability,Controllability,Strategic,Influencing,Ability to Measure,Evidence,group
+1,Temperature,3,0.09,0.067,0.031,2,3,0
+2,Maturation rate,1,0.06,0.085,0.031,1,2,0
+3,Larval,1,0.03,0.113,0,2,1,0
+4,Juveniles,3,0.24,0.111,0.031,3,1,0
+5,Abundance,1,0.21,0.169,0.063,1,2,1
+6,Spawning,2,0.03,0.172,0,2,1,0
+7,Individual effort,2,0.18,0.142,0.031,1,2,0
+8,Fisher effort,1,0.15,0.15,0.031,1,3,0
+9,Fisher landings,1,0.15,0.159,0.063,1,3,0
+10,Fisher profit,1,0.03,0.157,0,1,3,0
+11,Total landings,1,0.18,0.177,0.063,2,2,0
+12,Total fishers,1,0.21,0.158,0.031,2,2,0
+13,Enforcement fishers,3,0.24,0.106,0.031,3,2,0
+14,Authorized fishers,3,0.24,0.106,0.031,1,3,0
+15,Unauthorized fishers,2,0.24,0.14,0.031,3,1,0
+16,Roving bandits,2,0.24,0.14,0.031,3,1,0
+17,Price,1,0.27,0.166,0.094,1,2,0
+19,Fisher compliance,1,0.09,0.163,0.125,3,2,1
+20,Off-season octopus,2,0.12,0.134,0.031,3,2,0
+21,Underweight octopus,2,0.12,0.134,0.031,3,2,0
+22,Illegal/informal trade,1,0.09,0.154,0.031,3,1,0
+23,Stockpilling by processing plants,3,0.12,0.108,0.031,3,2,0
+26,Domestic demand,3,0.42,0.103,0.031,3,2,0
+27,Domestic price,1,0.39,0.151,0.063,1,3,0
+33,Fishing gear,3,0.27,0.104,0.031,2,1,0
+34,Egg-lying females,1,0.24,0.153,0.063,2,1,0
+35,Landings bad practices,2,0.21,0.148,0.031,3,1,0
+36,Debt,1,0.21,0.139,0.063,1,1,0
+38,Informal financial,1,0.24,0.099,0.031,1,2,0
+39,Expenses,3,0.27,0.076,0.031,1,3,0
+45,Fisher's concern,1,0.27,0.108,0.031,1,1,0
+47,Knowledge,3,0.33,0.066,0.031,1,2,0
+48,Awareness,1,0.3,0.082,0.031,1,1,0

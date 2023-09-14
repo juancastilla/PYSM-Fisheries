@@ -1,0 +1,295 @@
+<!doctype html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<title>Example 3</title>
+
+<link rel="stylesheet" type="text/css" href="parasol.css">
+
+<script src="./lib/d3.v5.min.js"></script>
+<script src="./parasol.standalone.js"></script>
+
+<body>
+
+<h1>Tradeoff Analysis: Octopus Chile </h1>
+  <div class="row">
+      
+    <div class="col-md-2">
+        <br>
+        <form onSubmit="return false;">
+          Global Control - weight: <br>
+          <input type="number" id="GlobalControl_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateGlobalControlSlider(this.value);">
+          <input type="range" id="GlobalControl_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateGlobalControlText(this.value);">
+        </form>
+        
+<!--
+        <form onSubmit="return false;">
+          robust control - weight: <br>
+          <input type="number" id="RobustControl_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateRobustControlSlider(this.value);">
+          <input type="range" id="RobustControl_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateRobustControlText(this.value);">
+        </form>
+-->
+        
+        <form onSubmit="return false;">
+          Controllability - weight: <br>
+          <input type="number" id="ControlCentrality_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateControlCentralitySlider(this.value);">
+          <input type="range" id="ControlCentrality_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateControlCentralityText(this.value);">
+        </form>
+        
+<!--
+        <form onSubmit="return false;">
+          betweenness - weight: <br>
+          <input type="number" id="Betweenness_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateBetweennessSlider(this.value);">
+          <input type="range" id="Betweenness_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateBetweennessText(this.value);">
+        </form>
+        
+        <form onSubmit="return false;">
+          pagerank - weight: <br>
+          <input type="number" id="Pagerank_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updatePagerankSlider(this.value);">
+          <input type="range" id="Pagerank_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updatePagerankText(this.value);">
+-->
+        </form>
+        
+        <form onSubmit="return false;">
+          Strategic - weight: <br>
+          <input type="number" id="Closeness_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateClosenessSlider(this.value);">
+          <input type="range" id="Closeness_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateClosenessText(this.value);">
+        </form>
+        
+        <form onSubmit="return false;">
+          Influencing - weight: <br>
+          <input type="number" id="Outdegree_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateOutdegreeSlider(this.value);">
+          <input type="range" id="Outdegree_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateOutdegreeText(this.value);">
+        </form>
+        
+<!--
+        <form onSubmit="return false;">
+          in_degree - weight: <br>
+          <input type="number" id="Indegree_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateIndegreeSlider(this.value);">
+          <input type="range" id="Indegree_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateIndegreeText(this.value);">
+        </form>
+-->
+        
+        <form onSubmit="return false;">
+          Ability to Measure - weight: <br>
+          <input type="number" id="Measurability_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateMeasurabilitySlider(this.value);">
+          <input type="range" id="Measurability_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateMeasurabilityText(this.value);">
+        </form>
+        
+<!--
+        <form onSubmit="return false;">
+          predictability - weight: <br>
+          <input type="number" id="Predictability_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updatePredictabilitySlider(this.value);">
+          <input type="range" id="Predictability_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updatePredictabilityText(this.value);">
+        </form>
+        
+-->
+        <form onSubmit="return false;">
+          Evidence - weight: <br>
+          <input type="number" id="Knowledge_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateKnowledgeSlider(this.value);">
+          <input type="range" id="Knowledge_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateKnowledgeText(this.value);">
+        </form>
+        
+<!--
+        <form onSubmit="return false;">
+          controllability - weight: <br>
+          <input type="number" id="Controllability_weight_text" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateControllabilitySlider(this.value);">
+          <input type="range" id="Controllability_weight_slider" step="0.01" min="0" max="1"
+            value="0.5" onchange="updateControllabilityText(this.value);">
+        </form>
+-->
+        
+        <br> <button id="apply_weights"> <b> Apply Weights </b> </button>
+        
+        <br>
+        <br>
+
+    Curve smoothness: <br> <input type="range" min="0" max="25" value="0" id="smoothness"> <br>
+    Bundling strength for clusters: <br> <input type="range" min="0" max="100" value="0" id="bundling"> <br>
+    </div>
+    
+    <div class="col-md-10">
+        <br>
+          <div id="p0" class="parcoords" style="height:500px"></div>
+          <div id="grid" style="height:500px;" class="slickgrid-container"></div>
+        </div>
+      </div>
+</body>
+
+<script>
+// read in data and create visualization
+d3.csv('data/PULPO_Chile_Parasol_simple.csv').then(function(data) {
+
+  // remove non-numeric 'name' variable from clustering
+  var cluster_vars = d3.keys(data[0]).filter(function(key) {
+    return key !== 'label' && key !== 'group';
+  });
+
+  // create Parasol object, add grid, link, and perform clustering
+  var ps = Parasol(data)('.parcoords')
+            .attachGrid({container: '#grid'})
+            .linked()
+            .cluster({k: 3, vars: cluster_vars, hidden: false})
+            .hideAxes(['factor_id'])
+            .alpha(0.2)  // update transparency
+            .reorderable()  // make axes dynamically reorderable
+            .render()
+
+  // apply weights
+  d3.select('#apply_weights').on('click', function() {
+    // setup weights (unspecified vars given weight = 0)
+    var weights = {
+      'Global Controllability': d3.select("#GlobalControl_weight_slider").property("value"),
+      'Controllability': d3.select("#ControlCentrality_weight_slider").property("value"),
+      'Strategic': d3.select("#Closeness_weight_slider").property("value"),
+      'Influencing': d3.select("#Outdegree_weight_slider").property("value"),
+      'Ability to Measure': d3.select("#Measurability_weight_slider").property("value"),
+      'Evidence': d3.select("#Knowledge_weight_slider").property("value")
+    };
+
+    ps.weightedSum({ weights: weights }).render();
+  });
+
+  // bundling strength slider
+  d3.select('#bundling').on('input', function() {
+    ps.bundlingStrength(this.value/100)
+      .bundleDimension('cluster')
+      .render();  // divide by a hundred to get decimals
+  });
+    
+  // smoothness
+  d3.select("#smoothness").on('input', function() {
+    ps.smoothness(this.value/100).render();  // divide by a hundred to get decimals
+  });
+    
+  // update clusters and slider text when slider changes
+  d3.select('#nClust').on('input', function() {
+    update_cluster_slider(+this.value);  // update slider text
+    var checked_vars = get_checked_vars();  // get checked variables for clustering
+    ps.cluster({k: parseInt(this.value), vars: checked_vars, hidden: true});
+  });
+});
+
+// update Global Controllability slider and textbox
+function updateGlobalControlText(value) {
+  d3.select("#GlobalControl_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+}
+function updateGlobalControlSlider(value) {
+    d3.select("#GlobalControl_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+}
+
+//// update Robust Controllability slider and textbox
+//function updateRobustControlText(value) {
+//  d3.select("#RobustControl_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+//}
+//function updateRobustControlSlider(value) {
+//    d3.select("#RobustControl_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+//}
+
+// update Control Centrality slider and textbox
+function updateControlCentralityText(value) {
+  d3.select("#ControlCentrality_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+}
+function updateControlCentralitySlider(value) {
+    d3.select("#ControlCentrality_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+}
+
+//// update Betweenness slider and textbox
+//function updateBetweennessText(value) {
+//  d3.select("#Betweenness_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+//}
+//function updateBetweennessSlider(value) {
+//    d3.select("#Betweenness_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+//}
+//    
+//// update Pagerank slider and textbox
+//function updatePagerankText(value) {
+//  d3.select("#Pagerank_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+//}
+//function updatePagerankSlider(value) {
+//    d3.select("#Pagerank_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+//}
+
+// update Closeness slider and textbox
+function updateClosenessText(value) {
+  d3.select("#Closeness_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+}
+function updateClosenessSlider(value) {
+    d3.select("#Closeness_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+}
+
+// update Outdegree slider and textbox
+function updateOutdegreeText(value) {
+  d3.select("#Outdegree_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+}
+function updateOutdegreeSlider(value) {
+    d3.select("#Outdegree_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+}
+
+//// update Indegree slider and textbox
+//function updateIndegreeText(value) {
+//  d3.select("#Indegree_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+//}
+//function updateIndegreeSlider(value) {
+//    d3.select("#Indegree_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+//}
+
+// update Measurability slider and textbox
+function updateMeasurabilityText(value) {
+  d3.select("#Measurability_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+}
+function updateMeasurabilitySlider(value) {
+    d3.select("#Measurability_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+}
+
+//// update Predictability slider and textbox
+//function updatePredictabilityText(value) {
+//  d3.select("#Predictability_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+//}
+//function updatePredictabilitySlider(value) {
+//    d3.select("#Predictability_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+//}
+
+// update Knowledge slider and textbox
+function updateKnowledgeText(value) {
+  d3.select("#Knowledge_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+}
+function updateKnowledgeSlider(value) {
+    d3.select("#Knowledge_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+}
+
+//// update Controllability slider and textbox
+//function updateControllabilityText(value) {
+//  d3.select("#Controllability_weight_text").property("value", value)  // adjust textbox value to reflect slider input
+//}
+//function updateControllabilitySlider(value) {
+//    d3.select("#Controllability_weight_slider").property("value", value)  // adjust slider value to reflect textbox input
+//}
+    
+</script>

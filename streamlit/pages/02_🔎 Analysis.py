@@ -31,10 +31,17 @@ analysis_choice_10 = st.sidebar.checkbox('Global Controllability (Jia method)', 
 
 st.sidebar.markdown("#### Path Analysis")
 analysis_choice_11 = st.sidebar.checkbox('Intended & Unintended Consequences', key='11')
-analysis_choice_12 = st.sidebar.checkbox('Archetype detection', key='12')
+
 
 st.sidebar.markdown("#### Tradeoff Analysis")
-analysis_choice_13 = st.sidebar.checkbox('Intended & Unintended Consequences', key='13')
+analysis_choice_13 = st.sidebar.checkbox('Interactive Tradeoff Plot', key='13')
+
+st.sidebar.divider()
+
+st.sidebar.header("To be implemented")
+
+st.sidebar.markdown("#### Archetype detection")
+analysis_choice_12 = st.sidebar.checkbox('Archetype detection', key='12')
 
 st.sidebar.markdown("#### Scenario Analysis")
 analysis_choice_14 = st.sidebar.checkbox('Fuzzy Cognitive Mapping', key='14')
@@ -321,7 +328,7 @@ if analysis_choice_9:
             G_bipartite, left_nodes = directed_to_bipartite(G)
             ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
             liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
-            st.dataframe(liu_class_summary_df, use_container_width=True)
+            st.dataframe(liu_class_summary_df.style.apply(highlight_liu_classes, axis=1), use_container_width=True)
             #AgGrid(liu_class_summary_df)
     
 if analysis_choice_10:
@@ -575,3 +582,8 @@ if analysis_choice_16:
                 df = centrality_summary_df.set_index('label').drop(['group','color'], axis=1)
                 clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')
                 st.pyplot(clustermap)
+
+
+if analysis_choice_13:
+
+    pcp_preprocess()

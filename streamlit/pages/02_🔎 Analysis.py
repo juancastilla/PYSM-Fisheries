@@ -586,4 +586,8 @@ if analysis_choice_16:
 
 if analysis_choice_13:
 
-    pcp_preprocess()
+    with st.expander('Interactive Tradeoff Plot'):
+
+        st.markdown('### What are the tradeoffs between the various factor attributes we have computed?')
+
+        pcp_preprocess()

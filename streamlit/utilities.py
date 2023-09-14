@@ -27,6 +27,10 @@ import base64
 import textwrap
 import math
 from sklearn.preprocessing import MinMaxScaler
+import hiplot as hip
+
+
+
 # import googletrans
 # from googletrans import Translator
 
@@ -1368,18 +1372,28 @@ def pcp_preprocess():
     # List of columns to change
     cols_to_change = ['global_control','robust_control','measurability cost','predictability','level of knowledge','controllability']
 
-    # Iterate over each specified column
-    for col in cols_to_change:
-        df[col] = df[col].str.split('_').str[0]
+    # # Iterate over each specified column
+    # for col in cols_to_change:
+    #     df[col] = df[col].str.split('_').str[0].astype(int)
+
+    # # Select numeric columns only
+    # df_numeric = df.select_dtypes(include=[np.number])
+
+    # # Initialize a scaler
+    # scaler = MinMaxScaler()
+
+    # # Fit and transform the data
+    # df_normalized = pd.DataFrame(scaler.fit_transform(df_numeric), columns=df_numeric.columns)
+
+    # # Replace original numeric columns with normalized ones
+    # df[df_normalized.columns] = df_normalized
+
+    pcp_hiplot = hip.Experiment.from_dataframe(df)
+    pcp_hiplot.to_html('PCP_Hiplot.html')
+    HtmlFile = open('PCP_Hiplot.html','r',encoding='utf-8')
+    components.html(HtmlFile.read(),height=1000)
 
     st.dataframe(df)
-
-    df.to_csv('Parasol.csv')
-
-    HtmlFile = open('PULPO_Chile_Parasol.html','r',encoding='utf-8')
-    components.html(HtmlFile.read(),height=1800)
-
-
 
 ### Archetype Detection — Generic Structural Problems ###
 

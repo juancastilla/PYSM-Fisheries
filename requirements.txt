@@ -9,4 +9,4 @@ gspread
 seaborn
 sklearn
 hiplot
-sknetwork
+scikit-network

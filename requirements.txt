@@ -7,6 +7,6 @@ control
 networkx==2.8.8
 gspread
 seaborn
-sklearn
+scikit-learn
 hiplot
 scikit-network

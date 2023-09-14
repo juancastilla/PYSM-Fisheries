@@ -30,7 +30,6 @@ from sklearn.preprocessing import MinMaxScaler
 import hiplot as hip
 
 
-
 # import googletrans
 # from googletrans import Translator
 

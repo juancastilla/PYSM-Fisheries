@@ -416,7 +416,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
                 weight=10
                 distance = 1/weight
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color)
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity)
 
     if CLD_rel_choice == 'Strong only':
 
@@ -443,7 +443,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
                 weight=10
                 distance = 1/weight
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color)
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity)
 
     if CLD_isolates_choice == True:
         G.remove_nodes_from(list(nx.isolates(G)))
@@ -1135,7 +1135,6 @@ def compute_all_MIS(G_directed,jia_class_summary_df,ND):
     return MIS_df
 
 
-
 ### Path Analysis — Intended and Unintended Consequences ###
 
 def compute_path_polarity(G_directed, path):
@@ -1146,10 +1145,64 @@ def compute_path_polarity(G_directed, path):
         
         edge_polarity = G_directed.get_edge_data(source,target)['polarity']
         
-        if edge_polarity == 1: path_polarity = path_polarity * 1
-        if edge_polarity == -1: path_polarity = path_polarity * -1
+        if edge_polarity == 'positive': path_polarity = path_polarity * 1
+        if edge_polarity == 'negative': path_polarity = path_polarity * -1
                     
     return int(path_polarity)
+
+
+def icuc_heatmap(G_directed):
+
+    ic_uc_df = pd.DataFrame(columns=['control_node','target_node','ic_paths', 'uc_paths'])
+
+    all_factors = list(G_directed.nodes())
+
+    for control_node in all_factors:
+        
+        for target_node in all_factors:
+            
+            if control_node != target_node:
+                
+                intended_df = pd.DataFrame(columns=['Path','Polarity','Delay'])
+                unintended_df = pd.DataFrame(columns=['Path','Polarity','Delay'])
+
+                paths = list(nx.all_simple_paths(G_directed, control_node, target_node, cutoff=None))
+                
+                for path in paths:
+
+                    polarity = compute_path_polarity(G_directed, path)
+                    delay = ''
+
+                    if polarity == 1: 
+
+                        df_length = len(intended_df)  
+                        intended_df.loc[df_length] = [path, polarity, delay]  
+
+                    if polarity == -1: 
+
+                        df_length = len(unintended_df)  
+                        unintended_df.loc[df_length] = [path, polarity, delay]
+                        
+                ic_uc_df_length = len(ic_uc_df)
+                ic_uc_df.loc[ic_uc_df_length] = [control_node, target_node, len(intended_df), len(unintended_df)]  
+
+    result_ic = ic_uc_df.pivot(index='control_node', columns='target_node', values='ic_paths').fillna(0)
+    result_uc = ic_uc_df.pivot(index='control_node', columns='target_node', values='uc_paths').fillna(0)
+
+    # Create a new DataFrame that identifies where both result_ic and result_uc have non-zero entries
+    result_both = (result_ic.ne(0) & result_uc.ne(0)).astype(int)
+
+    # Get the node pairs that have a 1 in the result_both matrix
+    node_pairs_indices = list(zip(*np.where(result_both == 1)))
+
+    # Convert indices to factor_id
+    node_pairs = [(result_both.columns[i], result_both.index[j]) for i, j in node_pairs_indices]
+
+  # Convert factor_id to names
+    node_pairs_names = [(st.session_state.df_factors.loc[i, 'long_name'], st.session_state.df_factors.loc[j, 'long_name']) for i, j in node_pairs]
+
+    return result_ic, result_uc, result_both, node_pairs_names
+
 
 def compute_icucpath_analysis(G_directed, source_index, target_index):
 
@@ -1223,10 +1276,10 @@ def plot_icucpaths(G,path_intended,path_unintended):
 
         G_sub = G.edge_subgraph(edges)
 
-        nt = net.Network(width='1500px', height='1000px', directed=True)
+        nt = net.Network(width='1800px', height='1200px', directed=True)
         nt.from_nx(G_sub)
         nt.inherit_edge_colors(False)
-        nt.show("icucpaths.html", notebook=False)
+        nt.show("icucpaths.html")
         HtmlFile = open('icucpaths.html','r',encoding='utf-8')
         components.html(HtmlFile.read(),height=700)
 

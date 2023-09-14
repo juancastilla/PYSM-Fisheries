@@ -364,9 +364,47 @@ if analysis_choice_11:
     with st.expander('Path analysis'):
         
         st.markdown('### What are the intended and unintended consequences of a given intervention or policy?')
-        
-        source_factor_name = st.selectbox('Which factor does this policy directly affect?', st.session_state.df_factors.long_name, index=1)
-        target_factor_name = st.selectbox('Which factor is this policy aiming to control?', st.session_state.df_factors.long_name, index=0)
+
+        G=plot_relationships('Strong only',True,'no_display')
+
+        result_ic, result_uc, result_both, node_pairs_names  = icuc_heatmap(G)
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+
+            plt.figure(figsize=(15,15))
+            plot_ic = sns.heatmap(result_ic, annot=True, fmt="g", cmap='mako', square=True, linewidths=1, linecolor='black', clip_on=False, cbar=True, cbar_kws={"shrink": .82})
+            plt.title('Same direction', size=20, weight='bold')
+            st.pyplot(plot_ic.get_figure())
+
+        with col2:
+
+            plt.figure(figsize=(15,15))
+            plot_uc = sns.heatmap(result_uc, annot=True, fmt="g", cmap='mako', square=True, linewidths=1, linecolor='black', clip_on=False, cbar=True, cbar_kws={"shrink": .82})
+            plt.title('Opposite direction', size=20, weight='bold')
+            st.pyplot(plot_uc.get_figure())
+
+        with col3:
+
+            plt.figure(figsize=(15,15))
+            plot_both = sns.heatmap(result_both, annot=True, fmt="g", cmap='mako', square=True, linewidths=1, linecolor='black', clip_on=False, cbar=True, cbar_kws={"shrink": .82})
+            plt.title('Control-Target node pairs with conflicting intended/unintended pathways', size=20, weight='bold')
+            st.pyplot(plot_both.get_figure())
+
+        st.markdown('##### The following Control-Target node pairs with conflicting intended/unintended pathways were found:')
+        # Convert list of tuples into dataframe
+        df = pd.DataFrame(node_pairs_names, columns=['Control Node', 'Target Node'])
+
+        # Display dataframe as a table in Streamlit
+        st.dataframe(df)
+
+        st.markdown('##### Which of these would you like to visualise?')
+
+        pair_selected = st.selectbox('Choose a pair of nodes', node_pairs_names, index=0)
+
+        source_factor_name = pair_selected[0]
+        target_factor_name = pair_selected[1]
         
         path_intended = []
         path_unintended = []
@@ -403,7 +441,7 @@ if analysis_choice_11:
                 path_intended = sel_row_intended_df.Path.at[0]
                 
                 if platform.system() == 'Darwin':
-                    path_intended = ast.literal_eval(path_intended)
+                    path_intended = eval(str(path_intended))
                 else:
                     path_intended = eval(str(path_intended))
                 
@@ -420,7 +458,7 @@ if analysis_choice_11:
                 path_unintended = sel_row_unintended_df.Path.at[0]
                 
                 if platform.system() == 'Darwin':
-                    path_unintended = ast.literal_eval(path_unintended)
+                    path_unintended = eval(str(path_unintended))
                 else:
                     path_unintended = eval(str(path_unintended))
                 

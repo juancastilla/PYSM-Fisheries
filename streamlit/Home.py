@@ -54,27 +54,35 @@ st.sidebar.header('Settings')
 app_language = st.sidebar.radio('Choose a language:', ('English', 'Spanish'), horizontal = True)
 st.session_state.language = app_language
 
-fishery_selection = st.sidebar.selectbox('Choose a Fishery:', ('Octopus Chile', 'Octopus Peru', 'Southern Hake', 'Jumbo Flying Squid', 'Anchoveta'))
+with st.sidebar.form(key='case_study_form'):
 
-if fishery_selection == 'Octopus Chile':
-   
-    st.session_state.sheet_id = '1KyvP07oU4zuGlLQ61W12bSDDKyEtyFRJIthEPk0Iito'
-   
-if fishery_selection == 'Octopus Peru':
-   
-    st.session_state.sheet_id = ''
-   
-if fishery_selection == 'Southern Hake':
-   
-    st.session_state.sheet_id = ''
-   
-if fishery_selection == 'Jumbo Flying Squid':
+    fishery_selection = st.selectbox('Choose a Fishery:', ('Octopus Chile', 'Octopus Peru', 'Southern Hake', 'Jumbo Flying Squid', 'Anchoveta'))
 
-    st.session_state.sheet_id = ''
-   
-if fishery_selection == 'Anchoveta':
+    if fishery_selection == 'Octopus Chile':
+    
+        st.session_state.sheet_id = '1KyvP07oU4zuGlLQ61W12bSDDKyEtyFRJIthEPk0Iito'
+    
+    if fishery_selection == 'Octopus Peru':
+    
+        st.session_state.sheet_id = ''
+    
+    if fishery_selection == 'Southern Hake':
+    
+        st.session_state.sheet_id = ''
+    
+    if fishery_selection == 'Jumbo Flying Squid':
 
-    st.session_state.sheet_id = ''
+        st.session_state.sheet_id = ''
+    
+    if fishery_selection == 'Anchoveta':
+
+        st.session_state.sheet_id = ''
+
+    # Every form must have a submit button.
+    submitted = st.form_submit_button("Load Case Study", type="primary")
+   
+    if submitted:
+        sheet_id = st.session_state.sheet_id
 
 st.sidebar.markdown('#')
 st.sidebar.markdown('#')
@@ -86,4 +94,4 @@ st.sidebar.image(str(main_path.joinpath('pysm.png')), width=300)
 
 with st.sidebar:
     st.write("Streamlit version:", st.__version__)
-
+    st.write("Python version:", platform.python_version())

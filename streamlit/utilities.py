@@ -599,10 +599,25 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
     
     
 #     """)
-    nt.show('G_submap.html')
-    HtmlFile = open('G_submap.html','r',encoding='utf-8')
+
+    # Save and read graph as HTML file (on Streamlit Sharing)
+    try:
+        path = './streamlit/html_files'
+        nt.save_graph(f'{path}/pyvis_graph.html')
+        HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+        
+    # Save and read graph as HTML file (locally)
+    except:
+        path = 'html_files'
+        nt.save_graph(f'{path}/pyvis_graph.html')
+        HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+
     components.html(HtmlFile.read(),height=1800)
-    save_graph(G_sub)
+
+    # nt.show('G_submap.html')
+    # HtmlFile = open('G_submap.html','r',encoding='utf-8')
+    # components.html(HtmlFile.read(),height=1800)
+    # save_graph(G_sub)
     return G_sub   
     
 ###############################

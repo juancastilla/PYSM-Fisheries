@@ -400,7 +400,7 @@ if analysis_choice_11:
 
             plt.figure(figsize=(15,15))
             plot_both = sns.heatmap(result_both, annot=True, fmt="g", cmap='mako', square=True, linewidths=1, linecolor='black', clip_on=False, cbar=True, cbar_kws={"shrink": .82})
-            plt.title('Control-Target node pairs with conflicting intended/unintended pathways', size=20, weight='bold')
+            plt.title('Conflicting intended/unintended pathways', size=20, weight='bold')
             st.pyplot(plot_both.get_figure())
 
         st.markdown('##### The following Control-Target node pairs with conflicting intended/unintended pathways were found:')

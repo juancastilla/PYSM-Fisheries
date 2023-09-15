@@ -475,7 +475,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
 
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:
-        path = '/tmp'
+        path = './tmp'
         nt.save_graph(f'{path}/pyvis_graph.html')
         HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
     

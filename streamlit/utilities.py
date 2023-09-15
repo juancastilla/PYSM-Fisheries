@@ -1295,7 +1295,6 @@ def plot_icucpaths(G,path_intended,path_unintended):
         HtmlFile = open('icucpaths.html','r',encoding='utf-8')
         components.html(HtmlFile.read(),height=700)
 
-
 ### Tradeoff Analysis — Interactive Parallel Coordinate Plot
 
 def pcp_preprocess():
@@ -1409,7 +1408,7 @@ def pcp_preprocess():
     pcp_hiplot = hip.Experiment.from_dataframe(df)
     pcp_hiplot.to_html('PCP_Hiplot.html')
     HtmlFile = open('PCP_Hiplot.html','r',encoding='utf-8')
-    components.html(HtmlFile.read(),height=1000)
+    components.html(HtmlFile.read(),height=1500)
 
     st.dataframe(df)
 

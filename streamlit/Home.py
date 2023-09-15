@@ -82,7 +82,7 @@ with st.sidebar.form(key='case_study_form'):
     submitted = st.form_submit_button("Load Case Study", type="primary")
    
     if submitted:
-        sheet_id = st.session_state.sheet_id
+        pass
 
 st.sidebar.markdown('#')
 st.sidebar.markdown('#')

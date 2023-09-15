@@ -84,14 +84,15 @@ with st.sidebar.form(key='case_study_form'):
     if submitted:
         pass
 
+with st.sidebar:
+    st.write("Streamlit version:", st.__version__)
+    st.write("Pandas version:", pd.__version__)
+    st.write("Python version:", platform.python_version())
+
 st.sidebar.markdown('#')
 st.sidebar.markdown('#')
 st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
+
 
 st.sidebar.image(str(main_path.joinpath('pysm.png')), width=300)
 
-with st.sidebar:
-    st.write("Streamlit version:", st.__version__)
-    st.write("Python version:", platform.python_version())

@@ -452,7 +452,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
     
     if mode == 'display':
 
-        nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line')
+        nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line', notebook=False)
         nt.from_nx(G)
         nt.force_atlas_2based(gravity=-50)
         

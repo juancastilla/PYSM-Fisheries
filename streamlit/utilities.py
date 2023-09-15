@@ -473,10 +473,22 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
         
     #     """)
 
-        nt.show('G_factors_and_relationships.html')
-        HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
+    # Save and read graph as HTML file (on Streamlit Sharing)
+    try:
+        path = '/tmp'
+        nt.save_graph(f'{path}/pyvis_graph.html')
+        HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+    
+    # Save and read graph as HTML file (locally)
+    except:
+        path = '/html_files'
+        nt.save_graph(f'{path}/pyvis_graph.html')
+        HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+
+        # nt.show('G_factors_and_relationships.html')
+        # HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
         components.html(HtmlFile.read(),height=1800)
-        save_graph(G)
+        # save_graph(G)
 
     return G   
 

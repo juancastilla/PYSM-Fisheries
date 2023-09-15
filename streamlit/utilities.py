@@ -63,7 +63,6 @@ def convert_df(df):
 
 ### AUTOSAVE BACKUP TO GOOGLE SHEETS ###
 
-
 def save_backup():
     
     st.session_state.domains_backup_wks.clear()
@@ -88,7 +87,6 @@ def load_backup():
     st.session_state.factors_counter = len(st.session_state.df_factors.index)
     st.session_state.relationships_counter = len(st.session_state.df_relationships.index)
     
-
 ### AUTOMATIC TRANSLATION USING GOOGLETRANS API ###
 
 # translator = Translator()
@@ -104,8 +102,7 @@ def load_backup():
 #     df_src.replace(translations, inplace = True)
     
 #     return df_src
-
-    
+   
 ######################################################################################################
 ##################################### MAIN APP FUNCTIONS #############################################
 ######################################################################################################
@@ -125,7 +122,6 @@ def load_domains_template_table():
         df_domains = df_domains.loc[:, ~df_domains.columns.str.contains('^Unnamed')]
         st.session_state.df_domains = df_domains
         
-    
 # Load domains from pre-filled Google Sheets template (input is sheet id)
 def load_domains(sheet_id):
     
@@ -179,11 +175,9 @@ def plot_domains():
     HtmlFile = open('G_domains.html','r',encoding='utf-8')
     components.html(HtmlFile.read(),height=1000)
     
-    
 #########################
 ####### FACTORS #########
 #########################
-    
     
 # Load empty domains template
 def load_factors_template_table():
@@ -215,7 +209,6 @@ def load_factors(sheet_id):
 #     for index, row in st.session_state.df_factors.iterrows():
 #         st.session_state.df_domains = st.session_state.df_domains.append({'domain_id':'', 'name':row['domain'], 'colour':'', 'other_info':''}, ignore_index=True)
 #     st.session_state.df_domains['domain_id'] = st.session_state.df_domains.index
-
 
 # Add new factor
 def add_factor(long_name_to_add, 
@@ -251,8 +244,7 @@ def add_factor(long_name_to_add,
                  }
     
     st.session_state.df_factors = st.session_state.df_factors.append(new_factor, ignore_index=True)
-
-    
+ 
 # Preselect factor domain when editing
 def preselect_factor_domain_edit():
     pass
@@ -320,7 +312,6 @@ def plot_factors():
     nt.show("G_factors.html")
     HtmlFile = open('G_factors.html','r',encoding='utf-8')
     components.html(HtmlFile.read(),height=1800)
-
 
 ###############################
 ####### RELATIONSHIPS #########

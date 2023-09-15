@@ -1,9 +1,8 @@
 from utilities import *
 
-sheet_id = st.session_state.sheet_id
-load_factors(sheet_id)
-load_relationships(sheet_id)
-load_domains(sheet_id)
+load_factors(st.session_state.sheet_id)
+load_relationships(st.session_state.sheet_id)
+load_domains(st.session_state.sheet_id)
 
 st.sidebar.header("Choose analysis")
 
@@ -53,8 +52,13 @@ if analysis_choice_0:
 
     with st.expander('CLD Diagram'):
 
+        if platform.system() == 'Darwin':
+            filename = 'OctopusChile.png'
+        else:
+            filename= '/streamlit/OctopusChile.png'
+
         st.title('Causal Loop Diagram')
-        st.image('OctopusChile.png', use_column_width=True)
+        st.image(filename, use_column_width=True)
 
 if analysis_choice_1:
 

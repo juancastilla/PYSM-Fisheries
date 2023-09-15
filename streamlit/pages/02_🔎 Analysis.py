@@ -76,12 +76,12 @@ if analysis_choice_1:
         with tab2:
             st.markdown('### Domains Table')
             AgGrid(st.session_state.df_domains, fit_columns_on_grid_load=False, width='100%')
-            plot_domains()
+            # plot_domains()
 
         with tab3:
             st.markdown('### Factors Table')
             AgGrid(st.session_state.df_factors, fit_columns_on_grid_load=False, width='100%')
-            plot_factors()
+            # plot_factors()
 
         with tab4:
             st.markdown('### Relationships Table')

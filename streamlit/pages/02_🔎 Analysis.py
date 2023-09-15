@@ -55,7 +55,7 @@ if analysis_choice_0:
         if platform.system() == 'Darwin':
             filename = 'OctopusChile.png'
         else:
-            filename= '/streamlit/OctopusChile.png'
+            filename= 'streamlit/OctopusChile.png'
 
         st.title('Causal Loop Diagram')
         st.image(filename, use_column_width=True)

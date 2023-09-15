@@ -587,7 +587,6 @@ if analysis_choice_16:
                 clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')
                 st.pyplot(clustermap)
 
-
 if analysis_choice_13:
 
     with st.expander('Interactive Tradeoff Plot'):

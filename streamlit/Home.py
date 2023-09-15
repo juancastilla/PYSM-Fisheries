@@ -88,6 +88,7 @@ with st.sidebar:
     st.write("Streamlit version:", st.__version__)
     st.write("Pandas version:", pd.__version__)
     st.write("Seaborn version:", sns.__version__)
+    st.write("Matplotlib version:", matplotlib.__version__)
     st.write("Python version:", platform.python_version())
 
 st.sidebar.markdown('#')

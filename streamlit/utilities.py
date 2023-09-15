@@ -473,13 +473,8 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
         
     #     """)
 
-        if platform.system() == 'Darwin':
-            filename = 'G_factors_and_relationships.html'
-        else:
-            filename = 'streamlit/G_factors_and_relationships.html'
-
-        nt.show(filename)
-        HtmlFile = open(filename,'r',encoding='utf-8')
+        nt.show('G_factors_and_relationships.html')
+        HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
         components.html(HtmlFile.read(),height=1800)
         save_graph(G)
 

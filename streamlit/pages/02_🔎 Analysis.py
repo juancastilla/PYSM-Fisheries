@@ -212,7 +212,9 @@ if analysis_choice_5:
 
         with col2:
 
-            st.dataframe(centrality_summary_df)
+            df =  centrality_summary_df.copy()
+            df = df['label']
+            st.dataframe(df)
         
     with st.expander('Centrality Correlations'):
 

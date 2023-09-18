@@ -715,7 +715,7 @@ def draw_centralities(G):
     
     pos = nx.kamada_kawai_layout(G)
     
-    f = plt.figure(constrained_layout=False, figsize=(10,20))
+    f = plt.figure(constrained_layout=False, figsize=(15,28))
     gs = f.add_gridspec(6, 2)
 
     f_ax2 = f.add_subplot(gs[0:2,0:2])
@@ -774,7 +774,7 @@ def draw_centralities(G):
     nodes.set_norm(mcolors.SymLogNorm(linthresh=0.01, linscale=1, base=10))
     #labels = nx.draw_networkx_labels(G, pos)
     edges = nx.draw_networkx_edges(G, pos, ax=f_ax4)
-    nx.draw_networkx_labels(G, pos, ax=f_ax4, font_color='w')
+    nx.draw_networkx_labels(G, pos, ax=f_ax4, font_color='w', font_size=8)
     f_ax4.set_title(measure_name, size=16, weight='bold')
     plt.colorbar(nodes,ax=f_ax4,location='right')
 
@@ -785,7 +785,7 @@ def draw_centralities(G):
     nodes.set_norm(mcolors.SymLogNorm(linthresh=0.01, linscale=1, base=10))
     #labels = nx.draw_networkx_labels(G, pos)
     edges = nx.draw_networkx_edges(G, pos, ax=f_ax5)
-    nx.draw_networkx_labels(G, pos, ax=f_ax5, font_color='w')
+    nx.draw_networkx_labels(G, pos, ax=f_ax5, font_color='w', font_size=8)
     f_ax5.set_title(measure_name, size=16, weight='bold')
     plt.colorbar(nodes,ax=f_ax5,location='right')
 
@@ -796,7 +796,7 @@ def draw_centralities(G):
     nodes.set_norm(mcolors.SymLogNorm(linthresh=0.01, linscale=1, base=10))
     #labels = nx.draw_networkx_labels(G, pos)
     edges = nx.draw_networkx_edges(G, pos, ax=f_ax6)
-    nx.draw_networkx_labels(G, pos, ax=f_ax6, font_color='w')
+    nx.draw_networkx_labels(G, pos, ax=f_ax6, font_color='w', font_size=8)
     f_ax6.set_title(measure_name, size=16, weight='bold')
     plt.colorbar(nodes,ax=f_ax6,location='right')
 
@@ -807,7 +807,7 @@ def draw_centralities(G):
     nodes.set_norm(mcolors.SymLogNorm(linthresh=0.01, linscale=1, base=10))
     #labels = nx.draw_networkx_labels(G, pos)
     edges = nx.draw_networkx_edges(G, pos, ax=f_ax7)
-    nx.draw_networkx_labels(G, pos, ax=f_ax7, font_color='w')
+    nx.draw_networkx_labels(G, pos, ax=f_ax7, font_color='w', font_size=8)
     f_ax7.set_title(measure_name, size=16, weight='bold')
     plt.colorbar(nodes,ax=f_ax7,location='right')
 
@@ -818,7 +818,7 @@ def draw_centralities(G):
     nodes.set_norm(mcolors.SymLogNorm(linthresh=0.01, linscale=1, base=10))
     #labels = nx.draw_networkx_labels(G, pos)
     edges = nx.draw_networkx_edges(G, pos, ax=f_ax8)
-    nx.draw_networkx_labels(G, pos, ax=f_ax8, font_color='w')
+    nx.draw_networkx_labels(G, pos, ax=f_ax8, font_color='w', font_size=8)
     f_ax8.set_title(measure_name, size=16, weight='bold')
     plt.colorbar(nodes,ax=f_ax8,location='right')
 
@@ -829,7 +829,7 @@ def draw_centralities(G):
     nodes.set_norm(mcolors.SymLogNorm(linthresh=0.01, linscale=1, base=10))
     #labels = nx.draw_networkx_labels(G, pos)
     edges = nx.draw_networkx_edges(G, pos, ax=f_ax9)
-    nx.draw_networkx_labels(G, pos, ax=f_ax9, font_color='w')
+    nx.draw_networkx_labels(G, pos, ax=f_ax9, font_color='w', font_size=8)
     f_ax9.set_title(measure_name, size=16, weight='bold')
     plt.colorbar(nodes,ax=f_ax9,location='right')
 
@@ -840,7 +840,7 @@ def draw_centralities(G):
     nodes.set_norm(mcolors.SymLogNorm(linthresh=0.01, linscale=1, base=10))
     #labels = nx.draw_networkx_labels(G, pos)
     edges = nx.draw_networkx_edges(G, pos, ax=f_ax10)
-    nx.draw_networkx_labels(G, pos, ax=f_ax10, font_color='w')
+    nx.draw_networkx_labels(G, pos, ax=f_ax10, font_color='w', font_size=8)
     f_ax10.set_title(measure_name, size=16, weight='bold')
     plt.colorbar(nodes,ax=f_ax10,location='right')
     

@@ -467,43 +467,43 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
             
     #     """)
 
-    for node in nt.nodes:
+        for node in nt.nodes:
 
-        if node['domain'] == 0:
-            node['color'] = 'yellow'
-            node['size'] = 40
-        if node['domain'] == 1:
-            node['color'] = 'cornflowerblue'
-            node['size'] = 15
-        if node['domain'] == 2:
-            node['color'] = 'magenta'
-            node['size'] = 15
-        if node['domain'] == 3:
-            node['color'] = 'lightcoral'
-            node['size'] = 15
-        if node['domain'] == 4:
-            node['color'] = 'orange'
-            node['size'] = 15
-        if node['domain'] == 5:
-            node['color'] = 'purple'
-            node['size'] = 15
+            if node['domain'] == 0:
+                node['color'] = 'yellow'
+                node['size'] = 40
+            if node['domain'] == 1:
+                node['color'] = 'cornflowerblue'
+                node['size'] = 15
+            if node['domain'] == 2:
+                node['color'] = 'magenta'
+                node['size'] = 15
+            if node['domain'] == 3:
+                node['color'] = 'lightcoral'
+                node['size'] = 15
+            if node['domain'] == 4:
+                node['color'] = 'orange'
+                node['size'] = 15
+            if node['domain'] == 5:
+                node['color'] = 'purple'
+                node['size'] = 15
 
-    # Save and read graph as HTML file (on Streamlit Sharing)
-    try:
-        path = './streamlit/html_files'
-        nt.save_graph(f'{path}/pyvis_graph.html')
-        HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
-        
-        # Save and read graph as HTML file (locally)
-    except:
-        path = 'html_files'
-        nt.save_graph(f'{path}/pyvis_graph.html')
-        HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+        # Save and read graph as HTML file (on Streamlit Sharing)
+        try:
+            path = './streamlit/html_files'
+            nt.save_graph(f'{path}/pyvis_graph.html')
+            HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+            
+            # Save and read graph as HTML file (locally)
+        except:
+            path = 'html_files'
+            nt.save_graph(f'{path}/pyvis_graph.html')
+            HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
 
-            # nt.show('G_factors_and_relationships.html')
-            # HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
-    components.html(HtmlFile.read(),height=1800)
-            # save_graph(G)
+                # nt.show('G_factors_and_relationships.html')
+                # HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
+        components.html(HtmlFile.read(),height=1800)
+                # save_graph(G)
 
     return G   
 

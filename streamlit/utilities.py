@@ -1323,7 +1323,7 @@ def plot_icucpaths(G,path_intended,path_unintended):
 
 ### Tradeoff Analysis — Interactive Parallel Coordinate Plot
 
-def pcp_preprocess():
+def pcp_preprocess(PCP_rel_choice):
 
     df = pd.DataFrame()
 
@@ -1339,7 +1339,7 @@ def pcp_preprocess():
 
     df_factors.set_index('factor_id', inplace=True)
 
-    G = plot_relationships('Strong only',True,'no_display') ######### <---- CHECK THIS, CREATE SELECT
+    G = plot_relationships(PCP_rel_choice,True,'no_display') ######### <---- CHECK THIS, CREATE SELECT
     largest = max(nx.weakly_connected_components(G), key=len)
     G = G.subgraph(largest)
 

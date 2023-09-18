@@ -595,4 +595,6 @@ if analysis_choice_13:
 
         st.markdown('### What are the tradeoffs between the various factor attributes we have computed?')
 
-        pcp_preprocess()
+        PCP_rel_choice = st.selectbox('Choose which relationships to display', ('All relationships', 'Strong only'), index=0, key='PCP_rel_choice')
+
+        pcp_preprocess(PCP_rel_choice)

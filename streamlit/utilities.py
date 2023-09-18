@@ -657,7 +657,7 @@ def load_centrality(G):
 
     df_nodes = pd.DataFrame.from_dict(dict(G.nodes(data=True)), orient='index')
     # node_colors = df_nodes.color.to_list()
-    df_nodes.drop(['size'], axis=1, inplace=True)
+    # df_nodes.drop(['size'], axis=1, inplace=True)
     # df_nodes.drop(0, inplace=True)
 
     in_degree_centrality_df = pd.DataFrame(nx.in_degree_centrality(G).items(), columns=["node", "in_degree_centrality"])
@@ -681,22 +681,22 @@ def load_centrality(G):
     centrality_summary_df.set_index('node', inplace=True)
     centrality_summary_df = df_nodes.join(centrality_summary_df)
     
-    centrality_ranks = centrality_summary_df.rank(ascending=False, numeric_only=True, method="dense").astype(int, errors='ignore')
+    centrality_ranks = centrality_summary_df.rank(ascending=False, numeric_only=True, method="dense").astype(int, errors='ignore').drop('domain', axis=1)
     
     # compute the average ranking using the above ranks
     average_ranks = pd.DataFrame(round(centrality_ranks.mean(axis=1)).astype(int), columns=["average_rank"])
     average_ranks.insert(loc=0, column='node', value=centrality_summary_df["label"])
     
-    centrality_summary_df_styled = centrality_summary_df.drop(['group'], axis=1).style.background_gradient(subset=list(centrality_ranks.columns[1:]), cmap='PuBu_r').set_precision(4)
+    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[0:]), cmap='PuBu_r').set_precision(4)
     # centrality_summary_df_styled.to_html('PULPO_Chile_centrality_summary_df_styled_ALL.html')
     
-    centrality_ranks_df_styled = df_nodes.join(centrality_ranks.drop(['group'], axis=1), how='left').drop(['group'], axis=1).style.background_gradient(subset=list(centrality_ranks.columns[1:]),cmap='PuBu')
+    centrality_ranks_df_styled = df_nodes.join(centrality_ranks, how='left').style.background_gradient(subset=list(centrality_ranks.columns[0:]),cmap='PuBu')
     # centrality_ranks_df_styled.to_html('PULPO_Chile_centrality_ranks_df_styled_ALL.html')
 
     average_ranks_df_styled = average_ranks.sort_values("average_rank").style.background_gradient(subset=["average_rank"], cmap='PuBu')
     # average_ranks_df_styled.to_html('PULPO_Chile_average_ranks_df_styled_ALL.html')
     
-    centrality_ranks_df = df_nodes.join(centrality_ranks.drop(['group'], axis=1)).drop(['group'], axis=1)
+    centrality_ranks_df = df_nodes.join(centrality_ranks)
     
     return centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df
       
@@ -920,7 +920,7 @@ def control_centrality_single(G):
     cc_df = pd.DataFrame(factor_control_centralities, columns=['control_centrality'])
     
     df_nodes = pd.DataFrame.from_dict(dict(G.nodes(data=True)), orient='index').reset_index()
-    factor_control_centralities_df = df_nodes.join(cc_df).drop(['size','color'], axis=1)
+    factor_control_centralities_df = df_nodes.join(cc_df)
     
     factor_control_centralities_df
 
@@ -1058,15 +1058,15 @@ def compute_liu_classes(G_directed, G_bipartite, ND):
 
         liu_class_list.append(liu_class)
 
-    liu_class_summary_df = node_df.join(pd.DataFrame(list(zip(liu_class_list,node_list)), columns=['Liu_class','node']).set_index('node')).drop(['size', 'group'], axis=1)
+    liu_class_summary_df = node_df.join(pd.DataFrame(list(zip(liu_class_list,node_list)), columns=['Liu_class','node']).set_index('node'))
 
     df_mapping = pd.DataFrame({'class': ['indispensable','neutral','dispensable']})
     sort_mapping = df_mapping.reset_index().set_index('class')
 
     liu_class_summary_df['class_num'] = liu_class_summary_df['Liu_class'].map(sort_mapping['index'])
-    liu_class_summary_df.drop('color', axis=1).sort_values('class_num')
+    liu_class_summary_df.sort_values('class_num')
 
-    return liu_class_summary_df.drop('color', axis=1).sort_values('class_num')
+    return liu_class_summary_df.sort_values('class_num')
 
 def highlight_jia_classes(s):
     if s.Jia_class == 'Intermittent':
@@ -1110,8 +1110,8 @@ def compute_jia_classes(G_directed,G_bipartite,ND):
         jia_class_list.append(jia_class)
 
     # df_nodes = pd.DataFrame.from_dict(dict(G_directed.nodes()), orient='index')
-    jia_class_summary_df = node_df.join(pd.DataFrame(list(zip(jia_class_list,node_list)), columns=['Jia_class','node']).set_index('node')).drop(['size', 'group'], axis=1)
-    jia_class_summary_df = jia_class_summary_df.drop('color', axis=1).sort_values('Jia_class')
+    jia_class_summary_df = node_df.join(pd.DataFrame(list(zip(jia_class_list,node_list)), columns=['Jia_class','node']).set_index('node'))
+    jia_class_summary_df = jia_class_summary_df.sort_values('Jia_class')
 
     return jia_class_summary_df
 
@@ -1330,24 +1330,27 @@ def pcp_preprocess():
 
     df = pd.DataFrame()
 
+    #### REPLACE THSI WITH GLOBAL SHEET ID ###########
     sheet_id = "1KyvP07oU4zuGlLQ61W12bSDDKyEtyFRJIthEPk0Iito"
     sheet_name_factors = "factors"
     sheet_name_relationships = "relationships"
     url_factors = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name_factors}"
     url_relationships = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name_relationships}"
+    ################################################
 
     df_factors = pd.read_csv(url_factors)
 
     df_factors.set_index('factor_id', inplace=True)
 
-    G = plot_relationships('All relationships',True,'no_display')
+    G = plot_relationships('Strong only',True,'no_display') ######### <---- CHECK THIS, CREATE SELECT
+    largest = max(nx.weakly_connected_components(G), key=len)
+    G = G.subgraph(largest)
 
     # Run and load centrality analyses
     centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
     
     # Run and load control centralities
-    largest = max(nx.weakly_connected_components(G), key=len)
-    G = G.subgraph(largest)
+    
     factor_control_centralities_df  = control_centrality_single(G)
 
     # Run and load Jia analysis
@@ -1364,13 +1367,14 @@ def pcp_preprocess():
 
     # Join the dataframes   
 
-    df=df_factors[['controllability','level of knowledge','predictability', 'measurability cost']].join(centrality_summary_df).join(factor_control_centralities_df['control_centrality']).join(liu_class_summary_df['Liu_class']).join(jia_class_summary_df['Jia_class'])
+    df=df_factors[['controllability','level of knowledge','predictability', 'measurability cost', 'intervenable', 'domain_id']].join(centrality_summary_df).join(factor_control_centralities_df['control_centrality']).join(liu_class_summary_df['Liu_class']).join(jia_class_summary_df['Jia_class'])
 
     df = df.rename(columns={'in_degree_centrality': 'in_degree', 'out_degree_centrality': 'out_degree', 'flow_closeness_centrality': 'closeness', 'flow_betweenness_centrality': 'betweenness', 'pagerank_centrality': 'pagerank', 'Liu_class': 'robust_control', 'Jia_class': 'global_control'})
 
     cols = [
     'label',
-    'group',
+    'domain_id',
+    'intervenable',
     'controllability',
     'level of knowledge',
     'predictability',
@@ -1387,6 +1391,9 @@ def pcp_preprocess():
     cols.reverse()
 
     df = df[cols]
+
+    # df.loc[(df['intervenable'] == 'no'), 'intervenable'] = '1_not_intervenable'
+    # df.loc[(df['intervenable'] == 'yes'), 'intervenable'] = '2_intervenable'
 
     df.loc[(df['controllability'] == 'uncontrollable'), 'controllability'] = '0_uncontrollable'
     df.loc[(df['controllability'] == 'low'), 'controllability'] = '1_low'

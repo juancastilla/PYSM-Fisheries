@@ -378,7 +378,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
 
     for index, row in st.session_state.df_factors.iterrows():
 
-        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'])
+        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'])
 
     if CLD_rel_choice == 'All relationships':
 
@@ -469,22 +469,22 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
 
     for node in nt.nodes:
 
-        if node['group'] == 0:
+        if node['domain'] == 0:
             node['color'] = 'yellow'
             node['size'] = 40
-        if node['group'] == 1:
+        if node['domain'] == 1:
             node['color'] = 'cornflowerblue'
             node['size'] = 15
-        if node['group'] == 2:
+        if node['domain'] == 2:
             node['color'] = 'magenta'
             node['size'] = 15
-        if node['group'] == 3:
+        if node['domain'] == 3:
             node['color'] = 'lightcoral'
             node['size'] = 15
-        if node['group'] == 4:
+        if node['domain'] == 4:
             node['color'] = 'orange'
             node['size'] = 15
-        if node['group'] == 5:
+        if node['domain'] == 5:
             node['color'] = 'purple'
             node['size'] = 15
 
@@ -512,12 +512,8 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
     G=nx.empty_graph(create_using=nx.DiGraph())
 
     for index, row in st.session_state.df_factors.iterrows():
-        
-        size=15
-        if row['domain_id']==0:
-            size=40
 
-        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size)
+        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'])
 
     if SUBMAP_rel_choice == 'All relationships':
 
@@ -610,10 +606,28 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
 #     "solver": "forceAtlas2Based"
 #   }
 # }
-
-
-    
 #     """)
+
+    for node in nt.nodes:
+
+        if node['domain'] == 0:
+            node['color'] = 'yellow'
+            node['size'] = 40
+        if node['domain'] == 1:
+            node['color'] = 'cornflowerblue'
+            node['size'] = 15
+        if node['domain'] == 2:
+            node['color'] = 'magenta'
+            node['size'] = 15
+        if node['domain'] == 3:
+            node['color'] = 'lightcoral'
+            node['size'] = 15
+        if node['domain'] == 4:
+            node['color'] = 'orange'
+            node['size'] = 15
+        if node['domain'] == 5:
+            node['color'] = 'purple'
+            node['size'] = 15
 
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:

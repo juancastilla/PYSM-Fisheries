@@ -377,11 +377,8 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
     G=nx.empty_graph(create_using=nx.DiGraph())
 
     for index, row in st.session_state.df_factors.iterrows():
-        if row['domain_id']==0: 
-            size=40
-        else:
-            size=15
-        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size)
+
+        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'])
 
     if CLD_rel_choice == 'All relationships':
 
@@ -467,25 +464,45 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
     #     "solver": "forceAtlas2Based"
     #   }
     # }
-        
-        
+            
     #     """)
 
+    for node in nt.nodes:
+
+        if node['group'] == 0:
+            node['color'] = 'yellow'
+            node['size'] = 40
+        if node['group'] == 1:
+            node['color'] = 'cornflowerblue'
+            node['size'] = 15
+        if node['group'] == 2:
+            node['color'] = 'magenta'
+            node['size'] = 15
+        if node['group'] == 3:
+            node['color'] = 'lightcoral'
+            node['size'] = 15
+        if node['group'] == 4:
+            node['color'] = 'orange'
+            node['size'] = 15
+        if node['group'] == 5:
+            node['color'] = 'purple'
+            node['size'] = 15
+
     # Save and read graph as HTML file (on Streamlit Sharing)
-        try:
-            path = './streamlit/html_files'
-            nt.save_graph(f'{path}/pyvis_graph.html')
-            HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+    try:
+        path = './streamlit/html_files'
+        nt.save_graph(f'{path}/pyvis_graph.html')
+        HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
         
         # Save and read graph as HTML file (locally)
-        except:
-            path = 'html_files'
-            nt.save_graph(f'{path}/pyvis_graph.html')
-            HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+    except:
+        path = 'html_files'
+        nt.save_graph(f'{path}/pyvis_graph.html')
+        HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
 
             # nt.show('G_factors_and_relationships.html')
             # HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
-        components.html(HtmlFile.read(),height=1800)
+    components.html(HtmlFile.read(),height=1800)
             # save_graph(G)
 
     return G   
@@ -495,10 +512,11 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
     G=nx.empty_graph(create_using=nx.DiGraph())
 
     for index, row in st.session_state.df_factors.iterrows():
+        
+        size=15
         if row['domain_id']==0:
             size=40
-        else: 
-            size=15
+
         G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size)
 
     if SUBMAP_rel_choice == 'All relationships':
@@ -592,7 +610,8 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
 #     "solver": "forceAtlas2Based"
 #   }
 # }
-    
+
+
     
 #     """)
 
@@ -654,16 +673,16 @@ def load_centrality(G):
     average_ranks = pd.DataFrame(round(centrality_ranks.mean(axis=1)).astype(int), columns=["average_rank"])
     average_ranks.insert(loc=0, column='node', value=centrality_summary_df["label"])
     
-    centrality_summary_df_styled = centrality_summary_df.drop(['group','color'], axis=1).style.background_gradient(subset=list(centrality_ranks.columns[1:]), cmap='PuBu_r').set_precision(4)
+    centrality_summary_df_styled = centrality_summary_df.drop(['group'], axis=1).style.background_gradient(subset=list(centrality_ranks.columns[1:]), cmap='PuBu_r').set_precision(4)
     # centrality_summary_df_styled.to_html('PULPO_Chile_centrality_summary_df_styled_ALL.html')
     
-    centrality_ranks_df_styled = df_nodes.join(centrality_ranks.drop(['group'], axis=1), how='left').drop(['group','color'], axis=1).style.background_gradient(subset=list(centrality_ranks.columns[1:]),cmap='PuBu')
+    centrality_ranks_df_styled = df_nodes.join(centrality_ranks.drop(['group'], axis=1), how='left').drop(['group'], axis=1).style.background_gradient(subset=list(centrality_ranks.columns[1:]),cmap='PuBu')
     # centrality_ranks_df_styled.to_html('PULPO_Chile_centrality_ranks_df_styled_ALL.html')
 
     average_ranks_df_styled = average_ranks.sort_values("average_rank").style.background_gradient(subset=["average_rank"], cmap='PuBu')
     # average_ranks_df_styled.to_html('PULPO_Chile_average_ranks_df_styled_ALL.html')
     
-    centrality_ranks_df = df_nodes.join(centrality_ranks.drop(['group'], axis=1)).drop(['group', 'color'], axis=1)
+    centrality_ranks_df = df_nodes.join(centrality_ranks.drop(['group'], axis=1)).drop(['group'], axis=1)
     
     return centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df
       

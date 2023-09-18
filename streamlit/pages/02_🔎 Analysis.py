@@ -223,8 +223,8 @@ if analysis_choice_5:
 
         with col1:
             st.title("Pairplot")
-            pairplot_dict = {1:"cornflowerblue", 0:"gold"}
-            pairplot = sns.pairplot(centrality_summary_df, hue="group", palette=pairplot_dict, corner=True)
+            # pairplot_dict = {1:"cornflowerblue", 0:"gold"}
+            pairplot = sns.pairplot(centrality_summary_df, corner=True)
             st.pyplot(pairplot)
         
         with col2:

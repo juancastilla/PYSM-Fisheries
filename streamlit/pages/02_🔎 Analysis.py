@@ -223,13 +223,13 @@ if analysis_choice_5:
 
         with col1:
             st.title("Pairplot")
-            # pairplot_dict = {1:"cornflowerblue", 0:"gold"}
-            pairplot = sns.pairplot(centrality_summary_df, corner=True)
+            pairplot_dict = {0:"yellow", 1:"cornflowerblue", 2: 'magenta', 3: 'lightcoral', 4: 'orange', 5: 'purple'}
+            pairplot = sns.pairplot(centrality_summary_df, hue='domain', palette=pairplot_dict,  corner=True)
             st.pyplot(pairplot)
         
         with col2:
             st.title("Heatmap")
-            corr = centrality_summary_df.drop('group', axis=1).corr()
+            corr = centrality_summary_df.drop('domain', axis=1).corr()
             fig, ax = plt.subplots() #solved by add this line 
             ax = sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns, cmap="Blues", annot=True)
             st.pyplot(fig)
@@ -573,7 +573,7 @@ if analysis_choice_16:
                 st.title('All relationships')
                 G=plot_relationships('All relationships',False,'no_display')
                 centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
-                df = centrality_summary_df.set_index('label').drop(['group','color'], axis=1)
+                df = centrality_summary_df.set_index('label')
                 clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')
                 st.pyplot(clustermap)
     
@@ -583,7 +583,7 @@ if analysis_choice_16:
                 largest = max(nx.weakly_connected_components(G), key=len)
                 G = G.subgraph(largest)
                 centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
-                df = centrality_summary_df.set_index('label').drop(['group','color'], axis=1)
+                df = centrality_summary_df.set_index('label')
                 clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')
                 st.pyplot(clustermap)
 

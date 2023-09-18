@@ -204,7 +204,7 @@ if analysis_choice_5:
         
     with st.expander('Centrality Plots'):
 
-        col1, col2 = st.columns(2, gap="small")
+        col1, col2 = st.columns([0.7, 0.3], gap="small")
 
         with col1:
         

@@ -575,7 +575,7 @@ if analysis_choice_16:
                 st.title('All relationships')
                 G=plot_relationships('All relationships',False,'no_display')
                 centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
-                df = centrality_summary_df.set_index('label')
+                df = centrality_summary_df.drop('domain', axis=1).set_index('label')
                 clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')
                 st.pyplot(clustermap)
     
@@ -585,7 +585,7 @@ if analysis_choice_16:
                 largest = max(nx.weakly_connected_components(G), key=len)
                 G = G.subgraph(largest)
                 centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
-                df = centrality_summary_df.set_index('label')
+                df = centrality_summary_df.drop('domain', axis=1).set_index('label')
                 clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')
                 st.pyplot(clustermap)
 

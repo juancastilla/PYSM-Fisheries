@@ -214,7 +214,7 @@ if analysis_choice_5:
 
             df =  centrality_summary_df.copy()
             df = df['label']
-            st.dataframe(df)
+            st.dataframe(df, use_container_width=True)
         
     with st.expander('Centrality Correlations'):
 

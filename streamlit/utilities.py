@@ -377,13 +377,11 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
     G=nx.empty_graph(create_using=nx.DiGraph())
 
     for index, row in st.session_state.df_factors.iterrows():
-        if row['domain_id']==1:
-            size=15
-            color='cornflowerblue'
         if row['domain_id']==0: 
             size=40
-            color='yellow'
-        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
+        else:
+            size=15
+        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size)
 
     if CLD_rel_choice == 'All relationships':
 
@@ -497,13 +495,11 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
     G=nx.empty_graph(create_using=nx.DiGraph())
 
     for index, row in st.session_state.df_factors.iterrows():
-        if row['domain_id']==1:
-            size=15
-            color='cornflowerblue'
-        if row['domain_id']==0: 
+        if row['domain_id']==0:
             size=40
-            color='yellow'
-        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size, color=color)
+        else: 
+            size=15
+        G.add_node(row['factor_id'], label=row['long_name'], group=row['domain_id'], size=size)
 
     if SUBMAP_rel_choice == 'All relationships':
 

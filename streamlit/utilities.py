@@ -656,9 +656,6 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
 def load_centrality(G):
 
     df_nodes = pd.DataFrame.from_dict(dict(G.nodes(data=True)), orient='index')
-    # node_colors = df_nodes.color.to_list()
-    # df_nodes.drop(['size'], axis=1, inplace=True)
-    # df_nodes.drop(0, inplace=True)
 
     in_degree_centrality_df = pd.DataFrame(nx.in_degree_centrality(G).items(), columns=["node", "in_degree_centrality"])
     out_degree_centrality_df = pd.DataFrame(nx.out_degree_centrality(G).items(), columns=["node", "out_degree_centrality"])

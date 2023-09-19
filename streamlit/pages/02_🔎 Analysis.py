@@ -48,6 +48,8 @@ analysis_choice_14 = st.sidebar.checkbox('Fuzzy Cognitive Mapping', key='14')
 st.sidebar.markdown("#### FishGPT")
 analysis_choice_15 = st.sidebar.checkbox('FishGPT QA Chatbot', key='15')
 
+st.title(st.session_state.fishery)
+
 if analysis_choice_0:
 
     with st.expander('CLD Diagram'):

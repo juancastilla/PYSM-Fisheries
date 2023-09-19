@@ -24,7 +24,29 @@ with col1:
 
 
 
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
 
 
-        
+st.sidebar.image(str(main_path.joinpath('pysm.png')), width=300)
+
+
 

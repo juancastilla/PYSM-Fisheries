@@ -657,16 +657,16 @@ def load_centrality(G):
 
     df_nodes = pd.DataFrame.from_dict(dict(G.nodes(data=True)), orient='index')
 
-    in_degree_centrality_df = pd.DataFrame(nx.in_degree_centrality(G).items(), columns=["node", "in_degree_centrality"])
-    out_degree_centrality_df = pd.DataFrame(nx.out_degree_centrality(G).items(), columns=["node", "out_degree_centrality"])
+    in_degree_centrality_df = pd.DataFrame(nx.in_degree_centrality(G).items(), columns=["node", "in_degree"])
+    out_degree_centrality_df = pd.DataFrame(nx.out_degree_centrality(G).items(), columns=["node", "out_degree"])
 
-    closeness_centrality_df = pd.DataFrame(nx.closeness_centrality(G, distance='distance').items(), columns=["node", "closeness_centrality"])
-    current_flow_closeness_centrality_df = pd.DataFrame(nx.current_flow_closeness_centrality(G.to_undirected(), weight='edge_value').items(), columns=["node", "flow_closeness_centrality"])
+    closeness_centrality_df = pd.DataFrame(nx.closeness_centrality(G, distance='distance').items(), columns=["node", "closeness"])
+    current_flow_closeness_centrality_df = pd.DataFrame(nx.current_flow_closeness_centrality(G.to_undirected(), weight='edge_value').items(), columns=["node", "flow_closeness"])
 
-    betweenness_centrality_df = pd.DataFrame(nx.betweenness_centrality(G, weight='distance').items(), columns=["node", "betweenness_centrality"])
-    current_flow_betweenness_centrality_df = pd.DataFrame(nx.current_flow_betweenness_centrality(G.to_undirected(), weight='edge_value').items(), columns=["node", "flow_betweenness_centrality"])
+    betweenness_centrality_df = pd.DataFrame(nx.betweenness_centrality(G, weight='distance').items(), columns=["node", "betweenness"])
+    current_flow_betweenness_centrality_df = pd.DataFrame(nx.current_flow_betweenness_centrality(G.to_undirected(), weight='edge_value').items(), columns=["node", "flow_betweenness"])
 
-    pagerank_centrality_df = pd.DataFrame(nx.pagerank(G, weight='edge_value').items(), columns=["node", "pagerank_centrality"])
+    pagerank_centrality_df = pd.DataFrame(nx.pagerank(G, weight='edge_value').items(), columns=["node", "pagerank"])
 
     centrality_summary_df =\
     in_degree_centrality_df\

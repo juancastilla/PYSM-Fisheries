@@ -387,13 +387,15 @@ if analysis_choice_10:
         col1.dataframe(jia_class_summary_df.style.apply(highlight_jia_classes, axis=1),width=400)
         #AgGrid(jia_class_summary_df)
         
+        display_MIS = st.checkbox('Compute and display all MISs', key='display_MIS')
 
-        col2.markdown('##### Minimum Input/Driver Sets')
-        col2.markdown('')
+        if display_MIS:
+            col2.markdown('##### Minimum Input/Driver Sets')
+            col2.markdown('')
 
-        MIS_df = compute_all_MIS(G,jia_class_summary_df,ND)
-        with col2:
-            AgGrid(MIS_df,height=1000)
+            MIS_df = compute_all_MIS(G,jia_class_summary_df,ND)
+            with col2:
+                AgGrid(MIS_df,height=1000)
         
 if analysis_choice_11:
 

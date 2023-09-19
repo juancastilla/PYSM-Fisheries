@@ -1327,19 +1327,17 @@ def pcp_preprocess(PCP_rel_choice):
 
     df = pd.DataFrame()
 
-    #### REPLACE THSI WITH GLOBAL SHEET ID ###########
-    sheet_id = "1KyvP07oU4zuGlLQ61W12bSDDKyEtyFRJIthEPk0Iito"
-    sheet_name_factors = "factors"
-    sheet_name_relationships = "relationships"
-    url_factors = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name_factors}"
-    url_relationships = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name_relationships}"
-    ################################################
+    # #### REPLACE THSI WITH GLOBAL SHEET ID ###########
+    # sheet_id = "1KyvP07oU4zuGlLQ61W12bSDDKyEtyFRJIthEPk0Iito"
+    # sheet_name_factors = "factors"
+    # sheet_name_relationships = "relationships"
+    # url_factors = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name_factors}"
+    # url_relationships = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name_relationships}"
+    # ################################################
 
-    df_factors = pd.read_csv(url_factors)
+    df_factors = st.session_state.df_factors
 
-    df_factors.set_index('factor_id', inplace=True)
-
-    G = plot_relationships(PCP_rel_choice,True,'no_display') ######### <---- CHECK THIS, CREATE SELECT
+    G = plot_relationships(PCP_rel_choice,True,'no_display') 
     largest = max(nx.weakly_connected_components(G), key=len)
     G = G.subgraph(largest)
 

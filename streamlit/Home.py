@@ -57,22 +57,23 @@ st.session_state.language = app_language
 with st.sidebar.form(key='case_study_form'):
 
     fishery_selection = st.selectbox('Choose a Fishery:', ('Octopus Chile', 'Octopus Peru', 'Southern Hake', 'Jumbo Flying Squid', 'Anchoveta'))
+    st.session_state.fishery = fishery_selection
 
     if fishery_selection == 'Octopus Chile':
-    
+
         st.session_state.sheet_id = '1KyvP07oU4zuGlLQ61W12bSDDKyEtyFRJIthEPk0Iito'
     
     if fishery_selection == 'Octopus Peru':
     
-        st.session_state.sheet_id = ''
+        st.session_state.sheet_id = '1quqkUmq5BSf7i6Iv8L-KNFYTJddRHcux-kyK0ghpLaw'
     
     if fishery_selection == 'Southern Hake':
     
-        st.session_state.sheet_id = ''
+        st.session_state.sheet_id = '1m5NoPq_5TSH_FU32VNjVc5-uCfouuypydKoqbMHzwx4'
     
     if fishery_selection == 'Jumbo Flying Squid':
 
-        st.session_state.sheet_id = ''
+        st.session_state.sheet_id = '1lv8kJ67fmLV34qMYtijbUoMyKkyhXVxk0Hw92mNIAiI'
     
     if fishery_selection == 'Anchoveta':
 

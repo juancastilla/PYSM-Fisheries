@@ -53,9 +53,30 @@ if analysis_choice_0:
     with st.expander('CLD Diagram'):
 
         if platform.system() == 'Darwin':
-            filename = 'OctopusChile.png'
+
+            if st.session_state.fishery == 'Octopus Chile':
+                filename = 'OctopusChile.png'
+            if st.session_state.fishery == 'Octopus Peru':
+                filename = 'OctopusPeru.png'
+            if st.session_state.fishery == 'Southern Hake':
+                filename = 'SouthernHake.png'
+            if st.session_state.fishery == 'Jumbo Flying Squid':
+                filename = 'JumboFlyingSquid.png'
+            if st.session_state.fishery == 'Anchoveta':
+                filename = 'Anchoveta.png'
+
         else:
-            filename= 'streamlit/OctopusChile.png'
+
+            if st.session_state.fishery == 'Octopus Chile':
+                filename = 'streamlit/OctopusChile.png'
+            if st.session_state.fishery == 'Octopus Peru':
+                filename = 'streamlit/OctopusPeru.png'
+            if st.session_state.fishery == 'Southern Hake':
+                filename = 'streamlit/SouthernHake.png'
+            if st.session_state.fishery == 'Jumbo Flying Squid':
+                filename = 'streamlit/JumboFlyingSquid.png'
+            if st.session_state.fishery == 'Anchoveta':
+                filename = 'streamlit/Anchoveta.png'
 
         st.title('Causal Loop Diagram')
         st.image(filename, use_column_width=True)

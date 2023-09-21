@@ -328,7 +328,6 @@ def load_relationships_template_table():
         df_relationships = df_relationships.loc[:, ~df_relationships.columns.str.contains('^Unnamed')]
         st.session_state.df_relationships = df_relationships
         
-    
 # Load factors from pre-filled Google Sheets template (input is sheet id)
 def load_relationships(sheet_id):
     
@@ -925,7 +924,7 @@ def control_centrality_single(G):
 
 def controllability_multiple(G,factors):
     
-    A = nx.to_numpy_matrix(G).T         ##### <---- CHECK WHY TRANSPOSE IS NEEDED
+    A = nx.to_numpy_matrix(G).T         
     N = G.number_of_nodes()
     B = np.zeros((N,len(factors)))
     
@@ -1364,7 +1363,7 @@ def pcp_preprocess(PCP_rel_choice):
 
     df=df_factors[['controllability','level of knowledge','predictability', 'measurability cost', 'intervenable', 'domain_id']].join(centrality_summary_df).join(factor_control_centralities_df['control_centrality']).join(liu_class_summary_df['Liu_class']).join(jia_class_summary_df['Jia_class'])
 
-    df = df.rename(columns={'in_degree_centrality': 'in_degree', 'out_degree_centrality': 'out_degree', 'flow_closeness_centrality': 'closeness', 'flow_betweenness_centrality': 'betweenness', 'pagerank_centrality': 'pagerank', 'Liu_class': 'robust_control', 'Jia_class': 'global_control'})
+    df = df.rename(columns={'in_degree': 'in_degree', 'out_degree': 'out_degree', 'flow_closeness': 'closeness', 'flow_betweenness': 'betweenness', 'pagerank': 'pagerank', 'Liu_class': 'robust_control', 'Jia_class': 'global_control'})
 
     cols = [
     'label',

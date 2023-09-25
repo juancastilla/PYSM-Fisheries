@@ -313,20 +313,28 @@ if analysis_choice_7:
     
         col1, col2 = st.columns(2)
 
-        with col1:    
+        with col1:
+
+            largest = max(nx.weakly_connected_components(G), key=len)
+            G = G.subgraph(largest)
+
+            factors = list(G.nodes())
+            f_list = pd.DataFrame(factors,columns=['factor_id']).factor_id.to_list()
+            all_factors = st.session_state.df_factors.drop(['domain_id','domain_name','short_name','Comentario'], axis=1)
+            subfactors_df = all_factors[all_factors['factor_id'].isin(f_list)]
 
             st.markdown('##### Use the checkboxes below to select those factors that are part of a candidate policy. The gauge will display the % of the system that can be potentially controlled by these factors')
-            gd = GridOptionsBuilder.from_dataframe(st.session_state.df_factors.drop(['domain_id','domain_name','factor_id','short_name','Comentario'], axis=1))
+            gd = GridOptionsBuilder.from_dataframe(subfactors_df)
             gd.configure_selection(selection_mode='multiple', use_checkbox=True)
             gridoptions = gd.build()
-            grid_table = AgGrid(st.session_state.df_factors, 
+            grid_table = AgGrid(subfactors_df, 
                                 gridOptions=gridoptions, 
                                 update_mode = GridUpdateMode.SELECTION_CHANGED)
             sel_rows = grid_table["selected_rows"]
         
         with col2:
 
-            # G=plot_relationships(CONTROLCENTRALITYCOMPOUND_rel_choice,CONTROLCENTRALITYCOMPOUND_isolates_choice,'no_display')
+            # G=plot_relationships(CONTROLCENTRALITY_rel_choice,True,'no_display')
             # largest = max(nx.weakly_connected_components(G), key=len)
             # G = G.subgraph(largest)
 

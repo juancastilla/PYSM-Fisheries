@@ -908,7 +908,7 @@ def control_centrality_single(G):
         B[id,0]=1
     
         C = control.ctrb(A,B)
-        Cc = np.linalg.matrix_rank(C, tol=1.0e-10)
+        Cc = np.linalg.matrix_rank(C, tol=1.0e-30)
         cc = Cc/N
         
         factor_control_centralities.append(cc)
@@ -927,13 +927,15 @@ def controllability_multiple(G,factors):
     A = nx.to_numpy_matrix(G).T         
     N = G.number_of_nodes()
     B = np.zeros((N,len(factors)))
+
+    all_factors = list(G.nodes())
     
     for i,factor_id in enumerate(factors):
-        
+
         B[factor_id,i]=1
     
     C = control.ctrb(A,B)
-    Cc = np.linalg.matrix_rank(C, tol=1.0e-10)
+    Cc = np.linalg.matrix_rank(C, tol=1.0e-30)
     cc = Cc/N
 
     return cc.round(2)

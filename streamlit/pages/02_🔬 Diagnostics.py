@@ -341,7 +341,7 @@ if analysis_choice_7:
             if sel_rows:
                 sel_rows_df = pd.DataFrame(sel_rows)
                 factors = sel_rows_df.factor_id.to_list()
-                multiple_factor_controllability = controllability_multiple(G,factors)
+                multiple_factor_controllability = controllability_multiple(G,subfactors_df)
                 plot_controllability_gauge(multiple_factor_controllability)
 
 if analysis_choice_9:

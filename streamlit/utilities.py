@@ -908,7 +908,7 @@ def control_centrality_single(G):
         B[id,0]=1
     
         C = control.ctrb(A,B)
-        Cc = np.linalg.matrix_rank(C, tol=1.0e-30)
+        Cc = np.linalg.matrix_rank(C, tol=1.0e-40)
         cc = Cc/N
         
         factor_control_centralities.append(cc)
@@ -922,23 +922,28 @@ def control_centrality_single(G):
 
     return factor_control_centralities_df.round(2)
 
-def controllability_multiple(G,factors):
+def controllability_multiple(G,subfactors_df):
+
+    factors = subfactors_df.index.tolist()
+    st.text(factors)
+    st.text(len(factors))
     
     A = nx.to_numpy_matrix(G).T         
     N = G.number_of_nodes()
     B = np.zeros((N,len(factors)))
-
-    all_factors = list(G.nodes())
     
-    for i,factor_id in enumerate(factors):
+    for i,factor in enumerate(factors):
 
-        B[factor_id,i]=1
+        st.text(i)
+
+        B[factor,i]=1
     
     C = control.ctrb(A,B)
     Cc = np.linalg.matrix_rank(C, tol=1.0e-30)
     cc = Cc/N
 
     return cc.round(2)
+
 
 def plot_controllability_gauge(cc):
     
@@ -1536,3 +1541,5 @@ def compute_archetype_dataframe(G,df):
 def save_graph(G):
     #nx.write_gpickle(G, "test.gpickle")
     return None
+
+def diffusion_network_model():

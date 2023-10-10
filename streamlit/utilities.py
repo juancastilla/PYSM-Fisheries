@@ -397,14 +397,17 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
             if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
                 weight=0.1
                 distance = 1/weight
+                strength='weak'
             if row['strength']=='medium': 
                 weight=4
                 distance = 1/weight
+                strength='medium'
             if row['strength']=='strong': 
                 weight=10
                 distance = 1/weight
+                strength='strong'
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity)
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
 
     if CLD_rel_choice == 'Strong only':
 
@@ -424,14 +427,17 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
             if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
                 weight=0.1
                 distance = 1/weight
+                strength='weak'
             if row['strength']=='medium': 
                 weight=4
                 distance = 1/weight
+                strength='medium'
             if row['strength']=='strong': 
                 weight=10
                 distance = 1/weight
+                strength='strong'
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity)
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
 
     if CLD_isolates_choice == True:
         G.remove_nodes_from(list(nx.isolates(G)))
@@ -1542,4 +1548,173 @@ def save_graph(G):
     #nx.write_gpickle(G, "test.gpickle")
     return None
 
-def diffusion_network_model():
+### INTERVENTION LAB ###
+
+def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=False):
+    # Define the strength to weight mapping
+    strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
+
+    # Initialize the tokens at each node to zero
+    tokens = {node: 0 for node in G.nodes}
+
+    # Update the tokens for the nodes specified in the initial_tokens dictionary
+    for node, token in initial_tokens.items():
+        tokens[node] = token
+
+    # Initialize a dictionary to store the token counts at each time step
+    # Use the label attribute as the key
+    token_counts_over_time = {G.nodes[node]['label']: [tokens[node]] for node in G.nodes}  # Include the initial token counts
+
+    # Run the diffusion process for the specified number of steps
+    for step in range(num_steps):
+        # Calculate the total tokens to be passed from each node
+        total_outgoing_tokens = {node: 0 for node in G.nodes}
+        for node in G.nodes:
+            for neighbor in G.neighbors(node):
+                edge_strength = G.edges[node, neighbor]['strength']
+                edge_weight = strength_to_weight[edge_strength]
+                total_outgoing_tokens[node] += edge_weight
+
+        # Calculate the new tokens at each node
+        new_tokens = tokens.copy()  # Start with the current tokens
+        for node in G.nodes:
+            for neighbor in G.neighbors(node):
+                edge_strength = G.edges[node, neighbor]['strength']
+                edge_weight = strength_to_weight[edge_strength]
+                tokens_passed = tokens[node] * (edge_weight / total_outgoing_tokens[node])
+                new_tokens[neighbor] += tokens_passed
+                new_tokens[node] -= tokens_passed  # Redistribute the passed tokens back to the node
+
+        # Update the tokens
+        tokens = new_tokens
+
+        # Store the token counts at this time step
+        for node in G.nodes:
+            token_counts_over_time[G.nodes[node]['label']].append(tokens[node])
+
+    # Convert the token counts to a DataFrame and transpose it
+    df_token_counts = pd.DataFrame(token_counts_over_time).T
+
+    # Calculate the percentage of nodes with non-zero token counts
+    non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) / len(df_token_counts.columns)) * 100
+
+    col1,col2 = st.columns(2)
+
+    with col1:
+
+        st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
+
+        # Create a gauge chart
+        fig = go.Figure(go.Indicator(
+            mode="gauge+number",
+            value=non_zero_tokens_percentage.mean(),
+            number={'suffix': "%"},  # Add a '%' suffix to the number displayed
+            gauge={'axis': {'range': [None, 100]}}
+        ))
+
+        # Display the gauge chart in Streamlit
+        st.plotly_chart(fig, use_container_width=True)
+
+    # Identify outcome nodes
+    outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
+
+    with col2:
+    
+        st.markdown("#### Causal effects of this intervention package on outcome nodes")
+
+        # Create a line plot for the outcome nodes
+        fig, ax = plt.subplots(figsize=(12, 6))
+        for outcome_node in outcome_nodes:
+            # Compute a moving average with a window size of 5
+            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=5).mean()
+            ax.plot(smoothed_token_counts, label=outcome_node)
+        plt.xlabel('Time step')
+        plt.ylabel('Token count')
+        plt.legend()
+        plt.grid(True)
+
+        # Display the line plot in Streamlit
+        st.pyplot(fig)
+
+    # Apply log scale if log_scale is True
+    if log_scale:
+        df_token_counts = np.log1p(df_token_counts)
+
+    # Create a heatmap of the token counts
+
+    st.markdown("#### Causal effects of this intervention package on all nodes (outcome nodes highlighted in red))")
+
+    fig, ax = plt.subplots(figsize=(12, 12))
+    sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 5}, cbar=False)
+
+    # Highlight outcome nodes in red
+    for label in ax.get_yticklabels():
+        if label.get_text() in outcome_nodes:
+            label.set_color('red')
+
+    plt.xlabel('Time step')
+    plt.ylabel('Node')
+
+    # Display the plot in Streamlit
+    st.pyplot(fig)
+
+
+
+    return tokens
+
+def flow_diffusion_network_model(G, token_injection_rate, num_steps):
+    # Define the strength to weight mapping
+    strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
+
+    # Initialize the tokens at each node to the injection rate or zero if not specified
+    tokens = {node: token_injection_rate.get(node, 0) for node in G.nodes}
+    
+    # Initialize a dictionary to store the token counts at each time step
+    # Use the label attribute as the key
+    token_counts_over_time = {G.nodes[node]['label']: [tokens[node]] for node in G.nodes}  # Include the initial token counts
+
+    # Run the diffusion process for the specified number of steps
+    for step in range(num_steps):
+        # Inject tokens at the specified nodes at a fixed rate
+        for node, rate in token_injection_rate.items():
+            tokens[node] += rate
+
+        # Calculate the total tokens to be passed from each node
+        total_outgoing_tokens = {node: 0 for node in G.nodes}
+        for node in G.nodes:
+            for neighbor in G.neighbors(node):
+                edge_strength = G.edges[node, neighbor]['strength']
+                edge_weight = strength_to_weight[edge_strength]
+                total_outgoing_tokens[node] += edge_weight
+
+        # Calculate the new tokens at each node
+        new_tokens = tokens.copy()  # Start with the current tokens
+        for node in G.nodes:
+            for neighbor in G.neighbors(node):
+                edge_strength = G.edges[node, neighbor]['strength']
+                edge_weight = strength_to_weight[edge_strength]
+                tokens_passed = tokens[node] * (edge_weight / total_outgoing_tokens[node])
+                new_tokens[neighbor] += tokens_passed
+                new_tokens[node] -= tokens_passed  # Redistribute the passed tokens back to the node
+
+        # Update the tokens
+        tokens = new_tokens
+
+        # Store the token counts at this time step
+        for node in G.nodes:
+            token_counts_over_time[G.nodes[node]['label']].append(tokens[node])
+
+    # Convert the token counts to a DataFrame and transpose it
+    df = pd.DataFrame(token_counts_over_time).T
+
+    # Apply a logarithmic scale to the data
+    df_log = np.log1p(df)
+
+    # Create a heatmap of the token counts
+    plt.figure(figsize=(25, 15))
+    sns.heatmap(df_log, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 8})
+    plt.xlabel('Time step')
+    plt.ylabel('Node')
+    plt.show()
+
+    return tokens

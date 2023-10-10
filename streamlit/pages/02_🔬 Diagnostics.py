@@ -145,7 +145,6 @@ if analysis_choice_4:
 
                 G=plot_relationships('All relationships',True,'display')
 
-
             with col2:
 
                 st.header('Dendogram')

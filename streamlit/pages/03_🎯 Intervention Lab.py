@@ -27,9 +27,14 @@ with col1:
         edited_df = st.data_editor(factors_df, use_container_width=False, height=1750, key='case1')
         token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
         log_scale = st.checkbox('Use log scale?', key='log_scale_1')
+        diffusion_model = st.selectbox('Choose a diffusion model:', ('Pulse diffusion', 'Flow diffusion'), key='diffusion_model_1')
 
         if st.button('Run simulation', key='run_simulation_1'):
-            pulse_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
+
+            if diffusion_model == 'Pulse diffusion':
+                pulse_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
+            else:
+                flow_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
 
 with col2:
 
@@ -40,9 +45,14 @@ with col2:
         edited_df = st.data_editor(factors_df, use_container_width=False, height=1750, key='case2')
         token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
         log_scale = st.checkbox('Use log scale?', key='log_scale_2')
+        diffusion_model = st.selectbox('Choose a diffusion model:', ('Pulse diffusion', 'Flow diffusion'), key='diffusion_model_2')
 
         if st.button('Run simulation', key='run_simulation_2'):
-            pulse_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
+
+            if diffusion_model == 'Pulse diffusion':
+                pulse_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
+            else:
+                flow_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
 
 with st.expander('Optimisation Analysis'):
     st.title('Optimisation Analysis')

@@ -1658,11 +1658,10 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Display the plot in Streamlit
     st.pyplot(fig)
 
-
-
     return tokens
 
-def flow_diffusion_network_model(G, token_injection_rate, num_steps):
+def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_scale=False):
+
     # Define the strength to weight mapping
     strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
 
@@ -1705,16 +1704,69 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps):
             token_counts_over_time[G.nodes[node]['label']].append(tokens[node])
 
     # Convert the token counts to a DataFrame and transpose it
-    df = pd.DataFrame(token_counts_over_time).T
+    df_token_counts = pd.DataFrame(token_counts_over_time).T
 
-    # Apply a logarithmic scale to the data
-    df_log = np.log1p(df)
+    # Calculate the percentage of nodes with non-zero token counts
+    non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) / len(df_token_counts.columns)) * 100
+
+    col1,col2 = st.columns(2)
+
+    with col1:
+
+        st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
+
+        # Create a gauge chart
+        fig = go.Figure(go.Indicator(
+            mode="gauge+number",
+            value=non_zero_tokens_percentage.mean(),
+            number={'suffix': "%"},  # Add a '%' suffix to the number displayed
+            gauge={'axis': {'range': [None, 100]}}
+        ))
+
+        # Display the gauge chart in Streamlit
+        st.plotly_chart(fig, use_container_width=True)
+
+    # Identify outcome nodes
+    outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
+
+    with col2:
+    
+        st.markdown("#### Causal effects of this intervention package on outcome nodes")
+
+        # Create a line plot for the outcome nodes
+        fig, ax = plt.subplots(figsize=(12, 6))
+        for outcome_node in outcome_nodes:
+            # Compute a moving average with a window size of 5
+            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=5).mean()
+            ax.plot(smoothed_token_counts, label=outcome_node)
+        plt.xlabel('Time step')
+        plt.ylabel('Token count')
+        plt.legend()
+        plt.grid(True)
+
+        # Display the line plot in Streamlit
+        st.pyplot(fig)
+
+    # Apply log scale if log_scale is True
+    if log_scale:
+        df_token_counts = np.log1p(df_token_counts)
 
     # Create a heatmap of the token counts
-    plt.figure(figsize=(25, 15))
-    sns.heatmap(df_log, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 8})
+
+    st.markdown("#### Causal effects of this intervention package on all nodes (outcome nodes highlighted in red))")
+
+    fig, ax = plt.subplots(figsize=(12, 12))
+    sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 5}, cbar=False)
+
+    # Highlight outcome nodes in red
+    for label in ax.get_yticklabels():
+        if label.get_text() in outcome_nodes:
+            label.set_color('red')
+
     plt.xlabel('Time step')
     plt.ylabel('Node')
-    plt.show()
+
+    # Display the plot in Streamlit
+    st.pyplot(fig)
 
     return tokens

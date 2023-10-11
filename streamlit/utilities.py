@@ -1596,7 +1596,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     df_token_counts = pd.DataFrame(token_counts_over_time).T
 
     # Calculate the percentage of nodes with non-zero token counts
-    non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) / len(df_token_counts.columns)) * 100
+    non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
 
     col1,col2 = st.columns(2)
 
@@ -1707,7 +1707,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
     df_token_counts = pd.DataFrame(token_counts_over_time).T
 
     # Calculate the percentage of nodes with non-zero token counts
-    non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) / len(df_token_counts.columns)) * 100
+    non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
 
     col1,col2 = st.columns(2)
 

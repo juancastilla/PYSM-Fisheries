@@ -55,4 +55,101 @@ with col2:
                 flow_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
 
 with st.expander('Optimisation Analysis'):
+
     st.title('Optimisation Analysis')
+
+    options = st.multiselect(
+    'What objectives do you want to optimise?',
+    ['Controllability', 'Effect on Outcome Nodes'],
+    ['Controllability', 'Effect on Outcome Nodes'])
+
+    if st.button('Run optimisation', key='run_optimisation'):
+
+        with st.spinner('Please wait...'):
+
+            # Define the individual and population
+            
+            if 'Controllability' in options and 'Effect on Outcome Nodes' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0))
+            elif 'Controllability' in options and 'Effect on Outcome Nodes' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, 0.0))
+            elif 'Effect on Outcome Nodes' in options and 'Controllability' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(0.0, 1.0))
+            creator.create("Individual", list, fitness=creator.FitnessMax)
+            
+            #toolbox = base.Toolbox()
+
+            # Define the attribute generators
+            toolbox.register("node_attr", random.choice, factors_df[factors_df['intervenable'] == 'yes'].index.tolist())
+            toolbox.register("token_attr", random.randint, 0, 50)
+
+            toolbox.register("individual", create_individual)
+            toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
+            # Register the genetic operators
+            toolbox.register("evaluate", evaluate)
+            toolbox.register("mate", custom_crossover)
+            toolbox.register("mutate", custom_mutate, mu=0, sigma=1, indpb=0.1)
+            toolbox.register("select", tools.selTournament, tournsize=6)
+
+            # Run the genetic algorithm
+            pop = toolbox.population(n=50)
+            hof = tools.HallOfFame(10)
+            stats = tools.Statistics(lambda ind: ind.fitness.values)
+            stats.register("avg", np.mean, axis=0)
+            stats.register("min", np.min, axis=0)
+            stats.register("max", np.max, axis=0)
+
+            pop, log = algorithms.eaSimple(pop, toolbox, cxpb=0.15, mutpb=0.1, ngen=300, stats=stats, halloffame=hof, verbose=True)
+            st.success('Done!') 
+        
+        st.balloons()
+
+        col1,col2 = st.columns(2)
+
+        with col1:
+
+            st.subheader('Genetic Algorithm Results')
+            # Extract the statistics
+            avg_fitness_values = log.select('avg')
+
+            # Create the plot
+            plt.figure(figsize=(10, 5))
+            if 'Controllability' in options and 'Effect on Outcome Nodes' in options:
+                plt.plot(avg_fitness_values, label=['Controllability','Effect on Outcome Nodes'])
+            elif 'Controllability' in options and 'Effect on Outcome Nodes' not in options:
+                plt.plot(avg_fitness_values, label=['Controllability',''])
+            elif 'Effect on Outcome Nodes' in options and 'Controllability' not in options:
+                plt.plot(avg_fitness_values, label=['','Effect on Outcome Nodes'])
+
+            plt.xlabel('Generation')
+            plt.ylabel('Fitness')
+            plt.title('Fitness Evolution')
+            plt.legend()
+            plt.grid(True)
+            
+            # Display the plot in Streamlit
+            st.pyplot(plt)
+        
+        with col2:
+
+            st.subheader('Hall of Fame: 10 best solutions')
+
+            # Create a list of solutions
+            solutions = [{"Intervention Nodes": str(ind[:3]), 
+                        "Intervention Effort": str(ind[3:]), 
+                        "Controllability": str(round(ind.fitness.values[0], 1)), 
+                        "Effect on Outcome Nodes": str(round(ind.fitness.values[1], 1))} for ind in hof]
+
+            # Display the solutions in a table
+            st.table(pd.DataFrame(solutions))
+
+            # Create a DataFrame for node names
+            node_numbers = pd.DataFrame(solutions)['Intervention Nodes'].apply(lambda x: x.strip('[]').split(', ')).explode().unique()
+            node_names = [factors_df.loc[int(i), 'long_name'] for i in node_numbers]
+
+            # Create a lookup table
+            lookup_table = pd.DataFrame({'Node Number': node_numbers, 'Node Name': node_names})
+
+            # Display the lookup table in Streamlit
+            st.table(lookup_table)

@@ -28,6 +28,8 @@ import textwrap
 import math
 from sklearn.preprocessing import MinMaxScaler
 import hiplot as hip
+from deap import base, creator, tools, algorithms
+import random
 
 
 # import googletrans
@@ -1548,7 +1550,11 @@ def save_graph(G):
     #nx.write_gpickle(G, "test.gpickle")
     return None
 
+########################
 ### INTERVENTION LAB ###
+########################
+
+### DIFFUSION MODELS ###
 
 def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=False):
     # Define the strength to weight mapping
@@ -1770,3 +1776,135 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
     st.pyplot(fig)
 
     return tokens
+
+### DEAP OPTIMIZATION ###
+
+def pulse_diffusion_network_model_DEAP(G, initial_tokens, num_steps, log_scale=False):
+
+    # Define the strength to weight mapping
+    strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
+
+    # Initialize the tokens at each node to zero
+    tokens = {node: 0 for node in G.nodes}
+
+    # Update the tokens for the nodes specified in the initial_tokens dictionary
+    for node, token in initial_tokens.items():
+        tokens[node] = token
+
+    # Initialize a dictionary to store the token counts at each time step
+    # Use the label attribute as the key
+    token_counts_over_time = {G.nodes[node]['label']: [tokens[node]] for node in G.nodes}  # Include the initial token counts
+
+    # Run the diffusion process for the specified number of steps
+    for step in range(num_steps):
+        # Calculate the total tokens to be passed from each node
+        total_outgoing_tokens = {node: 0 for node in G.nodes}
+        for node in G.nodes:
+            for neighbor in G.neighbors(node):
+                edge_strength = G.edges[node, neighbor]['strength']
+                edge_weight = strength_to_weight[edge_strength]
+                total_outgoing_tokens[node] += edge_weight
+
+        # Calculate the new tokens at each node
+        new_tokens = tokens.copy()  # Start with the current tokens
+        for node in G.nodes:
+            for neighbor in G.neighbors(node):
+                edge_strength = G.edges[node, neighbor]['strength']
+                edge_weight = strength_to_weight[edge_strength]
+                tokens_passed = tokens[node] * (edge_weight / total_outgoing_tokens[node])
+                if np.isfinite(tokens_passed):
+                    new_tokens[neighbor] += tokens_passed
+                    new_tokens[node] -= tokens_passed  # Redistribute the passed tokens back to the node
+
+        # Update the tokens
+        tokens = new_tokens
+
+        # Store the token counts at this time step
+        for node in G.nodes:
+            token_counts_over_time[G.nodes[node]['label']].append(tokens[node])
+
+    # Convert the token counts to a DataFrame and transpose it
+    df_token_counts = pd.DataFrame(token_counts_over_time).T
+
+    # Calculate the percentage of nodes with non-zero token counts
+    non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
+
+    # Apply log scale if log_scale is True
+    if log_scale:
+        df_token_counts = np.log1p(df_token_counts)
+
+    return df_token_counts
+
+toolbox = base.Toolbox()
+
+# Define the fitness function
+def evaluate(individual):
+    # Extract the nodes and token allocations from the individual
+    nodes = individual[:3]
+    token_allocations = individual[3:]
+
+    # Ensure the token allocations sum to 100
+    if sum(token_allocations) != 100:
+        return -np.inf, -np.inf
+
+    # Create the initial tokens dictionary
+    initial_tokens = {node: allocation for node, allocation in zip(nodes, token_allocations)}
+
+    G_ALL = plot_relationships('All relationships',True,'no_display')
+
+    # Run the pulse diffusion network model
+    df_token_counts = pulse_diffusion_network_model_DEAP(G_ALL, initial_tokens, 50, log_scale=False)
+
+    # Calculate the non_zero_tokens_percentage
+    non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
+
+    # Calculate the sum of the area under the token count timeseries for the outcome nodes
+
+    factors_df = st.session_state.df_factors
+    factors_df = factors_df.drop(['domain_id', 'predictability', 'measurability cost'], axis=1)
+    factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
+    factors_df['TOKENS'] = 0
+
+    outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
+    area_under_curve = np.trapz(df_token_counts.loc[outcome_nodes].values, axis=1).sum()
+
+    return non_zero_tokens_percentage, area_under_curve
+
+
+# Define the individual
+def create_individual():
+    nodes = [toolbox.node_attr() for _ in range(3)]
+    token_allocations = [toolbox.token_attr() for _ in range(2)]
+    token_allocations.append(100 - sum(token_allocations))
+    return creator.Individual(nodes + token_allocations)
+
+
+def custom_mutate(individual, mu, sigma, indpb):
+    # Mutate the nodes
+    for i in range(3):
+        if random.random() < indpb:
+            individual[i] = toolbox.node_attr()
+
+    # Mutate the token allocations
+    for i in range(3, 5):
+        if random.random() < indpb:
+            individual[i] = random.randint(0, 50)
+
+    # Ensure the token allocations sum to 100
+    individual[5] = 100 - sum(individual[3:5])
+
+    return individual,
+
+def custom_crossover(ind1, ind2):
+    # Perform two-point crossover on the nodes
+    tools.cxTwoPoint(ind1[:3], ind2[:3])
+
+    # Perform two-point crossover on the first two token allocations
+    tools.cxTwoPoint(ind1[3:5], ind2[3:5])
+
+    # Ensure the token allocations sum to 100
+    ind1[5] = 100 - sum(ind1[3:5])
+    ind2[5] = 100 - sum(ind2[3:5])
+
+    return ind1, ind2
+

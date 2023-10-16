@@ -12,3 +12,4 @@ scikit-learn
 hiplot
 scikit-network
 deap
+plotapi

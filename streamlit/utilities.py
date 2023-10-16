@@ -30,6 +30,7 @@ from sklearn.preprocessing import MinMaxScaler
 import hiplot as hip
 from deap import base, creator, tools, algorithms
 import random
+from plotapi import Chord
 
 
 # import googletrans
@@ -379,7 +380,20 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
 
     for index, row in st.session_state.df_factors.iterrows():
 
-        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'])
+        if row['domain_id'] == 0:
+            color = 'yellow'
+        if row['domain_id'] == 1:
+            color = 'cornflowerblue'
+        if row['domain_id'] == 2:
+            color = 'magenta'
+        if row['domain_id'] == 3:
+            color = 'lightcoral'
+        if row['domain_id'] == 4:
+            color = 'orange'
+        if row['domain_id'] == 5:
+            color = 'purple'
+
+        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'], color=color)
 
     if CLD_rel_choice == 'All relationships':
 
@@ -409,7 +423,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
                 distance = 1/weight
                 strength='strong'
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
 
     if CLD_rel_choice == 'Strong only':
 

@@ -111,6 +111,38 @@ if analysis_choice_1:
             AgGrid(st.session_state.df_relationships, fit_columns_on_grid_load=True, width='100%')
             G=plot_relationships(FORCEDIRECTED_rel_choice,FORCEDIRECTED_isolates_choice,'display')
 
+if analysis_choice_2:
+
+    with st.expander('Chord diagram'):
+
+        G=plot_relationships("All relationships",True,'no_display')
+
+        from plotapi import Chord
+
+        Chord.api_key("573968cb-86f2-4a43-991d-aa2b5d6974a4")
+        matrix = nx.to_numpy_matrix(G, weight='edge_value').tolist()
+        names = list(nx.get_node_attributes(G,"label").values())
+        colors = list(nx.get_node_attributes(G,"color").values())
+
+            # Save and read graph as HTML file (on Streamlit Sharing)
+        try:
+            path = './streamlit/html_files'
+            nt.save_graph(f'{path}/pyvis_graph.html')
+            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=2000, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord_graph.html')
+            HtmlFile = open(f'{path}/chord_graph.html','r',encoding='utf-8')
+            
+            # Save and read graph as HTML file (locally)
+        except:
+            path = 'html_files'
+            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=2000, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord_graph.html')
+            HtmlFile = open(f'{path}/chord_graph.html','r',encoding='utf-8')
+
+                # nt.show('G_factors_and_relationships.html')
+                # HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
+        components.html(HtmlFile.read(),height=1800)
+                # save_graph(G)
+
+
 if analysis_choice_3:
         
     with st.expander('Submaps'):

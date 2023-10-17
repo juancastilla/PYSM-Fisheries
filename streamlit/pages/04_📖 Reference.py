@@ -14,16 +14,19 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/CLD.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     if st.checkbox("Influence diagram (Force-Directed Graph)"):
         with col2:
             markdown = read_markdown_file("pages/reference/Force-directed.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     if st.checkbox("Chord diagram"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     st.subheader(':blue[Simplify Complexity]', divider="blue")
 
@@ -31,6 +34,7 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
     
     st.subheader(":blue[Identify clusters]", divider="blue")
 
@@ -38,6 +42,7 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
 
     st.divider()
@@ -50,31 +55,37 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     if st.checkbox("In-degree centrality"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     if st.checkbox("Out-degree centrality"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     if st.checkbox("Closeness centrality"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     if st.checkbox("Betweenness centrality"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     if st.checkbox("Pagerank centrality"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     st.subheader(":blue[Centrality clustermaps]", divider="blue")
 
@@ -82,6 +93,7 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     st.subheader(":blue[Centrality archetypes]", divider="blue")
 
@@ -90,6 +102,7 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     st.divider()
 
@@ -101,16 +114,19 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     if st.checkbox("Robust controllability"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
     
     if st.checkbox("Global controllability"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     st.subheader(":blue[Path Analysis]", divider="blue")
 
@@ -118,6 +134,7 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
     st.subheader(":blue[Tradeoff Analysis]", divider="blue")
 
@@ -125,16 +142,23 @@ with col1:
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
-    if st.checkbox("Exploratory Scenario Analysis (Diffusion Models)"):
+    st.subheader(":blue[Scenario Analysis]", divider="blue")
+
+    if st.checkbox("Diffusion Models (Pulse and Flow)"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
-    if st.checkbox("Multi-objective Optimisation (Genetic Algorithm)"):
+    st.subheader(":blue[Optimisation Analysis]", divider="blue")
+
+    if st.checkbox("Genetic Algorithm"):
         with col2:
             markdown = read_markdown_file("pages/reference/Chord.md")
             st.markdown(markdown, unsafe_allow_html=True)
+            st.divider()
 
 
 st.sidebar.markdown('#')

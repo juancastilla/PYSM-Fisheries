@@ -2,51 +2,158 @@ from utilities import *
 
 st.title('Reference')
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns([0.30, 0.70])
 
 with col1:
 
-    st.header('Map Visualisation')
+    st.markdown('## :red[*What is the system?*]')
 
-    with st.expander("Causal loop diagram"):
-        markdown = read_markdown_file("pages/reference/CLD.md")
-        st.markdown(markdown, unsafe_allow_html=True)
+    st.subheader(':blue[Map the system]', divider="blue")
 
-    with st.expander("Force-directed graph"):
-        markdown = read_markdown_file("pages/reference/Force-directed.md")
-        st.markdown(markdown, unsafe_allow_html=True)
+    if st.checkbox("Causal loop diagram"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/CLD.md")
+            st.markdown(markdown, unsafe_allow_html=True)
 
-    with st.expander("Chord diagram"):
-        markdown = read_markdown_file("pages/reference/Chord.md")
-        st.markdown(markdown, unsafe_allow_html=True)
+    if st.checkbox("Influence diagram (Force-Directed Graph)"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Force-directed.md")
+            st.markdown(markdown, unsafe_allow_html=True)
 
+    if st.checkbox("Chord diagram"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
 
+    st.subheader(':blue[Simplify Complexity]', divider="blue")
 
+    if st.checkbox("Submaps"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+    
+    st.subheader(":blue[Identify clusters]", divider="blue")
 
-
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
+    if st.checkbox("Dendograms (Hierarchical Clustering)"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
 
 
-st.sidebar.image(str(main_path.joinpath('pysm.png')), width=300)
+    st.divider()
+
+    st.markdown('## :red[*What are the main elements or drivers of the system?*]')
+
+    st.subheader(":blue[Node importance: Centrality measures]", divider="blue")
+
+    if st.checkbox("Degree centrality"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    if st.checkbox("In-degree centrality"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    if st.checkbox("Out-degree centrality"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    if st.checkbox("Closeness centrality"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    if st.checkbox("Betweenness centrality"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    if st.checkbox("Pagerank centrality"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    st.subheader(":blue[Centrality clustermaps]", divider="blue")
+
+    if st.checkbox("Clustermaps"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    st.subheader(":blue[Centrality archetypes]", divider="blue")
+
+
+    if st.checkbox("Radar plots"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    st.divider()
+
+    st.markdown('## :red[*What are the most strategic ways to intervene within a system?*]')
+
+    st.subheader(":blue[Controllability]", divider="blue")
+
+    if st.checkbox("Control Centrality"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    if st.checkbox("Robust controllability"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+    
+    if st.checkbox("Global controllability"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    st.subheader(":blue[Path Analysis]", divider="blue")
+
+    if st.checkbox("Intended and Unintended Consequences"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    st.subheader(":blue[Tradeoff Analysis]", divider="blue")
+
+    if st.checkbox("Interactive Parallel Plots"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    if st.checkbox("Exploratory Scenario Analysis (Diffusion Models)"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+    if st.checkbox("Multi-objective Optimisation (Genetic Algorithm)"):
+        with col2:
+            markdown = read_markdown_file("pages/reference/Chord.md")
+            st.markdown(markdown, unsafe_allow_html=True)
+
+
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+st.sidebar.markdown('#')
+
+
+st.sidebar.image(str(main_path.joinpath('pysm.png')),  use_column_width='always')
 
 
 

@@ -128,13 +128,13 @@ if analysis_choice_2:
         try:
             path = './streamlit/html_files'
             nt.save_graph(f'{path}/pyvis_graph.html')
-            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=2000, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord_graph.html')
+            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord_graph.html')
             HtmlFile = open(f'{path}/chord_graph.html','r',encoding='utf-8')
             
             # Save and read graph as HTML file (locally)
         except:
             path = 'html_files'
-            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=2000, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord_graph.html')
+            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord_graph.html')
             HtmlFile = open(f'{path}/chord_graph.html','r',encoding='utf-8')
 
                 # nt.show('G_factors_and_relationships.html')

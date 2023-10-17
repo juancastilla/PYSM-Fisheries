@@ -966,7 +966,6 @@ def controllability_multiple(G,subfactors_df):
 
     return cc.round(2)
 
-
 def plot_controllability_gauge(cc):
     
     fig = go.Figure(go.Indicator(
@@ -1349,7 +1348,7 @@ def plot_icucpaths(G,path_intended,path_unintended):
         HtmlFile = open('icucpaths.html','r',encoding='utf-8')
         components.html(HtmlFile.read(),height=700)
 
-### Tradeoff Analysis — Interactive Parallel Coordinate Plot
+### Tradeoff Analysis — Interactive Parallel Coordinate Plot ###
 
 def pcp_preprocess(PCP_rel_choice):
 
@@ -1884,14 +1883,12 @@ def evaluate(individual):
 
     return non_zero_tokens_percentage, area_under_curve
 
-
 # Define the individual
 def create_individual():
     nodes = [toolbox.node_attr() for _ in range(3)]
     token_allocations = [toolbox.token_attr() for _ in range(2)]
     token_allocations.append(100 - sum(token_allocations))
     return creator.Individual(nodes + token_allocations)
-
 
 def custom_mutate(individual, mu, sigma, indpb):
     # Mutate the nodes
@@ -1922,3 +1919,21 @@ def custom_crossover(ind1, ind2):
 
     return ind1, ind2
 
+# Color code the dataframe using pandas styler object
+
+def color_lowmedhigh(val):
+    color = 'lightgreen' if val == 'low' else 'lightyellow' if val == 'medium' else 'lightcoral'
+    return 'background-color: %s' % color
+
+def color_intervenable(val):
+    color = 'lightgreen' if val == 'yes' else 'red'
+    return 'background-color: %s' % color
+
+def color_interventions(val):
+    if val == 'None':
+        color = 'lightblue'
+    elif val == 'Active':
+        color = 'lightgreen'
+    else:
+        color = 'lightcoral'
+    return 'background-color: %s' % color

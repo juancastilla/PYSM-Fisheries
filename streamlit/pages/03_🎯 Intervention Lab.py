@@ -10,6 +10,8 @@ factors_df = factors_df.drop(['domain_id', 'short_name', 'predictability', 'meas
 factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
 factors_df['TOKENS'] = 0
 
+st.title(st.session_state.fishery)
+
 with st.expander('Force-directed plot'):
 
     st.title('Force-directed plot')
@@ -151,5 +153,16 @@ with st.expander('Optimisation Analysis'):
             # Create a lookup table
             lookup_table = pd.DataFrame({'Node Number': node_numbers, 'Node Name': node_names})
 
-            # Display the lookup table in Streamlit
-            st.table(lookup_table)
+        # Join lookup_table and factors_df
+        lookup_table['Node Number'] = lookup_table['Node Number'].astype('int64')
+        merged_df = pd.merge(lookup_table, st.session_state.df_factors, left_on='Node Number', right_on='factor_id')
+
+        # Select the required columns
+        selected_columns = merged_df[['Node Number', 'Node Name', 'controllability', 'level of knowledge', 'predictability', 'measurability cost', 'intervenable', 'Interventions']]
+
+        styled_df = selected_columns.style.applymap(color_lowmedhigh, subset=['controllability','level of knowledge', 'predictability', 'measurability cost']).\
+            applymap(color_intervenable, subset=['intervenable']).\
+                applymap(color_interventions, subset=['Interventions'])
+
+        # Display the styled dataframe in Streamlit
+        st.dataframe(styled_df)

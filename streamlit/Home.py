@@ -92,14 +92,9 @@ with st.sidebar:
     st.write("Matplotlib version:", matplotlib.__version__)
     st.write("Python version:", platform.python_version())
 
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
-st.sidebar.markdown('#')
 
-st.sidebar.image(str(main_path.joinpath('pysm.png')), width=300)
+
+st.sidebar.image(str(main_path.joinpath('pysm.png')), use_column_width='always')
 
 
 

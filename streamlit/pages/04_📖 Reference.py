@@ -28,7 +28,7 @@ with col1:
             st.markdown(markdown, unsafe_allow_html=True)
             st.divider()
 
-    st.subheader(':blue[Simplify Complexity]', divider="blue")
+    st.subheader(':blue[Reduce Complexity]', divider="blue")
 
     if st.checkbox("Submaps"):
         with col2:

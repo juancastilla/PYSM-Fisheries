@@ -166,3 +166,26 @@ with st.expander('Optimisation Analysis'):
 
         # Display the styled dataframe in Streamlit
         st.dataframe(styled_df)
+
+# import openai
+
+# openai.api_key = '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'
+
+# def generate_response(prompt):
+    
+#     completion = openai.Completion.create(
+#         engine="text-davinci-002",
+#         prompt=prompt,
+#         max_tokens=1024,
+#         n=1,
+#         stop=None,
+#         temperature=0.5,)
+    
+#     message = completion.choices[0].text
+#     return message.strip()
+
+# st.title("Chatbot with OpenAI GPT-3")
+# user_input = st.text_input("User Input")
+# if user_input:
+#     bot_response = generate_response(user_input)
+#     st.write("Bot Response: ", bot_response)

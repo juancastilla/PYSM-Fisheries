@@ -378,22 +378,14 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
     
     G=nx.empty_graph(create_using=nx.DiGraph())
 
+    # st.dataframe(st.session_state.df_factors)
+
     for index, row in st.session_state.df_factors.iterrows():
 
-        if row['domain_id'] == 0:
-            color = 'yellow'
-        if row['domain_id'] == 1:
-            color = 'cornflowerblue'
-        if row['domain_id'] == 2:
-            color = 'magenta'
-        if row['domain_id'] == 3:
-            color = 'lightcoral'
-        if row['domain_id'] == 4:
-            color = 'orange'
-        if row['domain_id'] == 5:
-            color = 'purple'
-
-        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'], color=color)
+        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'])
+    
+    # for node in G.nodes(data=True):
+    #     st.write(node)
 
     if CLD_rel_choice == 'All relationships':
 
@@ -468,7 +460,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
     
     if mode == 'display':
 
-        nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line', notebook=False)
+        nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line')
         nt.from_nx(G)
         nt.force_atlas_2based(gravity=-50)
         
@@ -488,24 +480,43 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
             
     #     """)
 
-        for node in nt.nodes:
 
-            if node['domain'] == 0:
+
+
+        # # Get the nodes in nt and G
+        # nt_nodes = set(node['id'] for node in nt.nodes)
+        # G_nodes = set(G.nodes)
+
+        # # Find the nodes that are in nt but not in G
+        # extra_nodes = nt_nodes - G_nodes
+
+        # st.text(G_nodes)
+
+        # # Remove the extra nodes from nt
+        # for node in extra_nodes:
+        #     nt.remove_node(node)
+
+        # for node in nt.nodes:
+        #     st.text(node)
+
+        for node in nt.nodes:
+            domain = node['domain']
+            if domain == 0:
                 node['color'] = 'yellow'
                 node['size'] = 40
-            if node['domain'] == 1:
+            elif domain == 1:
                 node['color'] = 'cornflowerblue'
                 node['size'] = 15
-            if node['domain'] == 2:
+            elif domain == 2:
                 node['color'] = 'magenta'
                 node['size'] = 15
-            if node['domain'] == 3:
+            elif domain == 3:
                 node['color'] = 'lightcoral'
                 node['size'] = 15
-            if node['domain'] == 4:
+            elif domain == 4:
                 node['color'] = 'orange'
                 node['size'] = 15
-            if node['domain'] == 5:
+            elif domain == 5:
                 node['color'] = 'purple'
                 node['size'] = 15
 

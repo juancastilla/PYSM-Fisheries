@@ -1885,9 +1885,7 @@ def evaluate(individual):
     # Calculate the sum of the area under the token count timeseries for the outcome nodes
 
     factors_df = st.session_state.df_factors
-    factors_df = factors_df.drop(['domain_id', 'predictability', 'measurability cost'], axis=1)
     factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
-    factors_df['TOKENS'] = 0
 
     outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
     area_under_curve = np.trapz(df_token_counts.loc[outcome_nodes].values, axis=1).sum()
@@ -1896,16 +1894,20 @@ def evaluate(individual):
 
 # Define the individual
 def create_individual():
-    nodes = [toolbox.node_attr() for _ in range(3)]
+    factors_df = st.session_state.df_factors
+    nodes = random.sample(factors_df[factors_df['intervenable'] == 'yes'].index.tolist(), 3)
     token_allocations = [toolbox.token_attr() for _ in range(2)]
     token_allocations.append(100 - sum(token_allocations))
     return creator.Individual(nodes + token_allocations)
 
 def custom_mutate(individual, mu, sigma, indpb):
+    factors_df = st.session_state.df_factors
     # Mutate the nodes
     for i in range(3):
         if random.random() < indpb:
-            individual[i] = toolbox.node_attr()
+            available_nodes = [n for n in factors_df[factors_df['intervenable'] == 'yes'].index.tolist() if n not in individual[:3]]
+            if available_nodes:  # only mutate if there are available nodes
+                individual[i] = random.choice(available_nodes)
 
     # Mutate the token allocations
     for i in range(3, 5):

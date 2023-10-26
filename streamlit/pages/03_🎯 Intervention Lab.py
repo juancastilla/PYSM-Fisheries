@@ -62,8 +62,8 @@ with st.expander('Optimisation Analysis'):
 
     options = st.multiselect(
     'What objectives do you want to optimise?',
-    ['Controllability', 'Effect on Outcome Nodes'],
-    ['Controllability', 'Effect on Outcome Nodes'])
+    ['Control', 'Effect'],
+    ['Control', 'Effect'])
 
     if st.button('Run optimisation', key='run_optimisation'):
 
@@ -71,11 +71,11 @@ with st.expander('Optimisation Analysis'):
 
             # Define the individual and population
             
-            if 'Controllability' in options and 'Effect on Outcome Nodes' in options:
+            if 'Control' in options and 'Effect' in options:
                 creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0))
-            elif 'Controllability' in options and 'Effect on Outcome Nodes' not in options:
+            elif 'Control' in options and 'Effect' not in options:
                 creator.create("FitnessMax", base.Fitness, weights=(1.0, 0.0))
-            elif 'Effect on Outcome Nodes' in options and 'Controllability' not in options:
+            elif 'Effect' in options and 'Control' not in options:
                 creator.create("FitnessMax", base.Fitness, weights=(0.0, 1.0))
             creator.create("Individual", list, fitness=creator.FitnessMax)
             
@@ -117,13 +117,7 @@ with st.expander('Optimisation Analysis'):
 
             # Create the plot
             plt.figure(figsize=(10, 5))
-            if 'Controllability' in options and 'Effect on Outcome Nodes' in options:
-                plt.plot(avg_fitness_values, label=['Controllability','Effect on Outcome Nodes'])
-            elif 'Controllability' in options and 'Effect on Outcome Nodes' not in options:
-                plt.plot(avg_fitness_values, label=['Controllability',''])
-            elif 'Effect on Outcome Nodes' in options and 'Controllability' not in options:
-                plt.plot(avg_fitness_values, label=['','Effect on Outcome Nodes'])
-
+            plt.plot(avg_fitness_values, label=['Controllability','Effect on Outcome Nodes'])
             plt.xlabel('Generation')
             plt.ylabel('Fitness')
             plt.title('Fitness Evolution')
@@ -139,9 +133,9 @@ with st.expander('Optimisation Analysis'):
 
             # Create a list of solutions
             solutions = [{"Intervention Nodes": str(ind[:3]), 
-                        "Intervention Effort": str(ind[3:]), 
-                        "Controllability": str(round(ind.fitness.values[0], 1)), 
-                        "Effect on Outcome Nodes": str(round(ind.fitness.values[1], 1))} for ind in hof]
+                        "Effort": str(ind[3:]), 
+                        "Control": str(round(ind.fitness.values[0], 1)), 
+                        "Effect": str(round(ind.fitness.values[1], 1))} for ind in hof]
 
             # Display the solutions in a table
             st.table(pd.DataFrame(solutions))

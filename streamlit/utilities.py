@@ -1869,7 +1869,7 @@ def evaluate(individual):
 
     # Ensure the token allocations sum to 100
     if sum(token_allocations) != 100:
-        return -np.inf, -np.inf
+        return -np.inf, -np.inf, -np.inf
 
     # Create the initial tokens dictionary
     initial_tokens = {node: allocation for node, allocation in zip(nodes, token_allocations)}
@@ -1883,14 +1883,23 @@ def evaluate(individual):
     non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
 
     # Calculate the sum of the area under the token count timeseries for the outcome nodes
-
     factors_df = st.session_state.df_factors
     factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
-
     outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
     area_under_curve = np.trapz(df_token_counts.loc[outcome_nodes].values, axis=1).sum()
 
-    return non_zero_tokens_percentage, area_under_curve
+    # Calculate the viability objective
+    score_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
+    measurability_cost_mapping = {'low': 4, 'medium': 2, 'high': 1}
+    score = 0
+    for node in nodes:
+        node_data = factors_df.loc[node]
+        score += score_mapping[node_data['controllability']]
+        score += score_mapping[node_data['level of knowledge']]
+        score += score_mapping[node_data['predictability']]
+        score += measurability_cost_mapping[node_data['measurability cost']]
+
+    return non_zero_tokens_percentage, area_under_curve, score
 
 # Define the individual
 def create_individual():

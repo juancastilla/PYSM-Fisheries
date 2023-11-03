@@ -19,8 +19,9 @@ with st.expander('Force-directed plot'):
     relationships_filter = st.selectbox('Select relationships:', ['All relationships','Strong only'])
     domains_to_keep = st.multiselect('Select domains:', factors_df['domain_name'].unique().tolist(), default=factors_df['domain_name'].unique().tolist())
     domains_to_remove = factors_df[~factors_df['domain_name'].isin(domains_to_keep)]['domain_id'].tolist()
+    intervenable_filter = st.selectbox('Select intervenable factors:', ['All factors','Intervenable Only'])
 
-    G=plot_relationships_interventionlab(relationships_filter,True,'display', domains_to_remove)
+    G=plot_relationships_interventionlab(relationships_filter,True,'display', domains_to_remove, intervenable_filter)
 
 col1, col2 = st.columns(2)
 

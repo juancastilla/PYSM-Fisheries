@@ -681,7 +681,7 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
     # save_graph(G_sub)
     return G_sub   
     
-def plot_relationships_interventionlab(CLD_rel_choice,CLD_isolates_choice,mode, domains_to_remove):
+def plot_relationships_interventionlab(CLD_rel_choice,CLD_isolates_choice,mode, domains_to_remove, intervenable_filter):
     
     G=nx.empty_graph(create_using=nx.DiGraph())
 
@@ -689,7 +689,7 @@ def plot_relationships_interventionlab(CLD_rel_choice,CLD_isolates_choice,mode, 
 
     for index, row in st.session_state.df_factors.iterrows():
 
-        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'])
+        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'], intervenable=row['intervenable'])
     
     # for node in G.nodes(data=True):
     #     st.write(node)
@@ -765,6 +765,9 @@ def plot_relationships_interventionlab(CLD_rel_choice,CLD_isolates_choice,mode, 
     # else:
     #     nt = net.Network(width='2000px', height='1800px', directed=True)
     
+    if intervenable_filter == 'Intervenable Only':
+        G.remove_nodes_from([node for node, attr in G.nodes(data=True) if attr['intervenable'] == 'no'])
+
     nodes_to_remove = [node for node, attr in G.nodes(data=True) if attr['domain'] in domains_to_remove]
     G.remove_nodes_from(nodes_to_remove)
 

@@ -6,7 +6,7 @@ load_domains(st.session_state.sheet_id)
 G=plot_relationships('All relationships',True,'no_display')
 
 factors_df = st.session_state.df_factors
-factors_df = factors_df.drop(['domain_id', 'short_name', 'predictability', 'measurability cost'], axis=1)
+factors_df = factors_df.drop(['short_name', 'predictability', 'measurability cost'], axis=1)
 factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
 factors_df['TOKENS'] = 0
 
@@ -16,7 +16,11 @@ with st.expander('Force-directed plot'):
 
     st.title('Force-directed plot')
 
-    G=plot_relationships('All relationships',True,'display')
+    relationships_filter = st.selectbox('Select relationships:', ['All relationships','Strong only'])
+    domains_to_keep = st.multiselect('Select domains:', factors_df['domain_name'].unique().tolist(), default=factors_df['domain_name'].unique().tolist())
+    domains_to_remove = factors_df[~factors_df['domain_name'].isin(domains_to_keep)]['domain_id'].tolist()
+
+    G=plot_relationships_interventionlab(relationships_filter,True,'display', domains_to_remove)
 
 col1, col2 = st.columns(2)
 
@@ -29,11 +33,11 @@ with col1:
         edited_df = st.data_editor(factors_df, use_container_width=False, height=1750, key='case1')
         token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
         log_scale = st.checkbox('Use log scale?', key='log_scale_1')
-        diffusion_model = st.selectbox('Choose a diffusion model:', ('Pulse diffusion', 'Flow diffusion'), key='diffusion_model_1')
+        diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_1')
 
         if st.button('Run simulation', key='run_simulation_1'):
 
-            if diffusion_model == 'Pulse diffusion':
+            if diffusion_model == 'one-time investment':
                 pulse_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
             else:
                 flow_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
@@ -47,11 +51,11 @@ with col2:
         edited_df = st.data_editor(factors_df, use_container_width=False, height=1750, key='case2')
         token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
         log_scale = st.checkbox('Use log scale?', key='log_scale_2')
-        diffusion_model = st.selectbox('Choose a diffusion model:', ('Pulse diffusion', 'Flow diffusion'), key='diffusion_model_2')
+        diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_2')
 
         if st.button('Run simulation', key='run_simulation_2'):
 
-            if diffusion_model == 'Pulse diffusion':
+            if diffusion_model == 'one-time investment':
                 pulse_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
             else:
                 flow_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)

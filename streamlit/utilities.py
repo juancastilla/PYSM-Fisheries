@@ -681,6 +681,174 @@ def plot_relationships_submaps(SUBMAP_rel_choice, SUBMAP_steps_choice, selected_
     # save_graph(G_sub)
     return G_sub   
     
+def plot_relationships_interventionlab(CLD_rel_choice,CLD_isolates_choice,mode, domains_to_remove):
+    
+    G=nx.empty_graph(create_using=nx.DiGraph())
+
+    # st.dataframe(st.session_state.df_factors)
+
+    for index, row in st.session_state.df_factors.iterrows():
+
+        G.add_node(row['factor_id'], label=row['long_name'], domain=row['domain_id'])
+    
+    # for node in G.nodes(data=True):
+    #     st.write(node)
+
+    if CLD_rel_choice == 'All relationships':
+
+        for index, row in st.session_state.df_relationships.iterrows():
+
+            edge_from = row['from_factor_id']
+            edge_to = row['to_factor_id']
+            polarity = row['polarity']
+            
+            if polarity == 'positive': 
+                title = 'positive'
+                edge_color = 'lightgreen'  # choose your color for positive polarity
+            if polarity == 'negative': 
+                title = 'negative'
+                edge_color = 'lightcoral'  # choose your color for negative polarity
+
+            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
+                weight=0.1
+                distance = 1/weight
+                strength='weak'
+            if row['strength']=='medium': 
+                weight=4
+                distance = 1/weight
+                strength='medium'
+            if row['strength']=='strong': 
+                weight=10
+                distance = 1/weight
+                strength='strong'
+
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
+
+    if CLD_rel_choice == 'Strong only':
+
+        for index, row in st.session_state.df_relationships_S.iterrows():
+
+            edge_from = row['from_factor_id']
+            edge_to = row['to_factor_id']
+            polarity = row['polarity']
+            
+            if polarity == 'positive': 
+                title = 'positive'
+                edge_color = 'lightgreen'  # choose your color for positive polarity
+            if polarity == 'negative': 
+                title = 'negative'
+                edge_color = 'lightcoral'  # choose your color for negative polarity
+
+            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
+                weight=0.1
+                distance = 1/weight
+                strength='weak'
+            if row['strength']=='medium': 
+                weight=4
+                distance = 1/weight
+                strength='medium'
+            if row['strength']=='strong': 
+                weight=10
+                distance = 1/weight
+                strength='strong'
+
+            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
+
+    if CLD_isolates_choice == True:
+        G.remove_nodes_from(list(nx.isolates(G)))
+        # largest = max(nx.weakly_connected_components(G), key=len)
+        # G = G.subgraph(largest) # largest connected component subgraph
+
+    # physics = st.checkbox('Show physics?')
+    # if physics:
+    #     nt = net.Network(width='1500px', height='1800px', directed=True)
+    # else:
+    #     nt = net.Network(width='2000px', height='1800px', directed=True)
+    
+    nodes_to_remove = [node for node, attr in G.nodes(data=True) if attr['domain'] in domains_to_remove]
+    G.remove_nodes_from(nodes_to_remove)
+
+    if mode == 'display':
+
+        nt = net.Network(width='2500px', height='1800px', directed=True, select_menu=True, filter_menu=True, cdn_resources='in_line')
+        nt.from_nx(G)
+        nt.force_atlas_2based(gravity=-50)
+        
+        # if physics:
+        #     nt.show_buttons(filter_=['physics'])
+        nt.inherit_edge_colors(False)
+    #     nt.set_options("""
+    #     var options = {
+    #   "physics": {
+    #     "forceAtlas2Based": {
+    #       "springLength": 100
+    #     },
+    #     "minVelocity": 0.75,
+    #     "solver": "forceAtlas2Based"
+    #   }
+    # }
+            
+    #     """)
+
+
+
+
+        # # Get the nodes in nt and G
+        # nt_nodes = set(node['id'] for node in nt.nodes)
+        # G_nodes = set(G.nodes)
+
+        # # Find the nodes that are in nt but not in G
+        # extra_nodes = nt_nodes - G_nodes
+
+        # st.text(G_nodes)
+
+        # # Remove the extra nodes from nt
+        # for node in extra_nodes:
+        #     nt.remove_node(node)
+
+        # for node in nt.nodes:
+        #     st.text(node)
+
+        for node in nt.nodes:
+            domain = node['domain']
+            if domain == 0:
+                node['color'] = 'yellow'
+                node['size'] = 40
+            elif domain == 1:
+                node['color'] = 'cornflowerblue'
+                node['size'] = 15
+            elif domain == 2:
+                node['color'] = 'magenta'
+                node['size'] = 15
+            elif domain == 3:
+                node['color'] = 'lightcoral'
+                node['size'] = 15
+            elif domain == 4:
+                node['color'] = 'orange'
+                node['size'] = 15
+            elif domain == 5:
+                node['color'] = 'purple'
+                node['size'] = 15
+
+        # Save and read graph as HTML file (on Streamlit Sharing)
+        try:
+            path = './streamlit/html_files'
+            nt.save_graph(f'{path}/pyvis_graph.html')
+            HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+            
+            # Save and read graph as HTML file (locally)
+        except:
+            path = 'html_files'
+            nt.save_graph(f'{path}/pyvis_graph.html')
+            HtmlFile = open(f'{path}/pyvis_graph.html','r',encoding='utf-8')
+
+                # nt.show('G_factors_and_relationships.html')
+                # HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
+        components.html(HtmlFile.read(),height=1800)
+                # save_graph(G)
+
+    return G  
+
 ###############################
 ########## ANALYSIS ###########
 ###############################
@@ -1889,15 +2057,19 @@ def evaluate(individual):
     area_under_curve = np.trapz(df_token_counts.loc[outcome_nodes].values, axis=1).sum()
 
     # Calculate the viability objective
-    score_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
-    measurability_cost_mapping = {'low': 4, 'medium': 2, 'high': 1}
+    controllability_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
+    knowledge_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
+    predictability_mapping = {'low': 1, 'medium': 2, 'high': 3, 'uncontrollable':0}
+    measurability_cost_mapping = {'low': 3, 'medium': 2, 'high': 1}
+    opportunity_mapping = {'Active': 1, 'Potential': 2, 'None': 4}
     score = 0
     for node in nodes:
         node_data = factors_df.loc[node]
-        score += score_mapping[node_data['controllability']]
-        score += score_mapping[node_data['level of knowledge']]
-        score += score_mapping[node_data['predictability']]
+        score += controllability_mapping[node_data['controllability']]
+        score += knowledge_mapping[node_data['level of knowledge']]
+        score += predictability_mapping[node_data['predictability']]
         score += measurability_cost_mapping[node_data['measurability cost']]
+        score += opportunity_mapping[node_data['Interventions']]
 
     return non_zero_tokens_percentage, area_under_curve, score
 

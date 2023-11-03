@@ -31,7 +31,8 @@ with col1:
         
         st.title('Exploratory Scenario Analysis')
 
-        edited_df = st.data_editor(factors_df, use_container_width=False, height=1750, key='case1')
+        factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "Interventions", "intervenable", "domain_name"]]
+        edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='case1')
         token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
         log_scale = st.checkbox('Use log scale?', key='log_scale_1')
         diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_1')
@@ -49,7 +50,8 @@ with col2:
         
         st.title('Exploratory Scenario Analysis')
 
-        edited_df = st.data_editor(factors_df, use_container_width=False, height=1750, key='case2')
+        factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "Interventions", "intervenable", "domain_name"]]
+        edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='case2')
         token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
         log_scale = st.checkbox('Use log scale?', key='log_scale_2')
         diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_2')

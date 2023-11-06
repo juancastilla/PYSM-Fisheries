@@ -67,8 +67,12 @@ with st.expander('Optimisation Analysis'):
 
     st.title('Optimisation Analysis')
 
+    outcome_node_options = factors_df[factors_df['OUTCOME NODE'] == True]['long_name'].tolist()
+    selected_outcome_nodes = st.multiselect('Select outcome nodes (these will be used to quantify the "Effect" objective of potential interventions):', factors_df['long_name'].tolist(), default=outcome_node_options)
+    factors_df['OUTCOME NODE'] = factors_df['long_name'].apply(lambda x: True if x in selected_outcome_nodes else False)
+
     options = st.multiselect(
-    'What objectives do you want to optimise?',
+    'What objectives would you like to optimise?',
     ['Control', 'Effect', 'Viability'],
     ['Control', 'Effect', 'Viability'])
 

@@ -764,12 +764,12 @@ def plot_relationships_interventionlab(CLD_rel_choice,CLD_isolates_choice,mode, 
     #     nt = net.Network(width='1500px', height='1800px', directed=True)
     # else:
     #     nt = net.Network(width='2000px', height='1800px', directed=True)
-    
-    if intervenable_filter == 'Intervenable Only':
-        G.remove_nodes_from([node for node, attr in G.nodes(data=True) if attr['intervenable'] == 'no'])
 
     nodes_to_remove = [node for node, attr in G.nodes(data=True) if attr['domain'] in domains_to_remove]
     G.remove_nodes_from(nodes_to_remove)
+
+    if intervenable_filter == 'Intervenable Only':
+        G.remove_nodes_from([node for node, attr in G.nodes(data=True) if attr['intervenable'] == 'no'])
 
     if mode == 'display':
 

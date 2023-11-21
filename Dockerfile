@@ -1,5 +1,5 @@
 #Set base image in Python 3.10
-FROM python:3.10
+FROM python:3.11
 
 #Set working directory
 WORKDIR /app
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 #Clone repo
-RUN git clone https://juancastilla@github.com/juancastilla/PYSM-Fisheries.git .
+RUN git clone https://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@github.com/juancastilla/PYSM-Fisheries.git .
 
 #Install re
 RUN pip3 install -r requirements.txt
@@ -25,4 +25,4 @@ EXPOSE 8501
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
 #Run Streamlit application
-CMD streamlit run ./streamlit/Home.py
+ENTRYPOINT ["streamlit", "run", "Home.py", "--server.port=8501", "--server.address=0.0.0.0"]

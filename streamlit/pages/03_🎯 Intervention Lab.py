@@ -40,9 +40,9 @@ with col1:
         if st.button('Run simulation', key='run_simulation_1'):
 
             if diffusion_model == 'one-time investment':
-                pulse_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
+                pulse_diffusion_network_model(G, token_dict, 40, edited_df, log_scale)
             else:
-                flow_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
+                flow_diffusion_network_model(G, token_dict, 40, edited_df, log_scale)
 
 with col2:
 
@@ -59,9 +59,9 @@ with col2:
         if st.button('Run simulation', key='run_simulation_2'):
 
             if diffusion_model == 'one-time investment':
-                pulse_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
+                pulse_diffusion_network_model(G, token_dict, 40, edited_df, log_scale)
             else:
-                flow_diffusion_network_model(G, token_dict, 50, edited_df, log_scale)
+                flow_diffusion_network_model(G, token_dict, 40, edited_df, log_scale)
 
 with st.expander('Optimisation Analysis'):
 

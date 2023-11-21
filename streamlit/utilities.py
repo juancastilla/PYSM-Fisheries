@@ -1827,7 +1827,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         fig, ax = plt.subplots(figsize=(12, 6))
         for outcome_node in outcome_nodes:
             # Compute a moving average with a window size of 5
-            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=5).mean()
+            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=1).mean()
             ax.plot(smoothed_token_counts, label=outcome_node)
         plt.xlabel('Time step')
         plt.ylabel('Token count')
@@ -1846,7 +1846,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     st.markdown("#### Causal effects of this intervention package on all nodes (outcome nodes highlighted in red))")
 
     fig, ax = plt.subplots(figsize=(12, 12))
-    sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 5}, cbar=False)
+    sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False)
 
     # Highlight outcome nodes in red
     for label in ax.get_yticklabels():

@@ -2134,3 +2134,5 @@ def color_interventions(val):
     else:
         color = 'lightcoral'
     return 'background-color: %s' % color
+
+

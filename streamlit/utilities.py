@@ -1751,7 +1751,7 @@ def save_graph(G):
 
 ### DIFFUSION MODELS ###
 
-def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=False):
+def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=False, rolling_window=1, vertical=False, case=''):
     # Define the strength to weight mapping
     strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
 
@@ -1799,10 +1799,52 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Calculate the percentage of nodes with non-zero token counts
     non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
 
-    col1,col2 = st.columns(2)
+    if vertical==False:
 
-    with col1:
+        col1,col2 = st.columns(2)
 
+        with col1:
+
+            st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
+
+            # Create a gauge chart
+            fig = go.Figure(go.Indicator(
+                mode="gauge+number",
+                value=non_zero_tokens_percentage.mean(),
+                number={'suffix': "%"},  # Add a '%' suffix to the number displayed
+                gauge={'axis': {'range': [None, 100]}}
+            ))
+
+            # Display the gauge chart in Streamlit
+            st.plotly_chart(fig, use_container_width=True)
+
+        # Identify outcome nodes
+        outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
+
+        with col2:
+        
+            st.markdown("#### Causal effects of this intervention package on outcome nodes")
+
+            # Create a line plot for the outcome nodes
+            fig, ax = plt.subplots(figsize=(12, 6))
+            for outcome_node in outcome_nodes:
+                # Compute a moving average with a window size of 5
+                smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
+                ax.plot(smoothed_token_counts, label=outcome_node)
+            plt.xlabel('Time step')
+            plt.ylabel('Token count')
+            plt.legend()
+            plt.grid(True)
+
+            # Display the line plot in Streamlit
+            st.pyplot(fig)
+
+        # Apply log scale if log_scale is True
+        if log_scale:
+            df_token_counts = np.log1p(df_token_counts)
+    
+    if vertical==True:
+    
         st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
 
         # Create a gauge chart
@@ -1816,34 +1858,35 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         # Display the gauge chart in Streamlit
         st.plotly_chart(fig, use_container_width=True)
 
-    # Identify outcome nodes
-    outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
-
-    with col2:
-    
         st.markdown("#### Causal effects of this intervention package on outcome nodes")
+
+        # Identify outcome nodes
+        outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
 
         # Create a line plot for the outcome nodes
         fig, ax = plt.subplots(figsize=(12, 6))
         for outcome_node in outcome_nodes:
             # Compute a moving average with a window size of 5
-            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=1).mean()
+            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
             ax.plot(smoothed_token_counts, label=outcome_node)
         plt.xlabel('Time step')
         plt.ylabel('Token count')
         plt.legend()
         plt.grid(True)
 
+        # Set y-axis limits
+        ax.set_ylim([0, 50])
+
         # Display the line plot in Streamlit
         st.pyplot(fig)
-
-    # Apply log scale if log_scale is True
-    if log_scale:
-        df_token_counts = np.log1p(df_token_counts)
 
     # Create a heatmap of the token counts
 
     st.markdown("#### Causal effects of this intervention package on all nodes (outcome nodes highlighted in red))")
+
+    # Apply log scale if log_scale is True
+    if log_scale:
+        df_token_counts = np.log1p(df_token_counts)
 
     fig, ax = plt.subplots(figsize=(12, 12))
     sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False)
@@ -1858,6 +1901,40 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
     # Display the plot in Streamlit
     st.pyplot(fig)
+
+    if case == 'case1':
+        st.session_state.df_token_counts_1 = df_token_counts
+
+    if case == 'case2':
+        st.session_state.df_token_counts_2 = df_token_counts
+
+    if vertical==False:
+
+        # Determine the number of rows for the subplots
+        num_rows = int(np.ceil(len(df_token_counts) / 3))
+
+        # Create a new figure with subplots
+        fig, axs = plt.subplots(num_rows, 3, figsize=(20, 4*num_rows))
+
+        # Flatten the axes array
+        axs = axs.flatten()
+
+        # Iterate over each row in the DataFrame
+        for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
+            ax.plot(row)
+            ax.set_title(index, fontsize=20)  # Increase plot title font
+            ax.set_xlabel('Time step')
+            ax.set_ylabel('Token count')
+
+        # Remove unused subplots
+        for ax in axs[len(df_token_counts):]:
+            fig.delaxes(ax)
+
+        # Adjust the layout
+        plt.tight_layout()
+
+        # Display the plot in Streamlit
+        st.pyplot(fig)
 
     return tokens
 
@@ -2057,7 +2134,10 @@ def evaluate(individual):
     factors_df = st.session_state.df_factors
     factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
     outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
+    # Calculate the area under the curve for all timesteps
     area_under_curve = np.trapz(df_token_counts.loc[outcome_nodes].values, axis=1).sum()
+    # Calculate the area under the curve for the first 10 timesteps only
+    area_under_curve_first_10 = np.trapz(df_token_counts.loc[outcome_nodes].values[:,:10], axis=1).sum()
 
     # Calculate the viability objective
     controllability_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
@@ -2074,7 +2154,7 @@ def evaluate(individual):
         score += measurability_cost_mapping[node_data['measurability cost']]
         score += opportunity_mapping[node_data['Interventions']]
 
-    return non_zero_tokens_percentage, area_under_curve, score
+    return non_zero_tokens_percentage, area_under_curve, score, area_under_curve_first_10
 
 # Define the individual
 def create_individual():
@@ -2134,3 +2214,5 @@ def color_interventions(val):
     else:
         color = 'lightcoral'
     return 'background-color: %s' % color
+
+

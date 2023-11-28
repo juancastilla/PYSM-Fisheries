@@ -2134,7 +2134,10 @@ def evaluate(individual):
     factors_df = st.session_state.df_factors
     factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
     outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
+    # Calculate the area under the curve for all timesteps
     area_under_curve = np.trapz(df_token_counts.loc[outcome_nodes].values, axis=1).sum()
+    # Calculate the area under the curve for the first 10 timesteps only
+    area_under_curve_first_10 = np.trapz(df_token_counts.loc[outcome_nodes].values[:,:10], axis=1).sum()
 
     # Calculate the viability objective
     controllability_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
@@ -2151,7 +2154,7 @@ def evaluate(individual):
         score += measurability_cost_mapping[node_data['measurability cost']]
         score += opportunity_mapping[node_data['Interventions']]
 
-    return non_zero_tokens_percentage, area_under_curve, score
+    return non_zero_tokens_percentage, area_under_curve, score, area_under_curve_first_10
 
 # Define the individual
 def create_individual():

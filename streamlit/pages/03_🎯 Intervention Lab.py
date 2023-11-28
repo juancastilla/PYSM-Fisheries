@@ -160,8 +160,8 @@ with st.expander('Optimisation Analysis'):
 
     options = st.multiselect(
     'What objectives would you like to optimise?',
-    ['Control', 'Effect', 'Viability'],
-    ['Control', 'Effect', 'Viability'])
+    ['Control', 'Effect', 'Effect (short term)', 'Viability'],
+    ['Control', 'Effect', 'Effect (short term)', 'Viability'])
 
     if st.button('Run optimisation', key='run_optimisation'):
 
@@ -169,20 +169,34 @@ with st.expander('Optimisation Analysis'):
 
             # Define the individual and population
             
-            if 'Control' in options and 'Effect' in options and 'Viability' in options:
-                creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0, 1.0))
-            elif 'Control' in options and 'Effect' in options and 'Viability' not in options:
-                creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0, -np.inf))
-            elif 'Control' in options and 'Effect' not in options and 'Viability' in options:
-                creator.create("FitnessMax", base.Fitness, weights=(1.0, -np.inf, 1.0))
-            elif 'Control' not in options and 'Effect' in options and 'Viability' in options:
-                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, 1.0, 1.0))
-            elif 'Control' in options and 'Effect' not in options and 'Viability' not in options:
-                creator.create("FitnessMax", base.Fitness, weights=(1.0, -np.inf, -np.inf))
-            elif 'Control' not in options and 'Effect' in options and 'Viability' not in options:
-                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, 1.0, -np.inf))
-            elif 'Control' not in options and 'Effect' not in options and 'Viability' in options:
-                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, -np.inf, 1.0))
+            if 'Control' in options and 'Effect' in options and 'Viability' in options and 'Effect (short term)' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0, 1.0, 1.0))
+            elif 'Control' in options and 'Effect' in options and 'Viability' not in options and 'Effect (short term)' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0, -np.inf, 1.0))
+            elif 'Control' in options and 'Effect' not in options and 'Viability' in options and 'Effect (short term)' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, -np.inf, 1.0, 1.0))
+            elif 'Control' not in options and 'Effect' in options and 'Viability' in options and 'Effect (short term)' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, 1.0, 1.0, 1.0))
+            elif 'Control' in options and 'Effect' not in options and 'Viability' not in options and 'Effect (short term)' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, -np.inf, -np.inf, 1.0))
+            elif 'Control' not in options and 'Effect' in options and 'Viability' not in options and 'Effect (short term)' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, 1.0, -np.inf, 1.0))
+            elif 'Control' not in options and 'Effect' not in options and 'Viability' in options and 'Effect (short term)' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, -np.inf, 1.0, 1.0))
+            elif 'Control' in options and 'Effect' in options and 'Viability' in options and 'Effect (short term)' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0, 1.0, -np.inf))
+            elif 'Control' in options and 'Effect' not in options and 'Viability' in options and 'Effect (short term)' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, -np.inf, 1.0, -np.inf))
+            elif 'Control' not in options and 'Effect' in options and 'Viability' in options and 'Effect (short term)' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, 1.0, 1.0, -np.inf))
+            elif 'Control' in options and 'Effect' not in options and 'Viability' not in options and 'Effect (short term)' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, -np.inf, -np.inf, -np.inf))
+            elif 'Control' not in options and 'Effect' in options and 'Viability' not in options and 'Effect (short term)' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, 1.0, -np.inf, -np.inf))
+            elif 'Control' not in options and 'Effect' not in options and 'Viability' in options and 'Effect (short term)' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, -np.inf, 1.0, -np.inf))
+            elif 'Control' not in options and 'Effect' not in options and 'Viability' not in options and 'Effect (short term)' in options:
+                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, -np.inf, -np.inf, 1.0))
             
             creator.create("Individual", list, fitness=creator.FitnessMax)
             
@@ -224,7 +238,7 @@ with st.expander('Optimisation Analysis'):
 
             # Create the plot
             plt.figure(figsize=(10, 5))
-            plt.plot(avg_fitness_values, label=['Control','Effect', 'Viability'])
+            plt.plot(avg_fitness_values, label=['Control','Effect', 'Viability', 'Effect (short term)'])
             plt.xlabel('Generation')
             plt.ylabel('Fitness')
             plt.title('Fitness Evolution')
@@ -243,7 +257,9 @@ with st.expander('Optimisation Analysis'):
                         "Effort": str(ind[3:]), 
                         "Control": str(round(ind.fitness.values[0], 1)), 
                         "Effect": str(round(ind.fitness.values[1], 1)),
-                        "Viability": str(round(ind.fitness.values[2], 1))} for ind in hof]
+                        "Viability": str(round(ind.fitness.values[2], 1)),
+                        "Effect (short term)": str(round(ind.fitness.values[3], 1))
+                        } for ind in hof]
 
             # Display the solutions in a table
             st.table(pd.DataFrame(solutions))

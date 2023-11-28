@@ -391,61 +391,65 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
 
         for index, row in st.session_state.df_relationships.iterrows():
 
-            edge_from = row['from_factor_id']
-            edge_to = row['to_factor_id']
-            polarity = row['polarity']
-            
-            if polarity == 'positive': 
-                title = 'positive'
-                edge_color = 'lightgreen'  # choose your color for positive polarity
-            if polarity == 'negative': 
-                title = 'negative'
-                edge_color = 'lightcoral'  # choose your color for negative polarity
+            if row['strength']!='uncertain':
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-                weight=0.1
-                distance = 1/weight
-                strength='weak'
-            if row['strength']=='medium': 
-                weight=4
-                distance = 1/weight
-                strength='medium'
-            if row['strength']=='strong': 
-                weight=10
-                distance = 1/weight
-                strength='strong'
+                edge_from = row['from_factor_id']
+                edge_to = row['to_factor_id']
+                polarity = row['polarity']
+                
+                if polarity == 'positive': 
+                    title = 'positive'
+                    edge_color = 'lightgreen'  # choose your color for positive polarity
+                if polarity == 'negative': 
+                    title = 'negative'
+                    edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
+                if row['strength']=='weak': 
+                    weight=0.1
+                    distance = 1/weight
+                    strength='weak'
+                if row['strength']=='medium': 
+                    weight=4
+                    distance = 1/weight
+                    strength='medium'
+                if row['strength']=='strong': 
+                    weight=10
+                    distance = 1/weight
+                    strength='strong'
+
+                G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
 
     if CLD_rel_choice == 'Strong only':
 
         for index, row in st.session_state.df_relationships_S.iterrows():
 
-            edge_from = row['from_factor_id']
-            edge_to = row['to_factor_id']
-            polarity = row['polarity']
-            
-            if polarity == 'positive': 
-                title = 'positive'
-                edge_color = 'lightgreen'  # choose your color for positive polarity
-            if polarity == 'negative': 
-                title = 'negative'
-                edge_color = 'lightcoral'  # choose your color for negative polarity
+            if row['strength']!='uncertain':
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-                weight=0.1
-                distance = 1/weight
-                strength='weak'
-            if row['strength']=='medium': 
-                weight=4
-                distance = 1/weight
-                strength='medium'
-            if row['strength']=='strong': 
-                weight=10
-                distance = 1/weight
-                strength='strong'
+                edge_from = row['from_factor_id']
+                edge_to = row['to_factor_id']
+                polarity = row['polarity']
+                
+                if polarity == 'positive': 
+                    title = 'positive'
+                    edge_color = 'lightgreen'  # choose your color for positive polarity
+                if polarity == 'negative': 
+                    title = 'negative'
+                    edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
+                if row['strength']=='weak': 
+                    weight=0.1
+                    distance = 1/weight
+                    strength='weak'
+                if row['strength']=='medium': 
+                    weight=4
+                    distance = 1/weight
+                    strength='medium'
+                if row['strength']=='strong': 
+                    weight=10
+                    distance = 1/weight
+                    strength='strong'
+
+                G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
 
     if CLD_isolates_choice == True:
         G.remove_nodes_from(list(nx.isolates(G)))
@@ -698,61 +702,65 @@ def plot_relationships_interventionlab(CLD_rel_choice,CLD_isolates_choice,mode, 
 
         for index, row in st.session_state.df_relationships.iterrows():
 
-            edge_from = row['from_factor_id']
-            edge_to = row['to_factor_id']
-            polarity = row['polarity']
-            
-            if polarity == 'positive': 
-                title = 'positive'
-                edge_color = 'lightgreen'  # choose your color for positive polarity
-            if polarity == 'negative': 
-                title = 'negative'
-                edge_color = 'lightcoral'  # choose your color for negative polarity
+            if row['strength']!='uncertain':
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-                weight=0.1
-                distance = 1/weight
-                strength='weak'
-            if row['strength']=='medium': 
-                weight=4
-                distance = 1/weight
-                strength='medium'
-            if row['strength']=='strong': 
-                weight=10
-                distance = 1/weight
-                strength='strong'
+                edge_from = row['from_factor_id']
+                edge_to = row['to_factor_id']
+                polarity = row['polarity']
+                
+                if polarity == 'positive': 
+                    title = 'positive'
+                    edge_color = 'lightgreen'  # choose your color for positive polarity
+                if polarity == 'negative': 
+                    title = 'negative'
+                    edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
+                if row['strength']=='weak': 
+                    weight=0.1
+                    distance = 1/weight
+                    strength='weak'
+                if row['strength']=='medium': 
+                    weight=4
+                    distance = 1/weight
+                    strength='medium'
+                if row['strength']=='strong': 
+                    weight=10
+                    distance = 1/weight
+                    strength='strong'
+
+                G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
 
     if CLD_rel_choice == 'Strong only':
 
         for index, row in st.session_state.df_relationships_S.iterrows():
 
-            edge_from = row['from_factor_id']
-            edge_to = row['to_factor_id']
-            polarity = row['polarity']
-            
-            if polarity == 'positive': 
-                title = 'positive'
-                edge_color = 'lightgreen'  # choose your color for positive polarity
-            if polarity == 'negative': 
-                title = 'negative'
-                edge_color = 'lightcoral'  # choose your color for negative polarity
+            if row['strength']!='uncertain':
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-                weight=0.1
-                distance = 1/weight
-                strength='weak'
-            if row['strength']=='medium': 
-                weight=4
-                distance = 1/weight
-                strength='medium'
-            if row['strength']=='strong': 
-                weight=10
-                distance = 1/weight
-                strength='strong'
+                edge_from = row['from_factor_id']
+                edge_to = row['to_factor_id']
+                polarity = row['polarity']
+                
+                if polarity == 'positive': 
+                    title = 'positive'
+                    edge_color = 'lightgreen'  # choose your color for positive polarity
+                if polarity == 'negative': 
+                    title = 'negative'
+                    edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
+                if row['strength']=='weak': 
+                    weight=0.1
+                    distance = 1/weight
+                    strength='weak'
+                if row['strength']=='medium': 
+                    weight=4
+                    distance = 1/weight
+                    strength='medium'
+                if row['strength']=='strong': 
+                    weight=10
+                    distance = 1/weight
+                    strength='strong'
+
+                G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
 
     if CLD_isolates_choice == True:
         G.remove_nodes_from(list(nx.isolates(G)))
@@ -1888,7 +1896,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     if log_scale:
         df_token_counts = np.log1p(df_token_counts)
 
-    fig, ax = plt.subplots(figsize=(12, 12))
+    fig, ax = plt.subplots(figsize=(12, 18))
     sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False)
 
     # Highlight outcome nodes in red

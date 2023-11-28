@@ -402,7 +402,7 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
                 title = 'negative'
                 edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
+            if row['strength']=='weak': 
                 weight=0.1
                 distance = 1/weight
                 strength='weak'

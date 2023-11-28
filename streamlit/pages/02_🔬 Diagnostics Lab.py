@@ -115,7 +115,7 @@ if analysis_choice_2:
 
     with st.expander('Chord diagram'):
 
-        G=plot_relationships("All relationships",True,'no_display')
+        G=plot_relationships("Strong Only",True,'no_display')
 
         from plotapi import Chord
 

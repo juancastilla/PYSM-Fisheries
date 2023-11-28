@@ -24,42 +24,42 @@ Copyright (C) 2021  Dr. Shahin Rostami
 <link rel="stylesheet" href="https://plotapi.com/static/css/tippy.translucent.css" />
 
 <style>
-#plotapi-chart-26a56772 .tippy-content, #featured-plotapi-chart-26a56772 .tippy-content {
+#plotapi-chart-0e90e085 .tippy-content, #featured-plotapi-chart-0e90e085 .tippy-content {
     font-family: "Lato", sans-serif !important;
 }
 
-#plotapi-chart-26a56772, #featured-plotapi-chart-26a56772 {
+#plotapi-chart-0e90e085, #featured-plotapi-chart-0e90e085 {
     font-size: 6px;
     font-family: "Lato", sans-serif !important;
     text-align: center;
     fill: black;
 }
 
-#plotapi-chart-26a56772 svg, #featured-plotapi-chart-26a56772 svg {
+#plotapi-chart-0e90e085 svg, #featured-plotapi-chart-0e90e085 svg {
     max-width: 1500.0px;
 }
 
-.details_thumbs-plotapi-chart-26a56772 {
+.details_thumbs-plotapi-chart-0e90e085 {
     margin: 5px;
     max-width: 85px;
     padding: 0;
     display: inline-block; 
 }
 
-.details_thumbs-plotapi-chart-26a56772 img {
+.details_thumbs-plotapi-chart-0e90e085 img {
     max-width: 85px;
 }
 
-.details_thumbs-plotapi-chart-26a56772 figcaption {
+.details_thumbs-plotapi-chart-0e90e085 figcaption {
     text-align: center;
     font-size: 14px;
 }
 
-#plotapi-chart-26a56772 .hidden_chord, #featured-plotapi-chart-26a56772 .hidden_chord {
+#plotapi-chart-0e90e085 .hidden_chord, #featured-plotapi-chart-0e90e085 .hidden_chord {
     display:none;
 }
 
-#plotapi-chart-26a56772 .arc_numbers, #featured-plotapi-chart-26a56772 .arc_numbers {
+#plotapi-chart-0e90e085 .arc_numbers, #featured-plotapi-chart-0e90e085 .arc_numbers {
     paint-order: stroke;
     stroke: #454545;
     stroke-width: 2px; 
@@ -70,11 +70,11 @@ Copyright (C) 2021  Dr. Shahin Rostami
 
 
 @media (min-width: 600px) {
-    #plotapi-chart-26a56772 svg, #featured-plotapi-chart-26a56772 svg {
+    #plotapi-chart-0e90e085 svg, #featured-plotapi-chart-0e90e085 svg {
         font-size: 20px;
     }
 
-    #plotapi-chart-26a56772 .arc_numbers, #featured-plotapi-chart-26a56772 .arc_numbers {
+    #plotapi-chart-0e90e085 .arc_numbers, #featured-plotapi-chart-0e90e085 .arc_numbers {
         font-size: 14px;
     }
 }
@@ -84,7 +84,7 @@ Copyright (C) 2021  Dr. Shahin Rostami
 </style>
 </head>
 <body>
-    <div id="plotapi-chart-26a56772" class="chord plotapi-container"></div>
+    <div id="plotapi-chart-0e90e085" class="chord plotapi-container"></div>
 
     <script>
     (function() {
@@ -176,7 +176,7 @@ Copyright (C) 2021  Dr. Shahin Rostami
                          .endAngle(endAngle);
 
             
-            var svg = d3.select("#plotapi-chart-26a56772")
+            var svg = d3.select("#plotapi-chart-0e90e085")
                 .append("svg")
                 .attr(
                     "viewBox",
@@ -203,7 +203,7 @@ Copyright (C) 2021  Dr. Shahin Rostami
             
             
             function getGradID(d) {
-                return ("linkGrad-plotapi-chart-26a56772-" + d.source.index + "-" + d.target.index);
+                return ("linkGrad-plotapi-chart-0e90e085-" + d.source.index + "-" + d.target.index);
             }
 
             
@@ -407,7 +407,7 @@ Copyright (C) 2021  Dr. Shahin Rostami
                             var figures = '';
 
                             for(var k = 0; k < details[d.source.index][d.target.index].length; k++) {
-                                figures += "<figure class='details_thumbs-plotapi-chart-26a56772'><img src=" + details_thumbs[d.source.index][d.target.index][k] + "><figcaption>" + details[d.source.index][d.target.index][k] + "</figcaption></figure>"
+                                figures += "<figure class='details_thumbs-plotapi-chart-0e90e085'><img src=" + details_thumbs[d.source.index][d.target.index][k] + "><figcaption>" + details[d.source.index][d.target.index][k] + "</figcaption></figure>"
                             }
                     
                             tippy_content = tippy_content + "<br><br><center><span><em>" + figures + "</em></span></center>";
@@ -424,7 +424,7 @@ Copyright (C) 2021  Dr. Shahin Rostami
                             var figures = '';
 
                             for(var k = 0; k < details_thumbs[d.source.index][d.target.index].length; k++) {
-                                figures += "<figure class='details_thumbs-plotapi-chart-26a56772'><img src=" + details_thumbs[d.source.index][d.target.index][k] + "></figure>"
+                                figures += "<figure class='details_thumbs-plotapi-chart-0e90e085'><img src=" + details_thumbs[d.source.index][d.target.index][k] + "></figure>"
                             }
                     
                             tippy_content = tippy_content + "<br><br><center><span><em>" + figures + "</em></span></center>";
@@ -463,7 +463,7 @@ Copyright (C) 2021  Dr. Shahin Rostami
             
 
             
-            d3.select("#plotapi-chart-26a56772 svg")
+            d3.select("#plotapi-chart-0e90e085 svg")
                 .append("svg:a")
                 .attr("xlink:href", "https://plotapi.com")
                 .attr("target", "_blank")
@@ -474,27 +474,27 @@ Copyright (C) 2021  Dr. Shahin Rostami
                 .attr('x', width+margin.left + margin.right-20)
                 .attr('y', 0)
                 .style("opacity", 0)
-                .attr("id","plotapi-chart-26a56772_icon")
+                .attr("id","plotapi-chart-0e90e085_icon")
 
-            d3.select("#plotapi-chart-26a56772_icon")
+            d3.select("#plotapi-chart-0e90e085_icon")
                 .append("title")
                 .text("Produced with PlotAPI");
 
-            d3.select("#plotapi-chart-26a56772_icon").on("mouseover", function(d, i) {
-                d3.select("#plotapi-chart-26a56772_icon").style("opacity", 1)
+            d3.select("#plotapi-chart-0e90e085_icon").on("mouseover", function(d, i) {
+                d3.select("#plotapi-chart-0e90e085_icon").style("opacity", 1)
             });
 
-            d3.select("#plotapi-chart-26a56772_icon").on("mouseout", function(d, i) {
-                d3.select("#plotapi-chart-26a56772_icon").style("opacity", 0.6)
+            d3.select("#plotapi-chart-0e90e085_icon").on("mouseout", function(d, i) {
+                d3.select("#plotapi-chart-0e90e085_icon").style("opacity", 0.6)
             });
 
-            d3.select("#plotapi-chart-26a56772 svg").on("mouseenter", function() {
-                d3.select("#plotapi-chart-26a56772_icon").style("opacity", 0.6)
+            d3.select("#plotapi-chart-0e90e085 svg").on("mouseenter", function() {
+                d3.select("#plotapi-chart-0e90e085_icon").style("opacity", 0.6)
             });
 
-            d3.select("#plotapi-chart-26a56772 svg").on("mouseleave", function() {
+            d3.select("#plotapi-chart-0e90e085 svg").on("mouseleave", function() {
                                     
-                d3.select("#plotapi-chart-26a56772_icon").style("opacity", 0);
+                d3.select("#plotapi-chart-0e90e085_icon").style("opacity", 0);
             });
             
 

@@ -118,7 +118,7 @@ with st.expander('Exploratory Scenario Analysis (Compare Cases)'):
         num_rows = max(len(df1), len(df2))
 
         # Create a new figure with subplots
-        fig, axs = plt.subplots(num_rows, 2, figsize=(20, 4*num_rows), dpi=100)
+        fig, axs = plt.subplots(num_rows, 2, figsize=(16, 3*num_rows), dpi=100)
 
         # Flatten the axes array
         axs = axs.flatten()

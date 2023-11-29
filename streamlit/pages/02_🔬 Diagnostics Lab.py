@@ -206,7 +206,7 @@ if analysis_choice_4:
 
 if analysis_choice_5:
     
-    G=plot_relationships('All relationships',False,'no_display')
+    G=plot_relationships('All relationships',True,'no_display')
 
     centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
 
@@ -276,7 +276,7 @@ if analysis_choice_6:
         
         st.markdown('## Centrality Archetypes')
         
-        G=plot_relationships('All relationships',False,'no_display')
+        G=plot_relationships('All relationships',True,'no_display')
 
         plot_centrality_archetypes(G)
                
@@ -289,7 +289,7 @@ if analysis_choice_7:
         
         st.markdown('### To what extent can a single factor control the system?')
 
-        G=plot_relationships(CONTROLCENTRALITY_rel_choice,CONTROLCENTRALITY_isolates_choice,'no_display')
+        G=plot_relationships(CONTROLCENTRALITY_rel_choice,True,'no_display')
         
         st.markdown('##### The values for control centrality indicate the % of the system that can be potentially controlled by each factor')
         
@@ -610,7 +610,7 @@ if analysis_choice_16:
             
             with col1:
                 st.title('All relationships')
-                G=plot_relationships('All relationships',False,'no_display')
+                G=plot_relationships('All relationships',True,'no_display')
                 centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
                 df = centrality_summary_df.drop('domain', axis=1).set_index('label')
                 clustermap = sns.clustermap(df, standard_scale=1, metric="euclidean", figsize=(10,20), method='ward', robust=True, cmap='inferno')

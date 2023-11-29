@@ -1151,7 +1151,7 @@ def controllability_multiple(G,subfactors_df):
         B[factor,i]=1
     
     C = control.ctrb(A,B)
-    Cc = np.linalg.matrix_rank(C, tol=1.0e-30)
+    Cc = np.linalg.matrix_rank(C, tol=1.0e-2)
     cc = Cc/N
 
     return cc.round(2)
@@ -1922,7 +1922,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         num_rows = int(np.ceil(len(df_token_counts) / 3))
 
         # Create a new figure with subplots
-        fig, axs = plt.subplots(num_rows, 3, figsize=(10, 4*num_rows))
+        fig, axs = plt.subplots(num_rows, 3, figsize=(18, 4*num_rows))
 
         # Flatten the axes array
         axs = axs.flatten()

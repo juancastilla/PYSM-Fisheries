@@ -1922,7 +1922,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         num_rows = int(np.ceil(len(df_token_counts) / 3))
 
         # Create a new figure with subplots
-        fig, axs = plt.subplots(num_rows, 3, figsize=(20, 4*num_rows))
+        fig, axs = plt.subplots(num_rows, 3, figsize=(10, 4*num_rows))
 
         # Flatten the axes array
         axs = axs.flatten()

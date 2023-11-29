@@ -115,7 +115,7 @@ if analysis_choice_2:
 
     with st.expander('Chord diagram'):
 
-        G=plot_relationships("All relationships",True,'no_display')
+        G=plot_relationships("Strong Only",True,'no_display')
 
         from plotapi import Chord
 
@@ -127,8 +127,8 @@ if analysis_choice_2:
 
             # Save and read graph as HTML file (on Streamlit Sharing)
         try:
-            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html('streamlit/chord_graph.html')
-            HtmlFile = open('streamlit/chord_graph.html','r',encoding='utf-8')
+            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html('./streamlit/chord_graph.html')
+            HtmlFile = open('./streamlit/chord_graph.html','r',encoding='utf-8')
             
             # Save and read graph as HTML file (locally)
         except:

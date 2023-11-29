@@ -1120,7 +1120,7 @@ def control_centrality_single(G):
         B[id,0]=1
     
         C = control.ctrb(A,B)
-        Cc = np.linalg.matrix_rank(C, tol=1.0e-40)
+        Cc = np.linalg.matrix_rank(C, tol=1.0e-2)
         cc = Cc/N
         
         factor_control_centralities.append(cc)

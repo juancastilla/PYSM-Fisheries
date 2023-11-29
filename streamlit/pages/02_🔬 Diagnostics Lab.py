@@ -308,34 +308,27 @@ if analysis_choice_7:
         
         st.markdown('### To what extent can a single factor control the system?')
 
-        col1, col2 = st.columns(2)
-
-        with col1:
-    
-            G=plot_relationships(CONTROLCENTRALITY_rel_choice,CONTROLCENTRALITY_isolates_choice,'display')
+        G=plot_relationships(CONTROLCENTRALITY_rel_choice,CONTROLCENTRALITY_isolates_choice,'no_display')
         
+        st.markdown('##### The values for control centrality indicate the % of the system that can be potentially controlled by each factor')
         
-        with col2:
+        largest = max(nx.weakly_connected_components(G), key=len)
+        G = G.subgraph(largest)
+        single_factor_control_centralities_df  = control_centrality_single(G)
 
-            st.markdown('##### The values for control centrality indicate the % of the system that can be potentially controlled by each factor')
-            
-            largest = max(nx.weakly_connected_components(G), key=len)
-            G = G.subgraph(largest)
-            single_factor_control_centralities_df  = control_centrality_single(G)
+        # Sort the dataframe by the 'control_centrality' column in ascending order
+        sorted_df = single_factor_control_centralities_df.sort_values('control_centrality', ascending=False)
 
-            # Sort the dataframe by the 'control_centrality' column in ascending order
-            sorted_df = single_factor_control_centralities_df.sort_values('control_centrality', ascending=False)
+        #st.dataframe(sorted_df)
 
-            #st.dataframe(sorted_df)
+        # Plot the horizontal bar chart
+        fig, ax = plt.subplots(figsize=(10, 15))  # Increase the figure size
+        sorted_df.plot.barh(y='control_centrality', x='label', ax=ax, legend=False)
+        ax.set_title('Control Centrality')
+        ax.set_xlabel('Control Centrality Value')
+        ax.set_ylabel('Factors')
 
-            # Plot the horizontal bar chart
-            fig, ax = plt.subplots(figsize=(10, 15))  # Increase the figure size
-            sorted_df.plot.barh(y='control_centrality', x='label', ax=ax, legend=False)
-            ax.set_title('Control Centrality')
-            ax.set_xlabel('Control Centrality Value')
-            ax.set_ylabel('Factors')
-
-            st.pyplot(fig)  # Display the plot in Streamlit
+        st.pyplot(fig)  # Display the plot in Streamlit
     
     with st.expander('Control Centrality: Multiple Factors'):
 

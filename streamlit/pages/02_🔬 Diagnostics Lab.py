@@ -166,62 +166,43 @@ if analysis_choice_4:
 
         DENDOGRAM_rel_choice = st.selectbox('Choose which relationships to display', ('All relationships', 'Strong only'), index=0, key='SUBMAP_rel_choice')
 
-        col1, col2 = st.columns(2, gap="large")
-
         if DENDOGRAM_rel_choice == 'All relationships':
 
-            with col1:
+            st.header('Dendogram')
 
-                st.header('Force-directed graph')
+            G=plot_relationships('All relationships',True,'no_display')
 
-                G=plot_relationships('All relationships',True,'display')
+            adjacency_matrix = nx.adjacency_matrix(G)
+            adjacency = adjacency_matrix
 
-            with col2:
+            # hierarchical clustering — Paris
+            paris = Paris()
+            dendrogram = paris.fit_predict(adjacency)
 
-                st.header('Dendogram')
+            svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=700, height=1400, n_clusters=5, font_size=20)
 
-                G=plot_relationships('All relationships',True,'no_display')
-
-                adjacency_matrix = nx.adjacency_matrix(G)
-                adjacency = adjacency_matrix
-
-                # hierarchical clustering — Paris
-                paris = Paris()
-                dendrogram = paris.fit_predict(adjacency)
-
-                svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=300, height=1200, n_clusters=5)
-
-                render_svg(svg)
+            render_svg(svg)
 
         if DENDOGRAM_rel_choice == 'Strong only':
 
-            with col1:
+            st.header('Dendogram')
 
-                st.header('Force-directed graph')
+            G=plot_relationships('Strong only',True,'no_display')
 
-                G=plot_relationships('Strong only',True,'display')
+            G.remove_nodes_from(list(nx.isolates(G)))
+            largest = max(nx.weakly_connected_components(G), key=len)
+            G = G.subgraph(largest)
 
+            adjacency_matrix = nx.adjacency_matrix(G)
+            adjacency = adjacency_matrix
 
-            with col2:
+            # hierarchical clustering — Paris
+            paris = Paris()
+            dendrogram = paris.fit_predict(adjacency)
 
-                st.header('Dendogram')
+            svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=700, height=1500, n_clusters=5, font_size=20)
 
-                G=plot_relationships('Strong only',True,'no_display')
-
-                G.remove_nodes_from(list(nx.isolates(G)))
-                largest = max(nx.weakly_connected_components(G), key=len)
-                G = G.subgraph(largest)
-
-                adjacency_matrix = nx.adjacency_matrix(G)
-                adjacency = adjacency_matrix
-
-                # hierarchical clustering — Paris
-                paris = Paris()
-                dendrogram = paris.fit_predict(adjacency)
-
-                svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=300, height=1200, n_clusters=5)
-
-                render_svg(svg)
+            render_svg(svg)
 
 if analysis_choice_5:
     

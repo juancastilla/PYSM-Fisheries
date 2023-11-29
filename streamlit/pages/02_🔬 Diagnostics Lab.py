@@ -115,22 +115,19 @@ if analysis_choice_2:
 
     with st.expander('Chord diagram'):
 
-        G=plot_relationships('Strong only',True,'no_display')
-        st.write(list(G.nodes))
+        relationship_choice = st.selectbox('Choose which relationships to display', ('All relationships', 'Strong only'), index=0, key='relationship_choice')
+        G=plot_relationships(relationship_choice,True,'no_display')
 
         from plotapi import Chord
 
         Chord.api_key("573968cb-86f2-4a43-991d-aa2b5d6974a4")
         matrix = nx.to_numpy_matrix(G, weight='edge_value').tolist()
         names = list(nx.get_node_attributes(G,"label").values())
-        # colors = list(nx.get_node_attributes(G,"color").values())
         
         Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html('html_files/chord_graph.html')
         HtmlFile = open('html_files/chord_graph.html','r',encoding='utf-8')
 
         components.html(HtmlFile.read(),height=1500)
-
-        st.text(matrix)
 
 
 if analysis_choice_3:

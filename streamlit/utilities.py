@@ -1110,7 +1110,7 @@ def plot_centrality_archetypes(G):
 
 def control_centrality_single(G):
     
-    A = nx.to_numpy_matrix(G).T
+    A = nx.to_numpy_array(G).T
     N = G.number_of_nodes()
     factor_control_centralities = []
     
@@ -1760,6 +1760,7 @@ def save_graph(G):
 ### DIFFUSION MODELS ###
 
 def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=False, rolling_window=1, vertical=False, case=''):
+   
     # Define the strength to weight mapping
     strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
 
@@ -1946,7 +1947,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
     return tokens
 
-def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_scale=False):
+def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_scale=False, rolling_window=1):
 
     # Define the strength to weight mapping
     strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
@@ -2023,7 +2024,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
         fig, ax = plt.subplots(figsize=(12, 6))
         for outcome_node in outcome_nodes:
             # Compute a moving average with a window size of 5
-            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=5).mean()
+            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(rolling_window).mean()
             ax.plot(smoothed_token_counts, label=outcome_node)
         plt.xlabel('Time step')
         plt.ylabel('Token count')
@@ -2152,7 +2153,7 @@ def evaluate(individual):
     knowledge_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
     predictability_mapping = {'low': 1, 'medium': 2, 'high': 3, 'uncontrollable':0}
     measurability_cost_mapping = {'low': 3, 'medium': 2, 'high': 1}
-    opportunity_mapping = {'Active': 1, 'Potential': 2, 'None': 4}
+    opportunity_mapping = {'Active': 1, 'Potential': 2, 'No': 4}
     score = 0
     for node in nodes:
         node_data = factors_df.loc[node]
@@ -2160,7 +2161,7 @@ def evaluate(individual):
         score += knowledge_mapping[node_data['level of knowledge']]
         score += predictability_mapping[node_data['predictability']]
         score += measurability_cost_mapping[node_data['measurability cost']]
-        score += opportunity_mapping[node_data['Interventions']]
+        score += opportunity_mapping[node_data['interventions']]
 
     return non_zero_tokens_percentage, area_under_curve, score, area_under_curve_first_10
 

@@ -121,7 +121,7 @@ if analysis_choice_2:
         from plotapi import Chord
 
         Chord.api_key("573968cb-86f2-4a43-991d-aa2b5d6974a4")
-        matrix = nx.to_numpy_matrix(G, weight='edge_value').tolist()
+        matrix = nx.to_numpy_array(G, weight='edge_value').tolist()
         names = list(nx.get_node_attributes(G,"label").values())
         
         Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html('html_files/chord_graph.html')

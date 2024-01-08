@@ -900,7 +900,6 @@ def load_centrality(G):
         .merge(authority_centrality_df, on="node")
 )
 
-
     centrality_summary_df.set_index('node', inplace=True)
     centrality_summary_df = df_nodes.join(centrality_summary_df)
     
@@ -1559,8 +1558,18 @@ def plot_icucpaths(G,path_intended,path_unintended):
         nt = net.Network(width='1800px', height='1200px', directed=True)
         nt.from_nx(G_sub)
         nt.inherit_edge_colors(False)
-        nt.show("icucpaths.html")
-        HtmlFile = open('icucpaths.html','r',encoding='utf-8')
+
+        # Save and read graph as HTML file (on Streamlit Sharing)
+        try:
+            path = './streamlit/html_files'
+            nt.show(f'{path}/icucpaths.html')
+
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'html_files'
+            nt.show(f'{path}/icucpaths.html')
+
+        HtmlFile = open(f'{path}/icucpaths.html','r',encoding='utf-8')
         components.html(HtmlFile.read(),height=700)
 
 ### Tradeoff Analysis — Interactive Parallel Coordinate Plot ###

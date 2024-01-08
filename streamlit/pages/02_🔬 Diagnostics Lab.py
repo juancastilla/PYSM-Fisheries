@@ -124,12 +124,17 @@ if analysis_choice_2:
         matrix = nx.to_numpy_array(G, weight='edge_value').tolist()
         names = list(nx.get_node_attributes(G,"label").values())
 
-        chord_path = 'html_files/chord_graph.html'
+        # Save and read graph as HTML file (on Streamlit Sharing)
+        try:
+            path = './streamlit/html_files'
+            Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord.html')
+            HtmlFile = open(f'{path}/chord.html','r',encoding='utf-8')
 
-        chord_file = os.path.join(main_path,chord_path)
-
-        Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(chord_file)
-        HtmlFile = open(chord_file,'r',encoding='utf-8')
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'html_files'
+            Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord.html')
+            HtmlFile = open(f'{path}/chord.html','r',encoding='utf-8')
 
         components.html(HtmlFile.read(),height=1500)
 

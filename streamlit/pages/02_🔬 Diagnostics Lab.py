@@ -115,31 +115,28 @@ if analysis_choice_2:
 
     with st.expander('Chord diagram'):
 
-        G=plot_relationships("Strong Only",True,'no_display')
+        relationship_choice = st.selectbox('Choose which relationships to display', ('All relationships', 'Strong only'), index=0, key='relationship_choice')
+        G=plot_relationships(relationship_choice,True,'no_display')
 
         from plotapi import Chord
 
         Chord.api_key("573968cb-86f2-4a43-991d-aa2b5d6974a4")
-        matrix = nx.to_numpy_matrix(G, weight='edge_value').tolist()
+        matrix = nx.to_numpy_array(G, weight='edge_value').tolist()
         names = list(nx.get_node_attributes(G,"label").values())
-        colors = list(nx.get_node_attributes(G,"color").values())
-        
 
-            # Save and read graph as HTML file (on Streamlit Sharing)
+        # Save and read graph as HTML file (on Streamlit Sharing)
         try:
-            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html('./streamlit/chord_graph.html')
-            HtmlFile = open('./streamlit/chord_graph.html','r',encoding='utf-8')
-            
-            # Save and read graph as HTML file (locally)
+            path = './streamlit/html_files'
+            Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord.html')
+            HtmlFile = open(f'{path}/chord.html','r',encoding='utf-8')
+
+        # Save and read graph as HTML file (locally)
         except:
             path = 'html_files'
-            Chord(matrix, names, directed=True, colors=colors, reverse_gradients=True, popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord_graph.html')
-            HtmlFile = open(f'{path}/chord_graph.html','r',encoding='utf-8')
+            Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(f'{path}/chord.html')
+            HtmlFile = open(f'{path}/chord.html','r',encoding='utf-8')
 
-                # nt.show('G_factors_and_relationships.html')
-                # HtmlFile = open('G_factors_and_relationships.html','r',encoding='utf-8')
-        components.html(HtmlFile.read(),height=1800)
-                # save_graph(G)
+        components.html(HtmlFile.read(),height=1500)
 
 
 if analysis_choice_3:
@@ -173,13 +170,13 @@ if analysis_choice_4:
             G=plot_relationships('All relationships',True,'no_display')
 
             adjacency_matrix = nx.adjacency_matrix(G)
-            adjacency = adjacency_matrix
+            adjacency = adjacency_matrix.toarray()
 
             # hierarchical clustering — Paris
             paris = Paris()
             dendrogram = paris.fit_predict(adjacency)
 
-            svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=700, height=1400, n_clusters=5, font_size=20)
+            svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=700, height=2000, n_clusters=5, font_size=20)
 
             render_svg(svg)
 
@@ -200,7 +197,7 @@ if analysis_choice_4:
             paris = Paris()
             dendrogram = paris.fit_predict(adjacency)
 
-            svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=700, height=1500, n_clusters=5, font_size=20)
+            svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=500, height=1500, n_clusters=5, font_size=20)
 
             render_svg(svg)
 
@@ -265,7 +262,7 @@ if analysis_choice_5:
         
         with col2:
             st.title("Heatmap")
-            corr = centrality_summary_df.drop('domain', axis=1).corr()
+            corr = centrality_summary_df.drop(['domain','label'], axis=1).corr()
             fig, ax = plt.subplots() #solved by add this line 
             ax = sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns, cmap="Blues", annot=True)
             st.pyplot(fig)
@@ -357,20 +354,15 @@ if analysis_choice_9:
         # st.markdown('**Overview**')
         # st.markdown('In robust controllability (by Liu et al. [38], pictured in Fig. 1b), the MIS is re-calculated (size ND′) after removing each node from the network. The node is then classified by its effect on the manipulation required to control the network, where an increase in the size of the MIS makes it more difficult to control the network and a decrease in the size of the MIS makes it easier to control the network. The removal of: an indispensable node increases the number of driver nodes (ND′ > ND), a dispensable node decreases the number of driver nodes (ND′ < ND), and a neutral node has no effect on the number of driver nodes (ND′ = ND). This method has previously been applied to many network types such as gene regulatory networks, food webs, citation networks, and PPI networks to better understand what drives the dynamics of each system [29, 38]. While it is useful to observe the structural changes to the network after the removal of singular nodes, this method only considers one possible MIS.')
         
-        col1, col2 = st.columns(2)
+        G=plot_relationships('Strong only',True,'no_display')
+        largest = max(nx.weakly_connected_components(G), key=len)
+        G = G.subgraph(largest)
 
-        with col1:
-
-            G=plot_relationships('Strong only',True,'display')
-            largest = max(nx.weakly_connected_components(G), key=len)
-            G = G.subgraph(largest)
-
-        with col2:
-            G_bipartite, left_nodes = directed_to_bipartite(G)
-            ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
-            liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
-            st.dataframe(liu_class_summary_df.style.apply(highlight_liu_classes, axis=1), use_container_width=True)
-            #AgGrid(liu_class_summary_df)
+        G_bipartite, left_nodes = directed_to_bipartite(G)
+        ND, unmatched_factors = N_D(G, G_bipartite, left_nodes, 1)
+        liu_class_summary_df = compute_liu_classes(G, G_bipartite,ND)
+        st.dataframe(liu_class_summary_df.style.apply(highlight_liu_classes, axis=1), use_container_width=False)
+        #AgGrid(liu_class_summary_df)
     
 if analysis_choice_10:
 
@@ -390,7 +382,7 @@ if analysis_choice_10:
         jia_class_summary_df = compute_jia_classes(G,G_bipartite,ND)
         N = G.number_of_nodes()
         
-        col1, col2, col3 = st.columns([3, 6, 0.1])
+        col1, col2, col3 = st.columns([5, 4, 0.1])
         
         message = '##### To fully control this system we need a minimum of: ' + str(ND) + ' factors' + ' (from a total of ' + str(N) + ' factors)'
         

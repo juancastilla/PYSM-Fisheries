@@ -886,6 +886,21 @@ def load_centrality(G):
     .merge(current_flow_betweenness_centrality_df, on="node")\
     .merge(pagerank_centrality_df, on="node")
 
+    # Calculate Hub and Authority centralities
+    hubs, authorities = nx.hits(G)
+
+    # Convert them to DataFrames
+    hub_centrality_df = pd.DataFrame(hubs.items(), columns=["node", "hub"])
+    authority_centrality_df = pd.DataFrame(authorities.items(), columns=["node", "authority"])
+
+    # Merge them into the centrality_summary_df
+    centrality_summary_df = (
+        centrality_summary_df
+        .merge(hub_centrality_df, on="node")
+        .merge(authority_centrality_df, on="node")
+)
+
+
     centrality_summary_df.set_index('node', inplace=True)
     centrality_summary_df = df_nodes.join(centrality_summary_df)
     
@@ -895,7 +910,8 @@ def load_centrality(G):
     average_ranks = pd.DataFrame(round(centrality_ranks.mean(axis=1)).astype(int), columns=["average_rank"])
     average_ranks.insert(loc=0, column='node', value=centrality_summary_df["label"])
     
-    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[0:]), cmap='PuBu_r').set_precision(4)
+    centrality_summary_df = centrality_summary_df.round(4)
+    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[0:]), cmap='PuBu_r')
     # centrality_summary_df_styled.to_html('PULPO_Chile_centrality_summary_df_styled_ALL.html')
     
     centrality_ranks_df_styled = df_nodes.join(centrality_ranks, how='left').style.background_gradient(subset=list(centrality_ranks.columns[0:]),cmap='PuBu')
@@ -1061,8 +1077,17 @@ def plot_centrality_archetypes(G):
         
         centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
 
-        # Select 'label' column and the last five columns for the radar charts
-        centrality_summary_df = centrality_summary_df.loc[:, ['label'] + list(centrality_summary_df.columns[-5:])]
+        # Get the column names excluding 'label'
+        columns = [col for col in centrality_summary_df.columns if col != 'label']
+
+        # Create a multiselect widget for the columns
+        selected_columns = st.multiselect('Select the columns you want to display', columns, default=columns)
+
+        # Always include 'label' in the selected columns
+        selected_columns = ['label'] + selected_columns
+
+        # Filter the DataFrame based on the selected columns
+        centrality_summary_df = centrality_summary_df[selected_columns]
 
         # Create a scaler object
         scaler = MinMaxScaler()

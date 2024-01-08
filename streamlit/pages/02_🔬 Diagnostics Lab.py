@@ -170,7 +170,7 @@ if analysis_choice_4:
             G=plot_relationships('All relationships',True,'no_display')
 
             adjacency_matrix = nx.adjacency_matrix(G)
-            adjacency = adjacency_matrix
+            adjacency = adjacency_matrix.toarray()
 
             # hierarchical clustering — Paris
             paris = Paris()
@@ -262,7 +262,7 @@ if analysis_choice_5:
         
         with col2:
             st.title("Heatmap")
-            corr = centrality_summary_df.drop('domain', axis=1).corr()
+            corr = centrality_summary_df.drop(['domain','label'], axis=1).corr()
             fig, ax = plt.subplots() #solved by add this line 
             ax = sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns, cmap="Blues", annot=True)
             st.pyplot(fig)

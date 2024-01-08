@@ -126,11 +126,10 @@ if analysis_choice_2:
 
         chord_path = 'html_files/chord_graph.html'
 
-           # Use os.path.join to create the file path
-        chord_file_path = os.path.join(os.getcwd(), chord_path)
+        chord_file = os.path.join(main_path,chord_path)
 
-        Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(chord_file_path)
-        HtmlFile = open(chord_file_path,'r',encoding='utf-8')
+        Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(chord_file)
+        HtmlFile = open(chord_file,'r',encoding='utf-8')
 
         components.html(HtmlFile.read(),height=1500)
 

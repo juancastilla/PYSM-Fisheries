@@ -1555,9 +1555,12 @@ def plot_icucpaths(G,path_intended,path_unintended):
 
         G_sub = G.edge_subgraph(edges)
 
-        nt = net.Network(width='1800px', height='1200px', directed=True)
+        nt = net.Network(width='1200px', height='600px', directed=True)
         nt.from_nx(G_sub)
         nt.inherit_edge_colors(False)
+
+        st.write(G_sub.nodes(data=True))
+        st.write(G_sub.edges(data=True))
 
         # Save and read graph as HTML file (on Streamlit Sharing)
         try:

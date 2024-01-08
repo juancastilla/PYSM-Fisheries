@@ -123,9 +123,13 @@ if analysis_choice_2:
         Chord.api_key("573968cb-86f2-4a43-991d-aa2b5d6974a4")
         matrix = nx.to_numpy_array(G, weight='edge_value').tolist()
         names = list(nx.get_node_attributes(G,"label").values())
+
+        chord_path = 'html_files/chord_graph.html'
+
+        chord_file = Path(str(main_path.joinpath(chord_path)))
         
-        Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html('html_files/chord_graph.html')
-        HtmlFile = open('html_files/chord_graph.html','r',encoding='utf-8')
+        Chord(matrix, names, directed=True, reverse_gradients=True, colors='spectral', popup_names_only=False, font_size="6px", width=1500, margin=300, rotate=75, label_colors='black').to_html(chord_file)
+        HtmlFile = open(chord_file,'r',encoding='utf-8')
 
         components.html(HtmlFile.read(),height=1500)
 

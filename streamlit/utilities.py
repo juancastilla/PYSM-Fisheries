@@ -1559,21 +1559,19 @@ def plot_icucpaths(G,path_intended,path_unintended):
         nt.from_nx(G_sub)
         nt.inherit_edge_colors(False)
 
-        st.write(G_sub.nodes(data=True))
-        st.write(G_sub.edges(data=True))
-
         # Save and read graph as HTML file (on Streamlit Sharing)
         try:
             path = './streamlit/html_files'
-            nt.show(f'{path}/icucpaths.html')
+            nt.save_graph(f'{path}/icucpaths.html')
+            HtmlFile = open(f'{path}/icucpaths.html','r', encoding='utf-8')
 
         # Save and read graph as HTML file (locally)
         except:
             path = 'html_files'
-            nt.show(f'{path}/icucpaths.html')
+            nt.save_graph(f'{path}/icucpaths.html')
+            HtmlFile = open(f'{path}/icucpaths.html','r', encoding='utf-8')
 
-        HtmlFile = open(f'{path}/icucpaths.html','r',encoding='utf-8')
-        components.html(HtmlFile.read(),height=700)
+        components.html(HtmlFile.read(),height=600)
 
 ### Tradeoff Analysis — Interactive Parallel Coordinate Plot ###
 

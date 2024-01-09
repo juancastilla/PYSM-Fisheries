@@ -886,6 +886,20 @@ def load_centrality(G):
     .merge(current_flow_betweenness_centrality_df, on="node")\
     .merge(pagerank_centrality_df, on="node")
 
+    # Calculate Hub and Authority centralities
+    hubs, authorities = nx.hits(G)
+
+    # Convert them to DataFrames
+    hub_centrality_df = pd.DataFrame(hubs.items(), columns=["node", "hub"])
+    authority_centrality_df = pd.DataFrame(authorities.items(), columns=["node", "authority"])
+
+    # Merge them into the centrality_summary_df
+    centrality_summary_df = (
+        centrality_summary_df
+        .merge(hub_centrality_df, on="node")
+        .merge(authority_centrality_df, on="node")
+)
+
     centrality_summary_df.set_index('node', inplace=True)
     centrality_summary_df = df_nodes.join(centrality_summary_df)
     
@@ -895,7 +909,8 @@ def load_centrality(G):
     average_ranks = pd.DataFrame(round(centrality_ranks.mean(axis=1)).astype(int), columns=["average_rank"])
     average_ranks.insert(loc=0, column='node', value=centrality_summary_df["label"])
     
-    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[0:]), cmap='PuBu_r').set_precision(4)
+    centrality_summary_df = centrality_summary_df.round(4)
+    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[0:]), cmap='PuBu_r')
     # centrality_summary_df_styled.to_html('PULPO_Chile_centrality_summary_df_styled_ALL.html')
     
     centrality_ranks_df_styled = df_nodes.join(centrality_ranks, how='left').style.background_gradient(subset=list(centrality_ranks.columns[0:]),cmap='PuBu')
@@ -1061,8 +1076,17 @@ def plot_centrality_archetypes(G):
         
         centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
 
-        # Select 'label' column and the last five columns for the radar charts
-        centrality_summary_df = centrality_summary_df.loc[:, ['label'] + list(centrality_summary_df.columns[-5:])]
+        # Get the column names excluding 'label'
+        columns = [col for col in centrality_summary_df.columns if col != 'label']
+
+        # Create a multiselect widget for the columns
+        selected_columns = st.multiselect('Select the columns you want to display', columns, default=columns)
+
+        # Always include 'label' in the selected columns
+        selected_columns = ['label'] + selected_columns
+
+        # Filter the DataFrame based on the selected columns
+        centrality_summary_df = centrality_summary_df[selected_columns]
 
         # Create a scaler object
         scaler = MinMaxScaler()
@@ -1110,7 +1134,7 @@ def plot_centrality_archetypes(G):
 
 def control_centrality_single(G):
     
-    A = nx.to_numpy_matrix(G).T
+    A = nx.to_numpy_array(G).T
     N = G.number_of_nodes()
     factor_control_centralities = []
     
@@ -1120,7 +1144,7 @@ def control_centrality_single(G):
         B[id,0]=1
     
         C = control.ctrb(A,B)
-        Cc = np.linalg.matrix_rank(C, tol=1.0e-40)
+        Cc = np.linalg.matrix_rank(C, tol=1.0e-2)
         cc = Cc/N
         
         factor_control_centralities.append(cc)
@@ -1151,7 +1175,7 @@ def controllability_multiple(G,subfactors_df):
         B[factor,i]=1
     
     C = control.ctrb(A,B)
-    Cc = np.linalg.matrix_rank(C, tol=1.0e-30)
+    Cc = np.linalg.matrix_rank(C, tol=1.0e-2)
     cc = Cc/N
 
     return cc.round(2)
@@ -1531,12 +1555,23 @@ def plot_icucpaths(G,path_intended,path_unintended):
 
         G_sub = G.edge_subgraph(edges)
 
-        nt = net.Network(width='1800px', height='1200px', directed=True)
+        nt = net.Network(width='1200px', height='600px', directed=True)
         nt.from_nx(G_sub)
         nt.inherit_edge_colors(False)
-        nt.show("icucpaths.html")
-        HtmlFile = open('icucpaths.html','r',encoding='utf-8')
-        components.html(HtmlFile.read(),height=700)
+
+        # Save and read graph as HTML file (on Streamlit Sharing)
+        try:
+            path = './streamlit/html_files'
+            nt.save_graph(f'{path}/icucpaths.html')
+            HtmlFile = open(f'{path}/icucpaths.html','r', encoding='utf-8')
+
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'html_files'
+            nt.save_graph(f'{path}/icucpaths.html')
+            HtmlFile = open(f'{path}/icucpaths.html','r', encoding='utf-8')
+
+        components.html(HtmlFile.read(),height=600)
 
 ### Tradeoff Analysis — Interactive Parallel Coordinate Plot ###
 
@@ -1760,6 +1795,7 @@ def save_graph(G):
 ### DIFFUSION MODELS ###
 
 def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=False, rolling_window=1, vertical=False, case=''):
+   
     # Define the strength to weight mapping
     strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
 
@@ -1922,7 +1958,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         num_rows = int(np.ceil(len(df_token_counts) / 3))
 
         # Create a new figure with subplots
-        fig, axs = plt.subplots(num_rows, 3, figsize=(10, 4*num_rows))
+        fig, axs = plt.subplots(num_rows, 3, figsize=(18, 4*num_rows))
 
         # Flatten the axes array
         axs = axs.flatten()
@@ -1946,7 +1982,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
     return tokens
 
-def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_scale=False):
+def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_scale=False, rolling_window=1):
 
     # Define the strength to weight mapping
     strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
@@ -2023,7 +2059,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
         fig, ax = plt.subplots(figsize=(12, 6))
         for outcome_node in outcome_nodes:
             # Compute a moving average with a window size of 5
-            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=5).mean()
+            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(rolling_window).mean()
             ax.plot(smoothed_token_counts, label=outcome_node)
         plt.xlabel('Time step')
         plt.ylabel('Token count')
@@ -2152,7 +2188,7 @@ def evaluate(individual):
     knowledge_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
     predictability_mapping = {'low': 1, 'medium': 2, 'high': 3, 'uncontrollable':0}
     measurability_cost_mapping = {'low': 3, 'medium': 2, 'high': 1}
-    opportunity_mapping = {'Active': 1, 'Potential': 2, 'None': 4}
+    opportunity_mapping = {'Active': 1, 'Potential': 2, 'No': 4}
     score = 0
     for node in nodes:
         node_data = factors_df.loc[node]
@@ -2160,7 +2196,7 @@ def evaluate(individual):
         score += knowledge_mapping[node_data['level of knowledge']]
         score += predictability_mapping[node_data['predictability']]
         score += measurability_cost_mapping[node_data['measurability cost']]
-        score += opportunity_mapping[node_data['Interventions']]
+        score += opportunity_mapping[node_data['interventions']]
 
     return non_zero_tokens_percentage, area_under_curve, score, area_under_curve_first_10
 

@@ -1080,7 +1080,7 @@ def plot_centrality_archetypes(G):
         columns = [col for col in centrality_summary_df.columns if col != 'label']
 
         # Create a multiselect widget for the columns
-        selected_columns = st.multiselect('Select the columns you want to display', columns, default=columns)
+        selected_columns = st.multiselect('Select the centrality metrics to include', columns, default=columns)
 
         # Always include 'label' in the selected columns
         selected_columns = ['label'] + selected_columns

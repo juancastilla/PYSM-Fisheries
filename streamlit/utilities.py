@@ -1972,7 +1972,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
         # Remove unused subplots
         for ax in axs[len(df_token_counts):]:
-            fig.delaxes(ax)
+            fig6.delaxes(ax)
 
         # Adjust the layout
         plt.tight_layout()

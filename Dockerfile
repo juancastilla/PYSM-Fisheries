@@ -1,4 +1,4 @@
-#Set base image in Python 3.10
+#Set base image in Python 3.11
 FROM python:3.11
 
 #Set working directory
@@ -21,11 +21,11 @@ RUN python3 -m pip install --upgrade pip setuptools wheel
 RUN python3 -m pip install numpy                                                                                                                                                                                            
 RUN python3 -m pip install -r requirements.txt  
 
-#Expose Port 8501
-EXPOSE 8501
+#Expose Port 8080
+EXPOSE 8080
 
 #Run healthcheck
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+HEALTHCHECK CMD curl --fail http://localhost:8080/_stcore/health
 
 #Run Streamlit application
-ENTRYPOINT ["streamlit", "run", "streamlit/Home.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "streamlit/Home.py", "--server.port=8080", "--server.address=0.0.0.0"]

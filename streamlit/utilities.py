@@ -1933,7 +1933,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         df_token_counts = np.log1p(df_token_counts)
 
     fig5, ax = plt.subplots(figsize=(12, 12))
-    sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False)
+    sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False, ax=ax)
 
     # Highlight outcome nodes in red
     for label in ax.get_yticklabels():

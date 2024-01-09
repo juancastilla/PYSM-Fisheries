@@ -28,7 +28,7 @@ with st.expander('Exploratory Scenario Analysis (Single Case)'):
     
     st.title('Single Case')
 
-    factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "Interventions", "intervenable", "domain_name"]]
+    factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "interventions", "intervenable", "domain_name"]]
     edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='case1')
     token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
     
@@ -59,7 +59,7 @@ with st.expander('Exploratory Scenario Analysis (Compare Cases)'):
 
         st.title('Case 1')
 
-        factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "Interventions", "intervenable", "domain_name"]]
+        factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "interventions", "intervenable", "domain_name"]]
         edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='case2')
         token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
         
@@ -79,14 +79,14 @@ with st.expander('Exploratory Scenario Analysis (Compare Cases)'):
             if diffusion_model == 'one-time investment':
                 pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=True, case='case1')
             else:
-                flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=True)
+                flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
 
 
     with col2:
         
         st.title('Case 2')
 
-        factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "Interventions", "intervenable", "domain_name"]]
+        factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "interventions", "intervenable", "domain_name"]]
         edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='case3')
         token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
         
@@ -106,7 +106,7 @@ with st.expander('Exploratory Scenario Analysis (Compare Cases)'):
             if diffusion_model == 'one-time investment':
                 pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=True, case='case2')
             else:
-                flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=True)
+                flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
 
     if st.button('Plot Comparisons', key='plot_comparison'):
     
@@ -276,11 +276,11 @@ with st.expander('Optimisation Analysis'):
         merged_df = pd.merge(lookup_table, st.session_state.df_factors, left_on='Node Number', right_on='factor_id')
 
         # Select the required columns
-        selected_columns = merged_df[['Node Number', 'Node Name', 'controllability', 'level of knowledge', 'predictability', 'measurability cost', 'intervenable', 'Interventions']]
+        selected_columns = merged_df[['Node Number', 'Node Name', 'controllability', 'level of knowledge', 'predictability', 'measurability cost', 'intervenable', 'interventions']]
 
         styled_df = selected_columns.style.applymap(color_lowmedhigh, subset=['controllability','level of knowledge', 'predictability', 'measurability cost']).\
             applymap(color_intervenable, subset=['intervenable']).\
-                applymap(color_interventions, subset=['Interventions'])
+                applymap(color_interventions, subset=['interventions'])
 
         # Display the styled dataframe in Streamlit
         st.dataframe(styled_df)

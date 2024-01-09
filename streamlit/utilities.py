@@ -391,61 +391,65 @@ def plot_relationships(CLD_rel_choice,CLD_isolates_choice,mode):
 
         for index, row in st.session_state.df_relationships.iterrows():
 
-            edge_from = row['from_factor_id']
-            edge_to = row['to_factor_id']
-            polarity = row['polarity']
-            
-            if polarity == 'positive': 
-                title = 'positive'
-                edge_color = 'lightgreen'  # choose your color for positive polarity
-            if polarity == 'negative': 
-                title = 'negative'
-                edge_color = 'lightcoral'  # choose your color for negative polarity
+            if row['strength']!='uncertain':
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-                weight=0.1
-                distance = 1/weight
-                strength='weak'
-            if row['strength']=='medium': 
-                weight=4
-                distance = 1/weight
-                strength='medium'
-            if row['strength']=='strong': 
-                weight=10
-                distance = 1/weight
-                strength='strong'
+                edge_from = row['from_factor_id']
+                edge_to = row['to_factor_id']
+                polarity = row['polarity']
+                
+                if polarity == 'positive': 
+                    title = 'positive'
+                    edge_color = 'lightgreen'  # choose your color for positive polarity
+                if polarity == 'negative': 
+                    title = 'negative'
+                    edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
+                if row['strength']=='weak': 
+                    weight=0.1
+                    distance = 1/weight
+                    strength='weak'
+                if row['strength']=='medium': 
+                    weight=4
+                    distance = 1/weight
+                    strength='medium'
+                if row['strength']=='strong': 
+                    weight=10
+                    distance = 1/weight
+                    strength='strong'
+
+                G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
 
     if CLD_rel_choice == 'Strong only':
 
         for index, row in st.session_state.df_relationships_S.iterrows():
 
-            edge_from = row['from_factor_id']
-            edge_to = row['to_factor_id']
-            polarity = row['polarity']
-            
-            if polarity == 'positive': 
-                title = 'positive'
-                edge_color = 'lightgreen'  # choose your color for positive polarity
-            if polarity == 'negative': 
-                title = 'negative'
-                edge_color = 'lightcoral'  # choose your color for negative polarity
+            if row['strength']!='uncertain':
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-                weight=0.1
-                distance = 1/weight
-                strength='weak'
-            if row['strength']=='medium': 
-                weight=4
-                distance = 1/weight
-                strength='medium'
-            if row['strength']=='strong': 
-                weight=10
-                distance = 1/weight
-                strength='strong'
+                edge_from = row['from_factor_id']
+                edge_to = row['to_factor_id']
+                polarity = row['polarity']
+                
+                if polarity == 'positive': 
+                    title = 'positive'
+                    edge_color = 'lightgreen'  # choose your color for positive polarity
+                if polarity == 'negative': 
+                    title = 'negative'
+                    edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
+                if row['strength']=='weak': 
+                    weight=0.1
+                    distance = 1/weight
+                    strength='weak'
+                if row['strength']=='medium': 
+                    weight=4
+                    distance = 1/weight
+                    strength='medium'
+                if row['strength']=='strong': 
+                    weight=10
+                    distance = 1/weight
+                    strength='strong'
+
+                G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
 
     if CLD_isolates_choice == True:
         G.remove_nodes_from(list(nx.isolates(G)))
@@ -698,61 +702,65 @@ def plot_relationships_interventionlab(CLD_rel_choice,CLD_isolates_choice,mode, 
 
         for index, row in st.session_state.df_relationships.iterrows():
 
-            edge_from = row['from_factor_id']
-            edge_to = row['to_factor_id']
-            polarity = row['polarity']
-            
-            if polarity == 'positive': 
-                title = 'positive'
-                edge_color = 'lightgreen'  # choose your color for positive polarity
-            if polarity == 'negative': 
-                title = 'negative'
-                edge_color = 'lightcoral'  # choose your color for negative polarity
+            if row['strength']!='uncertain':
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-                weight=0.1
-                distance = 1/weight
-                strength='weak'
-            if row['strength']=='medium': 
-                weight=4
-                distance = 1/weight
-                strength='medium'
-            if row['strength']=='strong': 
-                weight=10
-                distance = 1/weight
-                strength='strong'
+                edge_from = row['from_factor_id']
+                edge_to = row['to_factor_id']
+                polarity = row['polarity']
+                
+                if polarity == 'positive': 
+                    title = 'positive'
+                    edge_color = 'lightgreen'  # choose your color for positive polarity
+                if polarity == 'negative': 
+                    title = 'negative'
+                    edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
+                if row['strength']=='weak': 
+                    weight=0.1
+                    distance = 1/weight
+                    strength='weak'
+                if row['strength']=='medium': 
+                    weight=4
+                    distance = 1/weight
+                    strength='medium'
+                if row['strength']=='strong': 
+                    weight=10
+                    distance = 1/weight
+                    strength='strong'
+
+                G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength, edge_value=weight)
 
     if CLD_rel_choice == 'Strong only':
 
         for index, row in st.session_state.df_relationships_S.iterrows():
 
-            edge_from = row['from_factor_id']
-            edge_to = row['to_factor_id']
-            polarity = row['polarity']
-            
-            if polarity == 'positive': 
-                title = 'positive'
-                edge_color = 'lightgreen'  # choose your color for positive polarity
-            if polarity == 'negative': 
-                title = 'negative'
-                edge_color = 'lightcoral'  # choose your color for negative polarity
+            if row['strength']!='uncertain':
 
-            if row['strength']=='weak' or row['strength']=='nonlinear/unknown': 
-                weight=0.1
-                distance = 1/weight
-                strength='weak'
-            if row['strength']=='medium': 
-                weight=4
-                distance = 1/weight
-                strength='medium'
-            if row['strength']=='strong': 
-                weight=10
-                distance = 1/weight
-                strength='strong'
+                edge_from = row['from_factor_id']
+                edge_to = row['to_factor_id']
+                polarity = row['polarity']
+                
+                if polarity == 'positive': 
+                    title = 'positive'
+                    edge_color = 'lightgreen'  # choose your color for positive polarity
+                if polarity == 'negative': 
+                    title = 'negative'
+                    edge_color = 'lightcoral'  # choose your color for negative polarity
 
-            G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
+                if row['strength']=='weak': 
+                    weight=0.1
+                    distance = 1/weight
+                    strength='weak'
+                if row['strength']=='medium': 
+                    weight=4
+                    distance = 1/weight
+                    strength='medium'
+                if row['strength']=='strong': 
+                    weight=10
+                    distance = 1/weight
+                    strength='strong'
+
+                G.add_edge(edge_from, edge_to, weight=weight, hidden=False, arrowStrikethrough=False, color=edge_color, polarity=polarity, strength=strength)
 
     if CLD_isolates_choice == True:
         G.remove_nodes_from(list(nx.isolates(G)))
@@ -878,6 +886,20 @@ def load_centrality(G):
     .merge(current_flow_betweenness_centrality_df, on="node")\
     .merge(pagerank_centrality_df, on="node")
 
+    # Calculate Hub and Authority centralities
+    hubs, authorities = nx.hits(G)
+
+    # Convert them to DataFrames
+    hub_centrality_df = pd.DataFrame(hubs.items(), columns=["node", "hub"])
+    authority_centrality_df = pd.DataFrame(authorities.items(), columns=["node", "authority"])
+
+    # Merge them into the centrality_summary_df
+    centrality_summary_df = (
+        centrality_summary_df
+        .merge(hub_centrality_df, on="node")
+        .merge(authority_centrality_df, on="node")
+)
+
     centrality_summary_df.set_index('node', inplace=True)
     centrality_summary_df = df_nodes.join(centrality_summary_df)
     
@@ -887,7 +909,8 @@ def load_centrality(G):
     average_ranks = pd.DataFrame(round(centrality_ranks.mean(axis=1)).astype(int), columns=["average_rank"])
     average_ranks.insert(loc=0, column='node', value=centrality_summary_df["label"])
     
-    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[0:]), cmap='PuBu_r').set_precision(4)
+    centrality_summary_df = centrality_summary_df.round(4)
+    centrality_summary_df_styled = centrality_summary_df.style.background_gradient(subset=list(centrality_ranks.columns[0:]), cmap='PuBu_r')
     # centrality_summary_df_styled.to_html('PULPO_Chile_centrality_summary_df_styled_ALL.html')
     
     centrality_ranks_df_styled = df_nodes.join(centrality_ranks, how='left').style.background_gradient(subset=list(centrality_ranks.columns[0:]),cmap='PuBu')
@@ -1053,8 +1076,17 @@ def plot_centrality_archetypes(G):
         
         centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
 
-        # Select 'label' column and the last five columns for the radar charts
-        centrality_summary_df = centrality_summary_df.loc[:, ['label'] + list(centrality_summary_df.columns[-5:])]
+        # Get the column names excluding 'label'
+        columns = [col for col in centrality_summary_df.columns if col != 'label']
+
+        # Create a multiselect widget for the columns
+        selected_columns = st.multiselect('Select the columns you want to display', columns, default=columns)
+
+        # Always include 'label' in the selected columns
+        selected_columns = ['label'] + selected_columns
+
+        # Filter the DataFrame based on the selected columns
+        centrality_summary_df = centrality_summary_df[selected_columns]
 
         # Create a scaler object
         scaler = MinMaxScaler()
@@ -1102,7 +1134,7 @@ def plot_centrality_archetypes(G):
 
 def control_centrality_single(G):
     
-    A = nx.to_numpy_matrix(G).T
+    A = nx.to_numpy_array(G).T
     N = G.number_of_nodes()
     factor_control_centralities = []
     
@@ -1112,7 +1144,7 @@ def control_centrality_single(G):
         B[id,0]=1
     
         C = control.ctrb(A,B)
-        Cc = np.linalg.matrix_rank(C, tol=1.0e-40)
+        Cc = np.linalg.matrix_rank(C, tol=1.0e-2)
         cc = Cc/N
         
         factor_control_centralities.append(cc)
@@ -1143,7 +1175,7 @@ def controllability_multiple(G,subfactors_df):
         B[factor,i]=1
     
     C = control.ctrb(A,B)
-    Cc = np.linalg.matrix_rank(C, tol=1.0e-30)
+    Cc = np.linalg.matrix_rank(C, tol=1.0e-2)
     cc = Cc/N
 
     return cc.round(2)
@@ -1523,12 +1555,23 @@ def plot_icucpaths(G,path_intended,path_unintended):
 
         G_sub = G.edge_subgraph(edges)
 
-        nt = net.Network(width='1800px', height='1200px', directed=True)
+        nt = net.Network(width='1200px', height='600px', directed=True)
         nt.from_nx(G_sub)
         nt.inherit_edge_colors(False)
-        nt.show("icucpaths.html")
-        HtmlFile = open('icucpaths.html','r',encoding='utf-8')
-        components.html(HtmlFile.read(),height=700)
+
+        # Save and read graph as HTML file (on Streamlit Sharing)
+        try:
+            path = './streamlit/html_files'
+            nt.save_graph(f'{path}/icucpaths.html')
+            HtmlFile = open(f'{path}/icucpaths.html','r', encoding='utf-8')
+
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'html_files'
+            nt.save_graph(f'{path}/icucpaths.html')
+            HtmlFile = open(f'{path}/icucpaths.html','r', encoding='utf-8')
+
+        components.html(HtmlFile.read(),height=600)
 
 ### Tradeoff Analysis — Interactive Parallel Coordinate Plot ###
 
@@ -1751,7 +1794,8 @@ def save_graph(G):
 
 ### DIFFUSION MODELS ###
 
-def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=False):
+def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=False, rolling_window=1, vertical=False, case=''):
+   
     # Define the strength to weight mapping
     strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
 
@@ -1799,10 +1843,52 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Calculate the percentage of nodes with non-zero token counts
     non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
 
-    col1,col2 = st.columns(2)
+    if vertical==False:
 
-    with col1:
+        col1,col2 = st.columns(2)
 
+        with col1:
+
+            st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
+
+            # Create a gauge chart
+            fig = go.Figure(go.Indicator(
+                mode="gauge+number",
+                value=non_zero_tokens_percentage.mean(),
+                number={'suffix': "%"},  # Add a '%' suffix to the number displayed
+                gauge={'axis': {'range': [None, 100]}}
+            ))
+
+            # Display the gauge chart in Streamlit
+            st.plotly_chart(fig, use_container_width=True)
+
+        # Identify outcome nodes
+        outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
+
+        with col2:
+        
+            st.markdown("#### Causal effects of this intervention package on outcome nodes")
+
+            # Create a line plot for the outcome nodes
+            fig, ax = plt.subplots(figsize=(12, 6))
+            for outcome_node in outcome_nodes:
+                # Compute a moving average with a window size of 5
+                smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
+                ax.plot(smoothed_token_counts, label=outcome_node)
+            plt.xlabel('Time step')
+            plt.ylabel('Token count')
+            plt.legend()
+            plt.grid(True)
+
+            # Display the line plot in Streamlit
+            st.pyplot(fig)
+
+        # Apply log scale if log_scale is True
+        if log_scale:
+            df_token_counts = np.log1p(df_token_counts)
+    
+    if vertical==True:
+    
         st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
 
         # Create a gauge chart
@@ -1816,36 +1902,37 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         # Display the gauge chart in Streamlit
         st.plotly_chart(fig, use_container_width=True)
 
-    # Identify outcome nodes
-    outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
-
-    with col2:
-    
         st.markdown("#### Causal effects of this intervention package on outcome nodes")
+
+        # Identify outcome nodes
+        outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
 
         # Create a line plot for the outcome nodes
         fig, ax = plt.subplots(figsize=(12, 6))
         for outcome_node in outcome_nodes:
             # Compute a moving average with a window size of 5
-            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=1).mean()
+            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
             ax.plot(smoothed_token_counts, label=outcome_node)
         plt.xlabel('Time step')
         plt.ylabel('Token count')
         plt.legend()
         plt.grid(True)
 
+        # Set y-axis limits
+        ax.set_ylim([0, 50])
+
         # Display the line plot in Streamlit
         st.pyplot(fig)
-
-    # Apply log scale if log_scale is True
-    if log_scale:
-        df_token_counts = np.log1p(df_token_counts)
 
     # Create a heatmap of the token counts
 
     st.markdown("#### Causal effects of this intervention package on all nodes (outcome nodes highlighted in red))")
 
-    fig, ax = plt.subplots(figsize=(12, 12))
+    # Apply log scale if log_scale is True
+    if log_scale:
+        df_token_counts = np.log1p(df_token_counts)
+
+    fig, ax = plt.subplots(figsize=(12, 18))
     sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False)
 
     # Highlight outcome nodes in red
@@ -1859,9 +1946,43 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Display the plot in Streamlit
     st.pyplot(fig)
 
+    if case == 'case1':
+        st.session_state.df_token_counts_1 = df_token_counts
+
+    if case == 'case2':
+        st.session_state.df_token_counts_2 = df_token_counts
+
+    if vertical==False:
+
+        # Determine the number of rows for the subplots
+        num_rows = int(np.ceil(len(df_token_counts) / 3))
+
+        # Create a new figure with subplots
+        fig, axs = plt.subplots(num_rows, 3, figsize=(18, 4*num_rows))
+
+        # Flatten the axes array
+        axs = axs.flatten()
+
+        # Iterate over each row in the DataFrame
+        for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
+            ax.plot(row)
+            ax.set_title(index, fontsize=20)  # Increase plot title font
+            ax.set_xlabel('Time step')
+            ax.set_ylabel('Token count')
+
+        # Remove unused subplots
+        for ax in axs[len(df_token_counts):]:
+            fig.delaxes(ax)
+
+        # Adjust the layout
+        plt.tight_layout()
+
+        # Display the plot in Streamlit
+        st.pyplot(fig)
+
     return tokens
 
-def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_scale=False):
+def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_scale=False, rolling_window=1):
 
     # Define the strength to weight mapping
     strength_to_weight = {'strong': 3, 'medium': 2, 'weak': 1}
@@ -1938,7 +2059,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
         fig, ax = plt.subplots(figsize=(12, 6))
         for outcome_node in outcome_nodes:
             # Compute a moving average with a window size of 5
-            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=5).mean()
+            smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(rolling_window).mean()
             ax.plot(smoothed_token_counts, label=outcome_node)
         plt.xlabel('Time step')
         plt.ylabel('Token count')
@@ -2057,14 +2178,17 @@ def evaluate(individual):
     factors_df = st.session_state.df_factors
     factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
     outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
+    # Calculate the area under the curve for all timesteps
     area_under_curve = np.trapz(df_token_counts.loc[outcome_nodes].values, axis=1).sum()
+    # Calculate the area under the curve for the first 10 timesteps only
+    area_under_curve_first_10 = np.trapz(df_token_counts.loc[outcome_nodes].values[:,:10], axis=1).sum()
 
     # Calculate the viability objective
     controllability_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
     knowledge_mapping = {'low': 1, 'medium': 2, 'high': 4, 'uncontrollable':0}
     predictability_mapping = {'low': 1, 'medium': 2, 'high': 3, 'uncontrollable':0}
     measurability_cost_mapping = {'low': 3, 'medium': 2, 'high': 1}
-    opportunity_mapping = {'Active': 1, 'Potential': 2, 'None': 4}
+    opportunity_mapping = {'Active': 1, 'Potential': 2, 'No': 4}
     score = 0
     for node in nodes:
         node_data = factors_df.loc[node]
@@ -2072,9 +2196,9 @@ def evaluate(individual):
         score += knowledge_mapping[node_data['level of knowledge']]
         score += predictability_mapping[node_data['predictability']]
         score += measurability_cost_mapping[node_data['measurability cost']]
-        score += opportunity_mapping[node_data['Interventions']]
+        score += opportunity_mapping[node_data['interventions']]
 
-    return non_zero_tokens_percentage, area_under_curve, score
+    return non_zero_tokens_percentage, area_under_curve, score, area_under_curve_first_10
 
 # Define the individual
 def create_individual():
@@ -2134,3 +2258,5 @@ def color_interventions(val):
     else:
         color = 'lightcoral'
     return 'background-color: %s' % color
+
+

@@ -1852,7 +1852,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
 
             # Create a gauge chart
-            fig = go.Figure(go.Indicator(
+            fig1 = go.Figure(go.Indicator(
                 mode="gauge+number",
                 value=non_zero_tokens_percentage.mean(),
                 number={'suffix': "%"},  # Add a '%' suffix to the number displayed
@@ -1860,7 +1860,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             ))
 
             # Display the gauge chart in Streamlit
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig1, use_container_width=True)
 
         # Identify outcome nodes
         outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
@@ -1870,7 +1870,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             st.markdown("#### Causal effects of this intervention package on outcome nodes")
 
             # Create a line plot for the outcome nodes
-            fig, ax = plt.subplots(figsize=(12, 6))
+            fig2, ax = plt.subplots(figsize=(12, 6))
             for outcome_node in outcome_nodes:
                 # Compute a moving average with a window size of 5
                 smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
@@ -1881,7 +1881,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             plt.grid(True)
 
             # Display the line plot in Streamlit
-            st.pyplot(fig)
+            st.pyplot(fig2)
 
         # Apply log scale if log_scale is True
         if log_scale:
@@ -1892,7 +1892,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
 
         # Create a gauge chart
-        fig = go.Figure(go.Indicator(
+        fig3 = go.Figure(go.Indicator(
             mode="gauge+number",
             value=non_zero_tokens_percentage.mean(),
             number={'suffix': "%"},  # Add a '%' suffix to the number displayed
@@ -1900,7 +1900,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         ))
 
         # Display the gauge chart in Streamlit
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig3, use_container_width=True)
 
         st.markdown("#### Causal effects of this intervention package on outcome nodes")
 
@@ -1908,7 +1908,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
 
         # Create a line plot for the outcome nodes
-        fig, ax = plt.subplots(figsize=(12, 6))
+        fig4, ax = plt.subplots(figsize=(12, 6))
         for outcome_node in outcome_nodes:
             # Compute a moving average with a window size of 5
             smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
@@ -1922,7 +1922,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         ax.set_ylim([0, 50])
 
         # Display the line plot in Streamlit
-        st.pyplot(fig)
+        st.pyplot(fig4)
 
     # Create a heatmap of the token counts
 
@@ -1932,7 +1932,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     if log_scale:
         df_token_counts = np.log1p(df_token_counts)
 
-    fig, ax = plt.subplots(figsize=(12, 18))
+    fig5, ax = plt.subplots(figsize=(12, 18))
     sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False)
 
     # Highlight outcome nodes in red
@@ -1944,7 +1944,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     plt.ylabel('Node')
 
     # Display the plot in Streamlit
-    st.pyplot(fig)
+    st.pyplot(fig5)
 
     if case == 'case1':
         st.session_state.df_token_counts_1 = df_token_counts
@@ -1958,7 +1958,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         num_rows = int(np.ceil(len(df_token_counts) / 3))
 
         # Create a new figure with subplots
-        fig, axs = plt.subplots(num_rows, 3, figsize=(18, 4*num_rows))
+        fig6, axs = plt.subplots(num_rows, 3, figsize=(18, 4*num_rows))
 
         # Flatten the axes array
         axs = axs.flatten()
@@ -1978,7 +1978,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         plt.tight_layout()
 
         # Display the plot in Streamlit
-        st.pyplot(fig)
+        st.pyplot(fig6)
 
     return tokens
 

@@ -1875,8 +1875,9 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             # Display the gauge chart in Streamlit
             st.plotly_chart(fig, use_container_width=True)
 
-        # Identify outcome nodes
+        # Identify outcome and intervention nodes
         outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
+        intervention_nodes = df[df['TOKENS'] != 0]['long_name'].tolist()
 
         with col2:
         
@@ -1930,9 +1931,6 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
         st.markdown("#### Leverage of this intervention package on the outcome nodes")
 
-        # Identify outcome nodes
-        outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
-
         # Create a line plot for the outcome nodes
         fig, ax = plt.subplots(figsize=(12, 8))
         
@@ -1979,9 +1977,8 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             label.set_color('red')
 
     # Highlight nodes that have non-zero token counts (TOKENS column in df dataframe) in blue
-
     for label in ax.get_yticklabels():
-        if label.get_text() in df[df['TOKENS'] != 0]['long_name'].tolist():
+        if label.get_text() in intervention_nodes:
             label.set_color('blue')
 
     plt.xlabel('Time step')
@@ -2030,10 +2027,16 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             ax.plot(row)
             if index in outcome_nodes:
                 ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
+            if index in intervention_nodes:
+                ax.set_title(index, fontsize=20, color='blue')
+                # Get the number of tokens for the current node
+                num_tokens = df[df['long_name'] == index]['TOKENS'].values[0]
+                # Add the number of tokens as a text box in the subplot
+                ax.text(0.35, 0.9, f'Tokens: {num_tokens}', transform=ax.transAxes, fontsize=24, verticalalignment='top', bbox=dict(boxstyle='round', facecolor='white', alpha=0.5))
             else:
                 ax.set_title(index, fontsize=20)  # Increase plot title font
             ax.set_xlabel('Time step')
-            ax.set_ylabel('Token count (log scale)')
+            ax.set_ylabel('Token count')
             ax.set_ylim([0, max_value])  # Set the y-axis limits
 
         # Remove unused subplots

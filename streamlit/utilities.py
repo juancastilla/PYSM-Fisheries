@@ -1883,7 +1883,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             st.markdown("#### Causal effects of this intervention package on outcome nodes")
 
             # Create a line plot for the outcome nodes
-            fig2, ax = plt.subplots(figsize=(12, 6))
+            fig2, ax = plt.subplots(figsize=(12, 8))
             for outcome_node in outcome_nodes:
                 # Compute a moving average with a window size of 5
                 smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
@@ -1932,7 +1932,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
 
         # Create a line plot for the outcome nodes
-        fig4, ax = plt.subplots(figsize=(12, 6))
+        fig4, ax = plt.subplots(figsize=(12, 8))
         for outcome_node in outcome_nodes:
             # Compute a moving average with a window size of 5
             smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
@@ -1950,14 +1950,15 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             path = './streamlit/static'
             fig4.savefig(f'{path}/causal_effects_line.png')      
             image = Image.open(f'{path}/causal_effects_line.png')
-            st.image(image)    
+            st.image(image, width=None)    
             
         # Save and read graph as HTML file (locally)
         except:
             path = 'static'
             fig4.savefig(f'{path}/causal_effects_line.png')      
             image = Image.open(f'{path}/causal_effects_line.png')
-            st.image(image)
+            st.image(image, width=None)    
+
 
     # Create a heatmap of the token counts
 
@@ -1967,7 +1968,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     if log_scale:
         df_token_counts = np.log1p(df_token_counts)
 
-    fig5, ax = plt.subplots(figsize=(12, 12))
+    fig5, ax = plt.subplots(figsize=(14, 12))
     sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False, ax=ax)
 
     # Highlight outcome nodes in red
@@ -1977,20 +1978,25 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
     plt.xlabel('Time step')
     plt.ylabel('Node')
+    plt.tight_layout()
 
     # Save and read graph as png file (on cloud)
     try:
         path = './streamlit/static'
         fig5.savefig(f'{path}/causal_effects_heat.png')      
         image = Image.open(f'{path}/causal_effects_heat.png')
-        st.image(image, use_column_width=True)    
+        left_co, right_co = st.columns([0.05,0.95])
+        with right_co:
+            st.image(image, use_column_width='auto')    
         
     # Save and read graph as HTML file (locally)
     except:
         path = 'static'
         fig5.savefig(f'{path}/causal_effects_heat.png')      
         image = Image.open(f'{path}/causal_effects_heat.png')
-        st.image(image, use_column_width=True)
+        left_co, right_co = st.columns([0.05,0.95])
+        with right_co:
+            st.image(image, use_column_width='auto')    
 
     if case == 'case1':
         st.session_state.df_token_counts_1 = df_token_counts

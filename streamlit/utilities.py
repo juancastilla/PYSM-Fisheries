@@ -1078,7 +1078,7 @@ def plot_centrality_archetypes(G):
         centrality_summary_df_styled, centrality_ranks_df_styled, average_ranks_df_styled, centrality_summary_df, centrality_ranks_df = load_centrality(G)
 
         # Get the column names excluding 'label'
-        columns = [col for col in centrality_summary_df.columns if col != 'label']
+        columns = [col for col in centrality_summary_df.columns if col not in ['label', 'domain']]
 
         # Create a multiselect widget for the columns
         selected_columns = st.multiselect('Select the centrality metrics to include', columns, default=columns)

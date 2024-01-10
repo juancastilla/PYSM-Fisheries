@@ -1129,8 +1129,15 @@ def plot_centrality_archetypes(G):
         plt.tight_layout()
         plt.subplots_adjust(hspace=0.5)  # Adjust the vertical spacing
 
-        # Display the plot in Streamlit
-        st.pyplot(fig)
+        # Save the figure as a png in the 'static' folder
+        fig.savefig('static/figure.png')
+        
+        from PIL import Image
+        image = Image.open('static/figure.png') 
+        st.image(image) 
+
+        # # Display the plot in Streamlit
+        # st.pyplot(fig)
 
 def control_centrality_single(G):
     

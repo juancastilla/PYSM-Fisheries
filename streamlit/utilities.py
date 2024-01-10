@@ -2026,14 +2026,14 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         # Save and read graph as png file (on cloud)
         try:
             path = './streamlit/static'
-            fig5.savefig(f'{path}/causal_effects_lines_all.png')      
+            fig6.savefig(f'{path}/causal_effects_lines_all.png')      
             image = Image.open(f'{path}/causal_effects_lines_all.png')
             st.image(image)    
             
         # Save and read graph as HTML file (locally)
         except:
             path = 'static'
-            fig5.savefig(f'{path}/causal_effects_lines_all.png')      
+            fig6.savefig(f'{path}/causal_effects_lines_all.png')      
             image = Image.open(f'{path}/causal_effects_lines_all.png')
             st.image(image)
 

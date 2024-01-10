@@ -1129,15 +1129,22 @@ def plot_centrality_archetypes(G):
         plt.tight_layout()
         plt.subplots_adjust(hspace=0.5)  # Adjust the vertical spacing
 
-        # Save the figure as a png in the 'static' folder
-        fig.savefig('static/figure.png')
-        
         from PIL import Image
-        image = Image.open('static/figure.png') 
-        st.image(image) 
 
-        # # Display the plot in Streamlit
-        # st.pyplot(fig)
+        # Save and read graph as png file (on cloud)
+        try:
+            path = './streamlit/static'
+            fig.savefig(f'{path}/centrality_archetypes.png')      
+            image = Image.open(f'{path}/centrality_archetypes.png')
+            st.image(image)    
+            
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'static'
+            fig.savefig(f'{path}/centrality_archetypes.png')      
+            image = Image.open(f'{path}/centrality_archetypes.png')
+            st.image(image)
+            
 
 def control_centrality_single(G):
     

@@ -1856,66 +1856,14 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Calculate the percentage of nodes with non-zero token counts
     non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
 
-    if vertical==False:
+    # Identify outcome and intervention nodes
+    outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
+    intervention_nodes = df[df['TOKENS'] != 0]['long_name'].tolist()
 
-        col1,col2 = st.columns(2)
+    col1,col2 = st.columns(2)
 
-        with col1:
+    with col1:
 
-            st.markdown("#### % System leverage of this intervention package")
-
-            # Create a gauge chart
-            fig = go.Figure(go.Indicator(
-                mode="gauge+number",
-                value=non_zero_tokens_percentage.mean(),
-                number={'suffix': "%"},  # Add a '%' suffix to the number displayed
-                gauge={'axis': {'range': [None, 100]}}
-            ))
-
-            # Display the gauge chart in Streamlit
-            st.plotly_chart(fig, use_container_width=True)
-
-        # Identify outcome and intervention nodes
-        outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
-        intervention_nodes = df[df['TOKENS'] != 0]['long_name'].tolist()
-
-        with col2:
-        
-            st.markdown("#### Leverage of this intervention package on the outcome nodes")
-
-            # Create a line plot for the outcome nodes
-            fig, ax = plt.subplots(figsize=(12, 8))
-            
-            for outcome_node in outcome_nodes:
-                # Compute a moving average with a window size of 5
-                smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(window=rolling_window).mean()
-                ax.plot(smoothed_token_counts, label=outcome_node)
-            
-            plt.xlabel('Time step', fontsize=20)
-            plt.ylabel('Token count', fontsize=20)
-            plt.legend(prop={'size': 20})
-            plt.grid(True)
-
-            # Save and read graph as png file (on cloud)
-            try:
-                path = './streamlit/static'
-                fig.savefig(f'{path}/pulse_causal_effects_line.png')      
-                image = Image.open(f'{path}/pulse_causal_effects_line.png')
-                st.image(image)    
-                
-            # Save and read graph as HTML file (locally)
-            except:
-                path = 'static'
-                fig.savefig(f'{path}/pulse_causal_effects_line.png')      
-                image = Image.open(f'{path}/pulse_causal_effects_line.png')
-                st.image(image)
-
-        # Apply log scale if log_scale is True
-        if log_scale:
-            df_token_counts = np.log1p(df_token_counts)
-    
-    if vertical==True:
-    
         st.markdown("#### % System leverage of this intervention package")
 
         # Create a gauge chart
@@ -1929,6 +1877,8 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         # Display the gauge chart in Streamlit
         st.plotly_chart(fig, use_container_width=True)
 
+    with col2:
+    
         st.markdown("#### Leverage of this intervention package on the outcome nodes")
 
         # Create a line plot for the outcome nodes
@@ -1943,25 +1893,27 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         plt.ylabel('Token count', fontsize=20)
         plt.legend(prop={'size': 20})
         plt.grid(True)
-        ax.set_ylim([0, 50])
 
         # Save and read graph as png file (on cloud)
         try:
             path = './streamlit/static'
-            fig.savefig(f'{path}/causal_effects_line.png')      
-            image = Image.open(f'{path}/causal_effects_line.png')
-            st.image(image, width=None)    
+            fig.savefig(f'{path}/pulse_causal_effects_line.png')      
+            image = Image.open(f'{path}/pulse_causal_effects_line.png')
+            st.image(image)    
             
         # Save and read graph as HTML file (locally)
         except:
             path = 'static'
-            fig.savefig(f'{path}/causal_effects_line.png')      
-            image = Image.open(f'{path}/causal_effects_line.png')
-            st.image(image, width=None)    
+            fig.savefig(f'{path}/pulse_causal_effects_line.png')      
+            image = Image.open(f'{path}/pulse_causal_effects_line.png')
+            st.image(image)
 
+    # Apply log scale if log_scale is True
+    if log_scale:
+        df_token_counts = np.log1p(df_token_counts)
+    
 
     # Create a heatmap of the token counts
-
     st.markdown("#### Leverage of this intervention package on all nodes (red = outcome nodes; blue = intervention nodes)")
 
     # Apply log scale if log_scale is True
@@ -1987,8 +1939,8 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Save and read graph as png file (on cloud)
     try:
         path = './streamlit/static'
-        fig.savefig(f'{path}/causal_effects_heat.png')      
-        image = Image.open(f'{path}/causal_effects_heat.png')
+        fig.savefig(f'{path}/pulse_causal_effects_heat.png')      
+        image = Image.open(f'{path}/pulse_causal_effects_heat.png')
         left_co, right_co = st.columns([0.05,0.95])
         with right_co:
             st.image(image, use_column_width='auto')    
@@ -1996,69 +1948,63 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Save and read graph as HTML file (locally)
     except:
         path = 'static'
-        fig.savefig(f'{path}/causal_effects_heat.png')      
-        image = Image.open(f'{path}/causal_effects_heat.png')
+        fig.savefig(f'{path}/pulse_causal_effects_heat.png')      
+        image = Image.open(f'{path}/pulse_causal_effects_heat.png')
         left_co, right_co = st.columns([0.05,0.95])
         with right_co:
             st.image(image, use_column_width='auto')    
 
-    if case == 'case1':
-        st.session_state.df_token_counts_1 = df_token_counts
+    # Create a line plot for each node
 
-    if case == 'case2':
-        st.session_state.df_token_counts_2 = df_token_counts
+    # Determine the number of rows for the subplots
+    num_rows = int(np.ceil(len(df_token_counts) / 3))
 
-    if vertical==False:
+    # Find the maximum value in the dataset
+    max_value = df_token_counts.max().max()
 
-        # Determine the number of rows for the subplots
-        num_rows = int(np.ceil(len(df_token_counts) / 3))
+    # Create a new figure with subplots
+    fig, axs = plt.subplots(num_rows, 3, figsize=(18, 4*num_rows))
 
-        # Find the maximum value in the dataset
-        max_value = df_token_counts.max().max()
+    # Flatten the axes array
+    axs = axs.flatten()
 
-        # Create a new figure with subplots
-        fig, axs = plt.subplots(num_rows, 3, figsize=(18, 4*num_rows))
+    # Iterate over each row in the DataFrame
+    for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
+        ax.plot(row)
+        if index in outcome_nodes:
+            ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
+        if index in intervention_nodes:
+            ax.set_title(index, fontsize=20, color='blue')
+            # Get the number of tokens for the current node
+            num_tokens = df[df['long_name'] == index]['TOKENS'].values[0]
+            # Add the number of tokens as a text box in the subplot
+            ax.text(0.35, 0.9, f'Tokens: {num_tokens}', transform=ax.transAxes, fontsize=24, verticalalignment='top', bbox=dict(boxstyle='round', facecolor='white', alpha=0.5))
+        else:
+            ax.set_title(index, fontsize=20)  # Increase plot title font
+        ax.set_xlabel('Time step')
+        ax.set_ylabel('Token count')
+        ax.set_ylim([0, max_value])  # Set the y-axis limits
 
-        # Flatten the axes array
-        axs = axs.flatten()
+    # Remove unused subplots
+    for ax in axs[len(df_token_counts):]:
+        fig.delaxes(ax)
 
-        # Iterate over each row in the DataFrame
-        for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
-            ax.plot(row)
-            if index in outcome_nodes:
-                ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
-            if index in intervention_nodes:
-                ax.set_title(index, fontsize=20, color='blue')
-                # Get the number of tokens for the current node
-                num_tokens = df[df['long_name'] == index]['TOKENS'].values[0]
-                # Add the number of tokens as a text box in the subplot
-                ax.text(0.35, 0.9, f'Tokens: {num_tokens}', transform=ax.transAxes, fontsize=24, verticalalignment='top', bbox=dict(boxstyle='round', facecolor='white', alpha=0.5))
-            else:
-                ax.set_title(index, fontsize=20)  # Increase plot title font
-            ax.set_xlabel('Time step')
-            ax.set_ylabel('Token count')
-            ax.set_ylim([0, max_value])  # Set the y-axis limits
+    # Adjust the layout
+    plt.tight_layout()
 
-        # Remove unused subplots
-        for ax in axs[len(df_token_counts):]:
-            fig.delaxes(ax)
-
-        # Adjust the layout
-        plt.tight_layout()
-
-        # Save and read graph as png file (on cloud)
-        try:
-            path = './streamlit/static'
-            fig.savefig(f'{path}/causal_effects_lines_all.png')      
-            image = Image.open(f'{path}/causal_effects_lines_all.png')
-            st.image(image, use_column_width=True)  
-            
-        # Save and read graph as HTML file (locally)
-        except:
-            path = 'static'
-            fig.savefig(f'{path}/causal_effects_lines_all.png')      
-            image = Image.open(f'{path}/causal_effects_lines_all.png')
-            st.image(image, use_column_width=True)
+    # Save and read graph as png file (on cloud)
+    try:
+        path = './streamlit/static'
+        fig.savefig(f'{path}/pulse_causal_effects_lines_all.png')      
+        image = Image.open(f'{path}/pulse_causal_effects_lines_all.png')
+        st.image(image, use_column_width=True)  
+        
+    # Save and read graph as HTML file (locally)
+    except:
+        path = 'static'
+        fig.savefig(f'{path}/pulse_causal_effects_lines_all.png')      
+        image = Image.open(f'{path}/pulse_causal_effects_lines_all.png')
+        st.image(image, use_column_width=True)
 
     return tokens
 
@@ -2111,11 +2057,15 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
     # Calculate the percentage of nodes with non-zero token counts
     non_zero_tokens_percentage = (df_token_counts.astype(bool).sum(axis=1) > 0).sum() / len(df_token_counts) * 100
 
+    # Identify outcome and intervention nodes
+    outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
+    intervention_nodes = df[df['TOKENS'] != 0]['long_name'].tolist()
+
     col1,col2 = st.columns(2)
 
     with col1:
 
-        st.markdown("#### Percentage of nodes that can be controlled with this intervention package")
+        st.markdown("#### % System leverage of this intervention package")
 
         # Create a gauge chart
         fig = go.Figure(go.Indicator(
@@ -2128,12 +2078,9 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
         # Display the gauge chart in Streamlit
         st.plotly_chart(fig, use_container_width=True)
 
-    # Identify outcome nodes
-    outcome_nodes = df[df['OUTCOME NODE']]['long_name'].tolist()
-
     with col2:
     
-        st.markdown("#### Causal effects of this intervention package on outcome nodes")
+        st.markdown("#### Leverage of this intervention package on the outcome nodes")
 
         # Create a line plot for the outcome nodes
         fig, ax = plt.subplots(figsize=(12, 8))
@@ -2166,13 +2113,13 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
 
     # Create a heatmap of the token counts
 
-    st.markdown("#### Causal effects of this intervention package on all nodes (outcome nodes highlighted in red))")
+    st.markdown("#### Leverage of this intervention package on all nodes (red = outcome nodes; blue = intervention nodes)")
 
     # Apply log scale if log_scale is True
     if log_scale:
         df_token_counts = np.log1p(df_token_counts)
 
-    fig, ax = plt.subplots(figsize=(14, 12))
+    fig, ax = plt.subplots(figsize=(12, 12))
     sns.heatmap(df_token_counts, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 5}, cbar=False)
 
     # Highlight outcome nodes in red
@@ -2180,8 +2127,12 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
         if label.get_text() in outcome_nodes:
             label.set_color('red')
 
+    # Highlight nodes that have non-zero token counts (TOKENS column in df dataframe) in blue
+    for label in ax.get_yticklabels():
+        if label.get_text() in intervention_nodes:
+            label.set_color('blue')
+
     plt.xlabel('Time step')
-    plt.ylabel('Node')
     plt.tight_layout()
 
     # Save and read graph as png file (on cloud)
@@ -2221,6 +2172,12 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
         ax.plot(row)
         if index in outcome_nodes:
             ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
+        if index in intervention_nodes:
+            ax.set_title(index, fontsize=20, color='blue')
+            # Get the number of tokens for the current node
+            num_tokens = df[df['long_name'] == index]['TOKENS'].values[0]
+            # Add the number of tokens as a text box in the subplot
+            ax.text(0.35, 0.9, f'Tokens: {num_tokens}', transform=ax.transAxes, fontsize=24, verticalalignment='top', bbox=dict(boxstyle='round', facecolor='white', alpha=0.5))
         else:
             ax.set_title(index, fontsize=20)  # Increase plot title font
         ax.set_xlabel('Time step')

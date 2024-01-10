@@ -31,6 +31,7 @@ import hiplot as hip
 from deap import base, creator, tools, algorithms
 import random
 from plotapi import Chord
+from PIL import Image
 
 
 # import googletrans
@@ -1129,8 +1130,6 @@ def plot_centrality_archetypes(G):
         plt.tight_layout()
         plt.subplots_adjust(hspace=0.5)  # Adjust the vertical spacing
 
-        from PIL import Image
-
         # Save and read graph as png file (on cloud)
         try:
             path = './streamlit/static'
@@ -1144,7 +1143,7 @@ def plot_centrality_archetypes(G):
             fig.savefig(f'{path}/centrality_archetypes.png')      
             image = Image.open(f'{path}/centrality_archetypes.png')
             st.image(image)
-            
+
 
 def control_centrality_single(G):
     
@@ -1894,8 +1893,19 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             plt.legend()
             plt.grid(True)
 
-            # Display the line plot in Streamlit
-            st.pyplot(fig2)
+            # Save and read graph as png file (on cloud)
+            try:
+                path = './streamlit/static'
+                fig2.savefig(f'{path}/causal_effects_line.png')      
+                image = Image.open(f'{path}/causal_effects_line.png')
+                st.image(image)    
+                
+            # Save and read graph as HTML file (locally)
+            except:
+                path = 'static'
+                fig2.savefig(f'{path}/causal_effects_line.png')      
+                image = Image.open(f'{path}/causal_effects_line.png')
+                st.image(image)
 
         # Apply log scale if log_scale is True
         if log_scale:
@@ -1935,8 +1945,19 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         # Set y-axis limits
         ax.set_ylim([0, 50])
 
-        # Display the line plot in Streamlit
-        st.pyplot(fig4)
+        # Save and read graph as png file (on cloud)
+        try:
+            path = './streamlit/static'
+            fig4.savefig(f'{path}/causal_effects_line.png')      
+            image = Image.open(f'{path}/causal_effects_line.png')
+            st.image(image)    
+            
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'static'
+            fig4.savefig(f'{path}/causal_effects_line.png')      
+            image = Image.open(f'{path}/causal_effects_line.png')
+            st.image(image)
 
     # Create a heatmap of the token counts
 
@@ -1957,8 +1978,19 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     plt.xlabel('Time step')
     plt.ylabel('Node')
 
-    # Display the plot in Streamlit
-    st.pyplot(fig5)
+    # Save and read graph as png file (on cloud)
+    try:
+        path = './streamlit/static'
+        fig5.savefig(f'{path}/causal_effects_heat.png')      
+        image = Image.open(f'{path}/causal_effects_heat.png')
+        st.image(image)    
+        
+    # Save and read graph as HTML file (locally)
+    except:
+        path = 'static'
+        fig5.savefig(f'{path}/causal_effects_heat.png')      
+        image = Image.open(f'{path}/causal_effects_heat.png')
+        st.image(image)
 
     if case == 'case1':
         st.session_state.df_token_counts_1 = df_token_counts
@@ -1991,8 +2023,19 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         # Adjust the layout
         plt.tight_layout()
 
-        # Display the plot in Streamlit
-        st.pyplot(fig6)
+        # Save and read graph as png file (on cloud)
+        try:
+            path = './streamlit/static'
+            fig5.savefig(f'{path}/causal_effects_lines_all.png')      
+            image = Image.open(f'{path}/causal_effects_lines_all.png')
+            st.image(image)    
+            
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'static'
+            fig5.savefig(f'{path}/causal_effects_lines_all.png')      
+            image = Image.open(f'{path}/causal_effects_lines_all.png')
+            st.image(image)
 
     return tokens
 

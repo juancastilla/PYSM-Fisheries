@@ -241,6 +241,10 @@ with st.expander('Optimisation Analysis'):
                 creator.create("FitnessMax", base.Fitness, weights=(-np.inf, -np.inf, 1.0, -np.inf))
             elif 'Control' not in options and 'Effect' not in options and 'Viability' not in options and 'Effect (short term)' in options:
                 creator.create("FitnessMax", base.Fitness, weights=(-np.inf, -np.inf, -np.inf, 1.0))
+            elif 'Control' in options and 'Effect' in options and 'Viability' not in options and 'Effect (short term)' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0, -np.inf, -np.inf))
+            elif 'Control' not in options and 'Effect' not in options and 'Viability' not in options and 'Effect (short term)' not in options:
+                creator.create("FitnessMax", base.Fitness, weights=(-np.inf, -np.inf, -np.inf, -np.inf))
             
             creator.create("Individual", list, fitness=creator.FitnessMax)
             

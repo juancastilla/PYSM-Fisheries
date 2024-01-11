@@ -191,7 +191,7 @@ if analysis_choice_4:
             G = G.subgraph(largest)
 
             adjacency_matrix = nx.adjacency_matrix(G)
-            adjacency = adjacency_matrix
+            adjacency = adjacency_matrix.toarray()
 
             # hierarchical clustering — Paris
             paris = Paris()

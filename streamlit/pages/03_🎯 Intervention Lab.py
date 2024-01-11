@@ -94,104 +94,7 @@ with st.expander('Exploratory Scenario Analysis (compare two intervention packag
             with st.spinner('Running comparisons...'):
                 diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time_horizon, edited_df_1, edited_df_2, log_scale, rolling_window)
 
-            
 
-
-    # col1, col2 = st.columns(2)
-
-    # with col1:
-
-    #     st.title('Case 1')
-
-    #     factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "interventions", "intervenable", "domain_name"]]
-    #     edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='case2')
-    #     token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
-        
-    #     col3, col4, col5, col6 = st.columns(4)
-        
-    #     with col3:
-    #         log_scale = st.checkbox('Use log scale?', key='log_scale_2')
-    #     with col4:
-    #         diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_2')
-    #     with col5:
-    #         time_horizon = st.slider('Time horizon (timesteps):', 1, 50, 25, key='time_horizon_2')
-    #     with col6: 
-    #         rolling_window = st.slider('Rolling window (timesteps):', 1, 5, 1, key='rolling_window_2')
-
-    #     if st.button('Run simulation', key='run_simulation_2'):
-
-    #         if diffusion_model == 'one-time investment':
-    #             pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=True, case='case1')
-    #         else:
-    #             flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
-
-
-    # with col2:
-        
-    #     st.title('Case 2')
-
-    #     factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "interventions", "intervenable", "domain_name"]]
-    #     edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='case3')
-    #     token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
-        
-    #     col7, col8, col9, col10 = st.columns(4)
-        
-    #     with col7:
-    #         log_scale = st.checkbox('Use log scale?', key='log_scale_3')
-    #     with col8:
-    #         diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_3')
-    #     with col9:
-    #         time_horizon = st.slider('Time horizon (timesteps):', 1, 50, 25, key='time_horizon_3')
-    #     with col10: 
-    #         rolling_window = st.slider('Rolling window (timesteps):', 1, 5, 1, key='rolling_window_3')
-
-    #     if st.button('Run simulation', key='run_simulation_3'):
-
-    #         if diffusion_model == 'one-time investment':
-    #             pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=True, case='case2')
-    #         else:
-    #             flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
-
-    # if st.button('Plot Comparisons', key='plot_comparison'):
-    
-    #     # Get the dataframes from the session state
-    #     df1 = st.session_state.df_token_counts_1
-    #     df2 = st.session_state.df_token_counts_2
-
-    #     # Determine the number of rows for the subplots
-    #     num_rows = max(len(df1), len(df2))
-
-    #     # Create a new figure with subplots
-    #     fig, axs = plt.subplots(num_rows, 2, figsize=(16, 3*num_rows), dpi=100)
-
-    #     # Flatten the axes array
-    #     axs = axs.flatten()
-
-    #     # Get the outcome nodes
-    #     outcome_nodes = factors_df[factors_df['OUTCOME NODE'] == True]['long_name'].tolist()
-
-    #     # Iterate over each row in the DataFrame
-    #     for ax, (index1, row1), (index2, row2) in zip(axs, df1.iterrows(), df2.iterrows()):
-    #         ax.plot(row1, label='Case 1')
-    #         ax.plot(row2, label='Case 2')
-    #         # Set the title to be the row name
-    #         if index1 in outcome_nodes:
-    #             ax.set_title(index1, fontsize=20, color='red')  # Increase plot title font and set color to red for outcome nodes
-    #         else:
-    #             ax.set_title(index1, fontsize=20)  # Increase plot title font
-    #         ax.set_xlabel('Time step')
-    #         ax.set_ylabel('Token count')
-    #         ax.legend()  # Add legend
-
-    #     # Remove unused subplots
-    #     for ax in axs[max(len(df1), len(df2)):]:
-    #         fig.delaxes(ax)
-
-    #     # Adjust the layout
-    #     plt.tight_layout()
-
-    #     # Display the plot in Streamlit
-    #     st.pyplot(fig)
 
 
 with st.expander('Optimisation Analysis'):
@@ -285,16 +188,27 @@ with st.expander('Optimisation Analysis'):
             avg_fitness_values = log.select('avg')
 
             # Create the plot
-            plt.figure(figsize=(10, 5))
-            plt.plot(avg_fitness_values, label=['Control','Effect', 'Viability', 'Effect (short term)'])
-            plt.xlabel('Generation')
-            plt.ylabel('Fitness')
-            plt.title('Fitness Evolution')
-            plt.legend()
-            plt.grid(True)
+            fig, ax = plt.subplots(figsize=(10, 5))
+            ax.plot(avg_fitness_values, label=['Control','Effect', 'Viability', 'Effect (short term)'])
+            ax.set_xlabel('Generation')
+            ax.set_ylabel('Fitness')
+            ax.set_title('Fitness Evolution')
+            ax.legend()
+            ax.grid(True)
             
-            # Display the plot in Streamlit
-            st.pyplot(plt)
+            # Save and read graph as png file (on cloud)
+            try:
+                path = './streamlit/static'
+                fig.savefig(f'{path}/optimisation_fitness.png')      
+                image = Image.open(f'{path}/optimisation_fitness.png')
+                st.image(image, use_column_width=True)  
+                
+            # Save and read graph as HTML file (locally)
+            except:
+                path = 'static'
+                fig.savefig(f'{path}/optimisation_fitness.png')      
+                image = Image.open(f'{path}/optimisation_fitness.png')
+                st.image(image, use_column_width=True)
         
         with col2:
 

@@ -24,12 +24,12 @@ with st.expander('Influence Diagram'):
     G=plot_relationships_interventionlab(relationships_filter,True,'display', domains_to_remove, intervenable_filter)
 
 
-with st.expander('Exploratory Scenario Analysis (Single Case)'):
+with st.expander('Exploratory Scenario Analysis (single intervention package)'):
     
-    st.title('Single Case')
+    st.title('Intervention Package')
 
     factors_df_display = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "interventions", "intervenable", "domain_name"]]
-    edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='case1')
+    edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='')
     token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
     
     col1, col2, col3, col4 = st.columns(4)
@@ -45,26 +45,57 @@ with st.expander('Exploratory Scenario Analysis (Single Case)'):
 
     if st.button('Run simulation', key='run_simulation_1'):
 
-        if diffusion_model == 'one-time investment':
-            pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=False, case='case1')
-        else:
-            flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
+        with st.spinner('Running analysis...'):
+
+            if diffusion_model == 'one-time investment':
+                pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=False, case='')
+            else:
+                flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
 
 
 with st.expander('Exploratory Scenario Analysis (compare two intervention packages)'):
 
-    with st.form(key='compare_cases', clear_on_submit=False, border=True):
+    with st.form("my_form"):
 
+        col1, col2 = st.columns(2)
+
+        with col1:
+
+            st.title('Intervention Package 1')
+
+            factors_df_display_1 = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "interventions", "intervenable", "domain_name"]]
+            edited_df_1 = st.data_editor(factors_df_display_1, use_container_width=False, height=1750, key='case1')
+            token_dict_1 = edited_df_1[edited_df_1['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
+
+        with col2:
+
+            st.title('Intervention Package 2')
+
+            factors_df_display_2 = factors_df[['factor_id',"OUTCOME NODE", "long_name", "TOKENS", "interventions", "intervenable", "domain_name"]]
+            edited_df_2 = st.data_editor(factors_df_display_2, use_container_width=False, height=1750, key='case2')
+            token_dict_2 = edited_df_2[edited_df_2['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
 
         
-
-
+        col1, col2, col3, col4 = st.columns(4)
+    
+        with col4:
+            log_scale = st.checkbox('Use log scale?', key='log_scale_compare')
+        with col1:
+            diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_compare')
+        with col2:
+            time_horizon = st.slider('Time horizon (timesteps):', 1, 50, 25, key='time_horizon_compare')
+        with col3: 
+            rolling_window = st.slider('Rolling window (timesteps):', 1, 5, 1, key='rolling_window_compare')
 
 
         # Every form must have a submit button.
-        submitted = st.form_submit_button("Submit")
+        submitted = st.form_submit_button("Run comparisons")
         if submitted:
-            st.write("form submitted")
+            with st.spinner('Running comparisons...'):
+                diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time_horizon, edited_df_1, edited_df_2, log_scale, rolling_window)
+
+            
+
 
     # col1, col2 = st.columns(2)
 

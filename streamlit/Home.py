@@ -77,7 +77,7 @@ with st.sidebar.form(key='case_study_form'):
     
     if fishery_selection == 'Anchoveta':
 
-        st.session_state.sheet_id = ''
+        st.session_state.sheet_id = '1OnuDvh1RFL8XVcif819htafTgrCRhpzGzJxd9pYXqUQ'
 
     # Every form must have a submit button.
     submitted = st.form_submit_button("Load Case Study", type="primary")

@@ -1965,7 +1965,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
     # Iterate over each row in the DataFrame
     for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
-        ax.plot(row)
+        ax.plot(row.rolling(window=rolling_window).mean())
         if index in outcome_nodes:
             ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
         if index in intervention_nodes:
@@ -2167,7 +2167,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
 
     # Iterate over each row in the DataFrame
     for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
-        ax.plot(row)
+        ax.plot(row.rolling(window=rolling_window).mean())
         if index in outcome_nodes:
             ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
         if index in intervention_nodes:
@@ -2629,8 +2629,8 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
 
     # Iterate over each row in the DataFrame
     for ax, (index1, row1), (index2, row2) in zip(axs, df1.iterrows(), df2.iterrows()):
-        ax.plot(row1, label='Intervention Package 1')
-        ax.plot(row2, label='Intervention Package 2')
+        ax.plot(row1.rolling(window=rolling_window).mean(), label='Intervention Package 1')
+        ax.plot(row2.rolling(window=rolling_window).mean(), label='Intervention Package 2')
         # Set the title to be the row name
         if index1 in outcome_nodes_1:
             ax.set_title(index1, fontsize=20, color='red')  # Increase plot title font and set color to red for outcome nodes

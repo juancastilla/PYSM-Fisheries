@@ -45,12 +45,15 @@ with st.expander('Exploratory Scenario Analysis (single intervention package)'):
 
     if st.button('Run simulation', key='run_simulation_1'):
 
-        with st.spinner('Running analysis...'):
+        if sum(token_dict.values()) != 100:
+            st.warning('The sum of tokens for the intervention package must equal 100 to run the simulation.')
+        else:
+            with st.spinner('Running analysis...'):
 
-            if diffusion_model == 'one-time investment':
-                pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=False, case='')
-            else:
-                flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
+                if diffusion_model == 'one-time investment':
+                    pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=False, case='')
+                else:
+                    flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
 
 
 with st.expander('Exploratory Scenario Analysis (compare two intervention packages)'):
@@ -91,8 +94,11 @@ with st.expander('Exploratory Scenario Analysis (compare two intervention packag
         # Every form must have a submit button.
         submitted = st.form_submit_button("Run comparisons")
         if submitted:
-            with st.spinner('Running comparisons...'):
-                diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time_horizon, edited_df_1, edited_df_2, log_scale, rolling_window)
+            if sum(token_dict_1.values()) != 100 or sum(token_dict_2.values()) != 100:
+                st.warning('The sum of tokens for each of the intervention packages must equal 100 to run the simulation.')
+            else:
+                with st.spinner('Running comparisons...'):
+                    diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time_horizon, edited_df_1, edited_df_2, log_scale, rolling_window)
 
 
 

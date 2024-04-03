@@ -1864,7 +1864,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
     with col1:
 
-        st.markdown("#### % System leverage of this intervention package")
+        st.markdown("#### % System Controlability")
 
         # Create a gauge chart
         fig = go.Figure(go.Indicator(
@@ -1879,7 +1879,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
     with col2:
     
-        st.markdown("#### Leverage of this intervention package on the outcome nodes")
+        st.markdown("#### Leverage (strength of causal effects) on outcome nodes")
 
         # Create a line plot for the outcome nodes
         fig, ax = plt.subplots(figsize=(12, 8))
@@ -1890,7 +1890,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             ax.plot(smoothed_token_counts, label=outcome_node)
         
         plt.xlabel('Time step', fontsize=20)
-        plt.ylabel('Token count', fontsize=20)
+        plt.ylabel('Token count (~strength of causal effect)', fontsize=20)
         plt.legend(prop={'size': 20})
         plt.grid(True)
 
@@ -1908,8 +1908,9 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
             image = Image.open(f'{path}/pulse_causal_effects_line.png')
             st.image(image)
 
+
     # Create a heatmap of the token counts
-    st.markdown("#### Leverage of this intervention package on all nodes (red = outcome nodes; blue = intervention nodes)")
+    st.markdown("#### Leverage (strength of causal effects) on all nodes (red = outcome nodes; blue = intervention nodes)")
 
     # Apply log scale if log_scale is True
     if log_scale:
@@ -1949,7 +1950,39 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         with right_co:
             st.image(image, use_column_width='auto')    
 
-    # Create a line plot for each node
+    st.markdown("#### Leverage (cumulative strength of causal effects = total area under token count curves) on all nodes")
+
+    # Create a line plot for the outcome nodes
+    fig, ax = plt.subplots(figsize=(15, 10))
+
+    # Plot a bar chart showing the total area under the df_token_counts curve for all nodes
+    for index, value in enumerate(df_token_counts.sum(axis=1)):
+        sorted_sums = df_token_counts.sum(axis=1).sort_values()
+        sorted_indices = sorted_sums.index
+        colors = ['red' if idx in outcome_nodes else 'blue' if idx in intervention_nodes else 'gray' for idx in sorted_indices]
+        ax.barh(range(len(sorted_indices)), sorted_sums, color=colors, alpha=0.5)
+        ax.set_yticks(range(len(sorted_indices)))
+        ax.set_yticklabels(sorted_indices)
+        for label in ax.get_yticklabels():
+            label.set_color('red' if label.get_text() in outcome_nodes else 'blue' if label.get_text() in intervention_nodes else 'gray')
+        ax.set_xlabel('Total Area Under Token Count Curve (~cumulative strength of causal effect)')
+    plt.tight_layout()
+    
+    # Save and read graph as png file (on cloud)
+    try:
+        path = './streamlit/static'
+        fig.savefig(f'{path}/pulse_causal_effects_bar.png')
+        image = Image.open(f'{path}/pulse_causal_effects_bar.png')
+        st.image(image, use_column_width="auto")
+
+    # Save and read graph as HTML file (locally)
+    except:
+        path = 'static'
+        fig.savefig(f'{path}/pulse_causal_effects_bar.png')
+        image = Image.open(f'{path}/pulse_causal_effects_bar.png')
+        st.image(image, use_column_width="auto")
+
+     ### Plot individual effects for each node
 
     # Determine the number of rows for the subplots
     num_rows = int(np.ceil(len(df_token_counts) / 3))
@@ -1966,6 +1999,8 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Iterate over each row in the DataFrame
     for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
         ax.plot(row.rolling(window=rolling_window).mean())
+        total_area = row.sum()
+        ax.text(0.5, 0.98, f'Cumulative Strength of Effect: {total_area:.1f}', transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
         if index in outcome_nodes:
             ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
         if index in intervention_nodes:
@@ -1977,7 +2012,7 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         else:
             ax.set_title(index, fontsize=20)  # Increase plot title font
         ax.set_xlabel('Time step')
-        ax.set_ylabel('Token count')
+        ax.set_ylabel('Token count (~strength of causal effect)')
         ax.set_ylim([0, max_value])  # Set the y-axis limits
 
     # Remove unused subplots
@@ -2063,7 +2098,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
 
     with col1:
 
-        st.markdown("#### % System leverage of this intervention package")
+        st.markdown("#### % System Controlability")
 
         # Create a gauge chart
         fig = go.Figure(go.Indicator(
@@ -2078,7 +2113,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
 
     with col2:
     
-        st.markdown("#### Leverage of this intervention package on the outcome nodes")
+        st.markdown("#### Leverage (strength of causal effects) on outcome nodes")
 
         # Create a line plot for the outcome nodes
         fig, ax = plt.subplots(figsize=(12, 8))
@@ -2087,7 +2122,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
             smoothed_token_counts = df_token_counts.loc[outcome_node].rolling(rolling_window).mean()
             ax.plot(smoothed_token_counts, label=outcome_node)
         plt.xlabel('Time step', fontsize=20)
-        plt.ylabel('Token count', fontsize=20)
+        plt.ylabel('Token count (~strength of causal effect)', fontsize=20)
         plt.legend(prop={'size': 20})
         plt.grid(True)
 
@@ -2105,13 +2140,10 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
             image = Image.open(f'{path}/flow_causal_effects_line.png')
             st.image(image)
 
-    # Apply log scale if log_scale is True
-    if log_scale:
-        df_token_counts = np.log1p(df_token_counts)
 
     # Create a heatmap of the token counts
 
-    st.markdown("#### Leverage of this intervention package on all nodes (red = outcome nodes; blue = intervention nodes)")
+    st.markdown("#### Leverage (strength of causal effects) on all nodes (red = outcome nodes; blue = intervention nodes)")
 
     # Apply log scale if log_scale is True
     if log_scale:
@@ -2151,6 +2183,39 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
         with right_co:
             st.image(image, use_column_width='auto')   
 
+    
+    st.markdown("#### Leverage (cumulative strength of causal effects = total area under token count curves) on all nodes")
+
+    # Create a line plot for the outcome nodes
+    fig, ax = plt.subplots(figsize=(15, 10))
+
+    # Plot a bar chart showing the total area under the df_token_counts curve for all nodes
+    for index, value in enumerate(df_token_counts.sum(axis=1)):
+        sorted_sums = df_token_counts.sum(axis=1).sort_values()
+        sorted_indices = sorted_sums.index
+        colors = ['red' if idx in outcome_nodes else 'blue' if idx in intervention_nodes else 'gray' for idx in sorted_indices]
+        ax.barh(range(len(sorted_indices)), sorted_sums, color=colors, alpha=0.5)
+        ax.set_yticks(range(len(sorted_indices)))
+        ax.set_yticklabels(sorted_indices)
+        for label in ax.get_yticklabels():
+            label.set_color('red' if label.get_text() in outcome_nodes else 'blue' if label.get_text() in intervention_nodes else 'gray')
+        ax.set_xlabel('Total Area Under Token Count Curve (~cumulative strength of causal effect)')
+    plt.tight_layout()
+    
+    # Save and read graph as png file (on cloud)
+    try:
+        path = './streamlit/static'
+        fig.savefig(f'{path}/pulse_causal_effects_bar.png')
+        image = Image.open(f'{path}/pulse_causal_effects_bar.png')
+        st.image(image, use_column_width="auto")
+
+    # Save and read graph as HTML file (locally)
+    except:
+        path = 'static'
+        fig.savefig(f'{path}/pulse_causal_effects_bar.png')
+        image = Image.open(f'{path}/pulse_causal_effects_bar.png')
+        st.image(image, use_column_width="auto")
+    
     ### Plot individual effects for each node
 
     # Determine the number of rows for the subplots
@@ -2168,6 +2233,8 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
     # Iterate over each row in the DataFrame
     for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
         ax.plot(row.rolling(window=rolling_window).mean())
+        total_area = row.sum()
+        ax.text(0.5, 0.98, f'Cumulative Strength of Effect: {total_area:.1f}', transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
         if index in outcome_nodes:
             ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
         if index in intervention_nodes:
@@ -2179,7 +2246,7 @@ def flow_diffusion_network_model(G, token_injection_rate, num_steps, df, log_sca
         else:
             ax.set_title(index, fontsize=20)  # Increase plot title font
         ax.set_xlabel('Time step')
-        ax.set_ylabel('Token count')
+        ax.set_ylabel('Token count (~strength of causal effect)')
         ax.set_ylim([0, max_value])  # Set the y-axis limits
 
     # Remove unused subplots
@@ -2429,7 +2496,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
 
     with col1:
 
-        st.markdown("#### % System leverage of Intervention Package 1")
+        st.markdown("#### % % System Controlability: Intervention Package 1")
 
         # Create a gauge chart
         fig = go.Figure(go.Indicator(
@@ -2444,7 +2511,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
 
     with col2:
 
-        st.markdown("#### % System leverage of Intervention Package 2")
+        st.markdown("#### % System Controlability: Intervention Package 2")
 
         # Create a gauge chart
         fig = go.Figure(go.Indicator(
@@ -2461,7 +2528,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
 
     with col1:
 
-        st.markdown("#### Leverage of Intervention Package 1 on the outcome nodes")
+        st.markdown("#### Leverage (strength of causal effects) on outcome nodes: Intervention Package 1")
 
         # Create a line plot for the outcome nodes
         fig, ax = plt.subplots(figsize=(12, 8))
@@ -2472,7 +2539,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
             ax.plot(smoothed_token_counts_1, label=outcome_node)
         
         plt.xlabel('Time step', fontsize=20)
-        plt.ylabel('Token count', fontsize=20)
+        plt.ylabel('Token count (~strength of causal effect)', fontsize=20)
         plt.legend(prop={'size': 20})
         plt.grid(True)
 
@@ -2492,7 +2559,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
 
     with col2:
 
-        st.markdown("#### Leverage of Intervention Package 2 on the outcome nodes")
+        st.markdown("#### Leverage (strength of causal effects) on outcome nodes: Intervention Package 2")
 
         # Create a line plot for the outcome nodes
         fig, ax = plt.subplots(figsize=(12, 8))
@@ -2503,7 +2570,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
             ax.plot(smoothed_token_counts_2, label=outcome_node)
         
         plt.xlabel('Time step', fontsize=20)
-        plt.ylabel('Token count', fontsize=20)
+        plt.ylabel('Token count (~strength of causal effect)', fontsize=20)
         plt.legend(prop={'size': 20})
         plt.grid(True)
 
@@ -2524,7 +2591,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
     with col1:
 
         # Create a heatmap of the token counts
-        st.markdown("#### Leverage of Intervention Package 1 on all nodes (red = outcome nodes; blue = intervention nodes)")
+        st.markdown("#### Leverage (strength of causal effects) on all nodes (red = outcome nodes; blue = intervention nodes): Intervention Pakage 1")
 
         # Apply log scale if log_scale is True
         if log_scale:
@@ -2567,7 +2634,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
     with col2:
 
         # Create a heatmap of the token counts
-        st.markdown("#### Leverage of Intervention Package 2 on all nodes (red = outcome nodes; blue = intervention nodes)")
+        st.markdown("#### Leverage (strength of causal effects) on all nodes (red = outcome nodes; blue = intervention nodes): Intervention Pakage 2")
 
         # Apply log scale if log_scale is True
         if log_scale:
@@ -2608,6 +2675,75 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
                 st.image(image, use_column_width='auto') 
 
 
+    with col1:
+
+        st.markdown("#### Leverage (cumulative strength of causal effects = total area under token count curves) on all nodes: Intervention Package 1")
+
+        # Create a line plot for the outcome nodes
+        fig, ax = plt.subplots(figsize=(15, 10))
+
+        # Plot a bar chart showing the total area under the df_token_counts curve for all nodes
+        for index, value in enumerate(df_token_counts_1.sum(axis=1)):
+            sorted_sums = df_token_counts_1.sum(axis=1).sort_values()
+            sorted_indices = sorted_sums.index
+            colors = ['red' if idx in outcome_nodes_1 else 'blue' if idx in intervention_nodes_1 else 'gray' for idx in sorted_indices]
+            ax.barh(range(len(sorted_indices)), sorted_sums, color=colors, alpha=0.5)
+            ax.set_yticks(range(len(sorted_indices)))
+            ax.set_yticklabels(sorted_indices)
+            for label in ax.get_yticklabels():
+                label.set_color('red' if label.get_text() in outcome_nodes_1 else 'blue' if label.get_text() in intervention_nodes_1 else 'gray')
+            ax.set_xlabel('Total Area Under Token Count Curve (~cumulative strength of causal effect)')
+        plt.tight_layout()
+        
+        # Save and read graph as png file (on cloud)
+        try:
+            path = './streamlit/static'
+            fig.savefig(f'{path}/pulse_causal_effects_bar.png')
+            image = Image.open(f'{path}/pulse_causal_effects_bar.png')
+            st.image(image, use_column_width="auto")
+
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'static'
+            fig.savefig(f'{path}/pulse_causal_effects_bar.png')
+            image = Image.open(f'{path}/pulse_causal_effects_bar.png')
+            st.image(image, use_column_width="auto")      
+
+    with col2:
+
+        st.markdown("#### Leverage (cumulative strength of causal effects = total area under token count curves) on all nodes: Intervention Package 2")
+
+        # Create a line plot for the outcome nodes
+        fig, ax = plt.subplots(figsize=(15, 10))
+
+        # Plot a bar chart showing the total area under the df_token_counts curve for all nodes
+        for index, value in enumerate(df_token_counts_2.sum(axis=1)):
+            sorted_sums = df_token_counts_2.sum(axis=1).sort_values()
+            sorted_indices = sorted_sums.index
+            colors = ['red' if idx in outcome_nodes_2 else 'blue' if idx in intervention_nodes_2 else 'gray' for idx in sorted_indices]
+            ax.barh(range(len(sorted_indices)), sorted_sums, color=colors, alpha=0.5)
+            ax.set_yticks(range(len(sorted_indices)))
+            ax.set_yticklabels(sorted_indices)
+            for label in ax.get_yticklabels():
+                label.set_color('red' if label.get_text() in outcome_nodes_2 else 'blue' if label.get_text() in intervention_nodes_2 else 'gray')
+            ax.set_xlabel('Total Area Under Token Count Curve (~cumulative strength of causal effect)')
+        plt.tight_layout()
+        
+        # Save and read graph as png file (on cloud)
+        try:
+            path = './streamlit/static'
+            fig.savefig(f'{path}/pulse_causal_effects_bar.png')
+            image = Image.open(f'{path}/pulse_causal_effects_bar.png')
+            st.image(image, use_column_width="auto")
+
+        # Save and read graph as HTML file (locally)
+        except:
+            path = 'static'
+            fig.savefig(f'{path}/pulse_causal_effects_bar.png')
+            image = Image.open(f'{path}/pulse_causal_effects_bar.png')
+            st.image(image, use_column_width="auto")   
+
+
     # Get the dataframes of token counts for each intervention package
     df1 = df_token_counts_1
     df2 = df_token_counts_2
@@ -2631,6 +2767,10 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
     for ax, (index1, row1), (index2, row2) in zip(axs, df1.iterrows(), df2.iterrows()):
         ax.plot(row1.rolling(window=rolling_window).mean(), label='Intervention Package 1')
         ax.plot(row2.rolling(window=rolling_window).mean(), label='Intervention Package 2')
+        total_area_1 = row1.sum()
+        total_area_2 = row2.sum()
+        ax.text(0.17, 0.98, f'Cumulative Strength of Effect (IP1): {total_area_1:.1f}', transform=ax.transAxes, fontsize=10, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+        ax.text(0.17, 0.90, f'Cumulative Strength of Effect (IP2): {total_area_2:.1f}', transform=ax.transAxes, fontsize=10, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
         # Set the title to be the row name
         if index1 in outcome_nodes_1:
             ax.set_title(index1, fontsize=20, color='red')  # Increase plot title font and set color to red for outcome nodes
@@ -2651,7 +2791,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
         else:
             ax.set_title(index1, fontsize=20)  # Increase plot title font
         ax.set_xlabel('Time step')
-        ax.set_ylabel('Token count')
+        ax.set_ylabel('Token count\n(~strength of causal effect)')
         ax.set_ylim([0, max_value])  # Set the y-axis limits
         ax.legend()  # Add legend
 

@@ -253,25 +253,154 @@ with st.expander('Optimisation Analysis'):
         # Display the styled dataframe in Streamlit
         st.dataframe(styled_df)
 
-# import openai
+with st.expander('Sensitivity Analysis'):
 
-# openai.api_key = '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'
+    st.write('# Sensitivity Analysis (Sobol method)')
 
-# def generate_response(prompt):
-    
-#     completion = openai.Completion.create(
-#         engine="text-davinci-002",
-#         prompt=prompt,
-#         max_tokens=1024,
-#         n=1,
-#         stop=None,
-#         temperature=0.5,)
-    
-#     message = completion.choices[0].text
-#     return message.strip()
+    N_samples = st.select_slider('Number of samples (N):', options=[2**i for i in range(1, 11)], value=2**3)
+    display_sensitivity_df = st.checkbox("Display Sensitivity Analysis results tables", value=False)
 
-# st.title("Chatbot with OpenAI GPT-3")
-# user_input = st.text_input("User Input")
-# if user_input:
-#     bot_response = generate_response(user_input)
-#     st.write("Bot Response: ", bot_response)
+    if st.button('Run Sensitivity Analysis'):
+
+        st.write("✅ Defining model inputs based on the graph...")
+        # Define the model inputs based on the graph G
+        num_vars = G.number_of_nodes()
+        names = [G.nodes[node]['label'] for node in G.nodes]
+        bounds = [[0, 100] for _ in range(num_vars)]
+
+        problem = {
+            'num_vars': num_vars,
+            'names': names,
+            'bounds': bounds
+        }
+        st.write("✅ Model inputs defined")
+
+        st.write("✅ Generating samples using the Saltelli sampler for Sobol sensitivity analysis...")
+        # Generate samples using the Saltelli sampler which is more appropriate for Sobol sensitivity analysis
+        param_values = saltelli.sample(problem, N_samples, calc_second_order=True)
+        st.write(f"✅ Generated {len(param_values)} unique samples. Sample shape:", param_values.shape)
+
+        st.write("✅ Initializing model results placeholder...")
+        # Placeholder for model results
+        Y = np.zeros([param_values.shape[0]])
+        st.write("✅ Model results placeholder initialized. Placeholder shape:", Y.shape)
+
+        st.write("✅ Defining model response wrapper function...")
+        # Function to run your model
+        def model_response_wrapper(param_values):
+            # Convert param_values row to a dictionary {node_label: token_allocation}
+            initial_tokens = {node: value for node, value in zip(G.nodes, param_values)}
+            # Assuming G is globally accessible or passed as an argument
+            num_steps = 50  # Define the number of steps your model runs
+            log_scale = False  # Define whether to use log scale
+            # Call your model function
+            return model_response_sum_outcome_nodes(G, initial_tokens, num_steps, log_scale)
+        st.write("✅ Model response wrapper function defined.")
+
+        st.write("✅ Running model for each set of parameters...")
+        # Run your model for each set of parameters
+        progress_bar = st.progress(0)
+        total_runs = len(param_values)
+        for i, X in enumerate(param_values):
+            Y[i] = model_response_wrapper(X)
+            progress = int(((i + 1) / total_runs) * 100)
+            progress_bar.progress(progress)
+        st.write("✅ Model run completed for all parameter sets.")
+
+        st.write("✅ Performing sensitivity analysis...")
+        # Perform sensitivity analysis
+        Si = sobol.analyze(problem, Y, print_to_console=False)
+        st.write("✅ Sensitivity analysis completed.")
+        # Display the first-order sensitivity indices in Streamlit
+
+        total_Si, first_Si, second_Si = Si.to_df()
+
+        factors_df = st.session_state.df_factors
+        factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
+        outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
+
+        intervenable_nodes = factors_df[factors_df['intervenable'] == 'yes']['long_name'].tolist()
+
+        # Plotting Total Sensitivity Indices with Confidence Range as vertical bars in descending order
+        total_Si_sorted = total_Si.sort_values(by='ST', ascending=True)
+        fig, ax = plt.subplots(figsize=(10, 12))  # Adjusted figure size to make the plot taller
+        colors = ['gold' if index in outcome_nodes else 'blue' if index in intervenable_nodes else 'grey' for index in total_Si_sorted.index]
+        bars = ax.barh(total_Si_sorted.index, total_Si_sorted['ST'], xerr=total_Si_sorted['ST_conf'], color=colors, capsize=5, ecolor='grey')
+        ax.set_title("Total Sensitivity Indices (ST)")
+        # Set y tick labels to match bar colors
+        for ticklabel, bar in zip(ax.get_yticklabels(), bars):
+            ticklabel.set_color(bar.get_facecolor())
+        # Adding legend
+        ax.legend(handles=[matplotlib.patches.Patch(color='gold', label='Objective'),
+                           matplotlib.patches.Patch(color='blue', label='Intervenable'),
+                           matplotlib.patches.Patch(color='grey', label='Not Intervenable')],
+                  loc='lower right')
+        st.pyplot(fig)
+
+        if display_sensitivity_df:
+            st.dataframe(total_Si_sorted)
+
+        # Plotting First Order Sensitivity Indices with Confidence Range as vertical bars in descending order
+        first_Si_sorted = first_Si.sort_values(by='S1', ascending=True)
+        fig, ax = plt.subplots(figsize=(10, 12))  # Adjusted figure size to make the plot taller
+        colors = ['gold' if index in outcome_nodes else 'blue' if index in intervenable_nodes else 'grey' for index in first_Si_sorted.index]
+        bars = ax.barh(first_Si_sorted.index, first_Si_sorted['S1'], xerr=first_Si_sorted['S1_conf'], color=colors, capsize=5, ecolor='grey')
+        ax.set_title("First Order Sensitivity Indices (S1)")
+        # Set y tick labels to match bar colors
+        for ticklabel, bar in zip(ax.get_yticklabels(), bars):
+            ticklabel.set_color(bar.get_facecolor())
+        # Adding legend
+        ax.legend(handles=[matplotlib.patches.Patch(color='gold', label='Objective'),
+                           matplotlib.patches.Patch(color='blue', label='Intervenable'),
+                           matplotlib.patches.Patch(color='grey', label='Not Intervenable')],
+                  loc='lower right')
+        st.pyplot(fig)
+
+        if display_sensitivity_df:
+            st.dataframe(first_Si_sorted)
+
+        # Preparing data for heatmap
+        # Extracting factor pairs and their S2 values
+        factor_pairs = list(second_Si.index)
+        s2_values = second_Si['S2'].values
+
+        # Creating a matrix to fill with S2 values
+        factors = set()
+        for pair in factor_pairs:
+            factors.update(pair)
+        factors = sorted(list(factors))
+        s2_matrix = pd.DataFrame(0, index=factors, columns=factors)
+
+        # Filling the matrix with S2 values
+        for pair, value in zip(factor_pairs, s2_values):
+            s2_matrix.loc[pair[0], pair[1]] = value
+            s2_matrix.loc[pair[1], pair[0]] = value  # Assuming symmetry
+
+        # Plotting the heatmap
+        plt.figure(figsize=(20, 20))
+        mask_upper_triangle = np.triu(np.ones_like(s2_matrix, dtype=bool))
+        # Mask for negative values
+        mask_negative_values = s2_matrix < 0
+        # Combine masks
+        mask_combined = mask_upper_triangle | mask_negative_values
+        ax = sns.heatmap(s2_matrix, annot=True, cmap='coolwarm', center=0, annot_kws={"size": 6}, mask=mask_combined)
+        plt.title('Second Order Sensitivity Indices Heatmap (S2)', size=20)
+        # Adding legend on the top right
+        ax.legend(handles=[matplotlib.patches.Patch(color='gold', label='Objective'),
+                           matplotlib.patches.Patch(color='blue', label='Intervenable'),
+                           matplotlib.patches.Patch(color='grey', label='Not Intervenable')],
+                  loc='upper right')
+        # Color the x and y axis labels
+        xtick_colors = ['gold' if label.get_text() in outcome_nodes else 'blue' if label.get_text() in intervenable_nodes else 'grey' for label in ax.get_xticklabels()]
+        for ticklabel, color in zip(ax.get_xticklabels(), xtick_colors):
+            ticklabel.set_color(color)
+        ax.set_xticklabels(ax.get_xticklabels(), horizontalalignment='right')
+
+        ytick_colors = ['gold' if label.get_text() in outcome_nodes else 'blue' if label.get_text() in intervenable_nodes else 'grey' for label in ax.get_yticklabels()]
+        for ticklabel, color in zip(ax.get_yticklabels(), ytick_colors):
+            ticklabel.set_color(color)
+        ax.set_yticklabels(ax.get_yticklabels(), horizontalalignment='right')
+        st.pyplot(plt)
+
+        if display_sensitivity_df:
+            st.dataframe(second_Si)

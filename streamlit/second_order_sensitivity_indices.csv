@@ -1,0 +1,1177 @@
+,S2,S2_conf
+"('Sea Surface temperature', 'Maturation rate')",0.33020258908269734,0.26476405053797325
+"('Sea Surface temperature', 'Larval input')",0.3331034966699419,0.25982913168900656
+"('Sea Surface temperature', 'Juveniles')",0.43054818629249914,0.24730333048437636
+"('Sea Surface temperature', 'Octopus abundance')",0.3332040681225174,0.2532396470125811
+"('Sea Surface temperature', 'Spawning females')",0.41858585722779673,0.2569726837121098
+"('Sea Surface temperature', 'Individual catch per effort')",0.2625237284517686,0.24319513945205076
+"('Sea Surface temperature', 'Fisher effort')",0.33020258908269656,0.22682450467865042
+"('Sea Surface temperature', 'Fisher landings')",0.33259486173492,0.22951782510024066
+"('Sea Surface temperature', 'Fisher profit')",0.3324998073853954,0.18738939801763638
+"('Sea Surface temperature', 'Total landings')",0.3276149325131945,0.2604821283805648
+"('Sea Surface temperature', 'Total number of fishers')",0.2439272390365802,0.27128527618215775
+"('Sea Surface temperature', 'Enforcement of number of fishers')",0.2505974173126385,0.27875089354631993
+"('Sea Surface temperature', 'Formalized fishers')",0.33020258908269723,0.25176376095753306
+"('Sea Surface temperature', 'Unformalized fishers')",0.33517791231832594,0.23114272359741142
+"('Sea Surface temperature', 'Roving bandits')",0.32771492746488334,0.2769735027552374
+"('Sea Surface temperature', 'Octopus landing price')",0.33495099002469936,0.22210914670424664
+"('Sea Surface temperature', 'Landing price of other benthic resources')",0.3347870366175146,0.2451048375292441
+"('Sea Surface temperature', 'Fisher compliance (e.g. ban period & >1kg)')",0.323406599663101,0.2667210255320976
+"('Sea Surface temperature', 'Off-season octopus landed')",0.34003630021851855,0.24550709318422353
+"('Sea Surface temperature', 'Underweight octopus landed')",0.32732631081666785,0.23551618015211515
+"('Sea Surface temperature', 'Illegal/informal trade (buyers & sellers)')",0.3335307291905138,0.27323142675838236
+"('Sea Surface temperature', 'Product stockpilling by processing plants')",0.4373454132254695,0.19220722192952355
+"('Sea Surface temperature', 'Enforcement of ban period & >1kg')",0.32015794931931263,0.25686795183537964
+"('Sea Surface temperature', 'Enforcement of trade')",0.33348049279463765,0.30950201528587035
+"('Sea Surface temperature', 'Domestic market demand')",0.42097971496011033,0.19253117561287642
+"('Sea Surface temperature', 'Domestic retail price')",0.3330035244368115,0.22585250120868028
+"('Sea Surface temperature', 'International marke demand (for Chilean-peruvian octopus)')",0.3232306880938304,0.2798136431868409
+"('Sea Surface temperature', 'Lower quality (processing)')",0.3279287489855345,0.2455128639620642
+"('Sea Surface temperature', 'Lower quality (species)')",0.32792874898553437,0.22577573191031927
+"('Sea Surface temperature', 'Low and volatile landings')",0.3370241093741858,0.2625963917231327
+"('Sea Surface temperature', 'Thermal anomalies (El Niño - La Niña)')",0.401377146428344,0.23366883766936855
+"('Sea Surface temperature', 'Use of selective gear')",0.3277362561523649,0.22925191296327205
+"('Sea Surface temperature', 'Harvest spawning females')",0.3354919037488736,0.22854125344168477
+"('Sea Surface temperature', 'Landings with bad practices')",0.32766507878722384,0.2490210958291826
+"('Sea Surface temperature', 'Debt')",0.32798297007070093,0.2737298637615791
+"('Sea Surface temperature', 'Financial inclusion')",0.258140018475195,0.23916249947988896
+"('Sea Surface temperature', 'Dependency on informal financial services')",0.3302025890826965,0.24490527685344524
+"('Sea Surface temperature', 'Operating expenses')",0.33656105119512436,0.2547399163024217
+"('Sea Surface temperature', 'Distance traveled during fishing trips')",0.33020258908269773,0.24107100874660706
+"('Sea Surface temperature', 'Wealth')",0.4078052002169434,0.27369757405318085
+"('Sea Surface temperature', 'Socio-economic status')",0.3278015006219627,0.22845297598357678
+"('Sea Surface temperature', 'Temporal discounting')",0.32775101668392786,0.2635383490565042
+"('Sea Surface temperature', 'Invest in the future')",0.3279003762447089,0.2589543349883853
+"('Sea Surface temperature', ""Fishers' concern towards sustainability"")",0.33290445070260716,0.20627602365146094
+"('Sea Surface temperature', 'Collective actions')",0.32765077933408987,0.2248836230471838
+"('Sea Surface temperature', 'Knowledge')",0.3380070458971726,0.21435249493921155
+"('Sea Surface temperature', 'Awareness')",0.3381573408765093,0.22337237861856968
+"('Sea Surface temperature', 'Information for improving management')",0.23459066923979605,0.25507772476899593
+"('Maturation rate', 'Larval input')",-0.13999662356656914,0.24487973895985135
+"('Maturation rate', 'Juveniles')",-0.10416109626685285,0.285683372836015
+"('Maturation rate', 'Octopus abundance')",-0.18927678976630868,0.2866419946569442
+"('Maturation rate', 'Spawning females')",-0.12818830949457818,0.26454689402740955
+"('Maturation rate', 'Individual catch per effort')",-0.07486751680517759,0.21504297449651896
+"('Maturation rate', 'Fisher effort')",-0.14725541234634854,0.25874806023662256
+"('Maturation rate', 'Fisher landings')",-0.1379261953022824,0.2527572005785635
+"('Maturation rate', 'Fisher profit')",-0.12818830949457788,0.24384755123155122
+"('Maturation rate', 'Total landings')",-0.11765510201926721,0.2555817453145401
+"('Maturation rate', 'Total number of fishers')",-0.15917556189271514,0.26314047910608984
+"('Maturation rate', 'Enforcement of number of fishers')",-0.0775574486268322,0.22793108670783163
+"('Maturation rate', 'Formalized fishers')",-0.13831448166812663,0.29104663672674075
+"('Maturation rate', 'Unformalized fishers')",-0.12818830949457774,0.2594995963102101
+"('Maturation rate', 'Roving bandits')",-0.11806213732102866,0.2602679633945634
+"('Maturation rate', 'Octopus landing price')",-0.13785263143117604,0.27795763612200836
+"('Maturation rate', 'Landing price of other benthic resources')",-0.10952704755858006,0.2584423255664541
+"('Maturation rate', 'Fisher compliance (e.g. ban period & >1kg)')",-0.1558517820744621,0.2880586577598742
+"('Maturation rate', 'Off-season octopus landed')",-0.12818830949457682,0.25199544683031017
+"('Maturation rate', 'Underweight octopus landed')",-0.08135607357908173,0.26373893007791266
+"('Maturation rate', 'Illegal/informal trade (buyers & sellers)')",-0.11464092044933658,0.2739606896354567
+"('Maturation rate', 'Product stockpilling by processing plants')",-0.07367191764185203,0.2568300487529204
+"('Maturation rate', 'Enforcement of ban period & >1kg')",-0.10093011356821462,0.2642012602372592
+"('Maturation rate', 'Enforcement of trade')",-0.11484541063818518,0.28626238008882315
+"('Maturation rate', 'Domestic market demand')",-0.11699092760240401,0.2534255658588548
+"('Maturation rate', 'Domestic retail price')",-0.1851951657318553,0.25810611446867093
+"('Maturation rate', 'International marke demand (for Chilean-peruvian octopus)')",-0.11872846585605845,0.26357251418023275
+"('Maturation rate', 'Lower quality (processing)')",-0.174467305307562,0.2765582219762561
+"('Maturation rate', 'Lower quality (species)')",-0.1652115061449652,0.24964795562248646
+"('Maturation rate', 'Low and volatile landings')",-0.17446730530756155,0.2848468328410423
+"('Maturation rate', 'Thermal anomalies (El Niño - La Niña)')",-0.17345709078305976,0.28466915633583884
+"('Maturation rate', 'Use of selective gear')",-0.12818830949457755,0.2413197302026516
+"('Maturation rate', 'Harvest spawning females')",-0.12818830949457766,0.25224201163189214
+"('Maturation rate', 'Landings with bad practices')",-0.15917556189271442,0.26688299496403045
+"('Maturation rate', 'Debt')",-0.12818830949457768,0.2557486868210449
+"('Maturation rate', 'Financial inclusion')",-0.1281883094945775,0.23089863411307182
+"('Maturation rate', 'Dependency on informal financial services')",-0.128188309494578,0.24230997346740596
+"('Maturation rate', 'Operating expenses')",-0.11956081213610162,0.25563316633159716
+"('Maturation rate', 'Distance traveled during fishing trips')",-0.1197639309192765,0.279040155198766
+"('Maturation rate', 'Wealth')",-0.1281883094945777,0.2809956475014667
+"('Maturation rate', 'Socio-economic status')",-0.12818830949457805,0.24977639272754315
+"('Maturation rate', 'Temporal discounting')",-0.08827123391150285,0.23764815753302923
+"('Maturation rate', 'Invest in the future')",-0.12818830949457755,0.25995362681199524
+"('Maturation rate', ""Fishers' concern towards sustainability"")",-0.11719022367921444,0.24369996423841736
+"('Maturation rate', 'Collective actions')",-0.08663914592105035,0.2539532697191406
+"('Maturation rate', 'Knowledge')",-0.07524081263080899,0.22262382964094646
+"('Maturation rate', 'Awareness')",-0.08501459932694605,0.24303517217611426
+"('Maturation rate', 'Information for improving management')",-0.14035061931245463,0.24717213181053155
+"('Larval input', 'Juveniles')",-0.0170675052680134,0.2791377980100486
+"('Larval input', 'Octopus abundance')",-0.06906969653779055,0.2723283412075662
+"('Larval input', 'Spawning females')",-0.13976384664679267,0.2580439943457451
+"('Larval input', 'Individual catch per effort')",-0.045617085036901116,0.22153775136998707
+"('Larval input', 'Fisher effort')",-0.12416302422488777,0.2367298408652895
+"('Larval input', 'Fisher landings')",-0.08330105181458927,0.24280485787364794
+"('Larval input', 'Fisher profit')",-0.054068872876415514,0.2285328914495349
+"('Larval input', 'Total landings')",-0.05256523456493334,0.25391713638049557
+"('Larval input', 'Total number of fishers')",-0.06596188369684772,0.2433389882346115
+"('Larval input', 'Enforcement of number of fishers')",-0.06081029901663049,0.2065948016481181
+"('Larval input', 'Formalized fishers')",-0.02474920625510923,0.2618427449747761
+"('Larval input', 'Unformalized fishers')",-0.08141663773749963,0.2356869330688759
+"('Larval input', 'Roving bandits')",-0.0891440147578258,0.26240769518572327
+"('Larval input', 'Octopus landing price')",-0.06596188369684776,0.24985302483789198
+"('Larval input', 'Landing price of other benthic resources')",-0.013746408588921184,0.2383886711902528
+"('Larval input', 'Fisher compliance (e.g. ban period & >1kg)')",-0.06596188369684747,0.28590902539283986
+"('Larval input', 'Off-season octopus landed')",-0.05577979235568467,0.22773233049294267
+"('Larval input', 'Underweight octopus landed')",-0.06894006025936916,0.25331919838496414
+"('Larval input', 'Illegal/informal trade (buyers & sellers)')",-0.02116327822867075,0.2535182794905877
+"('Larval input', 'Product stockpilling by processing plants')",-0.07289554540721346,0.2744263161859077
+"('Larval input', 'Enforcement of ban period & >1kg')",0.02070888768272186,0.24359325067238036
+"('Larval input', 'Enforcement of trade')",0.012100816585400603,0.29389780763185047
+"('Larval input', 'Domestic market demand')",-0.05741705648687586,0.25253830248126513
+"('Larval input', 'Domestic retail price')",-0.06306171922970072,0.2563774774721969
+"('Larval input', 'International marke demand (for Chilean-peruvian octopus)')",-0.10205636100541718,0.26233619831184146
+"('Larval input', 'Lower quality (processing)')",-0.030645947661002364,0.2677180342154409
+"('Larval input', 'Lower quality (species)')",-0.07302507090401644,0.23988396755075936
+"('Larval input', 'Low and volatile landings')",-0.07773386237546194,0.24528066581204583
+"('Larval input', 'Thermal anomalies (El Niño - La Niña)')",-0.07056788794368438,0.2730844362893462
+"('Larval input', 'Use of selective gear')",-0.10937492034879356,0.2274714961141222
+"('Larval input', 'Harvest spawning females')",-0.13168228282508104,0.22668021549637807
+"('Larval input', 'Landings with bad practices')",-0.07384410473755094,0.2371074937097467
+"('Larval input', 'Debt')",-0.0866461674728426,0.24042675759436075
+"('Larval input', 'Financial inclusion')",-0.09229678051203404,0.21442752087633477
+"('Larval input', 'Dependency on informal financial services')",-0.09291860336821585,0.2393306830350854
+"('Larval input', 'Operating expenses')",-0.04621071108545759,0.23418942497721632
+"('Larval input', 'Distance traveled during fishing trips')",0.011182784552048373,0.2355922973029523
+"('Larval input', 'Wealth')",-0.1073552605899191,0.2849763765588813
+"('Larval input', 'Socio-economic status')",-0.11817107872429007,0.24061679506266245
+"('Larval input', 'Temporal discounting')",-0.08880770494791627,0.21806135919746247
+"('Larval input', 'Invest in the future')",0.007935099188068749,0.2636893664021698
+"('Larval input', ""Fishers' concern towards sustainability"")",-0.012807847842282151,0.23617929210090488
+"('Larval input', 'Collective actions')",-0.052750818420107745,0.25959179025226553
+"('Larval input', 'Knowledge')",-0.11714121060798824,0.22176294845364802
+"('Larval input', 'Awareness')",-0.06870740564823113,0.24408525629014566
+"('Larval input', 'Information for improving management')",-0.028837192632934466,0.203234317473548
+"('Juveniles', 'Octopus abundance')",-0.1836551380860051,0.2530992999891554
+"('Juveniles', 'Spawning females')",-0.25068062544294084,0.249527989037863
+"('Juveniles', 'Individual catch per effort')",-0.1842275308966135,0.22703973920321477
+"('Juveniles', 'Fisher effort')",-0.14341320697871046,0.2272120627489156
+"('Juveniles', 'Fisher landings')",-0.19758602273036593,0.22613448662699154
+"('Juveniles', 'Fisher profit')",-0.20262619898749162,0.17039557870795474
+"('Juveniles', 'Total landings')",-0.20807802120812569,0.2364777425386863
+"('Juveniles', 'Total number of fishers')",-0.17054917181859883,0.22333264523403376
+"('Juveniles', 'Enforcement of number of fishers')",-0.17642046317761484,0.23218228541674693
+"('Juveniles', 'Formalized fishers')",-0.19214390466354112,0.24331965026775293
+"('Juveniles', 'Unformalized fishers')",-0.20786734614946703,0.2195041408224374
+"('Juveniles', 'Roving bandits')",-0.20786734614946697,0.23093648842008957
+"('Juveniles', 'Octopus landing price')",-0.19262199747436165,0.18472213702354767
+"('Juveniles', 'Landing price of other benthic resources')",-0.22677313683292294,0.22151543167422935
+"('Juveniles', 'Fisher compliance (e.g. ban period & >1kg)')",-0.15967166642053401,0.26941445603896386
+"('Juveniles', 'Off-season octopus landed')",-0.2095322731955107,0.20063973580596955
+"('Juveniles', 'Underweight octopus landed')",-0.20262619898749215,0.23398581817361955
+"('Juveniles', 'Illegal/informal trade (buyers & sellers)')",-0.2727453500642568,0.238283664373644
+"('Juveniles', 'Product stockpilling by processing plants')",-0.2520056434804677,0.24497290699439234
+"('Juveniles', 'Enforcement of ban period & >1kg')",-0.22378881805591008,0.23244400425537332
+"('Juveniles', 'Enforcement of trade')",-0.2647808668596598,0.27915029863306645
+"('Juveniles', 'Domestic market demand')",-0.2663776717571552,0.20670828797849042
+"('Juveniles', 'Domestic retail price')",-0.19082385876809083,0.22521137801390034
+"('Juveniles', 'International marke demand (for Chilean-peruvian octopus)')",-0.20752246499887395,0.26496895771007056
+"('Juveniles', 'Lower quality (processing)')",-0.23137013382176735,0.20764862271143342
+"('Juveniles', 'Lower quality (species)')",-0.19783554318177887,0.2166167526939955
+"('Juveniles', 'Low and volatile landings')",-0.1978355431817791,0.22199477699453227
+"('Juveniles', 'Thermal anomalies (El Niño - La Niña)')",-0.22605660689581886,0.2260786778869011
+"('Juveniles', 'Use of selective gear')",-0.16105651363887877,0.23781595521252144
+"('Juveniles', 'Harvest spawning females')",-0.16919471093512983,0.22181865867473566
+"('Juveniles', 'Landings with bad practices')",-0.2186647125719384,0.20147634939705955
+"('Juveniles', 'Debt')",-0.20262619898749107,0.24635224756725196
+"('Juveniles', 'Financial inclusion')",-0.12224797853397291,0.21716257029259584
+"('Juveniles', 'Dependency on informal financial services')",-0.20262619898749132,0.21412917607695184
+"('Juveniles', 'Operating expenses')",-0.21155711237121647,0.21652150346332447
+"('Juveniles', 'Distance traveled during fishing trips')",-0.21134685020783667,0.2257906583687835
+"('Juveniles', 'Wealth')",-0.24721645364075479,0.26945304252531965
+"('Juveniles', 'Socio-economic status')",-0.20262619898749173,0.2095203483984504
+"('Juveniles', 'Temporal discounting')",-0.2026261989874918,0.2322989242208246
+"('Juveniles', 'Invest in the future')",-0.2753826956650035,0.23332370261252633
+"('Juveniles', ""Fishers' concern towards sustainability"")",-0.2538581223079648,0.19335966888974593
+"('Juveniles', 'Collective actions')",-0.20800249708448354,0.2559470202465505
+"('Juveniles', 'Knowledge')",-0.16974045086883496,0.2352355214001615
+"('Juveniles', 'Awareness')",-0.20821270701438674,0.24300440701173007
+"('Juveniles', 'Information for improving management')",-0.13967599974878955,0.20910374650672364
+"('Octopus abundance', 'Spawning females')",-0.10258011134548975,0.26899935661583113
+"('Octopus abundance', 'Individual catch per effort')",-0.08926221070722776,0.2358043581522736
+"('Octopus abundance', 'Fisher effort')",-0.12570750656260443,0.23711248142857624
+"('Octopus abundance', 'Fisher landings')",-0.14407803335420055,0.24719678620719523
+"('Octopus abundance', 'Fisher profit')",-0.09825133786843315,0.20822195351658196
+"('Octopus abundance', 'Total landings')",-0.08622899950191737,0.26553154639983456
+"('Octopus abundance', 'Total number of fishers')",-0.15456747209570004,0.27072107668789197
+"('Octopus abundance', 'Enforcement of number of fishers')",-0.05766287243272303,0.24598863290499004
+"('Octopus abundance', 'Formalized fishers')",-0.11629490489826713,0.26476367305203913
+"('Octopus abundance', 'Unformalized fishers')",-0.11629490489826633,0.24159395103011044
+"('Octopus abundance', 'Roving bandits')",-0.06565814958711479,0.2742147499745171
+"('Octopus abundance', 'Octopus landing price')",-0.08019914836779198,0.22392248644059287
+"('Octopus abundance', 'Landing price of other benthic resources')",-0.08598881485424499,0.23608616015413508
+"('Octopus abundance', 'Fisher compliance (e.g. ban period & >1kg)')",-0.1274766615384884,0.2806450744202323
+"('Octopus abundance', 'Off-season octopus landed')",-0.038912274177557826,0.23756611638767916
+"('Octopus abundance', 'Underweight octopus landed')",-0.053250278905619085,0.2470252852362988
+"('Octopus abundance', 'Illegal/informal trade (buyers & sellers)')",-0.052151773917385576,0.26516586964579186
+"('Octopus abundance', 'Product stockpilling by processing plants')",-0.0984604907999264,0.2493002045173878
+"('Octopus abundance', 'Enforcement of ban period & >1kg')",-0.07335133484290199,0.24650680520509988
+"('Octopus abundance', 'Enforcement of trade')",-0.11616962922984311,0.30498215807929524
+"('Octopus abundance', 'Domestic market demand')",-0.07911133288024844,0.2340868246569863
+"('Octopus abundance', 'Domestic retail price')",-0.19265512989816624,0.26389807897507067
+"('Octopus abundance', 'International marke demand (for Chilean-peruvian octopus)')",-0.11310370242743233,0.2898602097128042
+"('Octopus abundance', 'Lower quality (processing)')",-0.13243075745045557,0.2640731148142498
+"('Octopus abundance', 'Lower quality (species)')",-0.17627912087271286,0.24236128171743446
+"('Octopus abundance', 'Low and volatile landings')",-0.12755871707020483,0.2563155371495543
+"('Octopus abundance', 'Thermal anomalies (El Niño - La Niña)')",-0.14852574202313934,0.2575589530838637
+"('Octopus abundance', 'Use of selective gear')",-0.14526817200764408,0.23713780491303343
+"('Octopus abundance', 'Harvest spawning females')",-0.11130110678369441,0.23680602194100855
+"('Octopus abundance', 'Landings with bad practices')",-0.08660505996150068,0.257600384486172
+"('Octopus abundance', 'Debt')",-0.10325660353601057,0.26556022909922644
+"('Octopus abundance', 'Financial inclusion')",-0.11017585208090645,0.22576308119854377
+"('Octopus abundance', 'Dependency on informal financial services')",-0.09633744164586576,0.243080718157733
+"('Octopus abundance', 'Operating expenses')",-0.06703334322352342,0.2375686758284085
+"('Octopus abundance', 'Distance traveled during fishing trips')",-0.10563453535907641,0.23649476324176869
+"('Octopus abundance', 'Wealth')",-0.12326977629392981,0.29002577119911244
+"('Octopus abundance', 'Socio-economic status')",-0.11335156872821013,0.24214207262443005
+"('Octopus abundance', 'Temporal discounting')",-0.06098524020287492,0.24506417563612068
+"('Octopus abundance', 'Invest in the future')",-0.09823528556710195,0.2702790042200873
+"('Octopus abundance', ""Fishers' concern towards sustainability"")",-0.1027399653032327,0.22191930091900414
+"('Octopus abundance', 'Collective actions')",-0.1411741412431457,0.26774798098971025
+"('Octopus abundance', 'Knowledge')",-0.11399563972905667,0.21840813656913893
+"('Octopus abundance', 'Awareness')",-0.10847524170445602,0.2391110152693576
+"('Octopus abundance', 'Information for improving management')",-0.10563453535907688,0.22594615032413384
+"('Spawning females', 'Individual catch per effort')",-0.1289208945267366,0.2803123001879225
+"('Spawning females', 'Fisher effort')",-0.16668978934839457,0.30464128599146634
+"('Spawning females', 'Fisher landings')",-0.1691242608003209,0.32219256400773155
+"('Spawning females', 'Fisher profit')",-0.14565012593708654,0.2478048082454862
+"('Spawning females', 'Total landings')",-0.1693230912172227,0.3129173957535104
+"('Spawning females', 'Total number of fishers')",-0.12537345281754486,0.3068149077453586
+"('Spawning females', 'Enforcement of number of fishers')",-0.1261851006541982,0.2782620748975126
+"('Spawning females', 'Formalized fishers')",-0.10593275630710033,0.3352121561163932
+"('Spawning females', 'Unformalized fishers')",-0.1666897893483951,0.30640281895382987
+"('Spawning females', 'Roving bandits')",-0.20466293499920385,0.2874248986053119
+"('Spawning females', 'Octopus landing price')",-0.1473611454751979,0.27439766660477255
+"('Spawning females', 'Landing price of other benthic resources')",-0.12936726547640037,0.29196591374386266
+"('Spawning females', 'Fisher compliance (e.g. ban period & >1kg)')",-0.16668978934839462,0.35254201106453886
+"('Spawning females', 'Off-season octopus landed')",-0.13666826692151274,0.28702448121549723
+"('Spawning females', 'Underweight octopus landed')",-0.1696168040931136,0.2893771437869017
+"('Spawning females', 'Illegal/informal trade (buyers & sellers)')",-0.19039772017756737,0.30415581353125626
+"('Spawning females', 'Product stockpilling by processing plants')",-0.24846437712748365,0.31617502498712213
+"('Spawning females', 'Enforcement of ban period & >1kg')",-0.11558067198646403,0.26853060179197213
+"('Spawning females', 'Enforcement of trade')",-0.16335406463429702,0.3515700195144346
+"('Spawning females', 'Domestic market demand')",-0.2086799714440472,0.2771207719248498
+"('Spawning females', 'Domestic retail price')",-0.16383944653652976,0.3386300968180179
+"('Spawning females', 'International marke demand (for Chilean-peruvian octopus)')",-0.20689412481210012,0.316841692870185
+"('Spawning females', 'Lower quality (processing)')",-0.16900373913904376,0.332310870348806
+"('Spawning females', 'Lower quality (species)')",-0.18751533746423726,0.31964107249911156
+"('Spawning females', 'Low and volatile landings')",-0.16437583955774532,0.3307063237125949
+"('Spawning females', 'Thermal anomalies (El Niño - La Niña)')",-0.22101232689457267,0.3299579777996574
+"('Spawning females', 'Use of selective gear')",-0.1691996274741862,0.2942973913164694
+"('Spawning females', 'Harvest spawning females')",-0.16668978934839446,0.3021464361958608
+"('Spawning females', 'Landings with bad practices')",-0.16927206038157303,0.28776384803609806
+"('Spawning females', 'Debt')",-0.20508891786544817,0.3274031291662404
+"('Spawning females', 'Financial inclusion')",-0.13217979991449308,0.2708811679115176
+"('Spawning females', 'Dependency on informal financial services')",-0.2020146329412929,0.28460273811493675
+"('Spawning females', 'Operating expenses')",-0.14727792029182527,0.2873351541998262
+"('Spawning females', 'Distance traveled during fishing trips')",-0.09929476074599014,0.2965263818579177
+"('Spawning females', 'Wealth')",-0.24087513062610127,0.32791220583052383
+"('Spawning females', 'Socio-economic status')",-0.20822831640473966,0.2768207766120614
+"('Spawning females', 'Temporal discounting')",-0.20910168215541203,0.2944094508260386
+"('Spawning females', 'Invest in the future')",-0.18308955046087566,0.32023953472374345
+"('Spawning females', ""Fishers' concern towards sustainability"")",-0.1639402678945541,0.27287698902044955
+"('Spawning females', 'Collective actions')",-0.127737448498213,0.31235843516196643
+"('Spawning females', 'Knowledge')",-0.18522141325071387,0.290265426964409
+"('Spawning females', 'Awareness')",-0.16399143246291772,0.3123558289009219
+"('Spawning females', 'Information for improving management')",-0.09371593044113083,0.3049091093753013
+"('Individual catch per effort', 'Fisher effort')",0.19820542615465048,0.1955764066877006
+"('Individual catch per effort', 'Fisher landings')",0.18578204185147418,0.1916775988319951
+"('Individual catch per effort', 'Fisher profit')",0.16721432053171342,0.17663605948743832
+"('Individual catch per effort', 'Total landings')",0.15488940305791615,0.2272339913022889
+"('Individual catch per effort', 'Total number of fishers')",0.13736673702510396,0.2234972630808608
+"('Individual catch per effort', 'Enforcement of number of fishers')",0.12248016157579394,0.19213289372996967
+"('Individual catch per effort', 'Formalized fishers')",0.18451251766684126,0.21873912070803103
+"('Individual catch per effort', 'Unformalized fishers')",0.18451251766684124,0.20082489713430166
+"('Individual catch per effort', 'Roving bandits')",0.15155782849347246,0.23092405134565117
+"('Individual catch per effort', 'Octopus landing price')",0.1838052005812671,0.21987263327571802
+"('Individual catch per effort', 'Landing price of other benthic resources')",0.14042497073830984,0.23483516996921244
+"('Individual catch per effort', 'Fisher compliance (e.g. ban period & >1kg)')",0.1901875365398845,0.2116024855461998
+"('Individual catch per effort', 'Off-season octopus landed')",0.20731904170940843,0.16647144788116913
+"('Individual catch per effort', 'Underweight octopus landed')",0.13538431697646272,0.2322254478006485
+"('Individual catch per effort', 'Illegal/informal trade (buyers & sellers)')",0.16641097437850316,0.22786714036678438
+"('Individual catch per effort', 'Product stockpilling by processing plants')",0.1690044286440791,0.2105539330008713
+"('Individual catch per effort', 'Enforcement of ban period & >1kg')",0.1298679845692895,0.23916823151465244
+"('Individual catch per effort', 'Enforcement of trade')",0.14601566080488124,0.23981865498834976
+"('Individual catch per effort', 'Domestic market demand')",0.1840094812148703,0.1819290568308912
+"('Individual catch per effort', 'Domestic retail price')",0.1668217988549452,0.20243237455406857
+"('Individual catch per effort', 'International marke demand (for Chilean-peruvian octopus)')",0.1708153806846584,0.21284930620813727
+"('Individual catch per effort', 'Lower quality (processing)')",0.17077631928214915,0.2121982832095176
+"('Individual catch per effort', 'Lower quality (species)')",0.17077631928214942,0.20059594770783343
+"('Individual catch per effort', 'Low and volatile landings')",0.20975791331968446,0.20557080125310379
+"('Individual catch per effort', 'Thermal anomalies (El Niño - La Niña)')",0.19673582716829277,0.23678129973943143
+"('Individual catch per effort', 'Use of selective gear')",0.1709263193852406,0.19038121171058525
+"('Individual catch per effort', 'Harvest spawning females')",0.18549122936590273,0.19216173528237818
+"('Individual catch per effort', 'Landings with bad practices')",0.2026194759892412,0.1952028952786854
+"('Individual catch per effort', 'Debt')",0.17073406748383063,0.23480731545256944
+"('Individual catch per effort', 'Financial inclusion')",0.14257864903342424,0.20716994303000882
+"('Individual catch per effort', 'Dependency on informal financial services')",0.15547955444272982,0.19476385428367682
+"('Individual catch per effort', 'Operating expenses')",0.18056570722374066,0.19140217922216696
+"('Individual catch per effort', 'Distance traveled during fishing trips')",0.15610261237351775,0.2277351196146857
+"('Individual catch per effort', 'Wealth')",0.1964916377630801,0.22123048702532638
+"('Individual catch per effort', 'Socio-economic status')",0.18584386934642,0.18334996864252123
+"('Individual catch per effort', 'Temporal discounting')",0.17091481723620033,0.20503969531435812
+"('Individual catch per effort', 'Invest in the future')",0.16721042853845788,0.1876701651881871
+"('Individual catch per effort', ""Fishers' concern towards sustainability"")",0.16689900209466998,0.18037437156908245
+"('Individual catch per effort', 'Collective actions')",0.13917694994845228,0.1808095488978639
+"('Individual catch per effort', 'Knowledge')",0.13454188402704734,0.22945195100109772
+"('Individual catch per effort', 'Awareness')",0.13387821869398842,0.2027333973958335
+"('Individual catch per effort', 'Information for improving management')",0.1317516187677596,0.22286977770481362
+"('Fisher effort', 'Fisher landings')",0.11498033304243023,0.20421513198360725
+"('Fisher effort', 'Fisher profit')",0.09898154730313537,0.16802460608916003
+"('Fisher effort', 'Total landings')",0.15089790765263306,0.24541380273532076
+"('Fisher effort', 'Total number of fishers')",0.09898154730313605,0.2338711665431548
+"('Fisher effort', 'Enforcement of number of fishers')",0.11561826518656304,0.22668368218104631
+"('Fisher effort', 'Formalized fishers')",0.08234482941970868,0.22606569755841405
+"('Fisher effort', 'Unformalized fishers')",0.08234482941970847,0.21627462338112077
+"('Fisher effort', 'Roving bandits')",0.1156182651865633,0.271287634143528
+"('Fisher effort', 'Octopus landing price')",0.0831036227687503,0.1973489832604497
+"('Fisher effort', 'Landing price of other benthic resources')",0.16030030524187544,0.21003413241502883
+"('Fisher effort', 'Fisher compliance (e.g. ban period & >1kg)')",0.03080730814843631,0.2693368506583359
+"('Fisher effort', 'Off-season octopus landed')",0.09898154730313553,0.19356619347381854
+"('Fisher effort', 'Underweight octopus landed')",0.0989815473031361,0.2270094348776075
+"('Fisher effort', 'Illegal/informal trade (buyers & sellers)')",0.1434967077684985,0.23855915507741482
+"('Fisher effort', 'Product stockpilling by processing plants')",0.09898154730313576,0.2306421351955203
+"('Fisher effort', 'Enforcement of ban period & >1kg')",0.18854884042553707,0.2292829496304272
+"('Fisher effort', 'Enforcement of trade')",0.16474639117990167,0.288772862709507
+"('Fisher effort', 'Domestic market demand')",0.11737820108112546,0.19925448680938704
+"('Fisher effort', 'Domestic retail price')",0.09898154730313592,0.2144028172872832
+"('Fisher effort', 'International marke demand (for Chilean-peruvian octopus)')",0.098981547303136,0.28524868358878214
+"('Fisher effort', 'Lower quality (processing)')",0.12939503757659154,0.21264627220544308
+"('Fisher effort', 'Lower quality (species)')",0.09898154730313587,0.2121306068774862
+"('Fisher effort', 'Low and volatile landings')",0.05336131189295276,0.22595385824763425
+"('Fisher effort', 'Thermal anomalies (El Niño - La Niña)')",0.09898154730313591,0.23661201563425788
+"('Fisher effort', 'Use of selective gear')",0.06599339097615983,0.21938333235888588
+"('Fisher effort', 'Harvest spawning females')",0.01054826193616451,0.2213758325235868
+"('Fisher effort', 'Landings with bad practices')",0.13292172840315628,0.20951976311659867
+"('Fisher effort', 'Debt')",0.12866980960281993,0.2467572426512281
+"('Fisher effort', 'Financial inclusion')",0.07063258441113629,0.22008402062586482
+"('Fisher effort', 'Dependency on informal financial services')",0.11349071836647158,0.2192734179699203
+"('Fisher effort', 'Operating expenses')",0.11315602874913577,0.21696653597650642
+"('Fisher effort', 'Distance traveled during fishing trips')",0.11282231628260914,0.1992631444076996
+"('Fisher effort', 'Wealth')",0.09898154730313609,0.2764956545020015
+"('Fisher effort', 'Socio-economic status')",0.08292380414050614,0.21627519959378178
+"('Fisher effort', 'Temporal discounting')",0.13177227581463374,0.22365803783176272
+"('Fisher effort', 'Invest in the future')",0.1605675206026182,0.22688330811991492
+"('Fisher effort', ""Fishers' concern towards sustainability"")",0.13511999089900262,0.19137438746226437
+"('Fisher effort', 'Collective actions')",0.09898154730313521,0.2312085587809339
+"('Fisher effort', 'Knowledge')",0.06418567171029863,0.22984654855226805
+"('Fisher effort', 'Awareness')",0.0635155872281152,0.22131120160668877
+"('Fisher effort', 'Information for improving management')",0.09898154730313616,0.18391240998227004
+"('Fisher landings', 'Fisher profit')",-0.08190826461078704,0.20769016253525055
+"('Fisher landings', 'Total landings')",-0.11358589979989168,0.2857932452991396
+"('Fisher landings', 'Total number of fishers')",-0.0630232650910534,0.2534910849701718
+"('Fisher landings', 'Enforcement of number of fishers')",-0.05903032958134988,0.23698164376588987
+"('Fisher landings', 'Formalized fishers')",-0.08452027321199965,0.2730426386273
+"('Fisher landings', 'Unformalized fishers')",-0.08876859715044041,0.26998866048757714
+"('Fisher landings', 'Roving bandits')",-0.01867125216615418,0.2699179939024241
+"('Fisher landings', 'Octopus landing price')",-0.055750826528028,0.24446083179272532
+"('Fisher landings', 'Landing price of other benthic resources')",-0.09559644230027513,0.2539222711498492
+"('Fisher landings', 'Fisher compliance (e.g. ban period & >1kg)')",-0.035402957654798256,0.29806195745416386
+"('Fisher landings', 'Off-season octopus landed')",-0.09001829075466217,0.24115728501344497
+"('Fisher landings', 'Underweight octopus landed')",-0.039183721978620904,0.2789771361656997
+"('Fisher landings', 'Illegal/informal trade (buyers & sellers)')",-0.027712534265159607,0.28443356851668405
+"('Fisher landings', 'Product stockpilling by processing plants')",-0.08745950103306074,0.30764873313254604
+"('Fisher landings', 'Enforcement of ban period & >1kg')",-0.09603640780651981,0.24390237752838026
+"('Fisher landings', 'Enforcement of trade')",-0.0508332275799321,0.29552088556454903
+"('Fisher landings', 'Domestic market demand')",-0.07367475624988165,0.25082716517142706
+"('Fisher landings', 'Domestic retail price')",-0.12146516207072533,0.27315026328672803
+"('Fisher landings', 'International marke demand (for Chilean-peruvian octopus)')",-0.06610169247276199,0.29418093834611375
+"('Fisher landings', 'Lower quality (processing)')",-0.08573154666954201,0.2819554788534151
+"('Fisher landings', 'Lower quality (species)')",-0.1167968949397053,0.27973547887591843
+"('Fisher landings', 'Low and volatile landings')",-0.04689986133183652,0.26888315698651705
+"('Fisher landings', 'Thermal anomalies (El Niño - La Niña)')",-0.07602362533511493,0.3008650557134099
+"('Fisher landings', 'Use of selective gear')",-0.1118247728067171,0.26188321806523485
+"('Fisher landings', 'Harvest spawning females')",-0.05344145222789497,0.27073076914846134
+"('Fisher landings', 'Landings with bad practices')",-0.1215248861893341,0.26388029844088423
+"('Fisher landings', 'Debt')",-0.10824348770727958,0.3043499469468812
+"('Fisher landings', 'Financial inclusion')",-0.07240405389897193,0.2388239433770504
+"('Fisher landings', 'Dependency on informal financial services')",-0.06861355092173459,0.25221704376857973
+"('Fisher landings', 'Operating expenses')",-0.07059426818089981,0.2453065460285426
+"('Fisher landings', 'Distance traveled during fishing trips')",-0.06188620457846233,0.24883492128419113
+"('Fisher landings', 'Wealth')",-0.05795183299554765,0.2950887596215957
+"('Fisher landings', 'Socio-economic status')",-0.0862748201851382,0.25842569401725923
+"('Fisher landings', 'Temporal discounting')",-0.11161050977646873,0.27583828743138983
+"('Fisher landings', 'Invest in the future')",-0.07798943648904734,0.27280188801833033
+"('Fisher landings', ""Fishers' concern towards sustainability"")",-0.08294481388183356,0.23341065509586886
+"('Fisher landings', 'Collective actions')",-0.11306554940214253,0.2511868917126548
+"('Fisher landings', 'Knowledge')",-0.0782449792144668,0.27082306082081836
+"('Fisher landings', 'Awareness')",-0.042061648525235924,0.27149739922345584
+"('Fisher landings', 'Information for improving management')",-0.076023625335116,0.24063143437023837
+"('Fisher profit', 'Total landings')",0.3855282055535125,0.27571556079070364
+"('Fisher profit', 'Total number of fishers')",0.33231994386129793,0.27017001815283814
+"('Fisher profit', 'Enforcement of number of fishers')",0.33215644996293264,0.29342479579679703
+"('Fisher profit', 'Formalized fishers')",0.3811107069023834,0.28585345584462896
+"('Fisher profit', 'Unformalized fishers')",0.32399740713969183,0.2655849133442498
+"('Fisher profit', 'Roving bandits')",0.3301166892571228,0.314613824317643
+"('Fisher profit', 'Octopus landing price')",0.25391519476150914,0.26800162946403266
+"('Fisher profit', 'Landing price of other benthic resources')",0.3239974071396915,0.2831244247117795
+"('Fisher profit', 'Fisher compliance (e.g. ban period & >1kg)')",0.4131554635308044,0.2907599015417019
+"('Fisher profit', 'Off-season octopus landed')",0.2998079224161678,0.25782106513987807
+"('Fisher profit', 'Underweight octopus landed')",0.32635581446647977,0.30046523782873086
+"('Fisher profit', 'Illegal/informal trade (buyers & sellers)')",0.33218414286782527,0.31366951848279095
+"('Fisher profit', 'Product stockpilling by processing plants')",0.3239974071396913,0.26853595222367665
+"('Fisher profit', 'Enforcement of ban period & >1kg')",0.3267427780463371,0.2961629352898031
+"('Fisher profit', 'Enforcement of trade')",0.41806762550895293,0.318053132633791
+"('Fisher profit', 'Domestic market demand')",0.24054245195958776,0.2509011972031728
+"('Fisher profit', 'Domestic retail price')",0.312514257996887,0.22242771523998098
+"('Fisher profit', 'International marke demand (for Chilean-peruvian octopus)')",0.39450235503426656,0.3037421685548381
+"('Fisher profit', 'Lower quality (processing)')",0.31840409455054164,0.24913624889839975
+"('Fisher profit', 'Lower quality (species)')",0.3258618446694086,0.22226615325355903
+"('Fisher profit', 'Low and volatile landings')",0.32959071972884224,0.27800031062930713
+"('Fisher profit', 'Thermal anomalies (El Niño - La Niña)')",0.33129236359033365,0.2715789133663315
+"('Fisher profit', 'Use of selective gear')",0.3260196793662327,0.2461454381099938
+"('Fisher profit', 'Harvest spawning females')",0.3239974071396923,0.26443229089612225
+"('Fisher profit', 'Landings with bad practices')",0.31775550459848745,0.26472978539638714
+"('Fisher profit', 'Debt')",0.398616541838234,0.30354359836315065
+"('Fisher profit', 'Financial inclusion')",0.32399740713969194,0.25695473051282647
+"('Fisher profit', 'Dependency on informal financial services')",0.2670722617522502,0.2607151981041495
+"('Fisher profit', 'Operating expenses')",0.3153080278758923,0.27155375796617376
+"('Fisher profit', 'Distance traveled during fishing trips')",0.3307852500063794,0.2885096660113182
+"('Fisher profit', 'Wealth')",0.3374947521854425,0.3201245586679489
+"('Fisher profit', 'Socio-economic status')",0.26296538348841514,0.25558170411575704
+"('Fisher profit', 'Temporal discounting')",0.3420889309610304,0.30137109279204544
+"('Fisher profit', 'Invest in the future')",0.32210970535191147,0.2689002041232541
+"('Fisher profit', ""Fishers' concern towards sustainability"")",0.24202782106800755,0.22922071256789142
+"('Fisher profit', 'Collective actions')",0.30935089391760634,0.251711721513145
+"('Fisher profit', 'Knowledge')",0.33039667954328594,0.2691579596591131
+"('Fisher profit', 'Awareness')",0.3218232381641234,0.26273585411285805
+"('Fisher profit', 'Information for improving management')",0.3337970436590865,0.2730138118463419
+"('Total landings', 'Total number of fishers')",-0.1703201361586512,0.24225493895088368
+"('Total landings', 'Enforcement of number of fishers')",-0.17978697691433226,0.2708978494988029
+"('Total landings', 'Formalized fishers')",-0.21195405593406053,0.24854639496792746
+"('Total landings', 'Unformalized fishers')",-0.1751916799115139,0.24710094801453122
+"('Total landings', 'Roving bandits')",-0.18208462541574152,0.27276006207696457
+"('Total landings', 'Octopus landing price')",-0.1449109060779043,0.23982330978357158
+"('Total landings', 'Landing price of other benthic resources')",-0.2351936009854158,0.25823519799259415
+"('Total landings', 'Fisher compliance (e.g. ban period & >1kg)')",-0.17810537725495776,0.23966306124147127
+"('Total landings', 'Off-season octopus landed')",-0.1934648643678416,0.2659987393676121
+"('Total landings', 'Underweight octopus landed')",-0.18703885566454478,0.24711993278747485
+"('Total landings', 'Illegal/informal trade (buyers & sellers)')",-0.18130834453847458,0.25311746417325254
+"('Total landings', 'Product stockpilling by processing plants')",-0.20293708968008656,0.24294383849507942
+"('Total landings', 'Enforcement of ban period & >1kg')",-0.2616940062627177,0.25728453554216596
+"('Total landings', 'Enforcement of trade')",-0.23585028647106512,0.28423250260018873
+"('Total landings', 'Domestic market demand')",-0.1564344847509641,0.2527406339762321
+"('Total landings', 'Domestic retail price')",-0.19214325500015678,0.2329157603222239
+"('Total landings', 'International marke demand (for Chilean-peruvian octopus)')",-0.21228621801687447,0.2687113346041923
+"('Total landings', 'Lower quality (processing)')",-0.19488306963284868,0.23356623489166256
+"('Total landings', 'Lower quality (species)')",-0.19908338791912739,0.223839532357061
+"('Total landings', 'Low and volatile landings')",-0.13187829533866152,0.2639452490522736
+"('Total landings', 'Thermal anomalies (El Niño - La Niña)')",-0.1884909043336781,0.24916934778702707
+"('Total landings', 'Use of selective gear')",-0.1866602228635716,0.2480072787237031
+"('Total landings', 'Harvest spawning females')",-0.13064391813711618,0.24692237836706948
+"('Total landings', 'Landings with bad practices')",-0.22891237681906632,0.2473688972128547
+"('Total landings', 'Debt')",-0.2520349002160735,0.26047954013679053
+"('Total landings', 'Financial inclusion')",-0.18829746635845523,0.22703865220200428
+"('Total landings', 'Dependency on informal financial services')",-0.1603364432065849,0.2572614208083733
+"('Total landings', 'Operating expenses')",-0.19417025502041133,0.2675463452628441
+"('Total landings', 'Distance traveled during fishing trips')",-0.1843822739171506,0.25442745286740537
+"('Total landings', 'Wealth')",-0.16049055677186114,0.3014005729187609
+"('Total landings', 'Socio-economic status')",-0.14224620202659777,0.24742038059937374
+"('Total landings', 'Temporal discounting')",-0.22287564348655758,0.2681545488244627
+"('Total landings', 'Invest in the future')",-0.1907613680502705,0.24482739386687064
+"('Total landings', ""Fishers' concern towards sustainability"")",-0.1569319121665864,0.225012450355327
+"('Total landings', 'Collective actions')",-0.1820253770615722,0.2584719345250382
+"('Total landings', 'Knowledge')",-0.18678505227677938,0.24182078565498075
+"('Total landings', 'Awareness')",-0.1427484228173525,0.24648310822927658
+"('Total landings', 'Information for improving management')",-0.18438227391715148,0.23004935146781819
+"('Total number of fishers', 'Enforcement of number of fishers')",0.07151493558951191,0.20181528491470846
+"('Total number of fishers', 'Formalized fishers')",0.08503366940392791,0.21617556434860125
+"('Total number of fishers', 'Unformalized fishers')",0.08052742479912287,0.19422852081519582
+"('Total number of fishers', 'Roving bandits')",0.07151493558951205,0.20464159543080992
+"('Total number of fishers', 'Octopus landing price')",0.09363510296431238,0.17330478566563037
+"('Total number of fishers', 'Landing price of other benthic resources')",0.08918589047407778,0.2110688763650179
+"('Total number of fishers', 'Fisher compliance (e.g. ban period & >1kg)')",0.09734418239213365,0.20482123501766572
+"('Total number of fishers', 'Off-season octopus landed')",0.1503485795683549,0.17822467591042146
+"('Total number of fishers', 'Underweight octopus landed')",0.08503366940392784,0.1891375550866739
+"('Total number of fishers', 'Illegal/informal trade (buyers & sellers)')",0.07297623096657152,0.1918764509730045
+"('Total number of fishers', 'Product stockpilling by processing plants')",0.15174955466007045,0.19046059654016612
+"('Total number of fishers', 'Enforcement of ban period & >1kg')",0.07896858892609643,0.2140160335909056
+"('Total number of fishers', 'Enforcement of trade')",0.07909595029807062,0.2431858714451316
+"('Total number of fishers', 'Domestic market demand')",0.129880159061907,0.1844627945985646
+"('Total number of fishers', 'Domestic retail price')",0.06473878727445638,0.2215755113348613
+"('Total number of fishers', 'International marke demand (for Chilean-peruvian octopus)')",0.06398505960953395,0.21578298222965986
+"('Total number of fishers', 'Lower quality (processing)')",0.06855798863343406,0.20862315576558865
+"('Total number of fishers', 'Lower quality (species)')",0.06443906844081075,0.2070346676078231
+"('Total number of fishers', 'Low and volatile landings')",0.08091474921130475,0.20433359097445122
+"('Total number of fishers', 'Thermal anomalies (El Niño - La Niña)')",0.09712069683845209,0.20531835257196018
+"('Total number of fishers', 'Use of selective gear')",0.0850336694039281,0.20415784623511202
+"('Total number of fishers', 'Harvest spawning females')",0.07545240420817433,0.18666441895238578
+"('Total number of fishers', 'Landings with bad practices')",0.08043712701378394,0.20394524798135494
+"('Total number of fishers', 'Debt')",0.08503366940392776,0.21604153567718484
+"('Total number of fishers', 'Financial inclusion')",0.054319110924541086,0.19068156353653717
+"('Total number of fishers', 'Dependency on informal financial services')",0.09289361801668661,0.19788398798188217
+"('Total number of fishers', 'Operating expenses')",0.12342686750316216,0.18990250150238827
+"('Total number of fishers', 'Distance traveled during fishing trips')",0.0775358094321322,0.20823166251780498
+"('Total number of fishers', 'Wealth')",0.09781297059177678,0.22852758515507376
+"('Total number of fishers', 'Socio-economic status')",0.0763348239947589,0.19486518095421484
+"('Total number of fishers', 'Temporal discounting')",0.12056063920120148,0.19399584558022553
+"('Total number of fishers', 'Invest in the future')",0.08920398505538424,0.20069704343673278
+"('Total number of fishers', ""Fishers' concern towards sustainability"")",0.08992792401655705,0.17575098610862855
+"('Total number of fishers', 'Collective actions')",0.08041122444203934,0.2143573205631621
+"('Total number of fishers', 'Knowledge')",0.08503366940392847,0.1913430469956554
+"('Total number of fishers', 'Awareness')",0.08983684910445963,0.1968711266841058
+"('Total number of fishers', 'Information for improving management')",0.05255959604660826,0.20344535098360514
+"('Enforcement of number of fishers', 'Formalized fishers')",0.11620361485898202,0.266992269101459
+"('Enforcement of number of fishers', 'Unformalized fishers')",0.11620361485898228,0.2595218805846467
+"('Enforcement of number of fishers', 'Roving bandits')",0.08969729069426477,0.27696512937048917
+"('Enforcement of number of fishers', 'Octopus landing price')",0.12001686468857588,0.2604737513014188
+"('Enforcement of number of fishers', 'Landing price of other benthic resources')",0.09108556606092934,0.2715911875959787
+"('Enforcement of number of fishers', 'Fisher compliance (e.g. ban period & >1kg)')",0.12547118809357138,0.2712570429044638
+"('Enforcement of number of fishers', 'Off-season octopus landed')",0.07244172778888905,0.25063435542032364
+"('Enforcement of number of fishers', 'Underweight octopus landed')",0.10736817347074279,0.26579174906037945
+"('Enforcement of number of fishers', 'Illegal/informal trade (buyers & sellers)')",0.10736817347074343,0.2773198014827444
+"('Enforcement of number of fishers', 'Product stockpilling by processing plants')",0.17277344388333232,0.26728139808024526
+"('Enforcement of number of fishers', 'Enforcement of ban period & >1kg')",0.08358443877525626,0.2764441085668228
+"('Enforcement of number of fishers', 'Enforcement of trade')",0.08990495062981582,0.30127311377679217
+"('Enforcement of number of fishers', 'Domestic market demand')",0.14156355687925493,0.24459459889387117
+"('Enforcement of number of fishers', 'Domestic retail price')",0.15710866063408718,0.2672410375317042
+"('Enforcement of number of fishers', 'International marke demand (for Chilean-peruvian octopus)')",0.09911412716602276,0.28376476742589835
+"('Enforcement of number of fishers', 'Lower quality (processing)')",0.1477482250839543,0.285814893946577
+"('Enforcement of number of fishers', 'Lower quality (species)')",0.151786230245276,0.2689766426185917
+"('Enforcement of number of fishers', 'Low and volatile landings')",0.10736817347074333,0.2614126712582324
+"('Enforcement of number of fishers', 'Thermal anomalies (El Niño - La Niña)')",0.17451580011504234,0.2872871546143271
+"('Enforcement of number of fishers', 'Use of selective gear')",0.10736817347074287,0.2516471618420815
+"('Enforcement of number of fishers', 'Harvest spawning females')",0.11206469543561715,0.23857983559548043
+"('Enforcement of number of fishers', 'Landings with bad practices')",0.11187441807554852,0.2751741371730608
+"('Enforcement of number of fishers', 'Debt')",0.10736817347074262,0.3001848681738005
+"('Enforcement of number of fishers', 'Financial inclusion')",0.08102089132301334,0.24431534266542018
+"('Enforcement of number of fishers', 'Dependency on informal financial services')",0.09966263134276471,0.26172144643193274
+"('Enforcement of number of fishers', 'Operating expenses')",0.07349309642366211,0.25812072861107865
+"('Enforcement of number of fishers', 'Distance traveled during fishing trips')",0.09266704023723313,0.25259703770617165
+"('Enforcement of number of fishers', 'Wealth')",0.11989642887297809,0.2811024284445752
+"('Enforcement of number of fishers', 'Socio-economic status')",0.11589613250298347,0.25344011453818005
+"('Enforcement of number of fishers', 'Temporal discounting')",0.07253912102529632,0.28254492421239497
+"('Enforcement of number of fishers', 'Invest in the future')",0.11554495541231918,0.2761047696003291
+"('Enforcement of number of fishers', ""Fishers' concern towards sustainability"")",0.1217624985334202,0.24328120954086863
+"('Enforcement of number of fishers', 'Collective actions')",0.10283653514294502,0.2566639220443857
+"('Enforcement of number of fishers', 'Knowledge')",0.11198802880379594,0.2467940409255078
+"('Enforcement of number of fishers', 'Awareness')",0.10736817347074276,0.24282270437462405
+"('Enforcement of number of fishers', 'Information for improving management')",0.06492000107163781,0.25765485387391385
+"('Formalized fishers', 'Unformalized fishers')",-0.1404006239081239,0.19708481825681204
+"('Formalized fishers', 'Roving bandits')",-0.08738797557869032,0.18950692901872712
+"('Formalized fishers', 'Octopus landing price')",-0.1147002608961075,0.1807106859643215
+"('Formalized fishers', 'Landing price of other benthic resources')",-0.14784778992969835,0.20951120338670515
+"('Formalized fishers', 'Fisher compliance (e.g. ban period & >1kg)')",-0.19190856459598307,0.2181217797874017
+"('Formalized fishers', 'Off-season octopus landed')",-0.143207331080503,0.231178073960536
+"('Formalized fishers', 'Underweight octopus landed')",-0.13156518251988522,0.1799193572876412
+"('Formalized fishers', 'Illegal/informal trade (buyers & sellers)')",-0.11974460907698359,0.19023787209647872
+"('Formalized fishers', 'Product stockpilling by processing plants')",-0.11967331517214161,0.1919676359584735
+"('Formalized fishers', 'Enforcement of ban period & >1kg')",-0.15534891721537267,0.2036311382937732
+"('Formalized fishers', 'Enforcement of trade')",-0.1664916282017385,0.22699154699492502
+"('Formalized fishers', 'Domestic market demand')",-0.08271463479343946,0.2053499395130141
+"('Formalized fishers', 'Domestic retail price')",-0.13156518251988547,0.19881400093944687
+"('Formalized fishers', 'International marke demand (for Chilean-peruvian octopus)')",-0.1315651825198853,0.19911338141104143
+"('Formalized fishers', 'Lower quality (processing)')",-0.13156518251988505,0.18141671459222658
+"('Formalized fishers', 'Lower quality (species)')",-0.12348917219724279,0.1826237890374572
+"('Formalized fishers', 'Low and volatile landings')",-0.13964119284252713,0.22796105040478126
+"('Formalized fishers', 'Thermal anomalies (El Niño - La Niña)')",-0.12366546173820295,0.19521061553160873
+"('Formalized fishers', 'Use of selective gear')",-0.1315651825198851,0.20824899459089724
+"('Formalized fishers', 'Harvest spawning females')",-0.14095822644963313,0.20422275011656396
+"('Formalized fishers', 'Landings with bad practices')",-0.13156518251988533,0.19953192932055902
+"('Formalized fishers', 'Debt')",-0.14733204851506032,0.20257346076210653
+"('Formalized fishers', 'Financial inclusion')",-0.13156518251988564,0.17895623147250633
+"('Formalized fishers', 'Dependency on informal financial services')",-0.062215303368082675,0.1980801333465441
+"('Formalized fishers', 'Operating expenses')",-0.13156518251988517,0.22518431075214
+"('Formalized fishers', 'Distance traveled during fishing trips')",-0.18301914883717058,0.2211612120583293
+"('Formalized fishers', 'Wealth')",-0.09815650144725804,0.23094835964412605
+"('Formalized fishers', 'Socio-economic status')",-0.07186946929420272,0.18516025327699692
+"('Formalized fishers', 'Temporal discounting')",-0.11415065629716192,0.2112070564718069
+"('Formalized fishers', 'Invest in the future')",-0.12338840057830902,0.1931426197271585
+"('Formalized fishers', ""Fishers' concern towards sustainability"")",-0.09318031568608023,0.1761687906877808
+"('Formalized fishers', 'Collective actions')",-0.1496917358310752,0.20234028655022468
+"('Formalized fishers', 'Knowledge')",-0.12232547185377987,0.1856749405759112
+"('Formalized fishers', 'Awareness')",-0.1315651825198849,0.1996120551894067
+"('Formalized fishers', 'Information for improving management')",-0.16340131181921436,0.2017490527152702
+"('Unformalized fishers', 'Roving bandits')",0.003363214374435244,0.11632126057512483
+"('Unformalized fishers', 'Octopus landing price')",-0.02253863892575618,0.08824111275050843
+"('Unformalized fishers', 'Landing price of other benthic resources')",0.0023220078494376323,0.09877220659384221
+"('Unformalized fishers', 'Fisher compliance (e.g. ban period & >1kg)')",-0.0038556095003139668,0.11016219510861894
+"('Unformalized fishers', 'Off-season octopus landed')",-0.015711021988232404,0.1027049210084659
+"('Unformalized fishers', 'Underweight octopus landed')",-0.009889947707923126,0.104038974577534
+"('Unformalized fishers', 'Illegal/informal trade (buyers & sellers)')",-0.021710521150824776,0.11595123681325707
+"('Unformalized fishers', 'Product stockpilling by processing plants')",-0.009889947707923327,0.09564104110271371
+"('Unformalized fishers', 'Enforcement of ban period & >1kg')",0.019839720661436355,0.10890448975008946
+"('Unformalized fishers', 'Enforcement of trade')",0.0017522008526948685,0.12373830239052451
+"('Unformalized fishers', 'Domestic market demand')",-0.00011983816263377162,0.08619226444808774
+"('Unformalized fishers', 'Domestic retail price')",5.81497247457291e-05,0.08578018885696204
+"('Unformalized fishers', 'International marke demand (for Chilean-peruvian octopus)')",-0.014016970860283098,0.11702697319836014
+"('Unformalized fishers', 'Lower quality (processing)')",-0.0018139373852810309,0.09673949352592268
+"('Unformalized fishers', 'Lower quality (species)')",-0.009889947707923105,0.08817986777238689
+"('Unformalized fishers', 'Low and volatile landings')",-0.022003963191886744,0.09927701220742546
+"('Unformalized fishers', 'Thermal anomalies (El Niño - La Niña)')",-0.001990226926241151,0.10029296871328977
+"('Unformalized fishers', 'Use of selective gear')",-0.00988994770792298,0.08920208148606129
+"('Unformalized fishers', 'Harvest spawning females')",-0.033372557532293554,0.09513161426865596
+"('Unformalized fishers', 'Landings with bad practices')",-0.018902436917533724,0.10379089963270349
+"('Unformalized fishers', 'Debt')",-0.009889947707922925,0.11500485859714112
+"('Unformalized fishers', 'Financial inclusion')",-0.006126050258247265,0.09287676087816668
+"('Unformalized fishers', 'Dependency on informal financial services')",0.005521136548033025,0.09541664724666361
+"('Unformalized fishers', 'Operating expenses')",-0.00612605025824732,0.10118072676508492
+"('Unformalized fishers', 'Distance traveled during fishing trips')",-0.0025393810911673656,0.09508850862995198
+"('Unformalized fishers', 'Wealth')",-0.009889947707923188,0.1101927909625416
+"('Unformalized fishers', 'Socio-economic status')",-0.026945865772403925,0.08993198684891691
+"('Unformalized fishers', 'Temporal discounting')",-0.009889947707922751,0.10852332989479209
+"('Unformalized fishers', 'Invest in the future')",-0.005801556737135227,0.10328697897246557
+"('Unformalized fishers', ""Fishers' concern towards sustainability"")",-0.01948616441637411,0.08081474847224591
+"('Unformalized fishers', 'Collective actions')",-0.009889947707922862,0.08524691749379575
+"('Unformalized fishers', 'Knowledge')",-0.0237495137070807,0.0895859503006332
+"('Unformalized fishers', 'Awareness')",-0.014598770291141573,0.09186461977913542
+"('Unformalized fishers', 'Information for improving management')",0.0007220953918535555,0.09422702124554037
+"('Roving bandits', 'Octopus landing price')",-0.07074211129241982,0.2608607725727441
+"('Roving bandits', 'Landing price of other benthic resources')",-0.029307700000431293,0.2832354200806355
+"('Roving bandits', 'Fisher compliance (e.g. ban period & >1kg)')",-0.04362662105508901,0.2991181612540849
+"('Roving bandits', 'Off-season octopus landed')",-0.03510827356192564,0.2853082743884112
+"('Roving bandits', 'Underweight octopus landed')",-0.08796980900805218,0.2802011114834198
+"('Roving bandits', 'Illegal/informal trade (buyers & sellers)')",-0.09989839639502907,0.29659204523558275
+"('Roving bandits', 'Product stockpilling by processing plants')",-0.03776909191495507,0.2737272717017095
+"('Roving bandits', 'Enforcement of ban period & >1kg')",-0.028850191404146887,0.2957342945213695
+"('Roving bandits', 'Enforcement of trade')",-0.07585579352408882,0.33790135107943264
+"('Roving bandits', 'Domestic market demand')",-0.05210348664902096,0.2631581366310194
+"('Roving bandits', 'Domestic retail price')",-0.002407496457521016,0.26875246799379254
+"('Roving bandits', 'International marke demand (for Chilean-peruvian octopus)')",-0.09299470236247707,0.3324977729414417
+"('Roving bandits', 'Lower quality (processing)')",-0.039565946359395525,0.27667121074720685
+"('Roving bandits', 'Lower quality (species)')",-0.007261905068826069,0.2663156011073217
+"('Roving bandits', 'Low and volatile landings')",-0.04764195668203777,0.2820084363346308
+"('Roving bandits', 'Thermal anomalies (El Niño - La Niña)')",-0.04966095926269867,0.29239035232514876
+"('Roving bandits', 'Use of selective gear')",-0.012432284531143822,0.27285242113169583
+"('Roving bandits', 'Harvest spawning females')",-0.0355713933680762,0.26256070555347455
+"('Roving bandits', 'Landings with bad practices')",-0.038395347750685004,0.2980032740164783
+"('Roving bandits', 'Debt')",-0.04769010101330165,0.32210432976792164
+"('Roving bandits', 'Financial inclusion')",-0.053424856712373694,0.270303585924216
+"('Roving bandits', 'Dependency on informal financial services')",-0.08818866990258839,0.28291647015540783
+"('Roving bandits', 'Operating expenses')",-0.05530680543721131,0.29172380979453755
+"('Roving bandits', 'Distance traveled during fishing trips')",-0.005557559562167573,0.259189029362991
+"('Roving bandits', 'Wealth')",-0.10186202343867767,0.32825723333945217
+"('Roving bandits', 'Socio-economic status')",-0.07311284660135883,0.272432055106955
+"('Roving bandits', 'Temporal discounting')",-0.04748414348485857,0.30425173144606593
+"('Roving bandits', 'Invest in the future')",-0.04761676377730431,0.2820461578585063
+"('Roving bandits', ""Fishers' concern towards sustainability"")",-0.042463796731360144,0.2417060776114738
+"('Roving bandits', 'Collective actions')",-0.011142033476418841,0.2668525543063893
+"('Roving bandits', 'Knowledge')",-0.047351031596171905,0.26656577016143335
+"('Roving bandits', 'Awareness')",-0.047306547971089526,0.25269493060929815
+"('Roving bandits', 'Information for improving management')",-0.007212786863593237,0.25134015446793334
+"('Octopus landing price', 'Landing price of other benthic resources')",0.11369682492287934,0.2680178293230631
+"('Octopus landing price', 'Fisher compliance (e.g. ban period & >1kg)')",0.1365965395159111,0.2365997271523348
+"('Octopus landing price', 'Off-season octopus landed')",0.08537511829456644,0.25506285845717336
+"('Octopus landing price', 'Underweight octopus landed')",0.06304281121648095,0.26540863972411183
+"('Octopus landing price', 'Illegal/informal trade (buyers & sellers)')",0.06819752432166262,0.2640804058349
+"('Octopus landing price', 'Product stockpilling by processing plants')",0.10771659352784237,0.25244905918547195
+"('Octopus landing price', 'Enforcement of ban period & >1kg')",0.13041556259655454,0.28118107723925123
+"('Octopus landing price', 'Enforcement of trade')",0.15204205015896013,0.28020719176502973
+"('Octopus landing price', 'Domestic market demand')",0.07873060334209077,0.2617670973261514
+"('Octopus landing price', 'Domestic retail price')",0.1400193276844195,0.24675294994106764
+"('Octopus landing price', 'International marke demand (for Chilean-peruvian octopus)')",0.13749097431581841,0.26112709548758073
+"('Octopus landing price', 'Lower quality (processing)')",0.10204185126066463,0.2678078988431682
+"('Octopus landing price', 'Lower quality (species)')",0.13672635303748865,0.23490767359768086
+"('Octopus landing price', 'Low and volatile landings')",0.09048035066838997,0.2517661339348028
+"('Octopus landing price', 'Thermal anomalies (El Niño - La Niña)')",0.1058115602649635,0.2770929205015418
+"('Octopus landing price', 'Use of selective gear')",0.13548250192659653,0.23491833406344984
+"('Octopus landing price', 'Harvest spawning females')",0.09307721991271875,0.21640970286647268
+"('Octopus landing price', 'Landings with bad practices')",0.10634256804085687,0.26649350054408033
+"('Octopus landing price', 'Debt')",0.14718508987947942,0.2552866746699269
+"('Octopus landing price', 'Financial inclusion')",0.10204185126066469,0.22974790676579396
+"('Octopus landing price', 'Dependency on informal financial services')",0.07997956398828608,0.2589153144601513
+"('Octopus landing price', 'Operating expenses')",0.09485739575930095,0.2586567369182074
+"('Octopus landing price', 'Distance traveled during fishing trips')",0.10905716178306532,0.2655256211919591
+"('Octopus landing price', 'Wealth')",0.10602746699765557,0.2972452002352252
+"('Octopus landing price', 'Socio-economic status')",0.061346838309483315,0.2607524478955324
+"('Octopus landing price', 'Temporal discounting')",0.11866210863979056,0.25380638954987533
+"('Octopus landing price', 'Invest in the future')",0.11374761505784389,0.2583379316375721
+"('Octopus landing price', ""Fishers' concern towards sustainability"")",0.06082843248358679,0.257373711107214
+"('Octopus landing price', 'Collective actions')",0.12366661279418029,0.2657902701925747
+"('Octopus landing price', 'Knowledge')",0.10204185126066467,0.22618076596084138
+"('Octopus landing price', 'Awareness')",0.09754779599411298,0.22651067184193308
+"('Octopus landing price', 'Information for improving management')",0.11216988376530564,0.22911512588471822
+"('Landing price of other benthic resources', 'Fisher compliance (e.g. ban period & >1kg)')",-0.0014086706124882206,0.3235130051973515
+"('Landing price of other benthic resources', 'Off-season octopus landed')",-0.0790558467456009,0.32380500400390433
+"('Landing price of other benthic resources', 'Underweight octopus landed')",-0.07369209280027997,0.31084957788836637
+"('Landing price of other benthic resources', 'Illegal/informal trade (buyers & sellers)')",-0.07369209280027984,0.28833786909601256
+"('Landing price of other benthic resources', 'Product stockpilling by processing plants')",-0.07369209280027997,0.30391297820734214
+"('Landing price of other benthic resources', 'Enforcement of ban period & >1kg')",-0.19970458539529032,0.34991772211577954
+"('Landing price of other benthic resources', 'Enforcement of trade')",-0.09514710858156282,0.3382821925558903
+"('Landing price of other benthic resources', 'Domestic market demand')",-0.0916971760877508,0.2869198351679769
+"('Landing price of other benthic resources', 'Domestic retail price')",-0.07369209280027945,0.2881878540778518
+"('Landing price of other benthic resources', 'International marke demand (for Chilean-peruvian octopus)')",-0.0394669616905402,0.3351136992011177
+"('Landing price of other benthic resources', 'Lower quality (processing)')",-0.07369209280027986,0.2728203518187146
+"('Landing price of other benthic resources', 'Lower quality (species)')",-0.07369209280027904,0.2952556329274469
+"('Landing price of other benthic resources', 'Low and volatile landings')",-0.032763646297920404,0.3233832186043248
+"('Landing price of other benthic resources', 'Thermal anomalies (El Niño - La Niña)')",-0.07369209280027884,0.3162837642055017
+"('Landing price of other benthic resources', 'Use of selective gear')",-0.07369209280027844,0.3351581152142421
+"('Landing price of other benthic resources', 'Harvest spawning females')",-0.0260890461702918,0.33429209647408387
+"('Landing price of other benthic resources', 'Landings with bad practices')",-0.10690986136147645,0.31787396904864884
+"('Landing price of other benthic resources', 'Debt')",-0.10274844412465135,0.34364286257688004
+"('Landing price of other benthic resources', 'Financial inclusion')",-0.07022389795800178,0.31709203981892886
+"('Landing price of other benthic resources', 'Dependency on informal financial services')",-0.05949174764076594,0.2808550042400615
+"('Landing price of other benthic resources', 'Operating expenses')",-0.09103306701166672,0.3316904813527676
+"('Landing price of other benthic resources', 'Distance traveled during fishing trips')",-0.14142294245518278,0.34261952003101814
+"('Landing price of other benthic resources', 'Wealth')",-0.04290809378528054,0.335109677770892
+"('Landing price of other benthic resources', 'Socio-economic status')",-0.026544224518187387,0.2777409149865818
+"('Landing price of other benthic resources', 'Temporal discounting')",-0.10578487472852086,0.3240987905628426
+"('Landing price of other benthic resources', 'Invest in the future')",-0.06992489758104742,0.24796387766234362
+"('Landing price of other benthic resources', ""Fishers' concern towards sustainability"")",-0.07369209280027952,0.24929049521891236
+"('Landing price of other benthic resources', 'Collective actions')",-0.0736920928002794,0.31132822784810926
+"('Landing price of other benthic resources', 'Knowledge')",-0.07794899901315748,0.34756713754738433
+"('Landing price of other benthic resources', 'Awareness')",-0.04331990522007028,0.30566446337462544
+"('Landing price of other benthic resources', 'Information for improving management')",-0.11280541470849456,0.3121154749884841
+"('Fisher compliance (e.g. ban period & >1kg)', 'Off-season octopus landed')",-0.052725574241219014,0.27347377188541755
+"('Fisher compliance (e.g. ban period & >1kg)', 'Underweight octopus landed')",-0.06067680823067489,0.2699400903230156
+"('Fisher compliance (e.g. ban period & >1kg)', 'Illegal/informal trade (buyers & sellers)')",-0.04453062269719219,0.26350529649577004
+"('Fisher compliance (e.g. ban period & >1kg)', 'Product stockpilling by processing plants')",-0.06879859256980556,0.2652406055574567
+"('Fisher compliance (e.g. ban period & >1kg)', 'Enforcement of ban period & >1kg')",0.028662819499774644,0.24358686405827173
+"('Fisher compliance (e.g. ban period & >1kg)', 'Enforcement of trade')",-0.1163354461568609,0.3052711858768029
+"('Fisher compliance (e.g. ban period & >1kg)', 'Domestic market demand')",0.012722761755906219,0.2346140428747437
+"('Fisher compliance (e.g. ban period & >1kg)', 'Domestic retail price')",-0.07426530523793992,0.2573322312917633
+"('Fisher compliance (e.g. ban period & >1kg)', 'International marke demand (for Chilean-peruvian octopus)')",-0.10013764935534727,0.32420160819668453
+"('Fisher compliance (e.g. ban period & >1kg)', 'Lower quality (processing)')",-0.07170814792578913,0.24490372218735193
+"('Fisher compliance (e.g. ban period & >1kg)', 'Lower quality (species)')",-0.06619247807823185,0.26022860418998206
+"('Fisher compliance (e.g. ban period & >1kg)', 'Low and volatile landings')",-0.11031783685869208,0.3192963505358017
+"('Fisher compliance (e.g. ban period & >1kg)', 'Thermal anomalies (El Niño - La Niña)')",-0.07686261656136245,0.27532472399258945
+"('Fisher compliance (e.g. ban period & >1kg)', 'Use of selective gear')",-0.06067680823067496,0.2951478164919533
+"('Fisher compliance (e.g. ban period & >1kg)', 'Harvest spawning females')",-0.09916779111228884,0.3228865518757892
+"('Fisher compliance (e.g. ban period & >1kg)', 'Landings with bad practices')",0.007031013204458023,0.26837159059075394
+"('Fisher compliance (e.g. ban period & >1kg)', 'Debt')",-0.060676808230675144,0.2852888149430799
+"('Fisher compliance (e.g. ban period & >1kg)', 'Financial inclusion')",-0.07095931894726996,0.2769654985776603
+"('Fisher compliance (e.g. ban period & >1kg)', 'Dependency on informal financial services')",-0.01857559768099126,0.24481064686472487
+"('Fisher compliance (e.g. ban period & >1kg)', 'Operating expenses')",-0.05039429751407987,0.27554715391090545
+"('Fisher compliance (e.g. ban period & >1kg)', 'Distance traveled during fishing trips')",-0.050636380586140416,0.2761302355258285
+"('Fisher compliance (e.g. ban period & >1kg)', 'Wealth')",-0.05497252952506368,0.31459364222953806
+"('Fisher compliance (e.g. ban period & >1kg)', 'Socio-economic status')",-0.014082111477049325,0.2693191869289956
+"('Fisher compliance (e.g. ban period & >1kg)', 'Temporal discounting')",-0.013102437540792732,0.2632340249117647
+"('Fisher compliance (e.g. ban period & >1kg)', 'Invest in the future')",-0.06626130203434856,0.23655885929638718
+"('Fisher compliance (e.g. ban period & >1kg)', ""Fishers' concern towards sustainability"")",-0.0016914863559218327,0.20906593068453008
+"('Fisher compliance (e.g. ban period & >1kg)', 'Collective actions')",-0.054486865452966105,0.28054548291609327
+"('Fisher compliance (e.g. ban period & >1kg)', 'Knowledge')",-0.04805592453063534,0.28502635851898217
+"('Fisher compliance (e.g. ban period & >1kg)', 'Awareness')",-0.10570056820992324,0.28572606775226517
+"('Fisher compliance (e.g. ban period & >1kg)', 'Information for improving management')",-0.07517221470194022,0.25529342671968835
+"('Off-season octopus landed', 'Underweight octopus landed')",0.0784188667891624,0.35592918451765904
+"('Off-season octopus landed', 'Illegal/informal trade (buyers & sellers)')",0.03289188545355106,0.36772478128238395
+"('Off-season octopus landed', 'Product stockpilling by processing plants')",0.08388819355329892,0.3653516622698729
+"('Off-season octopus landed', 'Enforcement of ban period & >1kg')",0.03296234154582564,0.4057117648711535
+"('Off-season octopus landed', 'Enforcement of trade')",0.03271555733689255,0.4192813240521907
+"('Off-season octopus landed', 'Domestic market demand')",0.005118062193083257,0.33670004602194326
+"('Off-season octopus landed', 'Domestic retail price')",0.05725792604370679,0.3468756651315759
+"('Off-season octopus landed', 'International marke demand (for Chilean-peruvian octopus)')",0.040243335297481295,0.39395727947784026
+"('Off-season octopus landed', 'Lower quality (processing)')",0.055795009461263353,0.34157040883233286
+"('Off-season octopus landed', 'Lower quality (species)')",0.06643648257187006,0.34866679771438297
+"('Off-season octopus landed', 'Low and volatile landings')",-0.01869530231298268,0.3425266422972237
+"('Off-season octopus landed', 'Thermal anomalies (El Niño - La Niña)')",0.07325613494571404,0.3567412835913091
+"('Off-season octopus landed', 'Use of selective gear')",0.024095804658678645,0.3639529980093456
+"('Off-season octopus landed', 'Harvest spawning females')",0.015021780999697074,0.34079399946697686
+"('Off-season octopus landed', 'Landings with bad practices')",-0.03519810965384988,0.38873301237436064
+"('Off-season octopus landed', 'Debt')",0.044582593610995896,0.39874652180859044
+"('Off-season octopus landed', 'Financial inclusion')",0.02616977637211125,0.33340549657354945
+"('Off-season octopus landed', 'Dependency on informal financial services')",0.02121022185179235,0.32380655291718574
+"('Off-season octopus landed', 'Operating expenses')",-0.07550109129443047,0.3728141798867336
+"('Off-season octopus landed', 'Distance traveled during fishing trips')",0.030895803453962763,0.3779449493928258
+"('Off-season octopus landed', 'Wealth')",0.040469600629524746,0.38705038898006155
+"('Off-season octopus landed', 'Socio-economic status')",0.02401946933614342,0.3324466094501182
+"('Off-season octopus landed', 'Temporal discounting')",0.0011320298376220894,0.3751979385817161
+"('Off-season octopus landed', 'Invest in the future')",0.023903785928803434,0.35156542852993644
+"('Off-season octopus landed', ""Fishers' concern towards sustainability"")",0.005404477742563439,0.3288763062480165
+"('Off-season octopus landed', 'Collective actions')",0.04808052967528777,0.38183401932924166
+"('Off-season octopus landed', 'Knowledge')",0.07295329137112831,0.3671926469284992
+"('Off-season octopus landed', 'Awareness')",0.061540439973160284,0.34170669864219494
+"('Off-season octopus landed', 'Information for improving management')",0.03519333563982949,0.3319034817252113
+"('Underweight octopus landed', 'Illegal/informal trade (buyers & sellers)')",-0.009672658251273999,0.249515243340229
+"('Underweight octopus landed', 'Product stockpilling by processing plants')",-0.013419172242849456,0.23325380346145683
+"('Underweight octopus landed', 'Enforcement of ban period & >1kg')",0.03814177863650217,0.2510361484470653
+"('Underweight octopus landed', 'Enforcement of trade')",0.04494438976987328,0.26852882351422536
+"('Underweight octopus landed', 'Domestic market demand')",0.04440326863281921,0.22225312951556558
+"('Underweight octopus landed', 'Domestic retail price')",0.09046338009983172,0.21451542225517525
+"('Underweight octopus landed', 'International marke demand (for Chilean-peruvian octopus)')",0.03919330685951576,0.24366789460092367
+"('Underweight octopus landed', 'Lower quality (processing)')",0.03924476894565278,0.21464862630056805
+"('Underweight octopus landed', 'Lower quality (species)')",0.0765952716038956,0.20850698065041567
+"('Underweight octopus landed', 'Low and volatile landings')",0.0812640844361755,0.2569594366150024
+"('Underweight octopus landed', 'Thermal anomalies (El Niño - La Niña)')",0.041579175361793286,0.22655539060896696
+"('Underweight octopus landed', 'Use of selective gear')",0.07955957308691217,0.23544953444453331
+"('Underweight octopus landed', 'Harvest spawning females')",0.04157917536179297,0.25052340862676736
+"('Underweight octopus landed', 'Landings with bad practices')",0.0806556719160191,0.23372836049798107
+"('Underweight octopus landed', 'Debt')",0.03930043427113508,0.25343681814570523
+"('Underweight octopus landed', 'Financial inclusion')",0.041579175361792196,0.21367842476995716
+"('Underweight octopus landed', 'Dependency on informal financial services')",0.04157917536179252,0.2088449068217572
+"('Underweight octopus landed', 'Operating expenses')",0.0785701949589065,0.24124926520550977
+"('Underweight octopus landed', 'Distance traveled during fishing trips')",0.04157917536179258,0.272047304098589
+"('Underweight octopus landed', 'Wealth')",0.04399340702863648,0.2627480803274799
+"('Underweight octopus landed', 'Socio-economic status')",0.03911413117708847,0.21265080747893994
+"('Underweight octopus landed', 'Temporal discounting')",0.03906230254190492,0.24918773934011118
+"('Underweight octopus landed', 'Invest in the future')",0.04394271025900279,0.22826793337472506
+"('Underweight octopus landed', ""Fishers' concern towards sustainability"")",0.044353004141093715,0.19902694728352321
+"('Underweight octopus landed', 'Collective actions')",0.038959395256168275,0.24266464970734716
+"('Underweight octopus landed', 'Knowledge')",0.0015174883396216095,0.2371846803516146
+"('Underweight octopus landed', 'Awareness')",0.0007459970537655181,0.24516043284015115
+"('Underweight octopus landed', 'Information for improving management')",0.04157917536179203,0.2433569862430659
+"('Illegal/informal trade (buyers & sellers)', 'Product stockpilling by processing plants')",0.040749840864989215,0.3178803657984644
+"('Illegal/informal trade (buyers & sellers)', 'Enforcement of ban period & >1kg')",0.06063689081253884,0.34476968507418587
+"('Illegal/informal trade (buyers & sellers)', 'Enforcement of trade')",-0.009536612920271276,0.3814115223799846
+"('Illegal/informal trade (buyers & sellers)', 'Domestic market demand')",0.05339172394619048,0.29266583874908825
+"('Illegal/informal trade (buyers & sellers)', 'Domestic retail price')",0.11987794416584675,0.23985619190251692
+"('Illegal/informal trade (buyers & sellers)', 'International marke demand (for Chilean-peruvian octopus)')",0.048377419158634985,0.36355062086231055
+"('Illegal/informal trade (buyers & sellers)', 'Lower quality (processing)')",0.02694693567541266,0.2861434845338966
+"('Illegal/informal trade (buyers & sellers)', 'Lower quality (species)')",0.09177430690657491,0.26920471528612555
+"('Illegal/informal trade (buyers & sellers)', 'Low and volatile landings')",0.0539583403550639,0.33538837023115814
+"('Illegal/informal trade (buyers & sellers)', 'Thermal anomalies (El Niño - La Niña)')",0.05665948082302902,0.29888593277149245
+"('Illegal/informal trade (buyers & sellers)', 'Use of selective gear')",0.15334309806547447,0.30227610827213014
+"('Illegal/informal trade (buyers & sellers)', 'Harvest spawning females')",0.0943591816342809,0.3324887581841922
+"('Illegal/informal trade (buyers & sellers)', 'Landings with bad practices')",0.04761640199501188,0.3435310925239436
+"('Illegal/informal trade (buyers & sellers)', 'Debt')",0.03820236978442548,0.3568700610637611
+"('Illegal/informal trade (buyers & sellers)', 'Financial inclusion')",0.09694398889042605,0.2885782465791091
+"('Illegal/informal trade (buyers & sellers)', 'Dependency on informal financial services')",0.06696840854251772,0.26948049147980896
+"('Illegal/informal trade (buyers & sellers)', 'Operating expenses')",0.06421282608566564,0.3425583222131654
+"('Illegal/informal trade (buyers & sellers)', 'Distance traveled during fishing trips')",0.05665948082302931,0.35392180021925823
+"('Illegal/informal trade (buyers & sellers)', 'Wealth')",0.05386597459837732,0.34751595581441064
+"('Illegal/informal trade (buyers & sellers)', 'Socio-economic status')",0.04810257673393325,0.2938159585890854
+"('Illegal/informal trade (buyers & sellers)', 'Temporal discounting')",0.036273575071317524,0.3566000988607024
+"('Illegal/informal trade (buyers & sellers)', 'Invest in the future')",-0.04452978486094402,0.32591698122258234
+"('Illegal/informal trade (buyers & sellers)', ""Fishers' concern towards sustainability"")",-0.010742032220563143,0.2864841710971383
+"('Illegal/informal trade (buyers & sellers)', 'Collective actions')",0.13244313626906698,0.30822913710866173
+"('Illegal/informal trade (buyers & sellers)', 'Knowledge')",0.07829198100170356,0.3079820675241348
+"('Illegal/informal trade (buyers & sellers)', 'Awareness')",0.05350961084321007,0.31589022654228266
+"('Illegal/informal trade (buyers & sellers)', 'Information for improving management')",0.056659480823028546,0.29871021376167806
+"('Product stockpilling by processing plants', 'Enforcement of ban period & >1kg')",-0.001458093057931334,0.31585540005045887
+"('Product stockpilling by processing plants', 'Enforcement of trade')",0.006376653404756655,0.4116816698774941
+"('Product stockpilling by processing plants', 'Domestic market demand')",-0.060632478027616864,0.2924222295376749
+"('Product stockpilling by processing plants', 'Domestic retail price')",-0.014847515253544663,0.3796351998920421
+"('Product stockpilling by processing plants', 'International marke demand (for Chilean-peruvian octopus)')",0.009651258407917779,0.3744187043368393
+"('Product stockpilling by processing plants', 'Lower quality (processing)')",-0.01232782092276788,0.385133053786683
+"('Product stockpilling by processing plants', 'Lower quality (species)')",-0.028632412720022232,0.36199670424366065
+"('Product stockpilling by processing plants', 'Low and volatile landings')",0.05289054626625006,0.3632730766425188
+"('Product stockpilling by processing plants', 'Thermal anomalies (El Niño - La Niña)')",-0.05993659472029812,0.34985772153766737
+"('Product stockpilling by processing plants', 'Use of selective gear')",-0.0014580930579313,0.33463898427335304
+"('Product stockpilling by processing plants', 'Harvest spawning females')",0.004863087033466704,0.32472392331326744
+"('Product stockpilling by processing plants', 'Landings with bad practices')",0.040997470286886065,0.363022823933421
+"('Product stockpilling by processing plants', 'Debt')",-0.022679158386240572,0.38709871694859915
+"('Product stockpilling by processing plants', 'Financial inclusion')",0.03400344989242206,0.30746237638939133
+"('Product stockpilling by processing plants', 'Dependency on informal financial services')",-0.001458093057931275,0.3170900236931884
+"('Product stockpilling by processing plants', 'Operating expenses')",0.04413531930680854,0.32735212963427046
+"('Product stockpilling by processing plants', 'Distance traveled during fishing trips')",0.008435239860733842,0.3310507739914441
+"('Product stockpilling by processing plants', 'Wealth')",-0.018320221931351105,0.35807066574208246
+"('Product stockpilling by processing plants', 'Socio-economic status')",-0.0014580930579311466,0.32855845483803653
+"('Product stockpilling by processing plants', 'Temporal discounting')",-0.0248967903074081,0.3549325603349587
+"('Product stockpilling by processing plants', 'Invest in the future')",-0.023468811460768887,0.3876680610772754
+"('Product stockpilling by processing plants', ""Fishers' concern towards sustainability"")",-0.02083181720865763,0.31364321712758003
+"('Product stockpilling by processing plants', 'Collective actions')",-0.019755868854571885,0.362426444811881
+"('Product stockpilling by processing plants', 'Knowledge')",-0.06985600869066103,0.3008947179333425
+"('Product stockpilling by processing plants', 'Awareness')",-0.052159979755503995,0.3319524847890619
+"('Product stockpilling by processing plants', 'Information for improving management')",0.041391042583121436,0.3521448571825577
+"('Enforcement of ban period & >1kg', 'Enforcement of trade')",-0.058053766405987306,0.46617530574076904
+"('Enforcement of ban period & >1kg', 'Domestic market demand')",-0.05364441460812285,0.3983354197568423
+"('Enforcement of ban period & >1kg', 'Domestic retail price')",-0.027284798237674893,0.39383696152531267
+"('Enforcement of ban period & >1kg', 'International marke demand (for Chilean-peruvian octopus)')",0.005473238477432543,0.4575640721121242
+"('Enforcement of ban period & >1kg', 'Lower quality (processing)')",-0.03334958575278697,0.3834276887853573
+"('Enforcement of ban period & >1kg', 'Lower quality (species)')",-0.033349585752787,0.39914970485979095
+"('Enforcement of ban period & >1kg', 'Low and volatile landings')",0.042738509301067255,0.4416590160031469
+"('Enforcement of ban period & >1kg', 'Thermal anomalies (El Niño - La Niña)')",-0.03063215378657727,0.4311564047639973
+"('Enforcement of ban period & >1kg', 'Use of selective gear')",-0.03357963103115633,0.4345942498119361
+"('Enforcement of ban period & >1kg', 'Harvest spawning females')",0.05154318740158936,0.4366949337175395
+"('Enforcement of ban period & >1kg', 'Landings with bad practices')",-0.08218533784814316,0.42999712692937325
+"('Enforcement of ban period & >1kg', 'Debt')",-0.07572691760923478,0.4584351824385632
+"('Enforcement of ban period & >1kg', 'Financial inclusion')",-0.035698088493771776,0.40924028621191383
+"('Enforcement of ban period & >1kg', 'Dependency on informal financial services')",-0.009889945038447503,0.39412379557314764
+"('Enforcement of ban period & >1kg', 'Operating expenses')",-0.0432969905545626,0.4467459917542682
+"('Enforcement of ban period & >1kg', 'Distance traveled during fishing trips')",-0.12956548297323223,0.43061890333988484
+"('Enforcement of ban period & >1kg', 'Wealth')",0.017143878021443362,0.4678167590203401
+"('Enforcement of ban period & >1kg', 'Socio-economic status')",0.03536645118826467,0.3902585053747479
+"('Enforcement of ban period & >1kg', 'Temporal discounting')",-0.08043938544171597,0.4391137641865539
+"('Enforcement of ban period & >1kg', 'Invest in the future')",-0.03338349358693286,0.37408211204602315
+"('Enforcement of ban period & >1kg', ""Fishers' concern towards sustainability"")",-0.02740319976145706,0.3611871183327081
+"('Enforcement of ban period & >1kg', 'Collective actions')",-0.033681783086018255,0.41332402969839643
+"('Enforcement of ban period & >1kg', 'Knowledge')",-0.021305165291206147,0.4451040653942119
+"('Enforcement of ban period & >1kg', 'Awareness')",0.029576336666790326,0.4046531487256743
+"('Enforcement of ban period & >1kg', 'Information for improving management')",-0.08776433464131617,0.39483334956142835
+"('Enforcement of trade', 'Domestic market demand')",-0.21899286388411804,0.3117840442049391
+"('Enforcement of trade', 'Domestic retail price')",-0.2638750146713883,0.3150160418819368
+"('Enforcement of trade', 'International marke demand (for Chilean-peruvian octopus)')",-0.3253675146477428,0.3953544884224983
+"('Enforcement of trade', 'Lower quality (processing)')",-0.3029702577778969,0.3227626239774134
+"('Enforcement of trade', 'Lower quality (species)')",-0.26572510189077325,0.2916734511345404
+"('Enforcement of trade', 'Low and volatile landings')",-0.2763665750013803,0.29789974989474
+"('Enforcement of trade', 'Thermal anomalies (El Niño - La Niña)')",-0.2789107980331208,0.3255896499132816
+"('Enforcement of trade', 'Use of selective gear')",-0.22465129900665395,0.29792197133785664
+"('Enforcement of trade', 'Harvest spawning females')",-0.20563335735068355,0.26886014611626596
+"('Enforcement of trade', 'Landings with bad practices')",-0.25292418985322884,0.3214333572244797
+"('Enforcement of trade', 'Debt')",-0.3126601596557345,0.3560905874700985
+"('Enforcement of trade', 'Financial inclusion')",-0.2389893250814945,0.2998498756075895
+"('Enforcement of trade', 'Dependency on informal financial services')",-0.2432462458959313,0.33074354411139845
+"('Enforcement of trade', 'Operating expenses')",-0.29106464754484607,0.3157117584011589
+"('Enforcement of trade', 'Distance traveled during fishing trips')",-0.2930773699280686,0.30601160915482833
+"('Enforcement of trade', 'Wealth')",-0.29296558550146073,0.40709887086074437
+"('Enforcement of trade', 'Socio-economic status')",-0.21471200955233288,0.3133696287543794
+"('Enforcement of trade', 'Temporal discounting')",-0.27083789357884736,0.333411961044824
+"('Enforcement of trade', 'Invest in the future')",-0.35181956495706707,0.35534418649552924
+"('Enforcement of trade', ""Fishers' concern towards sustainability"")",-0.27054505790188366,0.29295335272340023
+"('Enforcement of trade', 'Collective actions')",-0.26474943744922963,0.35419824105750763
+"('Enforcement of trade', 'Knowledge')",-0.23413797709129475,0.30189140151407545
+"('Enforcement of trade', 'Awareness')",-0.27680853119460347,0.3104307102789723
+"('Enforcement of trade', 'Information for improving management')",-0.27370620672372903,0.28070900221877165
+"('Domestic market demand', 'Domestic retail price')",0.07343074121759409,0.18414831959975198
+"('Domestic market demand', 'International marke demand (for Chilean-peruvian octopus)')",0.13509918484770123,0.2336003118743633
+"('Domestic market demand', 'Lower quality (processing)')",0.08048357199440208,0.1931071793517552
+"('Domestic market demand', 'Lower quality (species)')",0.08494874255430927,0.1678057294451693
+"('Domestic market demand', 'Low and volatile landings')",0.1028094247939384,0.22646266213516603
+"('Domestic market demand', 'Thermal anomalies (El Niño - La Niña)')",0.05660741883755008,0.19047527998543626
+"('Domestic market demand', 'Use of selective gear')",0.08960291350451084,0.193507299823912
+"('Domestic market demand', 'Harvest spawning females')",0.09237467721687097,0.19910086019037598
+"('Domestic market demand', 'Landings with bad practices')",0.07472396959593569,0.1925491433595142
+"('Domestic market demand', 'Debt')",0.12423024282656647,0.21995557831879264
+"('Domestic market demand', 'Financial inclusion')",0.1246399220416375,0.20961536938917183
+"('Domestic market demand', 'Dependency on informal financial services')",0.0445779154023751,0.20682625572199645
+"('Domestic market demand', 'Operating expenses')",0.08093822879970113,0.21397726751661492
+"('Domestic market demand', 'Distance traveled during fishing trips')",0.08718132783426322,0.19519891715898066
+"('Domestic market demand', 'Wealth')",0.061783111615444655,0.23441620771259639
+"('Domestic market demand', 'Socio-economic status')",0.06124855342329942,0.18449972317749655
+"('Domestic market demand', 'Temporal discounting')",0.08958842077675357,0.21362434148982357
+"('Domestic market demand', 'Invest in the future')",0.07587911159701338,0.20201356270698365
+"('Domestic market demand', ""Fishers' concern towards sustainability"")",0.036777346796391254,0.15779872780783186
+"('Domestic market demand', 'Collective actions')",0.08467581617181516,0.19476056084932025
+"('Domestic market demand', 'Knowledge')",0.08973561407215194,0.1891757649490506
+"('Domestic market demand', 'Awareness')",0.08457785221568195,0.20205184768487147
+"('Domestic market demand', 'Information for improving management')",0.13411993294895702,0.22096928734843752
+"('Domestic retail price', 'International marke demand (for Chilean-peruvian octopus)')",0.021926815378153525,0.3218475027233102
+"('Domestic retail price', 'Lower quality (processing)')",-0.05126845472260744,0.2965895665042132
+"('Domestic retail price', 'Lower quality (species)')",-0.07854754606392825,0.27938714801686315
+"('Domestic retail price', 'Low and volatile landings')",0.007836243183587423,0.2882008151979501
+"('Domestic retail price', 'Thermal anomalies (El Niño - La Niña)')",-0.04345623258408464,0.29686979052088874
+"('Domestic retail price', 'Use of selective gear')",-0.03596904666796763,0.26993910557638057
+"('Domestic retail price', 'Harvest spawning females')",0.011592389772820816,0.2860408126354761
+"('Domestic retail price', 'Landings with bad practices')",0.003553330614441283,0.2870315634174317
+"('Domestic retail price', 'Debt')",0.003235520764580835,0.32900648116008996
+"('Domestic retail price', 'Financial inclusion')",0.0010164703482568316,0.24657331118525938
+"('Domestic retail price', 'Dependency on informal financial services')",-0.00765943847082046,0.26604360391215587
+"('Domestic retail price', 'Operating expenses')",0.0328006367333593,0.268100935398254
+"('Domestic retail price', 'Distance traveled during fishing trips')",0.00929270123199507,0.28291108879691
+"('Domestic retail price', 'Wealth')",0.017473413461117235,0.32131911859819456
+"('Domestic retail price', 'Socio-economic status')",0.013018837240116793,0.2799071312149577
+"('Domestic retail price', 'Temporal discounting')",0.042682524876760525,0.3161284659365219
+"('Domestic retail price', 'Invest in the future')",-0.010491645073792591,0.31796123808600857
+"('Domestic retail price', ""Fishers' concern towards sustainability"")",-0.001684699140789378,0.26235380840993716
+"('Domestic retail price', 'Collective actions')",-0.03725087049553645,0.2947151543352117
+"('Domestic retail price', 'Knowledge')",0.0088189279095536,0.28065141283020195
+"('Domestic retail price', 'Awareness')",-0.0016344343316926843,0.29851002450246744
+"('Domestic retail price', 'Information for improving management')",-0.010931958041159442,0.2696580620207566
+"('International marke demand (for Chilean-peruvian octopus)', 'Lower quality (processing)')",-0.1750433776772299,0.22556486605851211
+"('International marke demand (for Chilean-peruvian octopus)', 'Lower quality (species)')",-0.1825879654608366,0.21457404895063056
+"('International marke demand (for Chilean-peruvian octopus)', 'Low and volatile landings')",-0.190132553244444,0.2257591404477243
+"('International marke demand (for Chilean-peruvian octopus)', 'Thermal anomalies (El Niño - La Niña)')",-0.1808665077443901,0.2409889090927934
+"('International marke demand (for Chilean-peruvian octopus)', 'Use of selective gear')",-0.19029222576048574,0.20728595854578308
+"('International marke demand (for Chilean-peruvian octopus)', 'Harvest spawning females')",-0.19263388487101146,0.20032180463198138
+"('International marke demand (for Chilean-peruvian octopus)', 'Landings with bad practices')",-0.19035126727798174,0.2228472655954853
+"('International marke demand (for Chilean-peruvian octopus)', 'Debt')",-0.2195463071306217,0.2488173635036631
+"('International marke demand (for Chilean-peruvian octopus)', 'Financial inclusion')",-0.19176262948091766,0.21236161230217893
+"('International marke demand (for Chilean-peruvian octopus)', 'Dependency on informal financial services')",-0.18104790893632106,0.22024990234843325
+"('International marke demand (for Chilean-peruvian octopus)', 'Operating expenses')",-0.18297207152498027,0.22297418542835923
+"('International marke demand (for Chilean-peruvian octopus)', 'Distance traveled during fishing trips')",-0.14017824514139837,0.2069152275553529
+"('International marke demand (for Chilean-peruvian octopus)', 'Wealth')",-0.23311121648478866,0.278166405261258
+"('International marke demand (for Chilean-peruvian octopus)', 'Socio-economic status')",-0.19820490266050134,0.21887289349711062
+"('International marke demand (for Chilean-peruvian octopus)', 'Temporal discounting')",-0.19027998192172013,0.2240836446139813
+"('International marke demand (for Chilean-peruvian octopus)', 'Invest in the future')",-0.18251736002311744,0.24684037218211183
+"('International marke demand (for Chilean-peruvian octopus)', ""Fishers' concern towards sustainability"")",-0.15014617364233984,0.21063724288477528
+"('International marke demand (for Chilean-peruvian octopus)', 'Collective actions')",-0.190363128652882,0.22684286397750428
+"('International marke demand (for Chilean-peruvian octopus)', 'Knowledge')",-0.19040433470101456,0.21352383018482296
+"('International marke demand (for Chilean-peruvian octopus)', 'Awareness')",-0.18164795163146782,0.2105891783033713
+"('International marke demand (for Chilean-peruvian octopus)', 'Information for improving management')",-0.13867769134456712,0.18191500885155526
+"('Lower quality (processing)', 'Lower quality (species)')",-0.07247687157641455,0.3270034704308971
+"('Lower quality (processing)', 'Low and volatile landings')",-0.02449481735571818,0.3119627940429048
+"('Lower quality (processing)', 'Thermal anomalies (El Niño - La Niña)')",-0.06982572315989334,0.33636064227478946
+"('Lower quality (processing)', 'Use of selective gear')",-0.0036967543172347845,0.33501240952174477
+"('Lower quality (processing)', 'Harvest spawning females')",0.009206291303151246,0.3080561275476923
+"('Lower quality (processing)', 'Landings with bad practices')",-0.035781595571394584,0.33647953487917337
+"('Lower quality (processing)', 'Debt')",-0.035523592908526413,0.34549983623319497
+"('Lower quality (processing)', 'Financial inclusion')",-0.00619909654923112,0.2943737585899884
+"('Lower quality (processing)', 'Dependency on informal financial services')",-0.040765364560383044,0.3025017252010553
+"('Lower quality (processing)', 'Operating expenses')",-0.004478906616365602,0.3224616789430747
+"('Lower quality (processing)', 'Distance traveled during fishing trips')",-0.02700337075629857,0.31912088875264083
+"('Lower quality (processing)', 'Wealth')",-0.016545010613868094,0.33924031225284956
+"('Lower quality (processing)', 'Socio-economic status')",-0.027875917769384577,0.30587870520124966
+"('Lower quality (processing)', 'Temporal discounting')",-0.0038764504891627416,0.3323198151188716
+"('Lower quality (processing)', 'Invest in the future')",-0.09911932493786305,0.2936689802965441
+"('Lower quality (processing)', ""Fishers' concern towards sustainability"")",-0.06661486620735504,0.2859338351345656
+"('Lower quality (processing)', 'Collective actions')",-0.03579320110189413,0.3341553741830388
+"('Lower quality (processing)', 'Knowledge')",0.010616904993157494,0.31618817773415053
+"('Lower quality (processing)', 'Awareness')",-0.03157009246338958,0.29777616325199724
+"('Lower quality (processing)', 'Information for improving management')",-0.04342204358971399,0.2897322615260928
+"('Lower quality (species)', 'Low and volatile landings')",0.04053059676630186,0.21701035317501324
+"('Lower quality (species)', 'Thermal anomalies (El Niño - La Niña)')",-0.008410667806354105,0.24681660097149125
+"('Lower quality (species)', 'Use of selective gear')",-0.0027254866652908155,0.22351319791368107
+"('Lower quality (species)', 'Harvest spawning females')",0.03559612132476064,0.22353802673413375
+"('Lower quality (species)', 'Landings with bad practices')",0.025124898358001843,0.2410776702767666
+"('Lower quality (species)', 'Debt')",0.015090161745949127,0.2663069166068138
+"('Lower quality (species)', 'Financial inclusion')",0.02786289878120539,0.2049135095149888
+"('Lower quality (species)', 'Dependency on informal financial services')",0.031303278646936786,0.2424716262719695
+"('Lower quality (species)', 'Operating expenses')",0.06398688737138589,0.22034349287060934
+"('Lower quality (species)', 'Distance traveled during fishing trips')",0.03802204336572127,0.20362091377697525
+"('Lower quality (species)', 'Wealth')",0.05229754236619981,0.2757784005737274
+"('Lower quality (species)', 'Socio-economic status')",0.029354539411704184,0.2494969466840528
+"('Lower quality (species)', 'Temporal discounting')",0.04523126497369992,0.2642381994112484
+"('Lower quality (species)', 'Invest in the future')",0.018223840754380508,0.2525820297651654
+"('Lower quality (species)', ""Fishers' concern towards sustainability"")",0.02033903506951292,0.22065619484455035
+"('Lower quality (species)', 'Collective actions')",0.016805819259257806,0.25271221060366217
+"('Lower quality (species)', 'Knowledge')",0.020746364249736787,0.23746708543111256
+"('Lower quality (species)', 'Awareness')",0.03345532165862996,0.2413435233518095
+"('Lower quality (species)', 'Information for improving management')",0.02160337053230612,0.20688489450765235
+"('Low and volatile landings', 'Thermal anomalies (El Niño - La Niña)')",-0.03644823510740339,0.2355674447262609
+"('Low and volatile landings', 'Use of selective gear')",-0.034446543030213446,0.20034628791822262
+"('Low and volatile landings', 'Harvest spawning females')",-0.08366950456345988,0.2184582055821358
+"('Low and volatile landings', 'Landings with bad practices')",-0.0261509346258446,0.1920751430687314
+"('Low and volatile landings', 'Debt')",-0.00582345873887119,0.21582123624672736
+"('Low and volatile landings', 'Financial inclusion')",-0.03300785524167156,0.19048879200797672
+"('Low and volatile landings', 'Dependency on informal financial services')",-0.02940500602210309,0.19946211322556714
+"('Low and volatile landings', 'Operating expenses')",-0.06225108410038936,0.20463939706421724
+"('Low and volatile landings', 'Distance traveled during fishing trips')",-0.036448235107403144,0.19377487937262566
+"('Low and volatile landings', 'Wealth')",-0.0536253599686172,0.25252232762827503
+"('Low and volatile landings', 'Socio-economic status')",-0.04229445281310136,0.2031148427674591
+"('Low and volatile landings', 'Temporal discounting')",-0.0026231254566926945,0.18348295812031648
+"('Low and volatile landings', 'Invest in the future')",-0.02710577946986339,0.22371236203348477
+"('Low and volatile landings', ""Fishers' concern towards sustainability"")",-0.02986968896094882,0.19407533461241658
+"('Low and volatile landings', 'Collective actions')",-0.0012401194516120477,0.20391727640185758
+"('Low and volatile landings', 'Knowledge')",-0.00900025767468247,0.20444503122808977
+"('Low and volatile landings', 'Awareness')",-0.042904364142481895,0.2127863573792892
+"('Low and volatile landings', 'Information for improving management')",-0.03644823510740301,0.18761341958950237
+"('Thermal anomalies (El Niño - La Niña)', 'Use of selective gear')",-0.15420263939881004,0.2099736372487635
+"('Thermal anomalies (El Niño - La Niña)', 'Harvest spawning females')",-0.14160523406139403,0.2029590679588394
+"('Thermal anomalies (El Niño - La Niña)', 'Landings with bad practices')",-0.14211561196428663,0.2336085995137631
+"('Thermal anomalies (El Niño - La Niña)', 'Debt')",-0.16829970976474323,0.23146328982527836
+"('Thermal anomalies (El Niño - La Niña)', 'Financial inclusion')",-0.13064567566858643,0.19429429771369072
+"('Thermal anomalies (El Niño - La Niña)', 'Dependency on informal financial services')",-0.16109212330886652,0.21131214235157328
+"('Thermal anomalies (El Niño - La Niña)', 'Operating expenses')",-0.12391511460280838,0.21949260295124629
+"('Thermal anomalies (El Niño - La Niña)', 'Distance traveled during fishing trips')",-0.1542026393988099,0.20589330699150507
+"('Thermal anomalies (El Niño - La Niña)', 'Wealth')",-0.18033934672230262,0.23164889978600076
+"('Thermal anomalies (El Niño - La Niña)', 'Socio-economic status')",-0.1465778369433271,0.21753249773746425
+"('Thermal anomalies (El Niño - La Niña)', 'Temporal discounting')",-0.13863240485592526,0.21889764852526883
+"('Thermal anomalies (El Niño - La Niña)', 'Invest in the future')",-0.16151345630006242,0.22482447086005583
+"('Thermal anomalies (El Niño - La Niña)', ""Fishers' concern towards sustainability"")",-0.14991267644018674,0.21275503734966916
+"('Thermal anomalies (El Niño - La Niña)', 'Collective actions')",-0.13394407171659917,0.21936477070288937
+"('Thermal anomalies (El Niño - La Niña)', 'Knowledge')",-0.1583332272867524,0.20201370172870317
+"('Thermal anomalies (El Niño - La Niña)', 'Awareness')",-0.1542026393988104,0.2009889110619838
+"('Thermal anomalies (El Niño - La Niña)', 'Information for improving management')",-0.1352262977022877,0.19477667336718205
+"('Use of selective gear', 'Harvest spawning females')",-0.0332706577135395,0.22373486227410794
+"('Use of selective gear', 'Landings with bad practices')",0.0017455775676965268,0.2625809100366834
+"('Use of selective gear', 'Debt')",0.002025421548080081,0.2541163268934456
+"('Use of selective gear', 'Financial inclusion')",-0.025873630603431716,0.21553116015149765
+"('Use of selective gear', 'Dependency on informal financial services')",0.003979382073376336,0.20871194809643456
+"('Use of selective gear', 'Operating expenses')",0.005845195365676993,0.26195544754736905
+"('Use of selective gear', 'Distance traveled during fishing trips')",0.00397938207337669,0.2585056466569736
+"('Use of selective gear', 'Wealth')",0.006049522202622892,0.2449130868180961
+"('Use of selective gear', 'Socio-economic status')",0.0018656715470814697,0.218014221885082
+"('Use of selective gear', 'Temporal discounting')",0.0018212298561672072,0.2563488134847621
+"('Use of selective gear', 'Invest in the future')",0.07085945852085702,0.23256453832278443
+"('Use of selective gear', ""Fishers' concern towards sustainability"")",0.044413630323609385,0.21808391290492068
+"('Use of selective gear', 'Collective actions')",-0.034209290544878646,0.22672601797678987
+"('Use of selective gear', 'Knowledge')",-0.030372460415016275,0.21405363736258232
+"('Use of selective gear', 'Awareness')",0.006313607137773486,0.2122288893848843
+"('Use of selective gear', 'Information for improving management')",0.003979382073376614,0.22080197557774434
+"('Harvest spawning females', 'Landings with bad practices')",0.11854366284455392,0.260262614985635
+"('Harvest spawning females', 'Debt')",0.12811431794631079,0.29141079505389883
+"('Harvest spawning females', 'Financial inclusion')",0.07058188328128956,0.242443251925004
+"('Harvest spawning females', 'Dependency on informal financial services')",0.11097417386311953,0.25621663248946774
+"('Harvest spawning females', 'Operating expenses')",0.10259337204646421,0.25783536386633366
+"('Harvest spawning females', 'Distance traveled during fishing trips')",0.10240495893037052,0.2472629197639559
+"('Harvest spawning females', 'Wealth')",0.09015086301133639,0.3040241638194821
+"('Harvest spawning females', 'Socio-economic status')",0.07645818697999196,0.24924426527637839
+"('Harvest spawning females', 'Temporal discounting')",0.1316176052680434,0.27262196893892476
+"('Harvest spawning females', 'Invest in the future')",0.1684794413526703,0.2809697216102063
+"('Harvest spawning females', ""Fishers' concern towards sustainability"")",0.13029691043432637,0.23931920985886904
+"('Harvest spawning females', 'Collective actions')",0.08977287094266391,0.2506561186188666
+"('Harvest spawning females', 'Knowledge')",0.045476367141656995,0.2407057610332588
+"('Harvest spawning females', 'Awareness')",0.049536542849249986,0.24130683060812536
+"('Harvest spawning females', 'Information for improving management')",0.10587226639523997,0.2303133835277929
+"('Landings with bad practices', 'Debt')",-0.10094833259177732,0.22461139261402308
+"('Landings with bad practices', 'Financial inclusion')",-0.0629330452506698,0.2083170640324983
+"('Landings with bad practices', 'Dependency on informal financial services')",-0.05891241644783436,0.19624756496976692
+"('Landings with bad practices', 'Operating expenses')",-0.09172794382509541,0.23779129508839136
+"('Landings with bad practices', 'Distance traveled during fishing trips')",-0.05927450508879679,0.23176846562032535
+"('Landings with bad practices', 'Wealth')",-0.05186318034143676,0.233785595716549
+"('Landings with bad practices', 'Socio-economic status')",-0.0776459218220551,0.20134451926650954
+"('Landings with bad practices', 'Temporal discounting')",-0.10451977047019707,0.227152014857716
+"('Landings with bad practices', 'Invest in the future')",-0.07302783853777792,0.18965688218535096
+"('Landings with bad practices', ""Fishers' concern towards sustainability"")",-0.0790080015921652,0.18137478791381662
+"('Landings with bad practices', 'Collective actions')",-0.03672647280831311,0.22845145383729165
+"('Landings with bad practices', 'Knowledge')",-0.031429142371241905,0.22149376442936478
+"('Landings with bad practices', 'Awareness')",0.012480099998179818,0.2216620258120029
+"('Landings with bad practices', 'Information for improving management')",-0.055947673941486725,0.20269744198130824
+"('Debt', 'Financial inclusion')",-0.18623507032302855,0.18849446399962308
+"('Debt', 'Dependency on informal financial services')",-0.15873395412215047,0.20093580028307795
+"('Debt', 'Operating expenses')",-0.1711225316023113,0.19264007262370367
+"('Debt', 'Distance traveled during fishing trips')",-0.18623507032302772,0.19449196300729155
+"('Debt', 'Wealth')",-0.18437201188032545,0.2168084000617289
+"('Debt', 'Socio-economic status')",-0.15770101468731035,0.18432431890863807
+"('Debt', 'Temporal discounting')",-0.25032986299889665,0.23215813142548974
+"('Debt', 'Invest in the future')",-0.19900262114982475,0.2085399665747088
+"('Debt', ""Fishers' concern towards sustainability"")",-0.14984556870781285,0.1693168745711043
+"('Debt', 'Collective actions')",-0.15590987300970183,0.19195460936872927
+"('Debt', 'Knowledge')",-0.2006623201136291,0.19182077882368867
+"('Debt', 'Awareness')",-0.15052272405079706,0.19046641735796935
+"('Debt', 'Information for improving management')",-0.20517228626245052,0.21086605345978715
+"('Financial inclusion', 'Dependency on informal financial services')",0.16901307586157027,0.1524726626218746
+"('Financial inclusion', 'Operating expenses')",0.16901307586157083,0.14083001113098953
+"('Financial inclusion', 'Distance traveled during fishing trips')",0.16901307586157105,0.14937909760555454
+"('Financial inclusion', 'Wealth')",0.20103529172061796,0.1773592295771068
+"('Financial inclusion', 'Socio-economic status')",0.1690130758615706,0.14824427666100484
+"('Financial inclusion', 'Temporal discounting')",0.16901307586157055,0.1668709815427593
+"('Financial inclusion', 'Invest in the future')",0.221262704393011,0.17006208040620013
+"('Financial inclusion', ""Fishers' concern towards sustainability"")",0.1976289896635539,0.13949400280124644
+"('Financial inclusion', 'Collective actions')",0.1728740311201399,0.1590053602964636
+"('Financial inclusion', 'Knowledge')",0.13752414677812977,0.16233171785966496
+"('Financial inclusion', 'Awareness')",0.17302499208242675,0.17205582554526921
+"('Financial inclusion', 'Information for improving management')",0.1328472385669997,0.15191324363322609
+"('Dependency on informal financial services', 'Operating expenses')",0.06773973556513256,0.21710647113020917
+"('Dependency on informal financial services', 'Distance traveled during fishing trips')",0.11917875551518425,0.21734521394169107
+"('Dependency on informal financial services', 'Wealth')",0.04516856453308511,0.2412865813047284
+"('Dependency on informal financial services', 'Socio-economic status')",0.029680567943753327,0.19034856210562962
+"('Dependency on informal financial services', 'Temporal discounting')",0.07430485644352357,0.21758904131896764
+"('Dependency on informal financial services', 'Invest in the future')",0.07430485644352373,0.19252631587214172
+"('Dependency on informal financial services', ""Fishers' concern towards sustainability"")",0.049197773888053714,0.17469981973522186
+"('Dependency on informal financial services', 'Collective actions')",0.07430485644352414,0.2005215905169436
+"('Dependency on informal financial services', 'Knowledge')",0.08236296884102959,0.19637930011863566
+"('Dependency on informal financial services', 'Awareness')",0.0743048564435243,0.20736316604160784
+"('Dependency on informal financial services', 'Information for improving management')",0.10206969859779083,0.18790550349239596
+"('Operating expenses', 'Distance traveled during fishing trips')",-0.035177874572781064,0.30036537478552594
+"('Operating expenses', 'Wealth')",-0.02713618079103998,0.30314323371873103
+"('Operating expenses', 'Socio-economic status')",-0.0198329178175482,0.2695342047697115
+"('Operating expenses', 'Temporal discounting')",-0.041897720075787445,0.3092570359313167
+"('Operating expenses', 'Invest in the future')",-0.020206921361303004,0.27713271605986217
+"('Operating expenses', ""Fishers' concern towards sustainability"")",-0.03504717431220573,0.2613373511893059
+"('Operating expenses', 'Collective actions')",-0.0076799388610802495,0.3043596137842364
+"('Operating expenses', 'Knowledge')",0.0006056782325162789,0.28806082602890637
+"('Operating expenses', 'Awareness')",-0.0028377373476428033,0.2723512697719187
+"('Operating expenses', 'Information for improving management')",-0.01987373345956664,0.2627173047046817
+"('Distance traveled during fishing trips', 'Wealth')",0.058505957042796916,0.34021252469534385
+"('Distance traveled during fishing trips', 'Socio-economic status')",0.08066771064802272,0.29319472364588833
+"('Distance traveled during fishing trips', 'Temporal discounting')",0.016814875916535132,0.3395466940044702
+"('Distance traveled during fishing trips', 'Invest in the future')",0.023617476684419797,0.30485819406674464
+"('Distance traveled during fishing trips', ""Fishers' concern towards sustainability"")",0.0247983627718929,0.2832832431602561
+"('Distance traveled during fishing trips', 'Collective actions')",0.016814875916534775,0.3297606257341442
+"('Distance traveled during fishing trips', 'Knowledge')",0.016814875916535132,0.33397934914512184
+"('Distance traveled during fishing trips', 'Awareness')",0.016814875916534938,0.3143343660671492
+"('Distance traveled during fishing trips', 'Information for improving management')",-0.05381388053573671,0.32315568753885143
+"('Wealth', 'Socio-economic status')",-0.3095924342394204,0.20932539902762032
+"('Wealth', 'Temporal discounting')",-0.2773040351065891,0.18647343519907914
+"('Wealth', 'Invest in the future')",-0.2658350953200822,0.2113173641320965
+"('Wealth', ""Fishers' concern towards sustainability"")",-0.25895128535886136,0.19281194039127805
+"('Wealth', 'Collective actions')",-0.28150367175655483,0.207023893190119
+"('Wealth', 'Knowledge')",-0.277178204023549,0.2031881438798986
+"('Wealth', 'Awareness')",-0.28158741817085886,0.20557351857150705
+"('Wealth', 'Information for improving management')",-0.19910900663868378,0.13383058203491002
+"('Socio-economic status', 'Temporal discounting')",0.11626772302873116,0.23065282152694105
+"('Socio-economic status', 'Invest in the future')",0.12034183880243804,0.17811938879121703
+"('Socio-economic status', ""Fishers' concern towards sustainability"")",0.07437305506671107,0.16181338773508913
+"('Socio-economic status', 'Collective actions')",0.11618181705112493,0.2101664322926286
+"('Socio-economic status', 'Knowledge')",0.11168016390548012,0.2400089375466032
+"('Socio-economic status', 'Awareness')",0.12064125878275489,0.2145490562811982
+"('Socio-economic status', 'Information for improving management')",0.16958244937816935,0.25646772768786996
+"('Temporal discounting', 'Invest in the future')",-0.0318469418848486,0.20724781318708174
+"('Temporal discounting', ""Fishers' concern towards sustainability"")",-0.015380913178135912,0.16489654183861255
+"('Temporal discounting', 'Collective actions')",0.01574906056262958,0.20932539172709846
+"('Temporal discounting', 'Knowledge')",-0.033680081783154125,0.17932915966919194
+"('Temporal discounting', 'Awareness')",0.021699174354379853,0.1933306041533634
+"('Temporal discounting', 'Information for improving management')",-0.03866134589653469,0.20262676328278711
+"('Invest in the future', ""Fishers' concern towards sustainability"")",-0.0007049401732942065,0.33314863379463533
+"('Invest in the future', 'Collective actions')",0.10031503495354319,0.4005283317727931
+"('Invest in the future', 'Knowledge')",0.14343698781680908,0.38168181351892283
+"('Invest in the future', 'Awareness')",0.0836217574151675,0.3672047620939113
+"('Invest in the future', 'Information for improving management')",0.07162191887230836,0.3528258791454685
+"(""Fishers' concern towards sustainability"", 'Collective actions')",0.26563282883206096,0.23008057760856887
+"(""Fishers' concern towards sustainability"", 'Knowledge')",0.2808294915863884,0.24507717411402838
+"(""Fishers' concern towards sustainability"", 'Awareness')",0.25569293876060306,0.22958762446770736
+"(""Fishers' concern towards sustainability"", 'Information for improving management')",0.2697758691782738,0.25654419536298073
+"('Collective actions', 'Knowledge')",-0.03527541119131009,0.24964018474996805
+"('Collective actions', 'Awareness')",-0.059654798310519445,0.2269720874802013
+"('Collective actions', 'Information for improving management')",-0.001656566425407055,0.2287325128945896
+"('Knowledge', 'Awareness')",0.052968291361923756,0.18808040844966542
+"('Knowledge', 'Information for improving management')",0.09974892010292949,0.23924886655872077
+"('Awareness', 'Information for improving management')",0.11600904471666382,0.20201017336413635

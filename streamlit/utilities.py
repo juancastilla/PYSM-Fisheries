@@ -32,6 +32,11 @@ from deap import base, creator, tools, algorithms
 import random
 from plotapi import Chord
 from PIL import Image
+from scipy.stats import qmc, dirichlet
+import SALib as sa
+import seaborn as sns
+from SALib.analyze import sobol
+from SALib.sample import saltelli
 
 
 # import googletrans
@@ -2985,3 +2990,24 @@ def color_interventions(val):
     return 'background-color: %s' % color
 
 
+### VARS SA ###
+
+
+def model_response_sum_outcome_nodes(G, initial_tokens, num_steps, log_scale=False):
+    # Run the pulse diffusion network model
+    df_token_counts = pulse_diffusion_network_model_DEAP(G, initial_tokens, num_steps, log_scale=log_scale)
+
+    # Get the outcome nodes from the global session state if available
+    if 'df_factors' in st.session_state:
+        factors_df = st.session_state.df_factors
+        factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
+        outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
+    else:
+        # If the session state does not contain the factors dataframe, define outcome nodes manually
+        # This is a placeholder and should be replaced with the actual method of obtaining outcome nodes
+        outcome_nodes = ['Node1', 'Node2']  # Placeholder: Replace with actual outcome nodes
+
+    # Calculate the sum of token counts for the outcome nodes
+    sum_token_counts_outcome_nodes = df_token_counts.loc[outcome_nodes].sum().sum()
+
+    return sum_token_counts_outcome_nodes

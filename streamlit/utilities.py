@@ -2907,7 +2907,10 @@ def evaluate(individual):
     # Calculate the sum of the area under the token count timeseries for the outcome nodes
     factors_df = st.session_state.df_factors
     factors_df['OUTCOME NODE'] = factors_df['domain_name'].apply(lambda x: True if x == 'FOCAL FACTORS' else False)
+    selected_outcome_nodes =  st.session_state.selected_outcome_nodes
+    factors_df['OUTCOME NODE'] = factors_df['long_name'].apply(lambda x: True if x in selected_outcome_nodes else False)
     outcome_nodes = factors_df[factors_df['OUTCOME NODE']]['long_name'].tolist()
+    
     # Calculate the area under the curve for all timesteps
     area_under_curve = np.trapz(df_token_counts.loc[outcome_nodes].values, axis=1).sum()
     # Calculate the area under the curve for the first 10 timesteps only

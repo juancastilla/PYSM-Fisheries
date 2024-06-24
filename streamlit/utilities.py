@@ -2507,7 +2507,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
 
     with col1:
 
-        st.markdown("#### % % System Controlability: Intervention Package 1")
+        st.markdown("#### % System Controlability: Intervention Package 1")
 
         # Create a gauge chart
         fig = go.Figure(go.Indicator(
@@ -2608,7 +2608,11 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
         if log_scale:
             df_token_counts_1 = np.log1p(df_token_counts_1)
 
-        fig, ax = plt.subplots(figsize=(12, 12))
+        if st.session_state.fishery == 'Jumbo Flying Squid':
+            fig, ax = plt.subplots(figsize=(12, 16))
+        else:
+            fig, ax = plt.subplots(figsize=(12, 12))
+        
         sns.heatmap(df_token_counts_1, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False, ax=ax)
 
         # Highlight outcome nodes in red
@@ -2651,7 +2655,11 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
         if log_scale:
             df_token_counts_2 = np.log1p(df_token_counts_2)
 
-        fig, ax = plt.subplots(figsize=(12, 12))
+        if st.session_state.fishery == 'Jumbo Flying Squid':
+            fig, ax = plt.subplots(figsize=(12, 16))
+        else:
+            fig, ax = plt.subplots(figsize=(12, 12))
+            
         sns.heatmap(df_token_counts_2, annot=True, fmt=".1f", cmap='magma', annot_kws={"size": 7}, cbar=False, ax=ax)
 
         # Highlight outcome nodes in red
@@ -2690,8 +2698,10 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
 
         st.markdown("#### Leverage (cumulative strength of causal effects = total area under token count curves) on all nodes: Intervention Package 1")
 
-        # Create a line plot for the outcome nodes
-        fig, ax = plt.subplots(figsize=(15, 10))
+        if st.session_state.fishery == 'Jumbo Flying Squid':
+            fig, ax = plt.subplots(figsize=(15, 16))
+        else:
+            fig, ax = plt.subplots(figsize=(15, 10))
 
         # Plot a bar chart showing the total area under the df_token_counts curve for all nodes
         for index, value in enumerate(df_token_counts_1.sum(axis=1)):
@@ -2724,8 +2734,10 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
 
         st.markdown("#### Leverage (cumulative strength of causal effects = total area under token count curves) on all nodes: Intervention Package 2")
 
-        # Create a line plot for the outcome nodes
-        fig, ax = plt.subplots(figsize=(15, 10))
+        if st.session_state.fishery == 'Jumbo Flying Squid':
+            fig, ax = plt.subplots(figsize=(15, 16))
+        else:
+            fig, ax = plt.subplots(figsize=(15, 10))
 
         # Plot a bar chart showing the total area under the df_token_counts curve for all nodes
         for index, value in enumerate(df_token_counts_2.sum(axis=1)):

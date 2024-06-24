@@ -1,7 +1,7 @@
-numpy==1.26.4
+numpy
 streamlit
 matplotlib
-pandas==2.1.4
+pandas
 pyvis
 streamlit-aggrid
 plotly
@@ -14,4 +14,3 @@ deap
 plotapi
 SALib
 scikit-learn
-scikit-network==0.31.0

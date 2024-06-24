@@ -1,5 +1,5 @@
 #Set base image in Python 3.11
-FROM python:3.11
+FROM python:3.12
 
 #Set working directory
 WORKDIR /app
@@ -17,7 +17,8 @@ RUN git clone https://github_pat_11ABFNYVA0y3upHjePffFa_XDwVkFwYbX2pK5uNmtqScxLB
 
 # replace RUN pip3 install -r /tmp/requirements.txt
 
-RUN python3 -m pip install --upgrade pip setuptools wheel                                                                                                                                                                                     
+RUN python3 -m pip install --upgrade pip setuptools wheel
+RUN python3 -m pip install numpy                                                                                                                                                                                 
 RUN python3 -m pip install -r requirements.txt  
 
 #Expose Port 8080

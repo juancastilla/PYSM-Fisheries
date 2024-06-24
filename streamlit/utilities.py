@@ -21,8 +21,8 @@ import ast
 import gspread
 from IPython.display import SVG
 from sknetwork.hierarchy import LouvainHierarchy, Paris
-from sknetwork.hierarchy import cut_straight, dasgupta_score, tree_sampling_divergence
-from sknetwork.visualization import svg_graph, svg_bigraph, svg_dendrogram
+# from sknetwork.hierarchy import cut_straight, dasgupta_score, tree_sampling_divergence
+# from sknetwork.visualization import svg_graph, svg_bigraph, svg_dendrogram
 import base64
 import textwrap
 import math

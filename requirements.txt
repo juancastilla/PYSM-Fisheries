@@ -2,7 +2,7 @@ streamlit==1.29.0
 matplotlib
 pandas==2.1.4
 pyvis
-streamlit-aggrid
+streamlit-aggrid==0.3.4.post3
 plotly
 control
 networkx

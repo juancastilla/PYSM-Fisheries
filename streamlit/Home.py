@@ -86,14 +86,13 @@ with st.sidebar.form(key='case_study_form'):
         pass
 
 with st.sidebar:
-    st.write("Streamlit version:", st.__version__)
-    st.write("Pandas version:", pd.__version__)
-    st.write("Seaborn version:", sns.__version__)
-    st.write("Matplotlib version:", matplotlib.__version__)
     st.write("Python version:", platform.python_version())
-
-
-
+    st.write("Streamlit version:", st.__version__)
+    st.write("Numpy version:", np.__version__)
+    st.write("Pandas version:", pd.__version__)
+    st.write("Matplotlib version:", matplotlib.__version__)
+    st.write("Seaborn version:", sns.__version__)
+    
 st.sidebar.image(str(main_path.joinpath('pysm.png')), use_column_width='always')
 
 

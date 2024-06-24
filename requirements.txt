@@ -1,4 +1,4 @@
-streamlit==1.29.0
+streamlit
 matplotlib
 pandas==2.1.4
 pyvis
@@ -13,4 +13,4 @@ deap
 plotapi
 SALib
 scikit-learn
-scikit-network
+scikit-network==0.31.0

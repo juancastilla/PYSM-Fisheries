@@ -1,6 +1,6 @@
 streamlit
 matplotlib
-pandas==2.1.4
+pandas
 pyvis
 streamlit-aggrid
 plotly

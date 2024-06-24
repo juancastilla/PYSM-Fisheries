@@ -1958,7 +1958,10 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     st.markdown("#### Leverage (cumulative strength of causal effects = total area under token count curves) on all nodes")
 
     # Create a line plot for the outcome nodes
-    fig, ax = plt.subplots(figsize=(15, 10))
+    if st.session_state.fishery == 'Jumbo Flying Squid':
+        fig, ax = plt.subplots(figsize=(15, 15))
+    else:
+        fig, ax = plt.subplots(figsize=(15, 10))
 
     # Plot a bar chart showing the total area under the df_token_counts curve for all nodes
     for index, value in enumerate(df_token_counts.sum(axis=1)):

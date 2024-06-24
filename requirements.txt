@@ -12,4 +12,5 @@ hiplot
 deap
 plotapi
 SALib
+sklearn==1.3.2
 scikit-network==0.31.0

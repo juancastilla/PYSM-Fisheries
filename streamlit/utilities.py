@@ -2941,7 +2941,7 @@ def create_individual():
     token_allocations.append(100 - sum(token_allocations))
     return creator.Individual(nodes + token_allocations)
 
-def custom_mutate(individual, mu, sigma, indpb):
+def custom_mutate(individual, indpb):
     factors_df = st.session_state.df_factors
     # Mutate the nodes
     for i in range(3):

@@ -254,6 +254,206 @@ with st.expander('Optimisation Analysis'):
         # Display the styled dataframe in Streamlit
         st.dataframe(styled_df)
 
+with st.expander('Pareto Analysis'):
+
+    st.title('Pareto Analysis')
+
+    outcome_node_options = factors_df[factors_df['OUTCOME NODE'] == True]['long_name'].tolist()
+    selected_outcome_nodes = st.multiselect('Select outcome nodes (these will be used to quantify the "Effect" objective of potential interventions):', factors_df['long_name'].tolist(), default=outcome_node_options, key='pareto_selected_outcome_nodes')
+    factors_df['OUTCOME NODE'] = factors_df['long_name'].apply(lambda x: True if x in selected_outcome_nodes else False)
+    st.session_state.selected_outcome_nodes = selected_outcome_nodes
+
+    # INSERT_YOUR_CODE
+    col1, col2 = st.columns(2)
+    with col1:
+        population_size = st.slider('NSGA2 population size (number of intervention packages):', min_value=10, max_value=200, value=50, step=10, key='population_size')
+    with col2:
+        num_generations = st.slider('NSGA2 generations:', min_value=0, max_value=200, value=100, step=10, key='num_generations')
+
+    if st.button('Run optimisation', key='run_optimisation_pareto'):
+
+        with st.spinner('Please wait...'):
+
+            creator.create("FitnessMax", base.Fitness, weights=(1.0, 1.0, 1.0, -np.inf))
+            creator.create("Individual", list, fitness=creator.FitnessMax)
+            
+            #toolbox = base.Toolbox()
+
+            # Define the attribute generators
+            toolbox.register("node_attr", random.choice, factors_df[factors_df['intervenable'] == 'yes'].index.tolist())
+            toolbox.register("token_attr", random.randint, 0, 50)
+
+            toolbox.register("individual", create_individual)
+            toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
+            # Register the genetic operators
+            toolbox.register("evaluate", evaluate)
+            toolbox.register("mate", custom_crossover)
+            toolbox.register("mutate", custom_mutate, indpb=0.1)
+            toolbox.register("select", tools.selNSGA2)
+
+            # Run the genetic algorithm
+            pop = toolbox.population(n=population_size)
+            hof = tools.HallOfFame(10)
+            stats = tools.Statistics(lambda ind: ind.fitness.values)
+            stats.register("avg", np.mean, axis=0)
+            stats.register("min", np.min, axis=0)
+            stats.register("max", np.max, axis=0)
+
+            pop, log = algorithms.eaSimple(pop, toolbox, cxpb=0.8, mutpb=0.2, ngen=num_generations, stats=stats, halloffame=hof, verbose=True)
+            st.success('Done!')
+            
+        # Display the Pareto solutions using Streamlit
+        st.write("### Pareto Solutions")
+        
+        current_pareto = tools.sortNondominated(pop, len(pop), first_front_only=True)[0]
+        
+        # Extract the first three objectives from each individual in the Pareto front
+        pareto_points = [(ind.fitness.values[0], ind.fitness.values[1], ind.fitness.values[2]) for ind in current_pareto]
+        
+        # Extract the first three objectives from each individual in the entire population
+        pop_points = [(ind.fitness.values[0], ind.fitness.values[1], ind.fitness.values[2]) for ind in pop]
+        
+        # Plotting the Pareto points and population points for all combinations of objectives using Plotly
+        df_pareto = pd.DataFrame(pareto_points, columns=['Control', 'Effect', 'Viability'])
+        df_pop = pd.DataFrame(pop_points, columns=['Control', 'Effect', 'Viability'])
+        
+        objective_pairs = [(i, j) for i in range(1, 4) for j in range(i+1, 4)]
+        objective_names = ['Control', 'Effect', 'Viability']
+        
+        # Plotting a 3D scatter plot for the three objectives using Plotly
+        
+        import plotly.graph_objects as go
+
+        fig_3d = go.Figure()
+        fig_3d.add_trace(go.Scatter3d(
+            x=df_pop['Control'],
+            y=df_pop['Effect'],
+            z=df_pop['Viability'],
+            mode='markers',
+            marker=dict(size=5, color='blue', opacity=0.5),
+            name='Dominated',
+            hoverinfo='text',
+            text=[f"IP{idx+1} Decision Variables:\n<br>{',<br> '.join([f'{st.session_state.df_factors.loc[node, 'long_name']} ({tokens})' for node, tokens in zip(ind[:3], ind[3:])])}" for idx, ind in enumerate(pop)]
+        ))
+        fig_3d.add_trace(go.Scatter3d(
+            x=df_pareto['Control'],
+            y=df_pareto['Effect'],
+            z=df_pareto['Viability'],
+            mode='markers+text',
+            marker=dict(size=8, color='red'),
+            name='Pareto',
+            hoverinfo='text',
+            text=[f"IP{idx+1}" for idx, ind in enumerate(current_pareto)],
+            textposition='middle right',
+            textfont=dict(color='black')
+        ))
+
+        fig_3d.update_layout(
+            title='Control vs Effect vs Viability',
+            scene=dict(
+                xaxis=dict(title='Control', backgroundcolor="white", gridcolor="gray", showbackground=True),
+                yaxis=dict(title='Effect', backgroundcolor="white", gridcolor="gray", showbackground=True),
+                zaxis=dict(title='Viability', backgroundcolor="white", gridcolor="gray", showbackground=True)
+            ),
+            legend_title="Legend",
+            height=800
+        )
+
+        st.plotly_chart(fig_3d, use_container_width=True)
+        
+        import plotly.graph_objects as go
+        
+        col1, col2, col3 = st.columns(3)
+        columns = [col1, col2, col3]
+        
+        for index, (i, j) in enumerate(objective_pairs):
+            obj_i = objective_names[i-1]
+            obj_j = objective_names[j-1]
+            with columns[index]:
+                
+                fig = go.Figure()
+                fig.add_trace(go.Scatter(
+                    x=df_pop.iloc[:, i-1], 
+                    y=df_pop.iloc[:, j-1], 
+                    mode='markers', 
+                    marker=dict(color='blue', size=10, opacity=0.5),
+                    name='Dominated',
+                    hoverinfo='text',
+                    text=[f"IP{idx+1} Decision Variables:\n<br>{',<br> '.join([f'{st.session_state.df_factors.loc[node, 'long_name']} ({tokens})' for node, tokens in zip(ind[:3], ind[3:])])}" for idx, ind in enumerate(pop)]
+                ))
+                fig.add_trace(go.Scatter(
+                    x=df_pareto.iloc[:, i-1], 
+                    y=df_pareto.iloc[:, j-1], 
+                    mode='markers+text', 
+                    marker=dict(color='red', size=12),
+                    name='Pareto',
+                    hoverinfo='text',
+                    text=[f"IP{idx+1}" for idx, ind in enumerate(current_pareto)],
+                    textposition='middle right',
+                    textfont=dict(color='black')
+                ))
+                
+                fig.update_layout(
+                    title=f'{obj_i} vs {obj_j}',
+                    xaxis_title=obj_i,
+                    yaxis_title=obj_j,
+                    legend_title="Legend"
+                )
+                
+                st.plotly_chart(fig, use_container_width=True)
+
+
+
+        import plotly.graph_objects as go
+        import plotly.express as px  # Importing for color sequence
+
+        # Number of Pareto individuals
+        num_pareto_individuals = len(current_pareto)
+
+        # Create a figure with subplots
+        fig = go.Figure()
+
+        # Define a color palette
+        colors = px.colors.qualitative.Plotly
+
+        # Loop through each Pareto individual
+        for idx, ind in enumerate(current_pareto):
+            # Nodes and their corresponding token allocations
+            nodes = ind[:3]
+            tokens = ind[3:]
+            
+            # Create a dictionary of node labels and tokens
+            node_labels = [st.session_state.df_factors.loc[node, 'long_name'] for node in nodes]
+            token_dict = dict(zip(node_labels, tokens))
+            
+            # All possible nodes in factors_df
+            all_nodes = st.session_state.df_factors['long_name'].tolist()
+            
+            # Token values for all nodes, defaulting to 0 if not in the current individual
+            token_values = [token_dict.get(node, 0) for node in all_nodes]
+
+            # Plotting using Plotly
+            fig.add_trace(go.Bar(
+                y=all_nodes,
+                x=token_values,
+                orientation='h',
+                name=f'IP {idx + 1}',
+                marker=dict(color=colors[idx % len(colors)])  # Cycle through colors
+            ))
+
+        # Update layout
+        fig.update_layout(
+            title='Pareto Individuals Token Allocation',
+            xaxis_title='Number of Tokens',
+            yaxis_title='Nodes',
+            barmode='stack',
+            height=1000
+        )
+
+        # Display the plot in Streamlit
+        st.plotly_chart(fig, use_container_width=True)
+        
 with st.expander('Sensitivity Analysis'):
 
     st.write('# Sensitivity Analysis (Sobol method)')

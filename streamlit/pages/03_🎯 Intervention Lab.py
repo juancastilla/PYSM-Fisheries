@@ -325,6 +325,15 @@ with st.expander('Pareto Analysis'):
         
         import plotly.graph_objects as go
 
+        def format_decision_variable(node, tokens):
+            return f"{st.session_state.df_factors.loc[node, 'long_name']} ({tokens})"
+
+        text = []
+        for idx, ind in enumerate(pop):
+            decision_vars = [format_decision_variable(node, tokens) for node, tokens in zip(ind[:3], ind[3:])]
+            ip_text = f"IP{idx+1} Decision Variables:\n<br>" + ',<br> '.join(decision_vars)
+            text.append(ip_text)
+
         fig_3d = go.Figure()
         fig_3d.add_trace(go.Scatter3d(
             x=df_pop['Control'],
@@ -334,7 +343,7 @@ with st.expander('Pareto Analysis'):
             marker=dict(size=5, color='blue', opacity=0.5),
             name='Dominated',
             hoverinfo='text',
-            text=[f"IP{idx+1} Decision Variables:\n<br>{',<br> '.join([f'{st.session_state.df_factors.loc[node, 'long_name']} ({tokens})' for node, tokens in zip(ind[:3], ind[3:])])}" for idx, ind in enumerate(pop)]
+            text = text
         ))
         fig_3d.add_trace(go.Scatter3d(
             x=df_pareto['Control'],
@@ -380,7 +389,7 @@ with st.expander('Pareto Analysis'):
                     marker=dict(color='blue', size=10, opacity=0.5),
                     name='Dominated',
                     hoverinfo='text',
-                    text=[f"IP{idx+1} Decision Variables:\n<br>{',<br> '.join([f'{st.session_state.df_factors.loc[node, 'long_name']} ({tokens})' for node, tokens in zip(ind[:3], ind[3:])])}" for idx, ind in enumerate(pop)]
+                    text=text
                 ))
                 fig.add_trace(go.Scatter(
                     x=df_pareto.iloc[:, i-1], 

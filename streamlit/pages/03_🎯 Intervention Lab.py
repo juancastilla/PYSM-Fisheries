@@ -170,7 +170,7 @@ with st.expander('Optimisation Analysis'):
             # Register the genetic operators
             toolbox.register("evaluate", evaluate)
             toolbox.register("mate", custom_crossover)
-            toolbox.register("mutate", custom_mutate, mu=0, sigma=1, indpb=0.1)
+            toolbox.register("mutate", custom_mutate, indpb=0.1)
             toolbox.register("select", tools.selTournament, tournsize=6)
 
             # Run the genetic algorithm

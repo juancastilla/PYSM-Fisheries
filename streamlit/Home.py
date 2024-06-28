@@ -56,7 +56,7 @@ st.session_state.language = app_language
 
 with st.sidebar.form(key='case_study_form'):
 
-    fishery_selection = st.selectbox('Choose a Fishery:', ('Octopus Chile', 'Octopus Peru', 'Southern Hake', 'Jumbo Flying Squid', 'Anchoveta', 'Marine Litter'))
+    fishery_selection = st.selectbox('Choose a Fishery:', ('Octopus Chile', 'Octopus Peru', 'Southern Hake', 'Jumbo Flying Squid', 'Anchoveta', 'Marine Litter', 'Octopus Reduced'))
     st.session_state.fishery = fishery_selection
 
     if fishery_selection == 'Octopus Chile':
@@ -82,6 +82,10 @@ with st.sidebar.form(key='case_study_form'):
     if fishery_selection == 'Marine Litter':
 
         st.session_state.sheet_id = '1GaFkxjtJrgnBQk41_n_I5HT2km3v_LAhWtVYT0eExo8'
+
+    if fishery_selection == 'Octopus Reduced':
+
+        st.session_state.sheet_id = '1XEd9LZmfb-nXoV9nT_uIIQWgCwih8mTOrZAKBQXBECQ'
 
     # Every form must have a submit button.
     submitted = st.form_submit_button("Load Case Study", type="primary")

@@ -1138,14 +1138,16 @@ def plot_centrality_archetypes(G):
         # Save and read graph as png file (on cloud)
         try:
             path = './streamlit/static'
-            fig.savefig(f'{path}/centrality_archetypes.png')      
+            fig.savefig(f'{path}/centrality_archetypes.png')   
+            fig.savefig(f'{path}/centrality_archetypes.pdf')   
             image = Image.open(f'{path}/centrality_archetypes.png')
             st.image(image)    
             
         # Save and read graph as HTML file (locally)
         except:
             path = 'static'
-            fig.savefig(f'{path}/centrality_archetypes.png')      
+            fig.savefig(f'{path}/centrality_archetypes.png')
+            fig.savefig(f'{path}/centrality_archetypes.pdf')       
             image = Image.open(f'{path}/centrality_archetypes.png')
             st.image(image)
 

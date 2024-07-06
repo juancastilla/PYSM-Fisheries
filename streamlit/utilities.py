@@ -2014,6 +2014,12 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     total_cumulative_strength_t20 = df_token_counts.iloc[:, :20].sum().sum()
     total_cumulative_strength_t30 = df_token_counts.iloc[:, :30].sum().sum()
 
+    # Collect percentages and node names for boxplot
+    percentages_t10 = []
+    percentages_t20 = []
+    percentages_t30 = []
+    node_names = []
+
     for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
         ax.plot(row.rolling(window=rolling_window).mean())
         # Calculate cumulative strengths at different timesteps
@@ -2024,6 +2030,13 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
         percentage_t10 = (cumulative_strength_t10 / total_cumulative_strength_t10) * 100
         percentage_t20 = (cumulative_strength_t20 / total_cumulative_strength_t20) * 100
         percentage_t30 = (cumulative_strength_t30 / total_cumulative_strength_t30) * 100
+
+        # Append percentages and node names for boxplot
+        percentages_t10.append(percentage_t10)
+        percentages_t20.append(percentage_t20)
+        percentages_t30.append(percentage_t30)
+        node_names.append(index)
+
         # Display the cumulative strengths and percentages on the plot
         ax.text(0.5, 0.98, f'Cumulative Strength t=10: {cumulative_strength_t10:.1f} ({percentage_t10:.1f}%)', transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
         ax.text(0.5, 0.88, f'Cumulative Strength t=20: {cumulative_strength_t20:.1f} ({percentage_t20:.1f}%)', transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
@@ -2049,17 +2062,27 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     # Adjust the layout
     plt.tight_layout()
 
+    # Plot boxplots for the percentages using Plotly
+
+
+    fig2 = go.Figure()
+    fig2.add_trace(go.Box(y=percentages_t10, name='t=10', text=node_names, hoverinfo='text+y'))
+    fig2.add_trace(go.Box(y=percentages_t20, name='t=20', text=node_names, hoverinfo='text+y'))
+    fig2.add_trace(go.Box(y=percentages_t30, name='t=30', text=node_names, hoverinfo='text+y'))
+    fig2.update_layout(title='Boxplot of Cumulative Strength Percentages', yaxis_title='Percentage (%)')
+    st.plotly_chart(fig2, use_container_width=True)
+
     # Save and read graph as png file (on cloud)
     try:
         path = './streamlit/static'
-        fig.savefig(f'{path}/pulse_causal_effects_lines_all.png')      
+        fig.savefig(f'{path}/pulse_causal_effects_lines_all.png')
         image = Image.open(f'{path}/pulse_causal_effects_lines_all.png')
-        st.image(image, use_column_width=True)  
+        st.image(image, use_column_width=True)
         
     # Save and read graph as HTML file (locally)
     except:
         path = 'static'
-        fig.savefig(f'{path}/pulse_causal_effects_lines_all.png')      
+        fig.savefig(f'{path}/pulse_causal_effects_lines_all.png')
         image = Image.open(f'{path}/pulse_causal_effects_lines_all.png')
         st.image(image, use_column_width=True)
 

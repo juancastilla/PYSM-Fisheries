@@ -2010,10 +2010,24 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
     axs = axs.flatten()
 
     # Iterate over each row in the DataFrame
+    total_cumulative_strength_t10 = df_token_counts.iloc[:, :10].sum().sum()
+    total_cumulative_strength_t20 = df_token_counts.iloc[:, :20].sum().sum()
+    total_cumulative_strength_t30 = df_token_counts.iloc[:, :30].sum().sum()
+
     for ax, (index, row) in zip(axs, df_token_counts.iterrows()):
         ax.plot(row.rolling(window=rolling_window).mean())
-        total_area = row.sum()
-        ax.text(0.5, 0.98, f'Cumulative Strength of Effect: {total_area:.1f}', transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+        # Calculate cumulative strengths at different timesteps
+        cumulative_strength_t10 = row.iloc[:10].sum()
+        cumulative_strength_t20 = row.iloc[:20].sum()
+        cumulative_strength_t30 = row.iloc[:30].sum()
+        # Calculate percentages of cumulative strengths
+        percentage_t10 = (cumulative_strength_t10 / total_cumulative_strength_t10) * 100
+        percentage_t20 = (cumulative_strength_t20 / total_cumulative_strength_t20) * 100
+        percentage_t30 = (cumulative_strength_t30 / total_cumulative_strength_t30) * 100
+        # Display the cumulative strengths and percentages on the plot
+        ax.text(0.5, 0.98, f'Cumulative Strength t=10: {cumulative_strength_t10:.1f} ({percentage_t10:.1f}%)', transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+        ax.text(0.5, 0.88, f'Cumulative Strength t=20: {cumulative_strength_t20:.1f} ({percentage_t20:.1f}%)', transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+        ax.text(0.5, 0.78, f'Cumulative Strength t=30: {cumulative_strength_t30:.1f} ({percentage_t30:.1f}%)', transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
         if index in outcome_nodes:
             ax.set_title(index, fontsize=20, color='red')  # Increase plot title font and set color to red
         if index in intervention_nodes:

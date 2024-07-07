@@ -2064,12 +2064,25 @@ def pulse_diffusion_network_model(G, initial_tokens, num_steps, df, log_scale=Fa
 
     # Plot boxplots for the percentages using Plotly
 
+    # Create a DataFrame with the data
+    data = {'Node': node_names, 't=10': percentages_t10, 't=20': percentages_t20, 't=30': percentages_t30}
+    df = pd.DataFrame(data)
 
+    # Display the DataFrame
+    st.dataframe(df)
+
+    # Add a download button
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="investment_efficiencies.csv">Download CSV File</a>'
+    st.markdown(href, unsafe_allow_html=True)
+
+    # Plot the boxplots
     fig2 = go.Figure()
     fig2.add_trace(go.Box(y=percentages_t10, name='t=10', text=node_names, hoverinfo='text+y'))
     fig2.add_trace(go.Box(y=percentages_t20, name='t=20', text=node_names, hoverinfo='text+y'))
     fig2.add_trace(go.Box(y=percentages_t30, name='t=30', text=node_names, hoverinfo='text+y'))
-    fig2.update_layout(title='Boxplot of Cumulative Strength Percentages', yaxis_title='Percentage (%)')
+    fig2.update_layout(title='Investment Efficiencies', yaxis_title='Investment Efficiency (%)')
     st.plotly_chart(fig2, use_container_width=True)
 
     # Save and read graph as png file (on cloud)

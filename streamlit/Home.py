@@ -56,29 +56,29 @@ st.session_state.language = app_language
 
 with st.sidebar.form(key='case_study_form'):
 
-    fishery_selection = st.selectbox('Choose a Fishery:', ('Octopus Chile', 'Octopus Peru', 'Southern Hake', 'Jumbo Flying Squid', 'Anchoveta', 'Marine Litter', 'Octopus Reduced'))
+    fishery_selection = st.selectbox('Choose a Fishery:', ('Cuencas Costeras Chile', 'Octopus Chile', 'Octopus Peru', 'Southern Hake', 'Jumbo Flying Squid', 'Anchoveta', 'Marine Litter', 'Octopus Reduced'))
     st.session_state.fishery = fishery_selection
 
     if fishery_selection == 'Octopus Chile':
 
         st.session_state.sheet_id = '1KyvP07oU4zuGlLQ61W12bSDDKyEtyFRJIthEPk0Iito'
-    
+
     if fishery_selection == 'Octopus Peru':
-    
+
         st.session_state.sheet_id = '1quqkUmq5BSf7i6Iv8L-KNFYTJddRHcux-kyK0ghpLaw'
-    
+
     if fishery_selection == 'Southern Hake':
-    
+
         st.session_state.sheet_id = '1m5NoPq_5TSH_FU32VNjVc5-uCfouuypydKoqbMHzwx4'
-    
+
     if fishery_selection == 'Jumbo Flying Squid':
 
         st.session_state.sheet_id = '1lv8kJ67fmLV34qMYtijbUoMyKkyhXVxk0Hw92mNIAiI'
-    
+
     if fishery_selection == 'Anchoveta':
 
         st.session_state.sheet_id = '1OnuDvh1RFL8XVcif819htafTgrCRhpzGzJxd9pYXqUQ'
-    
+
     if fishery_selection == 'Marine Litter':
 
         st.session_state.sheet_id = '1GaFkxjtJrgnBQk41_n_I5HT2km3v_LAhWtVYT0eExo8'
@@ -86,10 +86,14 @@ with st.sidebar.form(key='case_study_form'):
     if fishery_selection == 'Octopus Reduced':
 
         st.session_state.sheet_id = '1XEd9LZmfb-nXoV9nT_uIIQWgCwih8mTOrZAKBQXBECQ'
+    
+    if fishery_selection == 'Cuencas Costeras Chile':
+
+        st.session_state.sheet_id = '1Hb6ICM1-RhezF3ilTOStz_u00H49_mTsfGk3IbCoJbo'
 
     # Every form must have a submit button.
     submitted = st.form_submit_button("Load Case Study", type="primary")
-   
+
     if submitted:
         pass
 
@@ -100,7 +104,8 @@ with st.sidebar:
     st.write("Pandas version:", pd.__version__)
     st.write("Matplotlib version:", matplotlib.__version__)
     st.write("Seaborn version:", sns.__version__)
-    
+    st.write("Platform:", platform.system())
+
 st.sidebar.image(str(main_path.joinpath('pysm.png')), use_column_width='always')
 
 

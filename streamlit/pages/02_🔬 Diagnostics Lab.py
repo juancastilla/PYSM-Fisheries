@@ -66,6 +66,8 @@ if analysis_choice_0:
                 filename = 'JumboFlyingSquid.png'
             if st.session_state.fishery == 'Anchoveta':
                 filename = 'Anchoveta.png'
+            if st.session_state.fishery == 'Cuencas Costeras Chile':
+                filename = 'CuencasCosteras.png'
 
         else:
 
@@ -79,6 +81,8 @@ if analysis_choice_0:
                 filename = 'streamlit/JumboFlyingSquid.png'
             if st.session_state.fishery == 'Anchoveta':
                 filename = 'streamlit/Anchoveta.png'
+            if st.session_state.fishery == 'Cuencas Costeras Chile':
+                filename = 'streamlit/CuencasCosteras.png'
 
         st.title('Causal Loop Diagram')
         st.image(filename, use_column_width=True)

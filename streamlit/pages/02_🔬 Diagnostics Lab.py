@@ -176,7 +176,7 @@ if analysis_choice_4:
             paris = Paris()
             dendrogram = paris.fit_predict(adjacency)
 
-            svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=300, height=700, n_clusters=5, font_size=20)
+            svg = svg_dendrogram(dendrogram, names=list(nx.get_node_attributes(G,"label").values()), rotate=True, width=300, height=1500, n_clusters=5, font_size=20)
 
             render_svg(svg)
 
@@ -627,3 +627,4 @@ if analysis_choice_13:
         PCP_rel_choice = st.selectbox('Choose which relationships to display', ('All relationships', 'Strong only'), index=0, key='PCP_rel_choice')
 
         pcp_preprocess(PCP_rel_choice)
+

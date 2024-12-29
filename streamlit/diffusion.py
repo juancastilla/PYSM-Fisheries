@@ -259,7 +259,7 @@ class CausalTokenModel:
         # Log summary of step
         logger.info(f"Step {self.step_count} complete. {len(self.agents)} tokens remaining")
     
-    def plot_edge_flows(self, df_factors):
+    def plot_edge_flows(self, df_factors, df_relationships):
         """Plot the edge flows over time with charge information."""
         if not self.edge_flows_over_time:
             logger.warning("No edge flow data available for plotting")
@@ -276,6 +276,11 @@ class CausalTokenModel:
             #get the source and target names from df_factors, short_name column
             source_name = df_factors[df_factors['factor_id'] == source]['short_name'].values[0]
             target_name = df_factors[df_factors['factor_id'] == target]['short_name'].values[0]
+            #get the polarity from df_relationships
+            polarity = df_relationships[(df_relationships['from_factor_id'] == source) & 
+                                      (df_relationships['to_factor_id'] == target)]['polarity'].values[0]
+            #add polarity to title
+            polarity_symbol = 'same' if polarity == 'positive' else 'opposite'
 
             ax = fig.add_subplot(num_edges, 1, i)
             pos_values = [flow[edge][0] for flow in self.edge_flows_over_time]
@@ -283,10 +288,10 @@ class CausalTokenModel:
             
             # Plot bars
             x = range(len(pos_values))
-            ax.bar(x, pos_values, color='g', label='Increase')
-            ax.bar(x, neg_values, color='r', label='Decrease')
+            ax.bar(x, pos_values, color='g', label='Target Increase')
+            ax.bar(x, neg_values, color='r', label='Target Decrease')
             
-            ax.set_title(f'{source_name} --> {target_name}')
+            ax.set_title(f'{source_name} ---[{polarity_symbol}]---> {target_name}')
             ax.set_xlabel('Time Step')
             ax.set_ylabel('Number of Tokens in Transit')
             ax.legend()
@@ -470,7 +475,7 @@ def NEW_pulse_diffusion_network_model(G, initial_tokens):
 
     st.write("✅ Plotting edge flows...")
     st.markdown("#### Edge Flows Over Time")
-    model.plot_edge_flows(st.session_state.df_factors)
+    model.plot_edge_flows(st.session_state.df_factors, st.session_state.df_relationships)
     
     st.write("✅ Plotting node flows...")
     st.markdown("#### Node Flows Over Time") 

@@ -43987,3 +43987,3374 @@
 2024-12-29 23:47:17,836 - CausalTokenModel - INFO - Edge flow plots displayed in Streamlit
 2024-12-29 23:47:30,461 - CausalTokenModel - INFO - Node flow plots displayed in Streamlit
 2024-12-29 23:47:44,571 - CausalTokenModel - INFO - Net effects plots displayed in Streamlit
+2024-12-29 23:53:34,894 - CausalTokenModel - INFO - Starting simulation with 100 tokens for 100 steps
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Initializing simulation 20241229_235334 with 100 tokens
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 0 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 1 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 2 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 3 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 4 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 5 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 6 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 7 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 8 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 9 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 10 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 11 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 12 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 13 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 14 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 15 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 16 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 17 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 18 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 19 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 20 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 21 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 22 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 23 initialized at node 47 with charge 1
+2024-12-29 23:53:34,895 - CausalTokenModel - INFO - Token 24 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 25 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 26 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 27 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 28 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 29 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 30 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 31 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 32 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 33 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 34 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 35 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 36 initialized at node 47 with charge 1
+2024-12-29 23:53:34,896 - CausalTokenModel - INFO - Token 37 initialized at node 47 with charge 1
+2024-12-29 23:53:34,897 - CausalTokenModel - INFO - Token 38 initialized at node 47 with charge 1
+2024-12-29 23:53:34,897 - CausalTokenModel - INFO - Token 39 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 40 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 41 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 42 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 43 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 44 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 45 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 46 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 47 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 48 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 49 initialized at node 47 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 50 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 51 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 52 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 53 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 54 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 55 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 56 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 57 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 58 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 59 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 60 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 61 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 62 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 63 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 64 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 65 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 66 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 67 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 68 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 69 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 70 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 71 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 72 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 73 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 74 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 75 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 76 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 77 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 78 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 79 initialized at node 48 with charge 1
+2024-12-29 23:53:34,900 - CausalTokenModel - INFO - Token 80 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 81 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 82 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 83 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 84 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 85 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 86 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 87 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 88 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 89 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 90 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 91 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 92 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 93 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 94 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 95 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 96 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 97 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 98 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Token 99 initialized at node 48 with charge 1
+2024-12-29 23:53:34,901 - CausalTokenModel - INFO - Graph configuration: {
+  "nodes": [
+    {
+      "id": 0,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 1,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 2,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 3,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 4,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 5,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 6,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 7,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 8,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 9,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 10,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 11,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 12,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 13,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 14,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 15,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 16,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 17,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 18,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 19,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 20,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 21,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 22,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 23,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 24,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 25,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 26,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 27,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 28,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 29,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 30,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 31,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 32,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 33,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 34,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 35,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 36,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 37,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 38,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 39,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 40,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 41,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 42,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 43,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 44,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 45,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 46,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 47,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 48,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 5,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 6,
+      "target": 39,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 9,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 9,
+      "target": 40,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 4,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 16,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 11,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 12,
+      "target": 11,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 13,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 14,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 15,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 9,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 14,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 15,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 17,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 5,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 20,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 34,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 19,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 20,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 20,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 21,
+      "target": 18,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 22,
+      "target": 18,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 23,
+      "target": 18,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 24,
+      "target": 21,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 25,
+      "target": 26,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 26,
+      "target": 16,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 26,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 27,
+      "target": 16,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 28,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 29,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 30,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 31,
+      "target": 30,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 32,
+      "target": 27,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 32,
+      "target": 33,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 33,
+      "target": 5,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 33,
+      "target": 34,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 34,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 7,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 9,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 36,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 36,
+      "target": 37,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 37,
+      "target": 35,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 38,
+      "target": 37,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 39,
+      "target": 38,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 40,
+      "target": 41,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 41,
+      "target": 42,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 42,
+      "target": 43,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 42,
+      "target": 44,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 43,
+      "target": 40,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 18,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 32,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 33,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 45,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 45,
+      "target": 46,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 46,
+      "target": 47,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 47,
+      "target": 44,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 12,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 23,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 24,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    }
+  ]
+}
+2024-12-29 23:53:34,904 - CausalTokenModel - INFO - Starting step 1
+2024-12-29 23:53:34,905 - CausalTokenModel - INFO - Step 1 complete. 100 tokens remaining
+2024-12-29 23:53:34,906 - CausalTokenModel - INFO - Starting step 2
+2024-12-29 23:53:34,907 - CausalTokenModel - INFO - Step 2 complete. 100 tokens remaining
+2024-12-29 23:53:34,907 - CausalTokenModel - INFO - Starting step 3
+2024-12-29 23:53:34,908 - CausalTokenModel - INFO - Step 3 complete. 100 tokens remaining
+2024-12-29 23:53:34,908 - CausalTokenModel - INFO - Starting step 4
+2024-12-29 23:53:34,909 - CausalTokenModel - INFO - Step 4 complete. 100 tokens remaining
+2024-12-29 23:53:34,909 - CausalTokenModel - INFO - Starting step 5
+2024-12-29 23:53:34,911 - CausalTokenModel - INFO - Step 5 complete. 100 tokens remaining
+2024-12-29 23:53:34,911 - CausalTokenModel - INFO - Starting step 6
+2024-12-29 23:53:34,912 - CausalTokenModel - INFO - Step 6 complete. 100 tokens remaining
+2024-12-29 23:53:34,912 - CausalTokenModel - INFO - Starting step 7
+2024-12-29 23:53:34,914 - CausalTokenModel - INFO - Step 7 complete. 100 tokens remaining
+2024-12-29 23:53:34,914 - CausalTokenModel - INFO - Starting step 8
+2024-12-29 23:53:34,915 - CausalTokenModel - INFO - Step 8 complete. 100 tokens remaining
+2024-12-29 23:53:34,915 - CausalTokenModel - INFO - Starting step 9
+2024-12-29 23:53:34,917 - CausalTokenModel - INFO - Step 9 complete. 100 tokens remaining
+2024-12-29 23:53:34,917 - CausalTokenModel - INFO - Starting step 10
+2024-12-29 23:53:34,918 - CausalTokenModel - INFO - Step 10 complete. 100 tokens remaining
+2024-12-29 23:53:34,918 - CausalTokenModel - INFO - Starting step 11
+2024-12-29 23:53:34,919 - CausalTokenModel - INFO - Step 11 complete. 100 tokens remaining
+2024-12-29 23:53:34,920 - CausalTokenModel - INFO - Starting step 12
+2024-12-29 23:53:34,921 - CausalTokenModel - INFO - Step 12 complete. 100 tokens remaining
+2024-12-29 23:53:34,921 - CausalTokenModel - INFO - Starting step 13
+2024-12-29 23:53:34,922 - CausalTokenModel - INFO - Step 13 complete. 100 tokens remaining
+2024-12-29 23:53:34,922 - CausalTokenModel - INFO - Starting step 14
+2024-12-29 23:53:34,923 - CausalTokenModel - INFO - Step 14 complete. 100 tokens remaining
+2024-12-29 23:53:34,924 - CausalTokenModel - INFO - Starting step 15
+2024-12-29 23:53:34,925 - CausalTokenModel - INFO - Step 15 complete. 100 tokens remaining
+2024-12-29 23:53:34,925 - CausalTokenModel - INFO - Starting step 16
+2024-12-29 23:53:34,926 - CausalTokenModel - INFO - Step 16 complete. 100 tokens remaining
+2024-12-29 23:53:34,926 - CausalTokenModel - INFO - Starting step 17
+2024-12-29 23:53:34,928 - CausalTokenModel - INFO - Step 17 complete. 100 tokens remaining
+2024-12-29 23:53:34,928 - CausalTokenModel - INFO - Starting step 18
+2024-12-29 23:53:34,929 - CausalTokenModel - INFO - Step 18 complete. 100 tokens remaining
+2024-12-29 23:53:34,929 - CausalTokenModel - INFO - Starting step 19
+2024-12-29 23:53:34,931 - CausalTokenModel - INFO - Step 19 complete. 100 tokens remaining
+2024-12-29 23:53:34,931 - CausalTokenModel - INFO - Starting step 20
+2024-12-29 23:53:34,932 - CausalTokenModel - INFO - Step 20 complete. 100 tokens remaining
+2024-12-29 23:53:34,932 - CausalTokenModel - INFO - Starting step 21
+2024-12-29 23:53:34,933 - CausalTokenModel - INFO - Step 21 complete. 100 tokens remaining
+2024-12-29 23:53:34,933 - CausalTokenModel - INFO - Starting step 22
+2024-12-29 23:53:34,934 - CausalTokenModel - INFO - Step 22 complete. 100 tokens remaining
+2024-12-29 23:53:34,934 - CausalTokenModel - INFO - Starting step 23
+2024-12-29 23:53:34,936 - CausalTokenModel - INFO - Step 23 complete. 100 tokens remaining
+2024-12-29 23:53:34,936 - CausalTokenModel - INFO - Starting step 24
+2024-12-29 23:53:34,937 - CausalTokenModel - INFO - Step 24 complete. 100 tokens remaining
+2024-12-29 23:53:34,937 - CausalTokenModel - INFO - Starting step 25
+2024-12-29 23:53:34,938 - CausalTokenModel - INFO - Step 25 complete. 100 tokens remaining
+2024-12-29 23:53:34,938 - CausalTokenModel - INFO - Starting step 26
+2024-12-29 23:53:34,940 - CausalTokenModel - INFO - Step 26 complete. 100 tokens remaining
+2024-12-29 23:53:34,940 - CausalTokenModel - INFO - Starting step 27
+2024-12-29 23:53:34,941 - CausalTokenModel - INFO - Step 27 complete. 100 tokens remaining
+2024-12-29 23:53:34,941 - CausalTokenModel - INFO - Starting step 28
+2024-12-29 23:53:34,942 - CausalTokenModel - INFO - Step 28 complete. 100 tokens remaining
+2024-12-29 23:53:34,942 - CausalTokenModel - INFO - Starting step 29
+2024-12-29 23:53:34,944 - CausalTokenModel - INFO - Step 29 complete. 100 tokens remaining
+2024-12-29 23:53:34,944 - CausalTokenModel - INFO - Starting step 30
+2024-12-29 23:53:34,945 - CausalTokenModel - INFO - Step 30 complete. 100 tokens remaining
+2024-12-29 23:53:34,945 - CausalTokenModel - INFO - Starting step 31
+2024-12-29 23:53:34,946 - CausalTokenModel - INFO - Step 31 complete. 100 tokens remaining
+2024-12-29 23:53:34,946 - CausalTokenModel - INFO - Starting step 32
+2024-12-29 23:53:34,947 - CausalTokenModel - INFO - Step 32 complete. 100 tokens remaining
+2024-12-29 23:53:34,947 - CausalTokenModel - INFO - Starting step 33
+2024-12-29 23:53:34,949 - CausalTokenModel - INFO - Step 33 complete. 100 tokens remaining
+2024-12-29 23:53:34,949 - CausalTokenModel - INFO - Starting step 34
+2024-12-29 23:53:34,950 - CausalTokenModel - INFO - Step 34 complete. 100 tokens remaining
+2024-12-29 23:53:34,950 - CausalTokenModel - INFO - Starting step 35
+2024-12-29 23:53:34,952 - CausalTokenModel - INFO - Step 35 complete. 100 tokens remaining
+2024-12-29 23:53:34,952 - CausalTokenModel - INFO - Starting step 36
+2024-12-29 23:53:34,953 - CausalTokenModel - INFO - Step 36 complete. 100 tokens remaining
+2024-12-29 23:53:34,953 - CausalTokenModel - INFO - Starting step 37
+2024-12-29 23:53:34,955 - CausalTokenModel - INFO - Step 37 complete. 100 tokens remaining
+2024-12-29 23:53:34,955 - CausalTokenModel - INFO - Starting step 38
+2024-12-29 23:53:34,956 - CausalTokenModel - INFO - Step 38 complete. 100 tokens remaining
+2024-12-29 23:53:34,956 - CausalTokenModel - INFO - Starting step 39
+2024-12-29 23:53:34,957 - CausalTokenModel - INFO - Step 39 complete. 100 tokens remaining
+2024-12-29 23:53:34,957 - CausalTokenModel - INFO - Starting step 40
+2024-12-29 23:53:34,959 - CausalTokenModel - INFO - Step 40 complete. 100 tokens remaining
+2024-12-29 23:53:34,959 - CausalTokenModel - INFO - Starting step 41
+2024-12-29 23:53:34,960 - CausalTokenModel - INFO - Step 41 complete. 100 tokens remaining
+2024-12-29 23:53:34,960 - CausalTokenModel - INFO - Starting step 42
+2024-12-29 23:53:34,961 - CausalTokenModel - INFO - Step 42 complete. 100 tokens remaining
+2024-12-29 23:53:34,961 - CausalTokenModel - INFO - Starting step 43
+2024-12-29 23:53:34,963 - CausalTokenModel - INFO - Step 43 complete. 100 tokens remaining
+2024-12-29 23:53:34,963 - CausalTokenModel - INFO - Starting step 44
+2024-12-29 23:53:34,964 - CausalTokenModel - INFO - Step 44 complete. 100 tokens remaining
+2024-12-29 23:53:34,964 - CausalTokenModel - INFO - Starting step 45
+2024-12-29 23:53:34,965 - CausalTokenModel - INFO - Step 45 complete. 100 tokens remaining
+2024-12-29 23:53:34,965 - CausalTokenModel - INFO - Starting step 46
+2024-12-29 23:53:34,967 - CausalTokenModel - INFO - Step 46 complete. 100 tokens remaining
+2024-12-29 23:53:34,967 - CausalTokenModel - INFO - Starting step 47
+2024-12-29 23:53:34,968 - CausalTokenModel - INFO - Step 47 complete. 100 tokens remaining
+2024-12-29 23:53:34,968 - CausalTokenModel - INFO - Starting step 48
+2024-12-29 23:53:34,969 - CausalTokenModel - INFO - Step 48 complete. 100 tokens remaining
+2024-12-29 23:53:34,969 - CausalTokenModel - INFO - Starting step 49
+2024-12-29 23:53:34,971 - CausalTokenModel - INFO - Step 49 complete. 100 tokens remaining
+2024-12-29 23:53:34,971 - CausalTokenModel - INFO - Starting step 50
+2024-12-29 23:53:34,972 - CausalTokenModel - INFO - Step 50 complete. 100 tokens remaining
+2024-12-29 23:53:34,972 - CausalTokenModel - INFO - Starting step 51
+2024-12-29 23:53:34,973 - CausalTokenModel - INFO - Step 51 complete. 100 tokens remaining
+2024-12-29 23:53:34,973 - CausalTokenModel - INFO - Starting step 52
+2024-12-29 23:53:34,975 - CausalTokenModel - INFO - Step 52 complete. 100 tokens remaining
+2024-12-29 23:53:34,975 - CausalTokenModel - INFO - Starting step 53
+2024-12-29 23:53:34,976 - CausalTokenModel - INFO - Step 53 complete. 100 tokens remaining
+2024-12-29 23:53:34,976 - CausalTokenModel - INFO - Starting step 54
+2024-12-29 23:53:34,977 - CausalTokenModel - INFO - Step 54 complete. 100 tokens remaining
+2024-12-29 23:53:34,977 - CausalTokenModel - INFO - Starting step 55
+2024-12-29 23:53:34,979 - CausalTokenModel - INFO - Step 55 complete. 100 tokens remaining
+2024-12-29 23:53:34,979 - CausalTokenModel - INFO - Starting step 56
+2024-12-29 23:53:34,980 - CausalTokenModel - INFO - Step 56 complete. 100 tokens remaining
+2024-12-29 23:53:34,980 - CausalTokenModel - INFO - Starting step 57
+2024-12-29 23:53:34,982 - CausalTokenModel - INFO - Step 57 complete. 100 tokens remaining
+2024-12-29 23:53:34,982 - CausalTokenModel - INFO - Starting step 58
+2024-12-29 23:53:34,983 - CausalTokenModel - INFO - Step 58 complete. 100 tokens remaining
+2024-12-29 23:53:34,983 - CausalTokenModel - INFO - Starting step 59
+2024-12-29 23:53:34,984 - CausalTokenModel - INFO - Step 59 complete. 100 tokens remaining
+2024-12-29 23:53:34,984 - CausalTokenModel - INFO - Starting step 60
+2024-12-29 23:53:34,986 - CausalTokenModel - INFO - Step 60 complete. 100 tokens remaining
+2024-12-29 23:53:34,986 - CausalTokenModel - INFO - Starting step 61
+2024-12-29 23:53:34,987 - CausalTokenModel - INFO - Step 61 complete. 100 tokens remaining
+2024-12-29 23:53:34,987 - CausalTokenModel - INFO - Starting step 62
+2024-12-29 23:53:34,988 - CausalTokenModel - INFO - Step 62 complete. 100 tokens remaining
+2024-12-29 23:53:34,988 - CausalTokenModel - INFO - Starting step 63
+2024-12-29 23:53:34,990 - CausalTokenModel - INFO - Step 63 complete. 100 tokens remaining
+2024-12-29 23:53:34,990 - CausalTokenModel - INFO - Starting step 64
+2024-12-29 23:53:34,991 - CausalTokenModel - INFO - Step 64 complete. 100 tokens remaining
+2024-12-29 23:53:34,991 - CausalTokenModel - INFO - Starting step 65
+2024-12-29 23:53:34,992 - CausalTokenModel - INFO - Step 65 complete. 100 tokens remaining
+2024-12-29 23:53:34,992 - CausalTokenModel - INFO - Starting step 66
+2024-12-29 23:53:34,994 - CausalTokenModel - INFO - Step 66 complete. 100 tokens remaining
+2024-12-29 23:53:34,994 - CausalTokenModel - INFO - Starting step 67
+2024-12-29 23:53:34,995 - CausalTokenModel - INFO - Step 67 complete. 100 tokens remaining
+2024-12-29 23:53:34,995 - CausalTokenModel - INFO - Starting step 68
+2024-12-29 23:53:34,996 - CausalTokenModel - INFO - Step 68 complete. 100 tokens remaining
+2024-12-29 23:53:34,996 - CausalTokenModel - INFO - Starting step 69
+2024-12-29 23:53:34,998 - CausalTokenModel - INFO - Step 69 complete. 100 tokens remaining
+2024-12-29 23:53:34,998 - CausalTokenModel - INFO - Starting step 70
+2024-12-29 23:53:34,999 - CausalTokenModel - INFO - Step 70 complete. 100 tokens remaining
+2024-12-29 23:53:34,999 - CausalTokenModel - INFO - Starting step 71
+2024-12-29 23:53:35,001 - CausalTokenModel - INFO - Step 71 complete. 100 tokens remaining
+2024-12-29 23:53:35,001 - CausalTokenModel - INFO - Starting step 72
+2024-12-29 23:53:35,002 - CausalTokenModel - INFO - Step 72 complete. 100 tokens remaining
+2024-12-29 23:53:35,002 - CausalTokenModel - INFO - Starting step 73
+2024-12-29 23:53:35,003 - CausalTokenModel - INFO - Step 73 complete. 100 tokens remaining
+2024-12-29 23:53:35,003 - CausalTokenModel - INFO - Starting step 74
+2024-12-29 23:53:35,004 - CausalTokenModel - INFO - Step 74 complete. 100 tokens remaining
+2024-12-29 23:53:35,004 - CausalTokenModel - INFO - Starting step 75
+2024-12-29 23:53:35,006 - CausalTokenModel - INFO - Step 75 complete. 100 tokens remaining
+2024-12-29 23:53:35,006 - CausalTokenModel - INFO - Starting step 76
+2024-12-29 23:53:35,007 - CausalTokenModel - INFO - Step 76 complete. 100 tokens remaining
+2024-12-29 23:53:35,007 - CausalTokenModel - INFO - Starting step 77
+2024-12-29 23:53:35,008 - CausalTokenModel - INFO - Step 77 complete. 100 tokens remaining
+2024-12-29 23:53:35,008 - CausalTokenModel - INFO - Starting step 78
+2024-12-29 23:53:35,010 - CausalTokenModel - INFO - Step 78 complete. 100 tokens remaining
+2024-12-29 23:53:35,010 - CausalTokenModel - INFO - Starting step 79
+2024-12-29 23:53:35,011 - CausalTokenModel - INFO - Step 79 complete. 100 tokens remaining
+2024-12-29 23:53:35,011 - CausalTokenModel - INFO - Starting step 80
+2024-12-29 23:53:35,013 - CausalTokenModel - INFO - Step 80 complete. 100 tokens remaining
+2024-12-29 23:53:35,013 - CausalTokenModel - INFO - Starting step 81
+2024-12-29 23:53:35,014 - CausalTokenModel - INFO - Step 81 complete. 100 tokens remaining
+2024-12-29 23:53:35,014 - CausalTokenModel - INFO - Starting step 82
+2024-12-29 23:53:35,015 - CausalTokenModel - INFO - Step 82 complete. 100 tokens remaining
+2024-12-29 23:53:35,015 - CausalTokenModel - INFO - Starting step 83
+2024-12-29 23:53:35,017 - CausalTokenModel - INFO - Step 83 complete. 100 tokens remaining
+2024-12-29 23:53:35,017 - CausalTokenModel - INFO - Starting step 84
+2024-12-29 23:53:35,018 - CausalTokenModel - INFO - Step 84 complete. 100 tokens remaining
+2024-12-29 23:53:35,018 - CausalTokenModel - INFO - Starting step 85
+2024-12-29 23:53:35,020 - CausalTokenModel - INFO - Step 85 complete. 100 tokens remaining
+2024-12-29 23:53:35,020 - CausalTokenModel - INFO - Starting step 86
+2024-12-29 23:53:35,021 - CausalTokenModel - INFO - Step 86 complete. 100 tokens remaining
+2024-12-29 23:53:35,021 - CausalTokenModel - INFO - Starting step 87
+2024-12-29 23:53:35,022 - CausalTokenModel - INFO - Step 87 complete. 100 tokens remaining
+2024-12-29 23:53:35,022 - CausalTokenModel - INFO - Starting step 88
+2024-12-29 23:53:35,024 - CausalTokenModel - INFO - Step 88 complete. 100 tokens remaining
+2024-12-29 23:53:35,024 - CausalTokenModel - INFO - Starting step 89
+2024-12-29 23:53:35,025 - CausalTokenModel - INFO - Step 89 complete. 100 tokens remaining
+2024-12-29 23:53:35,025 - CausalTokenModel - INFO - Starting step 90
+2024-12-29 23:53:35,026 - CausalTokenModel - INFO - Step 90 complete. 100 tokens remaining
+2024-12-29 23:53:35,027 - CausalTokenModel - INFO - Starting step 91
+2024-12-29 23:53:35,028 - CausalTokenModel - INFO - Step 91 complete. 100 tokens remaining
+2024-12-29 23:53:35,028 - CausalTokenModel - INFO - Starting step 92
+2024-12-29 23:53:35,029 - CausalTokenModel - INFO - Step 92 complete. 100 tokens remaining
+2024-12-29 23:53:35,029 - CausalTokenModel - INFO - Starting step 93
+2024-12-29 23:53:35,030 - CausalTokenModel - INFO - Step 93 complete. 100 tokens remaining
+2024-12-29 23:53:35,030 - CausalTokenModel - INFO - Starting step 94
+2024-12-29 23:53:35,032 - CausalTokenModel - INFO - Step 94 complete. 100 tokens remaining
+2024-12-29 23:53:35,032 - CausalTokenModel - INFO - Starting step 95
+2024-12-29 23:53:35,033 - CausalTokenModel - INFO - Step 95 complete. 100 tokens remaining
+2024-12-29 23:53:35,033 - CausalTokenModel - INFO - Starting step 96
+2024-12-29 23:53:35,034 - CausalTokenModel - INFO - Step 96 complete. 100 tokens remaining
+2024-12-29 23:53:35,034 - CausalTokenModel - INFO - Starting step 97
+2024-12-29 23:53:35,036 - CausalTokenModel - INFO - Step 97 complete. 100 tokens remaining
+2024-12-29 23:53:35,036 - CausalTokenModel - INFO - Starting step 98
+2024-12-29 23:53:35,037 - CausalTokenModel - INFO - Step 98 complete. 100 tokens remaining
+2024-12-29 23:53:35,037 - CausalTokenModel - INFO - Starting step 99
+2024-12-29 23:53:35,038 - CausalTokenModel - INFO - Step 99 complete. 100 tokens remaining
+2024-12-29 23:53:35,038 - CausalTokenModel - INFO - Starting step 100
+2024-12-29 23:53:35,039 - CausalTokenModel - INFO - Step 100 complete. 100 tokens remaining
+2024-12-29 23:53:35,039 - CausalTokenModel - INFO - Simulation complete
+2024-12-29 23:53:53,119 - CausalTokenModel - INFO - Edge flow plots displayed in Streamlit
+2024-12-29 23:54:05,833 - CausalTokenModel - INFO - Node flow plots displayed in Streamlit
+2024-12-29 23:54:19,520 - CausalTokenModel - INFO - Net effects plots displayed in Streamlit
+2024-12-29 23:57:42,360 - CausalTokenModel - INFO - Starting simulation with 100 tokens for 100 steps
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Initializing simulation 20241229_235742 with 100 tokens
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 0 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 1 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 2 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 3 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 4 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 5 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 6 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 7 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 8 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 9 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 10 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 11 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 12 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 13 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 14 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 15 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 16 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 17 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 18 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 19 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 20 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 21 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 22 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 23 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 24 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 25 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 26 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 27 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 28 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 29 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 30 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 31 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 32 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 33 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 34 initialized at node 47 with charge 1
+2024-12-29 23:57:42,361 - CausalTokenModel - INFO - Token 35 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 36 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 37 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 38 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 39 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 40 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 41 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 42 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 43 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 44 initialized at node 47 with charge 1
+2024-12-29 23:57:42,362 - CausalTokenModel - INFO - Token 45 initialized at node 47 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 46 initialized at node 47 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 47 initialized at node 47 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 48 initialized at node 47 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 49 initialized at node 47 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 50 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 51 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 52 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 53 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 54 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 55 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 56 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 57 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 58 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 59 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 60 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 61 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 62 initialized at node 48 with charge 1
+2024-12-29 23:57:42,363 - CausalTokenModel - INFO - Token 63 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 64 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 65 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 66 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 67 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 68 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 69 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 70 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 71 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 72 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 73 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 74 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 75 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 76 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 77 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 78 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 79 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 80 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 81 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 82 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 83 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 84 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 85 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 86 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 87 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 88 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 89 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 90 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 91 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 92 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 93 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 94 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 95 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 96 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 97 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 98 initialized at node 48 with charge 1
+2024-12-29 23:57:42,364 - CausalTokenModel - INFO - Token 99 initialized at node 48 with charge 1
+2024-12-29 23:57:42,365 - CausalTokenModel - INFO - Graph configuration: {
+  "nodes": [
+    {
+      "id": 0,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 1,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 2,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 3,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 4,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 5,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 6,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 7,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 8,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 9,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 10,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 11,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 12,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 13,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 14,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 15,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 16,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 17,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 18,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 19,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 20,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 21,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 22,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 23,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 24,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 25,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 26,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 27,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 28,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 29,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 30,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 31,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 32,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 33,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 34,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 35,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 36,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 37,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 38,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 39,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 40,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 41,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 42,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 43,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 44,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 45,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 46,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 47,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 48,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 5,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 6,
+      "target": 39,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 9,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 9,
+      "target": 40,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 4,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 16,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 11,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 12,
+      "target": 11,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 13,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 14,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 15,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 9,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 14,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 15,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 17,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 5,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 20,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 34,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 19,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 20,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 20,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 21,
+      "target": 18,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 22,
+      "target": 18,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 23,
+      "target": 18,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 24,
+      "target": 21,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 25,
+      "target": 26,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 26,
+      "target": 16,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 26,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 27,
+      "target": 16,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 28,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 29,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 30,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 31,
+      "target": 30,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 32,
+      "target": 27,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 32,
+      "target": 33,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 33,
+      "target": 5,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 33,
+      "target": 34,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 34,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 7,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 9,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 36,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 36,
+      "target": 37,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 37,
+      "target": 35,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 38,
+      "target": 37,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 39,
+      "target": 38,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 40,
+      "target": 41,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 41,
+      "target": 42,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 42,
+      "target": 43,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 42,
+      "target": 44,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 43,
+      "target": 40,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 18,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 32,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 33,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 45,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 45,
+      "target": 46,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 46,
+      "target": 47,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 47,
+      "target": 44,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 12,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 23,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 24,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    }
+  ]
+}
+2024-12-29 23:57:42,367 - CausalTokenModel - INFO - Starting step 1
+2024-12-29 23:57:42,368 - CausalTokenModel - INFO - Step 1 complete. 100 tokens remaining
+2024-12-29 23:57:42,368 - CausalTokenModel - INFO - Starting step 2
+2024-12-29 23:57:42,369 - CausalTokenModel - INFO - Step 2 complete. 100 tokens remaining
+2024-12-29 23:57:42,369 - CausalTokenModel - INFO - Starting step 3
+2024-12-29 23:57:42,371 - CausalTokenModel - INFO - Step 3 complete. 100 tokens remaining
+2024-12-29 23:57:42,371 - CausalTokenModel - INFO - Starting step 4
+2024-12-29 23:57:42,372 - CausalTokenModel - INFO - Step 4 complete. 100 tokens remaining
+2024-12-29 23:57:42,372 - CausalTokenModel - INFO - Starting step 5
+2024-12-29 23:57:42,373 - CausalTokenModel - INFO - Step 5 complete. 100 tokens remaining
+2024-12-29 23:57:42,373 - CausalTokenModel - INFO - Starting step 6
+2024-12-29 23:57:42,375 - CausalTokenModel - INFO - Step 6 complete. 100 tokens remaining
+2024-12-29 23:57:42,375 - CausalTokenModel - INFO - Starting step 7
+2024-12-29 23:57:42,376 - CausalTokenModel - INFO - Step 7 complete. 100 tokens remaining
+2024-12-29 23:57:42,376 - CausalTokenModel - INFO - Starting step 8
+2024-12-29 23:57:42,377 - CausalTokenModel - INFO - Step 8 complete. 100 tokens remaining
+2024-12-29 23:57:42,377 - CausalTokenModel - INFO - Starting step 9
+2024-12-29 23:57:42,379 - CausalTokenModel - INFO - Step 9 complete. 100 tokens remaining
+2024-12-29 23:57:42,379 - CausalTokenModel - INFO - Starting step 10
+2024-12-29 23:57:42,380 - CausalTokenModel - INFO - Step 10 complete. 100 tokens remaining
+2024-12-29 23:57:42,380 - CausalTokenModel - INFO - Starting step 11
+2024-12-29 23:57:42,382 - CausalTokenModel - INFO - Step 11 complete. 100 tokens remaining
+2024-12-29 23:57:42,382 - CausalTokenModel - INFO - Starting step 12
+2024-12-29 23:57:42,383 - CausalTokenModel - INFO - Step 12 complete. 100 tokens remaining
+2024-12-29 23:57:42,383 - CausalTokenModel - INFO - Starting step 13
+2024-12-29 23:57:42,384 - CausalTokenModel - INFO - Step 13 complete. 100 tokens remaining
+2024-12-29 23:57:42,384 - CausalTokenModel - INFO - Starting step 14
+2024-12-29 23:57:42,385 - CausalTokenModel - INFO - Step 14 complete. 100 tokens remaining
+2024-12-29 23:57:42,385 - CausalTokenModel - INFO - Starting step 15
+2024-12-29 23:57:42,387 - CausalTokenModel - INFO - Step 15 complete. 100 tokens remaining
+2024-12-29 23:57:42,387 - CausalTokenModel - INFO - Starting step 16
+2024-12-29 23:57:42,388 - CausalTokenModel - INFO - Step 16 complete. 100 tokens remaining
+2024-12-29 23:57:42,388 - CausalTokenModel - INFO - Starting step 17
+2024-12-29 23:57:42,390 - CausalTokenModel - INFO - Step 17 complete. 100 tokens remaining
+2024-12-29 23:57:42,390 - CausalTokenModel - INFO - Starting step 18
+2024-12-29 23:57:42,391 - CausalTokenModel - INFO - Step 18 complete. 100 tokens remaining
+2024-12-29 23:57:42,391 - CausalTokenModel - INFO - Starting step 19
+2024-12-29 23:57:42,393 - CausalTokenModel - INFO - Step 19 complete. 100 tokens remaining
+2024-12-29 23:57:42,393 - CausalTokenModel - INFO - Starting step 20
+2024-12-29 23:57:42,394 - CausalTokenModel - INFO - Step 20 complete. 100 tokens remaining
+2024-12-29 23:57:42,394 - CausalTokenModel - INFO - Starting step 21
+2024-12-29 23:57:42,396 - CausalTokenModel - INFO - Step 21 complete. 100 tokens remaining
+2024-12-29 23:57:42,396 - CausalTokenModel - INFO - Starting step 22
+2024-12-29 23:57:42,397 - CausalTokenModel - INFO - Step 22 complete. 100 tokens remaining
+2024-12-29 23:57:42,397 - CausalTokenModel - INFO - Starting step 23
+2024-12-29 23:57:42,399 - CausalTokenModel - INFO - Step 23 complete. 100 tokens remaining
+2024-12-29 23:57:42,399 - CausalTokenModel - INFO - Starting step 24
+2024-12-29 23:57:42,400 - CausalTokenModel - INFO - Step 24 complete. 100 tokens remaining
+2024-12-29 23:57:42,400 - CausalTokenModel - INFO - Starting step 25
+2024-12-29 23:57:42,402 - CausalTokenModel - INFO - Step 25 complete. 100 tokens remaining
+2024-12-29 23:57:42,403 - CausalTokenModel - INFO - Starting step 26
+2024-12-29 23:57:42,404 - CausalTokenModel - INFO - Step 26 complete. 100 tokens remaining
+2024-12-29 23:57:42,404 - CausalTokenModel - INFO - Starting step 27
+2024-12-29 23:57:42,406 - CausalTokenModel - INFO - Step 27 complete. 100 tokens remaining
+2024-12-29 23:57:42,406 - CausalTokenModel - INFO - Starting step 28
+2024-12-29 23:57:42,407 - CausalTokenModel - INFO - Step 28 complete. 100 tokens remaining
+2024-12-29 23:57:42,407 - CausalTokenModel - INFO - Starting step 29
+2024-12-29 23:57:42,409 - CausalTokenModel - INFO - Step 29 complete. 100 tokens remaining
+2024-12-29 23:57:42,409 - CausalTokenModel - INFO - Starting step 30
+2024-12-29 23:57:42,410 - CausalTokenModel - INFO - Step 30 complete. 100 tokens remaining
+2024-12-29 23:57:42,410 - CausalTokenModel - INFO - Starting step 31
+2024-12-29 23:57:42,412 - CausalTokenModel - INFO - Step 31 complete. 100 tokens remaining
+2024-12-29 23:57:42,412 - CausalTokenModel - INFO - Starting step 32
+2024-12-29 23:57:42,413 - CausalTokenModel - INFO - Step 32 complete. 100 tokens remaining
+2024-12-29 23:57:42,413 - CausalTokenModel - INFO - Starting step 33
+2024-12-29 23:57:42,414 - CausalTokenModel - INFO - Step 33 complete. 100 tokens remaining
+2024-12-29 23:57:42,414 - CausalTokenModel - INFO - Starting step 34
+2024-12-29 23:57:42,416 - CausalTokenModel - INFO - Step 34 complete. 100 tokens remaining
+2024-12-29 23:57:42,416 - CausalTokenModel - INFO - Starting step 35
+2024-12-29 23:57:42,417 - CausalTokenModel - INFO - Step 35 complete. 100 tokens remaining
+2024-12-29 23:57:42,417 - CausalTokenModel - INFO - Starting step 36
+2024-12-29 23:57:42,419 - CausalTokenModel - INFO - Step 36 complete. 100 tokens remaining
+2024-12-29 23:57:42,419 - CausalTokenModel - INFO - Starting step 37
+2024-12-29 23:57:42,420 - CausalTokenModel - INFO - Step 37 complete. 100 tokens remaining
+2024-12-29 23:57:42,420 - CausalTokenModel - INFO - Starting step 38
+2024-12-29 23:57:42,422 - CausalTokenModel - INFO - Step 38 complete. 100 tokens remaining
+2024-12-29 23:57:42,422 - CausalTokenModel - INFO - Starting step 39
+2024-12-29 23:57:42,423 - CausalTokenModel - INFO - Step 39 complete. 100 tokens remaining
+2024-12-29 23:57:42,423 - CausalTokenModel - INFO - Starting step 40
+2024-12-29 23:57:42,424 - CausalTokenModel - INFO - Step 40 complete. 100 tokens remaining
+2024-12-29 23:57:42,424 - CausalTokenModel - INFO - Starting step 41
+2024-12-29 23:57:42,426 - CausalTokenModel - INFO - Step 41 complete. 100 tokens remaining
+2024-12-29 23:57:42,426 - CausalTokenModel - INFO - Starting step 42
+2024-12-29 23:57:42,427 - CausalTokenModel - INFO - Step 42 complete. 100 tokens remaining
+2024-12-29 23:57:42,427 - CausalTokenModel - INFO - Starting step 43
+2024-12-29 23:57:42,428 - CausalTokenModel - INFO - Step 43 complete. 100 tokens remaining
+2024-12-29 23:57:42,429 - CausalTokenModel - INFO - Starting step 44
+2024-12-29 23:57:42,430 - CausalTokenModel - INFO - Step 44 complete. 100 tokens remaining
+2024-12-29 23:57:42,430 - CausalTokenModel - INFO - Starting step 45
+2024-12-29 23:57:42,431 - CausalTokenModel - INFO - Step 45 complete. 100 tokens remaining
+2024-12-29 23:57:42,431 - CausalTokenModel - INFO - Starting step 46
+2024-12-29 23:57:42,432 - CausalTokenModel - INFO - Step 46 complete. 100 tokens remaining
+2024-12-29 23:57:42,432 - CausalTokenModel - INFO - Starting step 47
+2024-12-29 23:57:42,434 - CausalTokenModel - INFO - Step 47 complete. 100 tokens remaining
+2024-12-29 23:57:42,434 - CausalTokenModel - INFO - Starting step 48
+2024-12-29 23:57:42,435 - CausalTokenModel - INFO - Step 48 complete. 100 tokens remaining
+2024-12-29 23:57:42,435 - CausalTokenModel - INFO - Starting step 49
+2024-12-29 23:57:42,436 - CausalTokenModel - INFO - Step 49 complete. 100 tokens remaining
+2024-12-29 23:57:42,436 - CausalTokenModel - INFO - Starting step 50
+2024-12-29 23:57:42,438 - CausalTokenModel - INFO - Step 50 complete. 100 tokens remaining
+2024-12-29 23:57:42,438 - CausalTokenModel - INFO - Starting step 51
+2024-12-29 23:57:42,439 - CausalTokenModel - INFO - Step 51 complete. 100 tokens remaining
+2024-12-29 23:57:42,439 - CausalTokenModel - INFO - Starting step 52
+2024-12-29 23:57:42,440 - CausalTokenModel - INFO - Step 52 complete. 100 tokens remaining
+2024-12-29 23:57:42,440 - CausalTokenModel - INFO - Starting step 53
+2024-12-29 23:57:42,441 - CausalTokenModel - INFO - Step 53 complete. 100 tokens remaining
+2024-12-29 23:57:42,441 - CausalTokenModel - INFO - Starting step 54
+2024-12-29 23:57:42,443 - CausalTokenModel - INFO - Step 54 complete. 100 tokens remaining
+2024-12-29 23:57:42,443 - CausalTokenModel - INFO - Starting step 55
+2024-12-29 23:57:42,445 - CausalTokenModel - INFO - Step 55 complete. 100 tokens remaining
+2024-12-29 23:57:42,445 - CausalTokenModel - INFO - Starting step 56
+2024-12-29 23:57:42,446 - CausalTokenModel - INFO - Step 56 complete. 100 tokens remaining
+2024-12-29 23:57:42,446 - CausalTokenModel - INFO - Starting step 57
+2024-12-29 23:57:42,447 - CausalTokenModel - INFO - Step 57 complete. 100 tokens remaining
+2024-12-29 23:57:42,447 - CausalTokenModel - INFO - Starting step 58
+2024-12-29 23:57:42,448 - CausalTokenModel - INFO - Step 58 complete. 100 tokens remaining
+2024-12-29 23:57:42,448 - CausalTokenModel - INFO - Starting step 59
+2024-12-29 23:57:42,450 - CausalTokenModel - INFO - Step 59 complete. 100 tokens remaining
+2024-12-29 23:57:42,450 - CausalTokenModel - INFO - Starting step 60
+2024-12-29 23:57:42,451 - CausalTokenModel - INFO - Step 60 complete. 100 tokens remaining
+2024-12-29 23:57:42,451 - CausalTokenModel - INFO - Starting step 61
+2024-12-29 23:57:42,452 - CausalTokenModel - INFO - Step 61 complete. 100 tokens remaining
+2024-12-29 23:57:42,453 - CausalTokenModel - INFO - Starting step 62
+2024-12-29 23:57:42,454 - CausalTokenModel - INFO - Step 62 complete. 100 tokens remaining
+2024-12-29 23:57:42,454 - CausalTokenModel - INFO - Starting step 63
+2024-12-29 23:57:42,455 - CausalTokenModel - INFO - Step 63 complete. 100 tokens remaining
+2024-12-29 23:57:42,455 - CausalTokenModel - INFO - Starting step 64
+2024-12-29 23:57:42,456 - CausalTokenModel - INFO - Step 64 complete. 100 tokens remaining
+2024-12-29 23:57:42,456 - CausalTokenModel - INFO - Starting step 65
+2024-12-29 23:57:42,458 - CausalTokenModel - INFO - Step 65 complete. 100 tokens remaining
+2024-12-29 23:57:42,458 - CausalTokenModel - INFO - Starting step 66
+2024-12-29 23:57:42,459 - CausalTokenModel - INFO - Step 66 complete. 100 tokens remaining
+2024-12-29 23:57:42,459 - CausalTokenModel - INFO - Starting step 67
+2024-12-29 23:57:42,460 - CausalTokenModel - INFO - Step 67 complete. 100 tokens remaining
+2024-12-29 23:57:42,460 - CausalTokenModel - INFO - Starting step 68
+2024-12-29 23:57:42,462 - CausalTokenModel - INFO - Step 68 complete. 100 tokens remaining
+2024-12-29 23:57:42,462 - CausalTokenModel - INFO - Starting step 69
+2024-12-29 23:57:42,463 - CausalTokenModel - INFO - Step 69 complete. 100 tokens remaining
+2024-12-29 23:57:42,463 - CausalTokenModel - INFO - Starting step 70
+2024-12-29 23:57:42,465 - CausalTokenModel - INFO - Step 70 complete. 100 tokens remaining
+2024-12-29 23:57:42,465 - CausalTokenModel - INFO - Starting step 71
+2024-12-29 23:57:42,466 - CausalTokenModel - INFO - Step 71 complete. 100 tokens remaining
+2024-12-29 23:57:42,466 - CausalTokenModel - INFO - Starting step 72
+2024-12-29 23:57:42,467 - CausalTokenModel - INFO - Step 72 complete. 100 tokens remaining
+2024-12-29 23:57:42,467 - CausalTokenModel - INFO - Starting step 73
+2024-12-29 23:57:42,469 - CausalTokenModel - INFO - Step 73 complete. 100 tokens remaining
+2024-12-29 23:57:42,469 - CausalTokenModel - INFO - Starting step 74
+2024-12-29 23:57:42,470 - CausalTokenModel - INFO - Step 74 complete. 100 tokens remaining
+2024-12-29 23:57:42,470 - CausalTokenModel - INFO - Starting step 75
+2024-12-29 23:57:42,471 - CausalTokenModel - INFO - Step 75 complete. 100 tokens remaining
+2024-12-29 23:57:42,471 - CausalTokenModel - INFO - Starting step 76
+2024-12-29 23:57:42,472 - CausalTokenModel - INFO - Step 76 complete. 100 tokens remaining
+2024-12-29 23:57:42,473 - CausalTokenModel - INFO - Starting step 77
+2024-12-29 23:57:42,474 - CausalTokenModel - INFO - Step 77 complete. 100 tokens remaining
+2024-12-29 23:57:42,474 - CausalTokenModel - INFO - Starting step 78
+2024-12-29 23:57:42,475 - CausalTokenModel - INFO - Step 78 complete. 100 tokens remaining
+2024-12-29 23:57:42,475 - CausalTokenModel - INFO - Starting step 79
+2024-12-29 23:57:42,477 - CausalTokenModel - INFO - Step 79 complete. 100 tokens remaining
+2024-12-29 23:57:42,477 - CausalTokenModel - INFO - Starting step 80
+2024-12-29 23:57:42,478 - CausalTokenModel - INFO - Step 80 complete. 100 tokens remaining
+2024-12-29 23:57:42,478 - CausalTokenModel - INFO - Starting step 81
+2024-12-29 23:57:42,480 - CausalTokenModel - INFO - Step 81 complete. 100 tokens remaining
+2024-12-29 23:57:42,480 - CausalTokenModel - INFO - Starting step 82
+2024-12-29 23:57:42,481 - CausalTokenModel - INFO - Step 82 complete. 100 tokens remaining
+2024-12-29 23:57:42,481 - CausalTokenModel - INFO - Starting step 83
+2024-12-29 23:57:42,482 - CausalTokenModel - INFO - Step 83 complete. 100 tokens remaining
+2024-12-29 23:57:42,482 - CausalTokenModel - INFO - Starting step 84
+2024-12-29 23:57:42,484 - CausalTokenModel - INFO - Step 84 complete. 100 tokens remaining
+2024-12-29 23:57:42,484 - CausalTokenModel - INFO - Starting step 85
+2024-12-29 23:57:42,485 - CausalTokenModel - INFO - Step 85 complete. 100 tokens remaining
+2024-12-29 23:57:42,485 - CausalTokenModel - INFO - Starting step 86
+2024-12-29 23:57:42,486 - CausalTokenModel - INFO - Step 86 complete. 100 tokens remaining
+2024-12-29 23:57:42,486 - CausalTokenModel - INFO - Starting step 87
+2024-12-29 23:57:42,488 - CausalTokenModel - INFO - Step 87 complete. 100 tokens remaining
+2024-12-29 23:57:42,488 - CausalTokenModel - INFO - Starting step 88
+2024-12-29 23:57:42,489 - CausalTokenModel - INFO - Step 88 complete. 100 tokens remaining
+2024-12-29 23:57:42,489 - CausalTokenModel - INFO - Starting step 89
+2024-12-29 23:57:42,491 - CausalTokenModel - INFO - Step 89 complete. 100 tokens remaining
+2024-12-29 23:57:42,491 - CausalTokenModel - INFO - Starting step 90
+2024-12-29 23:57:42,492 - CausalTokenModel - INFO - Step 90 complete. 100 tokens remaining
+2024-12-29 23:57:42,492 - CausalTokenModel - INFO - Starting step 91
+2024-12-29 23:57:42,493 - CausalTokenModel - INFO - Step 91 complete. 100 tokens remaining
+2024-12-29 23:57:42,493 - CausalTokenModel - INFO - Starting step 92
+2024-12-29 23:57:42,495 - CausalTokenModel - INFO - Step 92 complete. 100 tokens remaining
+2024-12-29 23:57:42,495 - CausalTokenModel - INFO - Starting step 93
+2024-12-29 23:57:42,496 - CausalTokenModel - INFO - Step 93 complete. 100 tokens remaining
+2024-12-29 23:57:42,496 - CausalTokenModel - INFO - Starting step 94
+2024-12-29 23:57:42,497 - CausalTokenModel - INFO - Step 94 complete. 100 tokens remaining
+2024-12-29 23:57:42,497 - CausalTokenModel - INFO - Starting step 95
+2024-12-29 23:57:42,499 - CausalTokenModel - INFO - Step 95 complete. 100 tokens remaining
+2024-12-29 23:57:42,499 - CausalTokenModel - INFO - Starting step 96
+2024-12-29 23:57:42,500 - CausalTokenModel - INFO - Step 96 complete. 100 tokens remaining
+2024-12-29 23:57:42,500 - CausalTokenModel - INFO - Starting step 97
+2024-12-29 23:57:42,501 - CausalTokenModel - INFO - Step 97 complete. 100 tokens remaining
+2024-12-29 23:57:42,501 - CausalTokenModel - INFO - Starting step 98
+2024-12-29 23:57:42,503 - CausalTokenModel - INFO - Step 98 complete. 100 tokens remaining
+2024-12-29 23:57:42,503 - CausalTokenModel - INFO - Starting step 99
+2024-12-29 23:57:42,504 - CausalTokenModel - INFO - Step 99 complete. 100 tokens remaining
+2024-12-29 23:57:42,504 - CausalTokenModel - INFO - Starting step 100
+2024-12-29 23:57:42,505 - CausalTokenModel - INFO - Step 100 complete. 100 tokens remaining
+2024-12-29 23:57:42,505 - CausalTokenModel - INFO - Simulation complete
+2024-12-29 23:58:00,858 - CausalTokenModel - INFO - Edge flow plots displayed in Streamlit
+2024-12-29 23:58:13,574 - CausalTokenModel - INFO - Node flow plots displayed in Streamlit
+2024-12-29 23:58:27,277 - CausalTokenModel - INFO - Net effects plots displayed in Streamlit
+2024-12-29 23:59:29,177 - CausalTokenModel - INFO - Starting simulation with 100 tokens for 100 steps
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Initializing simulation 20241229_235929 with 100 tokens
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 0 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 1 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 2 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 3 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 4 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 5 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 6 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 7 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 8 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 9 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 10 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 11 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 12 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 13 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 14 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 15 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 16 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 17 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 18 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 19 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 20 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 21 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 22 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 23 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 24 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 25 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 26 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 27 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 28 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 29 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 30 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 31 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 32 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 33 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 34 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 35 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 36 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 37 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 38 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 39 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 40 initialized at node 47 with charge 1
+2024-12-29 23:59:29,178 - CausalTokenModel - INFO - Token 41 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 42 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 43 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 44 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 45 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 46 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 47 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 48 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 49 initialized at node 47 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 50 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 51 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 52 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 53 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 54 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 55 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 56 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 57 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 58 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 59 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 60 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 61 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 62 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 63 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 64 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 65 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 66 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 67 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 68 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 69 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 70 initialized at node 48 with charge 1
+2024-12-29 23:59:29,179 - CausalTokenModel - INFO - Token 71 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 72 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 73 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 74 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 75 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 76 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 77 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 78 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 79 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 80 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 81 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 82 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 83 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 84 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 85 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 86 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 87 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 88 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 89 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 90 initialized at node 48 with charge 1
+2024-12-29 23:59:29,180 - CausalTokenModel - INFO - Token 91 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Token 92 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Token 93 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Token 94 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Token 95 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Token 96 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Token 97 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Token 98 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Token 99 initialized at node 48 with charge 1
+2024-12-29 23:59:29,181 - CausalTokenModel - INFO - Graph configuration: {
+  "nodes": [
+    {
+      "id": 0,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 1,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 2,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 3,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 4,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 5,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 6,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 7,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 8,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 9,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 10,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 11,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 12,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 13,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 14,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 15,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 16,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 17,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 18,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 19,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 20,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 21,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 22,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 23,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 24,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 25,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 26,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 27,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 28,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 29,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 30,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 31,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 32,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 33,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 34,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 35,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 36,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 37,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 38,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 39,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 40,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 41,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 42,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 43,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 44,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 45,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 46,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 47,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    },
+    {
+      "id": 48,
+      "type": "NodeType.PASS_THROUGH",
+      "consumption_rate": 0,
+      "accumulation_capacity": 0
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 5,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 6,
+      "target": 39,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 9,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 9,
+      "target": 40,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 4,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 10,
+      "target": 16,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 11,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 12,
+      "target": 11,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 13,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 14,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 15,
+      "target": 11,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 9,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 14,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 16,
+      "target": 15,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 17,
+      "target": 7,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 2,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 5,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 20,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 18,
+      "target": 34,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 19,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 20,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 20,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 21,
+      "target": 18,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 22,
+      "target": 18,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 23,
+      "target": 18,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 24,
+      "target": 21,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 25,
+      "target": 26,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 26,
+      "target": 16,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 26,
+      "target": 21,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 27,
+      "target": 16,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 28,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 29,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 30,
+      "target": 27,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 31,
+      "target": 30,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 32,
+      "target": 27,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 32,
+      "target": 33,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 33,
+      "target": 5,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 33,
+      "target": 34,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 34,
+      "target": 10,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 7,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 9,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 35,
+      "target": 36,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 36,
+      "target": 37,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 37,
+      "target": 35,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 38,
+      "target": 37,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 39,
+      "target": 38,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 40,
+      "target": 41,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 41,
+      "target": 42,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 42,
+      "target": 43,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 42,
+      "target": 44,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 43,
+      "target": 40,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 18,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 32,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 33,
+      "polarity": "Polarity.OPPOSITE",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 44,
+      "target": 45,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 45,
+      "target": 46,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 46,
+      "target": 47,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 47,
+      "target": 44,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.HIGH",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 12,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 23,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    },
+    {
+      "source": 48,
+      "target": 24,
+      "polarity": "Polarity.SAME",
+      "strength": "Strength.MEDIUM",
+      "delay": "Delay.FAST"
+    }
+  ]
+}
+2024-12-29 23:59:29,183 - CausalTokenModel - INFO - Starting step 1
+2024-12-29 23:59:29,185 - CausalTokenModel - INFO - Step 1 complete. 100 tokens remaining
+2024-12-29 23:59:29,185 - CausalTokenModel - INFO - Starting step 2
+2024-12-29 23:59:29,186 - CausalTokenModel - INFO - Step 2 complete. 100 tokens remaining
+2024-12-29 23:59:29,186 - CausalTokenModel - INFO - Starting step 3
+2024-12-29 23:59:29,187 - CausalTokenModel - INFO - Step 3 complete. 100 tokens remaining
+2024-12-29 23:59:29,187 - CausalTokenModel - INFO - Starting step 4
+2024-12-29 23:59:29,189 - CausalTokenModel - INFO - Step 4 complete. 100 tokens remaining
+2024-12-29 23:59:29,189 - CausalTokenModel - INFO - Starting step 5
+2024-12-29 23:59:29,190 - CausalTokenModel - INFO - Step 5 complete. 100 tokens remaining
+2024-12-29 23:59:29,190 - CausalTokenModel - INFO - Starting step 6
+2024-12-29 23:59:29,191 - CausalTokenModel - INFO - Step 6 complete. 100 tokens remaining
+2024-12-29 23:59:29,191 - CausalTokenModel - INFO - Starting step 7
+2024-12-29 23:59:29,193 - CausalTokenModel - INFO - Step 7 complete. 100 tokens remaining
+2024-12-29 23:59:29,193 - CausalTokenModel - INFO - Starting step 8
+2024-12-29 23:59:29,194 - CausalTokenModel - INFO - Step 8 complete. 100 tokens remaining
+2024-12-29 23:59:29,194 - CausalTokenModel - INFO - Starting step 9
+2024-12-29 23:59:29,196 - CausalTokenModel - INFO - Step 9 complete. 100 tokens remaining
+2024-12-29 23:59:29,196 - CausalTokenModel - INFO - Starting step 10
+2024-12-29 23:59:29,197 - CausalTokenModel - INFO - Step 10 complete. 100 tokens remaining
+2024-12-29 23:59:29,197 - CausalTokenModel - INFO - Starting step 11
+2024-12-29 23:59:29,199 - CausalTokenModel - INFO - Step 11 complete. 100 tokens remaining
+2024-12-29 23:59:29,199 - CausalTokenModel - INFO - Starting step 12
+2024-12-29 23:59:29,200 - CausalTokenModel - INFO - Step 12 complete. 100 tokens remaining
+2024-12-29 23:59:29,200 - CausalTokenModel - INFO - Starting step 13
+2024-12-29 23:59:29,201 - CausalTokenModel - INFO - Step 13 complete. 100 tokens remaining
+2024-12-29 23:59:29,201 - CausalTokenModel - INFO - Starting step 14
+2024-12-29 23:59:29,202 - CausalTokenModel - INFO - Step 14 complete. 100 tokens remaining
+2024-12-29 23:59:29,202 - CausalTokenModel - INFO - Starting step 15
+2024-12-29 23:59:29,204 - CausalTokenModel - INFO - Step 15 complete. 100 tokens remaining
+2024-12-29 23:59:29,204 - CausalTokenModel - INFO - Starting step 16
+2024-12-29 23:59:29,205 - CausalTokenModel - INFO - Step 16 complete. 100 tokens remaining
+2024-12-29 23:59:29,205 - CausalTokenModel - INFO - Starting step 17
+2024-12-29 23:59:29,206 - CausalTokenModel - INFO - Step 17 complete. 100 tokens remaining
+2024-12-29 23:59:29,206 - CausalTokenModel - INFO - Starting step 18
+2024-12-29 23:59:29,208 - CausalTokenModel - INFO - Step 18 complete. 100 tokens remaining
+2024-12-29 23:59:29,208 - CausalTokenModel - INFO - Starting step 19
+2024-12-29 23:59:29,209 - CausalTokenModel - INFO - Step 19 complete. 100 tokens remaining
+2024-12-29 23:59:29,209 - CausalTokenModel - INFO - Starting step 20
+2024-12-29 23:59:29,210 - CausalTokenModel - INFO - Step 20 complete. 100 tokens remaining
+2024-12-29 23:59:29,210 - CausalTokenModel - INFO - Starting step 21
+2024-12-29 23:59:29,212 - CausalTokenModel - INFO - Step 21 complete. 100 tokens remaining
+2024-12-29 23:59:29,212 - CausalTokenModel - INFO - Starting step 22
+2024-12-29 23:59:29,213 - CausalTokenModel - INFO - Step 22 complete. 100 tokens remaining
+2024-12-29 23:59:29,213 - CausalTokenModel - INFO - Starting step 23
+2024-12-29 23:59:29,215 - CausalTokenModel - INFO - Step 23 complete. 100 tokens remaining
+2024-12-29 23:59:29,215 - CausalTokenModel - INFO - Starting step 24
+2024-12-29 23:59:29,216 - CausalTokenModel - INFO - Step 24 complete. 100 tokens remaining
+2024-12-29 23:59:29,216 - CausalTokenModel - INFO - Starting step 25
+2024-12-29 23:59:29,217 - CausalTokenModel - INFO - Step 25 complete. 100 tokens remaining
+2024-12-29 23:59:29,217 - CausalTokenModel - INFO - Starting step 26
+2024-12-29 23:59:29,219 - CausalTokenModel - INFO - Step 26 complete. 100 tokens remaining
+2024-12-29 23:59:29,219 - CausalTokenModel - INFO - Starting step 27
+2024-12-29 23:59:29,220 - CausalTokenModel - INFO - Step 27 complete. 100 tokens remaining
+2024-12-29 23:59:29,221 - CausalTokenModel - INFO - Starting step 28
+2024-12-29 23:59:29,222 - CausalTokenModel - INFO - Step 28 complete. 100 tokens remaining
+2024-12-29 23:59:29,222 - CausalTokenModel - INFO - Starting step 29
+2024-12-29 23:59:29,223 - CausalTokenModel - INFO - Step 29 complete. 100 tokens remaining
+2024-12-29 23:59:29,223 - CausalTokenModel - INFO - Starting step 30
+2024-12-29 23:59:29,225 - CausalTokenModel - INFO - Step 30 complete. 100 tokens remaining
+2024-12-29 23:59:29,225 - CausalTokenModel - INFO - Starting step 31
+2024-12-29 23:59:29,226 - CausalTokenModel - INFO - Step 31 complete. 100 tokens remaining
+2024-12-29 23:59:29,226 - CausalTokenModel - INFO - Starting step 32
+2024-12-29 23:59:29,227 - CausalTokenModel - INFO - Step 32 complete. 100 tokens remaining
+2024-12-29 23:59:29,227 - CausalTokenModel - INFO - Starting step 33
+2024-12-29 23:59:29,229 - CausalTokenModel - INFO - Step 33 complete. 100 tokens remaining
+2024-12-29 23:59:29,229 - CausalTokenModel - INFO - Starting step 34
+2024-12-29 23:59:29,230 - CausalTokenModel - INFO - Step 34 complete. 100 tokens remaining
+2024-12-29 23:59:29,230 - CausalTokenModel - INFO - Starting step 35
+2024-12-29 23:59:29,232 - CausalTokenModel - INFO - Step 35 complete. 100 tokens remaining
+2024-12-29 23:59:29,232 - CausalTokenModel - INFO - Starting step 36
+2024-12-29 23:59:29,233 - CausalTokenModel - INFO - Step 36 complete. 100 tokens remaining
+2024-12-29 23:59:29,233 - CausalTokenModel - INFO - Starting step 37
+2024-12-29 23:59:29,234 - CausalTokenModel - INFO - Step 37 complete. 100 tokens remaining
+2024-12-29 23:59:29,234 - CausalTokenModel - INFO - Starting step 38
+2024-12-29 23:59:29,236 - CausalTokenModel - INFO - Step 38 complete. 100 tokens remaining
+2024-12-29 23:59:29,236 - CausalTokenModel - INFO - Starting step 39
+2024-12-29 23:59:29,237 - CausalTokenModel - INFO - Step 39 complete. 100 tokens remaining
+2024-12-29 23:59:29,237 - CausalTokenModel - INFO - Starting step 40
+2024-12-29 23:59:29,238 - CausalTokenModel - INFO - Step 40 complete. 100 tokens remaining
+2024-12-29 23:59:29,238 - CausalTokenModel - INFO - Starting step 41
+2024-12-29 23:59:29,240 - CausalTokenModel - INFO - Step 41 complete. 100 tokens remaining
+2024-12-29 23:59:29,240 - CausalTokenModel - INFO - Starting step 42
+2024-12-29 23:59:29,241 - CausalTokenModel - INFO - Step 42 complete. 100 tokens remaining
+2024-12-29 23:59:29,241 - CausalTokenModel - INFO - Starting step 43
+2024-12-29 23:59:29,242 - CausalTokenModel - INFO - Step 43 complete. 100 tokens remaining
+2024-12-29 23:59:29,242 - CausalTokenModel - INFO - Starting step 44
+2024-12-29 23:59:29,243 - CausalTokenModel - INFO - Step 44 complete. 100 tokens remaining
+2024-12-29 23:59:29,243 - CausalTokenModel - INFO - Starting step 45
+2024-12-29 23:59:29,245 - CausalTokenModel - INFO - Step 45 complete. 100 tokens remaining
+2024-12-29 23:59:29,245 - CausalTokenModel - INFO - Starting step 46
+2024-12-29 23:59:29,246 - CausalTokenModel - INFO - Step 46 complete. 100 tokens remaining
+2024-12-29 23:59:29,246 - CausalTokenModel - INFO - Starting step 47
+2024-12-29 23:59:29,248 - CausalTokenModel - INFO - Step 47 complete. 100 tokens remaining
+2024-12-29 23:59:29,248 - CausalTokenModel - INFO - Starting step 48
+2024-12-29 23:59:29,249 - CausalTokenModel - INFO - Step 48 complete. 100 tokens remaining
+2024-12-29 23:59:29,249 - CausalTokenModel - INFO - Starting step 49
+2024-12-29 23:59:29,250 - CausalTokenModel - INFO - Step 49 complete. 100 tokens remaining
+2024-12-29 23:59:29,250 - CausalTokenModel - INFO - Starting step 50
+2024-12-29 23:59:29,252 - CausalTokenModel - INFO - Step 50 complete. 100 tokens remaining
+2024-12-29 23:59:29,252 - CausalTokenModel - INFO - Starting step 51
+2024-12-29 23:59:29,253 - CausalTokenModel - INFO - Step 51 complete. 100 tokens remaining
+2024-12-29 23:59:29,253 - CausalTokenModel - INFO - Starting step 52
+2024-12-29 23:59:29,254 - CausalTokenModel - INFO - Step 52 complete. 100 tokens remaining
+2024-12-29 23:59:29,254 - CausalTokenModel - INFO - Starting step 53
+2024-12-29 23:59:29,256 - CausalTokenModel - INFO - Step 53 complete. 100 tokens remaining
+2024-12-29 23:59:29,256 - CausalTokenModel - INFO - Starting step 54
+2024-12-29 23:59:29,257 - CausalTokenModel - INFO - Step 54 complete. 100 tokens remaining
+2024-12-29 23:59:29,257 - CausalTokenModel - INFO - Starting step 55
+2024-12-29 23:59:29,259 - CausalTokenModel - INFO - Step 55 complete. 100 tokens remaining
+2024-12-29 23:59:29,259 - CausalTokenModel - INFO - Starting step 56
+2024-12-29 23:59:29,260 - CausalTokenModel - INFO - Step 56 complete. 100 tokens remaining
+2024-12-29 23:59:29,260 - CausalTokenModel - INFO - Starting step 57
+2024-12-29 23:59:29,261 - CausalTokenModel - INFO - Step 57 complete. 100 tokens remaining
+2024-12-29 23:59:29,261 - CausalTokenModel - INFO - Starting step 58
+2024-12-29 23:59:29,262 - CausalTokenModel - INFO - Step 58 complete. 100 tokens remaining
+2024-12-29 23:59:29,263 - CausalTokenModel - INFO - Starting step 59
+2024-12-29 23:59:29,264 - CausalTokenModel - INFO - Step 59 complete. 100 tokens remaining
+2024-12-29 23:59:29,264 - CausalTokenModel - INFO - Starting step 60
+2024-12-29 23:59:29,265 - CausalTokenModel - INFO - Step 60 complete. 100 tokens remaining
+2024-12-29 23:59:29,265 - CausalTokenModel - INFO - Starting step 61
+2024-12-29 23:59:29,267 - CausalTokenModel - INFO - Step 61 complete. 100 tokens remaining
+2024-12-29 23:59:29,267 - CausalTokenModel - INFO - Starting step 62
+2024-12-29 23:59:29,268 - CausalTokenModel - INFO - Step 62 complete. 100 tokens remaining
+2024-12-29 23:59:29,268 - CausalTokenModel - INFO - Starting step 63
+2024-12-29 23:59:29,269 - CausalTokenModel - INFO - Step 63 complete. 100 tokens remaining
+2024-12-29 23:59:29,269 - CausalTokenModel - INFO - Starting step 64
+2024-12-29 23:59:29,271 - CausalTokenModel - INFO - Step 64 complete. 100 tokens remaining
+2024-12-29 23:59:29,271 - CausalTokenModel - INFO - Starting step 65
+2024-12-29 23:59:29,272 - CausalTokenModel - INFO - Step 65 complete. 100 tokens remaining
+2024-12-29 23:59:29,272 - CausalTokenModel - INFO - Starting step 66
+2024-12-29 23:59:29,273 - CausalTokenModel - INFO - Step 66 complete. 100 tokens remaining
+2024-12-29 23:59:29,273 - CausalTokenModel - INFO - Starting step 67
+2024-12-29 23:59:29,275 - CausalTokenModel - INFO - Step 67 complete. 100 tokens remaining
+2024-12-29 23:59:29,275 - CausalTokenModel - INFO - Starting step 68
+2024-12-29 23:59:29,276 - CausalTokenModel - INFO - Step 68 complete. 100 tokens remaining
+2024-12-29 23:59:29,276 - CausalTokenModel - INFO - Starting step 69
+2024-12-29 23:59:29,278 - CausalTokenModel - INFO - Step 69 complete. 100 tokens remaining
+2024-12-29 23:59:29,278 - CausalTokenModel - INFO - Starting step 70
+2024-12-29 23:59:29,279 - CausalTokenModel - INFO - Step 70 complete. 100 tokens remaining
+2024-12-29 23:59:29,279 - CausalTokenModel - INFO - Starting step 71
+2024-12-29 23:59:29,280 - CausalTokenModel - INFO - Step 71 complete. 100 tokens remaining
+2024-12-29 23:59:29,280 - CausalTokenModel - INFO - Starting step 72
+2024-12-29 23:59:29,282 - CausalTokenModel - INFO - Step 72 complete. 100 tokens remaining
+2024-12-29 23:59:29,282 - CausalTokenModel - INFO - Starting step 73
+2024-12-29 23:59:29,283 - CausalTokenModel - INFO - Step 73 complete. 100 tokens remaining
+2024-12-29 23:59:29,283 - CausalTokenModel - INFO - Starting step 74
+2024-12-29 23:59:29,284 - CausalTokenModel - INFO - Step 74 complete. 100 tokens remaining
+2024-12-29 23:59:29,284 - CausalTokenModel - INFO - Starting step 75
+2024-12-29 23:59:29,286 - CausalTokenModel - INFO - Step 75 complete. 100 tokens remaining
+2024-12-29 23:59:29,286 - CausalTokenModel - INFO - Starting step 76
+2024-12-29 23:59:29,287 - CausalTokenModel - INFO - Step 76 complete. 100 tokens remaining
+2024-12-29 23:59:29,287 - CausalTokenModel - INFO - Starting step 77
+2024-12-29 23:59:29,289 - CausalTokenModel - INFO - Step 77 complete. 100 tokens remaining
+2024-12-29 23:59:29,289 - CausalTokenModel - INFO - Starting step 78
+2024-12-29 23:59:29,290 - CausalTokenModel - INFO - Step 78 complete. 100 tokens remaining
+2024-12-29 23:59:29,290 - CausalTokenModel - INFO - Starting step 79
+2024-12-29 23:59:29,291 - CausalTokenModel - INFO - Step 79 complete. 100 tokens remaining
+2024-12-29 23:59:29,291 - CausalTokenModel - INFO - Starting step 80
+2024-12-29 23:59:29,293 - CausalTokenModel - INFO - Step 80 complete. 100 tokens remaining
+2024-12-29 23:59:29,293 - CausalTokenModel - INFO - Starting step 81
+2024-12-29 23:59:29,294 - CausalTokenModel - INFO - Step 81 complete. 100 tokens remaining
+2024-12-29 23:59:29,294 - CausalTokenModel - INFO - Starting step 82
+2024-12-29 23:59:29,296 - CausalTokenModel - INFO - Step 82 complete. 100 tokens remaining
+2024-12-29 23:59:29,296 - CausalTokenModel - INFO - Starting step 83
+2024-12-29 23:59:29,297 - CausalTokenModel - INFO - Step 83 complete. 100 tokens remaining
+2024-12-29 23:59:29,297 - CausalTokenModel - INFO - Starting step 84
+2024-12-29 23:59:29,298 - CausalTokenModel - INFO - Step 84 complete. 100 tokens remaining
+2024-12-29 23:59:29,299 - CausalTokenModel - INFO - Starting step 85
+2024-12-29 23:59:29,300 - CausalTokenModel - INFO - Step 85 complete. 100 tokens remaining
+2024-12-29 23:59:29,300 - CausalTokenModel - INFO - Starting step 86
+2024-12-29 23:59:29,301 - CausalTokenModel - INFO - Step 86 complete. 100 tokens remaining
+2024-12-29 23:59:29,301 - CausalTokenModel - INFO - Starting step 87
+2024-12-29 23:59:29,303 - CausalTokenModel - INFO - Step 87 complete. 100 tokens remaining
+2024-12-29 23:59:29,303 - CausalTokenModel - INFO - Starting step 88
+2024-12-29 23:59:29,304 - CausalTokenModel - INFO - Step 88 complete. 100 tokens remaining
+2024-12-29 23:59:29,304 - CausalTokenModel - INFO - Starting step 89
+2024-12-29 23:59:29,305 - CausalTokenModel - INFO - Step 89 complete. 100 tokens remaining
+2024-12-29 23:59:29,305 - CausalTokenModel - INFO - Starting step 90
+2024-12-29 23:59:29,307 - CausalTokenModel - INFO - Step 90 complete. 100 tokens remaining
+2024-12-29 23:59:29,307 - CausalTokenModel - INFO - Starting step 91
+2024-12-29 23:59:29,308 - CausalTokenModel - INFO - Step 91 complete. 100 tokens remaining
+2024-12-29 23:59:29,308 - CausalTokenModel - INFO - Starting step 92
+2024-12-29 23:59:29,309 - CausalTokenModel - INFO - Step 92 complete. 100 tokens remaining
+2024-12-29 23:59:29,309 - CausalTokenModel - INFO - Starting step 93
+2024-12-29 23:59:29,311 - CausalTokenModel - INFO - Step 93 complete. 100 tokens remaining
+2024-12-29 23:59:29,311 - CausalTokenModel - INFO - Starting step 94
+2024-12-29 23:59:29,312 - CausalTokenModel - INFO - Step 94 complete. 100 tokens remaining
+2024-12-29 23:59:29,312 - CausalTokenModel - INFO - Starting step 95
+2024-12-29 23:59:29,314 - CausalTokenModel - INFO - Step 95 complete. 100 tokens remaining
+2024-12-29 23:59:29,314 - CausalTokenModel - INFO - Starting step 96
+2024-12-29 23:59:29,315 - CausalTokenModel - INFO - Step 96 complete. 100 tokens remaining
+2024-12-29 23:59:29,315 - CausalTokenModel - INFO - Starting step 97
+2024-12-29 23:59:29,316 - CausalTokenModel - INFO - Step 97 complete. 100 tokens remaining
+2024-12-29 23:59:29,316 - CausalTokenModel - INFO - Starting step 98
+2024-12-29 23:59:29,318 - CausalTokenModel - INFO - Step 98 complete. 100 tokens remaining
+2024-12-29 23:59:29,318 - CausalTokenModel - INFO - Starting step 99
+2024-12-29 23:59:29,319 - CausalTokenModel - INFO - Step 99 complete. 100 tokens remaining
+2024-12-29 23:59:29,319 - CausalTokenModel - INFO - Starting step 100
+2024-12-29 23:59:29,321 - CausalTokenModel - INFO - Step 100 complete. 100 tokens remaining
+2024-12-29 23:59:29,321 - CausalTokenModel - INFO - Simulation complete
+2024-12-29 23:59:47,434 - CausalTokenModel - INFO - Edge flow plots displayed in Streamlit
+2024-12-30 00:00:00,329 - CausalTokenModel - INFO - Node flow plots displayed in Streamlit

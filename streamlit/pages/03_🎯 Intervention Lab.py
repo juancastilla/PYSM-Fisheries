@@ -1,4 +1,5 @@
 from utilities import *
+from diffusion import *
 
 load_factors(st.session_state.sheet_id)
 load_relationships(st.session_state.sheet_id)
@@ -32,16 +33,13 @@ with st.expander('Exploratory Scenario Analysis (single intervention package)'):
     edited_df = st.data_editor(factors_df_display, use_container_width=False, height=1750, key='')
     token_dict = edited_df[edited_df['TOKENS'] != 0].set_index('factor_id')['TOKENS'].to_dict()
     
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2 = st.columns(2)
     
-    with col4:
-        log_scale = st.checkbox('Use log scale?', key='log_scale_1')
     with col1:
         diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_1')
     with col2:
         time_horizon = st.slider('Time horizon (timesteps):', 1, 50, 25, key='time_horizon_1')
-    with col3: 
-        rolling_window = st.slider('Rolling window (timesteps):', 1, 5, 1, key='rolling_window_1')
+
 
     if st.button('Run simulation', key='run_simulation_1'):
 
@@ -51,10 +49,10 @@ with st.expander('Exploratory Scenario Analysis (single intervention package)'):
             with st.spinner('Running analysis...'):
 
                 if diffusion_model == 'one-time investment':
-                    pulse_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window, vertical=False, case='')
+                    G = create_causal_diagram(st.session_state.df_factors, st.session_state.df_relationships)
+                    NEW_pulse_diffusion_network_model(G, token_dict)
                 else:
-                    flow_diffusion_network_model(G, token_dict, time_horizon, edited_df, log_scale, rolling_window)
-
+                    pass
 
 with st.expander('Exploratory Scenario Analysis (compare two intervention packages)'):
 

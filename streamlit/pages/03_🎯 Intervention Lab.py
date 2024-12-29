@@ -43,16 +43,15 @@ with st.expander('Exploratory Scenario Analysis (single intervention package)'):
 
     if st.button('Run simulation', key='run_simulation_1'):
 
-        # if sum(token_dict.values()) != 100:
-        #     st.warning('The sum of tokens for the intervention package must equal 100 to run the simulation.')
-        # else:
-            with st.spinner('Running analysis...'):
+        with st.spinner('Running analysis...'):
 
-                if diffusion_model == 'one-time investment':
-                    G = create_causal_diagram(st.session_state.df_factors, st.session_state.df_relationships)
-                    NEW_pulse_diffusion_network_model(G, token_dict)
-                else:
-                    pass
+            if diffusion_model == 'one-time investment':
+                st.write("✅ Building causal diagram...")
+                G = create_causal_diagram(st.session_state.df_factors, st.session_state.df_relationships)
+                st.write("✅ Running simulation...")
+                NEW_pulse_diffusion_network_model(G, token_dict)
+            else:
+                pass
 
 with st.expander('Exploratory Scenario Analysis (compare two intervention packages)'):
 

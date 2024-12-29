@@ -11,6 +11,7 @@ import json
 from datetime import datetime
 import streamlit as st
 import pandas as pd
+
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
@@ -51,17 +52,17 @@ class NodeType(Enum):
 class TokenAgent:
     """An agent representing a token that diffuses through the causal network."""
     
-    def __init__(self, unique_id, model, initial_node, initial_value=1.0):
+    def __init__(self, unique_id, model, initial_node, initial_value=1.0, initial_charge=1):
         self.unique_id = unique_id
         self.model = model
         self.current_node = initial_node
         self.value = initial_value
-        self.charge = 1  # Initialize with positive charge
+        self.charge = initial_charge  # Initialize with specified charge
         self.state = TokenState.READY
         self.transit_steps_remaining = 0
         self.target_node = None
         self.active = True
-        logger.info(f"Token {unique_id} initialized at node {initial_node}")
+        logger.info(f"Token {unique_id} initialized at node {initial_node} with charge {initial_charge}")
     
     def start_movement(self, target_node, edge_data):
         """Begin movement to a new node."""
@@ -69,8 +70,9 @@ class TokenAgent:
         self.target_node = target_node
         self.transit_steps_remaining = edge_data['delay'].value
         # Update charge based on edge polarity
-        self.charge *= edge_data['polarity'].value
-        logger.debug(f"Token {self.unique_id} starting movement from {self.current_node} to {target_node} with delay {edge_data['delay'].value} steps")
+        if edge_data['polarity'] == Polarity.OPPOSITE:
+            self.charge *= -1  # Flip charge if polarity is OPPOSITE
+        logger.debug(f"Token {self.unique_id} starting movement from {self.current_node} to {target_node} with delay {edge_data['delay'].value} steps and charge {self.charge}")
     
     def complete_movement(self):
         """Complete movement to target node."""
@@ -257,7 +259,7 @@ class CausalTokenModel:
         # Log summary of step
         logger.info(f"Step {self.step_count} complete. {len(self.agents)} tokens remaining")
     
-    def plot_edge_flows(self):
+    def plot_edge_flows(self, df_factors):
         """Plot the edge flows over time with charge information."""
         if not self.edge_flows_over_time:
             logger.warning("No edge flow data available for plotting")
@@ -269,16 +271,22 @@ class CausalTokenModel:
         fig = plt.figure(figsize=(10, 4*num_edges))
         
         for i, edge in enumerate(edges, 1):
+            #parse the edge name to get the source and target nodes
+            source, target = map(int, edge.split('->'))
+            #get the source and target names from df_factors, short_name column
+            source_name = df_factors[df_factors['factor_id'] == source]['short_name'].values[0]
+            target_name = df_factors[df_factors['factor_id'] == target]['short_name'].values[0]
+
             ax = fig.add_subplot(num_edges, 1, i)
             pos_values = [flow[edge][0] for flow in self.edge_flows_over_time]
             neg_values = [-flow[edge][1] for flow in self.edge_flows_over_time] # Negate for plotting below x-axis
             
             # Plot bars
             x = range(len(pos_values))
-            ax.bar(x, pos_values, color='g', label='Positive')
-            ax.bar(x, neg_values, color='r', label='Negative')
+            ax.bar(x, pos_values, color='g', label='Increase')
+            ax.bar(x, neg_values, color='r', label='Decrease')
             
-            ax.set_title(f'Flow on Edge {edge}')
+            ax.set_title(f'{source_name} --> {target_name}')
             ax.set_xlabel('Time Step')
             ax.set_ylabel('Number of Tokens in Transit')
             ax.legend()
@@ -287,7 +295,8 @@ class CausalTokenModel:
         plt.tight_layout()
         st.pyplot(fig)
         logger.info("Edge flow plots displayed in Streamlit")
-        
+
+
     def plot_node_flows(self):
         """Plot the node flows over time with charge information."""
         if not self.node_flows_over_time:
@@ -310,13 +319,15 @@ class CausalTokenModel:
             
             # Plot bars
             x = range(len(pos_values))
-            ax.bar(x, pos_values, color='g', label='Positive')
-            ax.bar(x, neg_values, color='r', label='Negative')
+            ax.bar(x, pos_values, color='g', label='Increase')
+            ax.bar(x, neg_values, color='r', label='Decrease')
             
             # Plot accumulated line
-            ax.plot(x, acc_values, 'b--', label='Accumulated', linewidth=2)
+            ax.plot(x, acc_values, 'b--', label='Accumulation', linewidth=2)
             
-            ax.set_title(f'Tokens at Node {node}')
+            # Use node label instead of node number
+            node_label = self.G.nodes[node]['label']
+            ax.set_title(f'{node_label}')
             ax.set_xlabel('Time Step')
             ax.set_ylabel('Number of Tokens')
             ax.legend()
@@ -353,13 +364,18 @@ class CausalTokenModel:
 
             x = range(len(net_values))
             
-            # Plot net effect line
-            ax.plot(x, net_values, 'g-', label='Net Effect', linewidth=2)
+            # Plot net effect bars with colors based on value
+            colors = ['g' if val >= 0 else 'r' for val in net_values]
+            # Create two bar plots for legend
+            ax.bar(x, [val if val >= 0 else 0 for val in net_values], color='g', label='Net Effect — Increase')
+            ax.bar(x, [val if val < 0 else 0 for val in net_values], color='r', label='Net Effect — Decrease')
             
             # Plot cumulative effect line
             ax.plot(x, cumulative_values, 'b-', label='Cumulative Effect', linewidth=2)
             
-            ax.set_title(f'Effects at Node {node}')
+            # Use node label instead of node number
+            node_label = self.G.nodes[node]['label']
+            ax.set_title(f'{node_label}')
             ax.set_xlabel('Time Step')
             ax.set_ylabel('Token Effect')
             ax.legend()
@@ -400,7 +416,10 @@ def create_causal_diagram(df_factors, df_relationships):
     # Add nodes with type and consumption rate attributes
     nodes = []
     for _, row in df_factors.iterrows():
-        node_attrs = {'type': getattr(NodeType, row['node_type'])}
+        node_attrs = {
+            'type': getattr(NodeType, row['node_type']),
+            'label': row['short_name']  # Add short_name as label attribute
+        }
         
         if row['node_type'] == 'PASS_THROUGH':
             node_attrs.update({'consumption_rate': 0})
@@ -433,10 +452,12 @@ def NEW_pulse_diffusion_network_model(G, initial_tokens):
 
     model = run_simulation(G, num_tokens=100, num_steps=100, initial_allocation=initial_tokens)
 
+
     # Calculate the percentage of nodes with non-zero token counts from model.node_flows_over_time
     # Convert list of node flows to a format we can analyze
     node_flows_df = pd.DataFrame(model.node_flows_over_time)
     
+    st.write("✅ Calculating system controllability...")
     # Calculate percentage of nodes that had tokens at any point
     nodes_with_tokens = sum(1 for node in G.nodes() if any(
         flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['positive'] > 0 or
@@ -447,7 +468,14 @@ def NEW_pulse_diffusion_network_model(G, initial_tokens):
     non_zero_tokens_percentage = (nodes_with_tokens / len(G.nodes())) * 100
     st.write(f"Percentage of nodes with non-zero token counts: {non_zero_tokens_percentage:.2f}%")
 
-    model.plot_edge_flows()
+    st.write("✅ Plotting edge flows...")
+    st.markdown("#### Edge Flows Over Time")
+    model.plot_edge_flows(st.session_state.df_factors)
+    
+    st.write("✅ Plotting node flows...")
+    st.markdown("#### Node Flows Over Time") 
     model.plot_node_flows()
+    
+    st.write("✅ Plotting net effects...")
+    st.markdown("#### Net Effects Over Time")
     model.plot_net_effects()
-

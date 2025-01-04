@@ -12,5 +12,6 @@ hiplot
 deap
 plotapi
 SALib
+numpy
 scikit-network==0.31.0
 scikit-learn

@@ -44,7 +44,7 @@ from SALib.sample import saltelli
 
 ### PATH CONFIGURATION ###
 
-if platform.system() == 'Darwin' or platform.system() == 'Linux':
+if platform.system() == 'Darwin':
     main_path = Path(".")
 else:
     main_path = Path("./streamlit")

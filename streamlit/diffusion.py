@@ -23,6 +23,7 @@ import json
 from datetime import datetime
 import streamlit as st
 import pandas as pd
+import plotly.graph_objects as go
 
 
 
@@ -567,8 +568,19 @@ def NEW_pulse_diffusion_network_model(G, initial_tokens, edited_df):
         for flow in model.node_flows_over_time
     ))
     non_zero_tokens_percentage = (nodes_with_tokens / len(G.nodes())) * 100
-    st.write(f"Percentage of nodes with non-zero token counts: {non_zero_tokens_percentage:.2f}%")
 
+    st.markdown("<h2 style='text-align: center;'>% System Controlability</h2>", unsafe_allow_html=True)
+
+    # Create a gauge chart
+    fig = go.Figure(go.Indicator(
+        mode="gauge+number",
+        value=non_zero_tokens_percentage,
+        number={'suffix': "%"},  # Add a '%' suffix to the number displayed
+        gauge={'axis': {'range': [None, 100]}}
+    ))
+
+    # Display the gauge chart in Streamlit
+    st.plotly_chart(fig, use_container_width=True)
 
     st.write("✅ Plotting outcome net effects...")
     st.markdown("<h2 style='text-align: center;'>Net Effects Over Time on Outcome Nodes</h2>", unsafe_allow_html=True)

@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore", message="findfont: Generic family.*not found")
+
 import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
@@ -37,9 +40,6 @@ import SALib as sa
 import seaborn as sns
 from SALib.analyze import sobol
 from SALib.sample import saltelli
-
-# Configure matplotlib fonts
-plt.rcParams['font.family'] = ['Arial']
 
 
 # import googletrans

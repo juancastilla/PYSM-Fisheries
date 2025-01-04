@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore", message="findfont: Generic family.*not found")
+
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
@@ -12,8 +15,7 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 
-# Configure matplotlib fonts
-plt.rcParams['font.family'] = ['Arial']
+
 
 # Set up logging
 logging.basicConfig(

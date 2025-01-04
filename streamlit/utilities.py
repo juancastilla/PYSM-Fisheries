@@ -39,7 +39,7 @@ from SALib.analyze import sobol
 from SALib.sample import saltelli
 
 # Configure matplotlib fonts
-plt.rcParams['font.family'] = ['DejaVu Sans', 'Arial', 'Helvetica', 'sans-serif']
+plt.rcParams['font.family'] = ['Arial']
 
 
 # import googletrans

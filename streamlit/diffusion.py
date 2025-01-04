@@ -509,13 +509,13 @@ def NEW_pulse_diffusion_network_model(G, initial_tokens):
     st.write(f"Percentage of nodes with non-zero token counts: {non_zero_tokens_percentage:.2f}%")
 
     st.write("✅ Plotting edge flows...")
-    st.markdown("#### Edge Flows Over Time")
+    st.markdown("<h2 style='text-align: center;'>Edge Flows Over Time</h2>", unsafe_allow_html=True)
     model.plot_edge_flows(st.session_state.df_factors, st.session_state.df_relationships)
     
     st.write("✅ Plotting node flows...")
-    st.markdown("#### Node Flows Over Time") 
+    st.markdown("<h2 style='text-align: center;'>Node Flows Over Time</h2>", unsafe_allow_html=True)
     model.plot_node_flows()
     
     st.write("✅ Plotting net effects...")
-    st.markdown("#### Net Effects Over Time")
+    st.markdown("<h2 style='text-align: center;'>Net Effects Over Time</h2>", unsafe_allow_html=True)
     model.plot_net_effects()

@@ -1,2 +1,4 @@
+# .log files
+*.log
 
 *.pyc

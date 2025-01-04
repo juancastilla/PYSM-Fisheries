@@ -118,7 +118,7 @@ with st.sidebar:
     st.write("Matplotlib version:", matplotlib.__version__)
     st.write("Seaborn version:", sns.__version__)
     
-st.sidebar.image(str(main_path.joinpath('pysm.png')), use_column_width='always')
+st.sidebar.image(str(main_path.joinpath('pysm.png')), use_container_width=True)
 
 
 

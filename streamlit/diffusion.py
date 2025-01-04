@@ -1,5 +1,14 @@
+import logging
 import warnings
-warnings.filterwarnings("ignore", message="findfont: Generic family.*not found")
+import matplotlib
+
+# Suppress specific matplotlib warnings
+logging.getLogger('matplotlib.font_manager').disabled = True
+warnings.filterwarnings("ignore", category=UserWarning, module='matplotlib')
+
+# Also set a default font that we know exists
+matplotlib.rcParams['font.sans-serif'] = ['Liberation Sans', 'DejaVu Sans', 'Arial']
+matplotlib.rcParams['font.family'] = 'sans-serif'
 
 import networkx as nx
 import matplotlib.pyplot as plt

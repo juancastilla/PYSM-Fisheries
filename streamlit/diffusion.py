@@ -12,6 +12,9 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 
+# Configure matplotlib fonts
+plt.rcParams['font.family'] = ['Arial']
+
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,

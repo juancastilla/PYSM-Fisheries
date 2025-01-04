@@ -14,4 +14,4 @@ deap
 plotapi
 SALib
 scikit-learn
-scikit-network==0.31.0 --no-deps
+scikit-network==0.31.0

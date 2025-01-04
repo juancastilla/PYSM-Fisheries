@@ -24,7 +24,7 @@ st.markdown("## An open-source tool to enhance management effectiveness, monitor
 # Display the landing image
 landing_image_path = main_path / "landing_gpt.png"
 if landing_image_path.exists():
-    st.image(str(landing_image_path), use_column_width=True)
+    st.image(str(landing_image_path), use_container_width=True)
 else:
     st.error("Landing image not found. Please ensure 'landing_gpt.png' is in the correct directory.")
 

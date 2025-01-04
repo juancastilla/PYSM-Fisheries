@@ -110,6 +110,7 @@ with st.sidebar.form(key='case_study_form'):
         pass
 
 with st.sidebar:
+    st.write("OS:", platform.system())
     st.write("Python version:", platform.python_version())
     st.write("Streamlit version:", st.__version__)
     st.write("Numpy version:", np.__version__)

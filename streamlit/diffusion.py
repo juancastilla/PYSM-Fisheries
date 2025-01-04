@@ -428,6 +428,67 @@ class CausalTokenModel:
         st.pyplot(fig)
         logger.info("Net effects plots displayed in Streamlit")
 
+    def plot_outcome_net_effects(self, edited_df):
+        """Plot net effects (positive - negative) and cumulative effects over time for outcome nodes only."""
+        if not self.node_flows_over_time:
+            logger.warning("No node flow data available for plotting")
+            return
+
+        # Get outcome nodes from df_factors
+        outcome_node_ids = edited_df[edited_df['OUTCOME NODE'] == True]['factor_id'].tolist()
+        
+        if not outcome_node_ids:
+            logger.warning("No outcome nodes found in the dataframe")
+            return
+
+        num_nodes = len(outcome_node_ids)
+        # Calculate number of rows needed (half of num_nodes, rounded up)
+        num_rows = (num_nodes + 1) // 2
+
+        fig = plt.figure(figsize=(15, 4*num_rows))
+
+        for i, node in enumerate(outcome_node_ids, 1):
+            # Calculate subplot position in 2 columns
+            row = (i-1) // 2
+            col = (i-1) % 2
+            ax = fig.add_subplot(num_rows, 2, i)
+            
+            # Calculate net effect (positive - negative)
+            net_values = [flow.get(node, {'positive':0, 'negative':0})['positive'] - 
+                         flow.get(node, {'positive':0, 'negative':0})['negative']
+                         for flow in self.node_flows_over_time]
+            
+            # Calculate cumulative effect
+            cumulative_values = []
+            running_sum = 0
+            for net_val in net_values:
+                running_sum += net_val
+                cumulative_values.append(running_sum)
+
+            x = range(len(net_values))
+            
+            # Plot net effect bars with colors based on value
+            ax.bar(x, [val if val >= 0 else 0 for val in net_values], color='g', label='Net Effect — Increase')
+            ax.bar(x, [val if val < 0 else 0 for val in net_values], color='r', label='Net Effect — Decrease')
+            
+            # Plot cumulative effect line
+            ax.plot(x, cumulative_values, 'b-', label='Cumulative Effect', linewidth=2)
+            
+            # Use node label instead of node number
+            node_label = self.G.nodes[node]['label']
+            ax.set_title(f'{node_label}')
+            ax.set_xlabel('Time Step')
+            ax.set_ylabel('Token Effect')
+            ax.legend()
+            ax.grid(True)
+            
+            # Add zero line for reference
+            ax.axhline(y=0, color='k', linestyle='-', alpha=0.2)
+
+        plt.tight_layout()
+        st.pyplot(fig)
+        logger.info("Net effects plots for outcome nodes displayed in Streamlit")
+
 def run_simulation(G, num_tokens=10, num_steps=30, initial_allocation=None):
     """Run the token diffusion simulation and return results."""
     logger.info(f"Starting simulation with {num_tokens} tokens for {num_steps} steps")
@@ -488,7 +549,7 @@ def create_causal_diagram(df_factors, df_relationships):
     
     return G
 
-def NEW_pulse_diffusion_network_model(G, initial_tokens):
+def NEW_pulse_diffusion_network_model(G, initial_tokens, edited_df):
 
     model = run_simulation(G, num_tokens=100, num_steps=100, initial_allocation=initial_tokens)
 
@@ -507,6 +568,11 @@ def NEW_pulse_diffusion_network_model(G, initial_tokens):
     ))
     non_zero_tokens_percentage = (nodes_with_tokens / len(G.nodes())) * 100
     st.write(f"Percentage of nodes with non-zero token counts: {non_zero_tokens_percentage:.2f}%")
+
+
+    st.write("✅ Plotting outcome net effects...")
+    st.markdown("<h2 style='text-align: center;'>Net Effects Over Time on Outcome Nodes</h2>", unsafe_allow_html=True)
+    model.plot_outcome_net_effects(edited_df)
 
     st.write("✅ Plotting edge flows...")
     st.markdown("<h2 style='text-align: center;'>Edge Flows Over Time</h2>", unsafe_allow_html=True)

@@ -49,7 +49,7 @@ with st.expander('Exploratory Scenario Analysis (single intervention package)'):
                 st.write("✅ Building causal diagram...")
                 G = create_causal_diagram(st.session_state.df_factors, st.session_state.df_relationships)
                 st.write("✅ Running simulation...")
-                NEW_pulse_diffusion_network_model(G, token_dict)
+                NEW_pulse_diffusion_network_model(G, token_dict, edited_df)
             else:
                 pass
 

@@ -109,16 +109,23 @@ with st.sidebar.form(key='case_study_form'):
     if submitted:
         pass
 
-with st.sidebar:
-    st.write("OS:", platform.system())
-    st.write("Python version:", platform.python_version())
-    st.write("Streamlit version:", st.__version__)
-    st.write("Numpy version:", np.__version__)
-    st.write("Pandas version:", pd.__version__)
-    st.write("Matplotlib version:", matplotlib.__version__)
-    st.write("Seaborn version:", sns.__version__)
+# with st.sidebar:
+#     st.write("OS:", platform.system())
+#     st.write("Python version:", platform.python_version())
+#     st.write("Streamlit version:", st.__version__)
+#     st.write("Numpy version:", np.__version__)
+#     st.write("Pandas version:", pd.__version__)
+#     st.write("Matplotlib version:", matplotlib.__version__)
+#     st.write("Seaborn version:", sns.__version__)
+
+
+st.sidebar.markdown("")
+st.sidebar.markdown("")
+st.sidebar.markdown("")
+st.sidebar.markdown("")
+st.sidebar.markdown("")
     
-st.sidebar.image(str(main_path.joinpath('pysm.png')), use_container_width=True)
+st.sidebar.image(str(main_path.joinpath('pysm.png')), width=300)
 
 
 

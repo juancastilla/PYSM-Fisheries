@@ -282,7 +282,10 @@ class CausalTokenModel:
         edges = list(self.edge_flows_over_time[0].keys())
         num_edges = len(edges)
         
-        fig = plt.figure(figsize=(10, 4*num_edges))
+        # Calculate number of rows needed (half of num_edges, rounded up)
+        num_rows = (num_edges + 1) // 2
+        
+        fig = plt.figure(figsize=(15, 4*num_rows))
         
         for i, edge in enumerate(edges, 1):
             #parse the edge name to get the source and target nodes
@@ -296,7 +299,11 @@ class CausalTokenModel:
             #add polarity to title
             polarity_symbol = 'same' if polarity == 'positive' else 'opposite'
 
-            ax = fig.add_subplot(num_edges, 1, i)
+            # Calculate subplot position in 2 columns
+            row = (i-1) // 2
+            col = (i-1) % 2
+            ax = fig.add_subplot(num_rows, 2, i)
+            
             pos_values = [flow[edge][0] for flow in self.edge_flows_over_time]
             neg_values = [-flow[edge][1] for flow in self.edge_flows_over_time] # Negate for plotting below x-axis
             
@@ -325,16 +332,23 @@ class CausalTokenModel:
         nodes = list(self.G.nodes())
         num_nodes = len(nodes)
         
-        fig = plt.figure(figsize=(10, 4*num_nodes))
+        # Calculate number of rows needed (half of num_nodes, rounded up)
+        num_rows = (num_nodes + 1) // 2
+        
+        fig = plt.figure(figsize=(15, 4*num_rows))
         
         for i, node in enumerate(nodes, 1):
-            ax = fig.add_subplot(num_nodes, 1, i)
             pos_values = [flow.get(node, {'positive':0, 'negative':0, 'accumulated':0})['positive'] 
                          for flow in self.node_flows_over_time]
             neg_values = [-flow.get(node, {'positive':0, 'negative':0, 'accumulated':0})['negative'] 
                          for flow in self.node_flows_over_time]  # Negate for plotting below x-axis
             acc_values = [flow.get(node, {'positive':0, 'negative':0, 'accumulated':0})['accumulated'] 
                          for flow in self.node_flows_over_time]
+            
+            # Calculate subplot position in 2 columns
+            row = (i-1) // 2
+            col = (i-1) % 2
+            ax = fig.add_subplot(num_rows, 2, i)
             
             # Plot bars
             x = range(len(pos_values))
@@ -364,11 +378,18 @@ class CausalTokenModel:
 
         nodes = list(self.G.nodes())
         num_nodes = len(nodes)
+        
+        # Calculate number of rows needed (half of num_nodes, rounded up)
+        num_rows = (num_nodes + 1) // 2
 
-        fig = plt.figure(figsize=(10, 4*num_nodes))
+        fig = plt.figure(figsize=(15, 4*num_rows))
 
         for i, node in enumerate(nodes, 1):
-            ax = fig.add_subplot(num_nodes, 1, i)
+            # Calculate subplot position in 2 columns
+            row = (i-1) // 2
+            col = (i-1) % 2
+            ax = fig.add_subplot(num_rows, 2, i)
+            
             # Calculate net effect (positive - negative)
             net_values = [flow.get(node, {'positive':0, 'negative':0})['positive'] - 
                          flow.get(node, {'positive':0, 'negative':0})['negative']

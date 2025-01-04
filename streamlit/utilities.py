@@ -38,6 +38,9 @@ import seaborn as sns
 from SALib.analyze import sobol
 from SALib.sample import saltelli
 
+# Configure matplotlib fonts
+plt.rcParams['font.family'] = ['DejaVu Sans', 'Arial', 'Helvetica', 'sans-serif']
+
 
 # import googletrans
 # from googletrans import Translator

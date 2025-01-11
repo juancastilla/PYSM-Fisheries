@@ -20,8 +20,6 @@ st.set_page_config(page_title=apptitle, layout="wide", page_icon=":house:")
 
 st.markdown("# Welcome to the Collaborative Systems Mapping Workbench (CSM Workbench)")
 st.markdown("## An open-source tool to enhance management effectiveness, monitoring, evaluation and learning in complex socio-environmental systems")
-st.markdown("## Test auto docker build")
-
 
 # Display the landing image
 landing_image_path = main_path / "landing_gpt.png"

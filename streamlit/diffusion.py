@@ -552,7 +552,7 @@ def create_causal_diagram(df_factors, df_relationships):
 
 def NEW_pulse_diffusion_network_model(G, initial_tokens, edited_df):
 
-    model = run_simulation(G, num_tokens=100, num_steps=200, initial_allocation=initial_tokens)
+    model = run_simulation(G, num_tokens=100, num_steps=100, initial_allocation=initial_tokens)
 
 
     # Calculate the percentage of nodes with non-zero token counts from model.node_flows_over_time

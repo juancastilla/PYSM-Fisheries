@@ -2582,7 +2582,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
         ))
 
         # Display the gauge chart in Streamlit
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="gauge_chart2")
 
     with col2:
 
@@ -2597,7 +2597,7 @@ def diffusion_model_compare(G, token_dict_1, token_dict_2, diffusion_model, time
         ))
 
         # Display the gauge chart in Streamlit
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="gauge_chart3")
 
     ### Leverage on outcome nodes ###
 

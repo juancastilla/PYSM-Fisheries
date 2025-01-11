@@ -83,7 +83,7 @@ with st.expander('Exploratory Scenario Analysis (compare two intervention packag
         with col1:
             diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_compare')
         with col2:
-            time_horizon = st.slider('Time horizon (timesteps):', 1, 50, 25, key='time_horizon_compare')
+            time_horizon = st.slider('Time horizon (timesteps):', 1, 100, 25, key='time_horizon_compare')
         with col3: 
             rolling_window = st.slider('Rolling window (timesteps):', 1, 5, 1, key='rolling_window_compare')
 

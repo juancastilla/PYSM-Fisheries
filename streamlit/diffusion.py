@@ -580,7 +580,7 @@ def NEW_pulse_diffusion_network_model(G, initial_tokens, edited_df):
     ))
 
     # Display the gauge chart in Streamlit
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True, key="gauge_chart1")
 
     st.write("✅ Plotting outcome net effects...")
     st.markdown("<h2 style='text-align: center;'>Net Effects Over Time on Outcome Nodes</h2>", unsafe_allow_html=True)

@@ -255,7 +255,7 @@ class CausalTokenModel:
                 
                 # Consume tokens at specified rate
                 consumed_count = 0
-                for _ in range(consumption_rate):
+                for _ in range(int(consumption_rate)):
                     if agents_at_node:
                         agent_to_consume = agents_at_node.pop(0)
                         self.agents.remove(agent_to_consume)

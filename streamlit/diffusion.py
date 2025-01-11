@@ -530,7 +530,7 @@ def create_causal_diagram(df_factors, df_relationships):
         elif row['node_type'] == 'ACCUMULATE':
             node_attrs.update({
                 'consumption_rate': 0,
-                'accumulation_capacity': row['accum_rate_tokens']
+                'accumulation_capacity': int(row['accum_rate_tokens'])
             })
             
         nodes.append((row['factor_id'], node_attrs))

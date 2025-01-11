@@ -286,41 +286,43 @@ class CausalTokenModel:
         # Calculate number of rows needed (half of num_edges, rounded up)
         num_rows = (num_edges + 1) // 2
         
-        fig = plt.figure(figsize=(15, 4*num_rows))
+        # Reduce figure size to avoid decompression bomb error
+        fig = plt.figure(figsize=(12, 3*num_rows))
         
         for i, edge in enumerate(edges, 1):
-            #parse the edge name to get the source and target nodes
+            # Parse the edge name to get the source and target nodes
             source, target = map(int, edge.split('->'))
-            #get the source and target names from df_factors, short_name column
+            # Get the source and target names from df_factors, short_name column
             source_name = df_factors[df_factors['factor_id'] == source]['short_name'].values[0]
             target_name = df_factors[df_factors['factor_id'] == target]['short_name'].values[0]
-            #get the polarity from df_relationships
+            # Get the polarity from df_relationships
             polarity = df_relationships[(df_relationships['from_factor_id'] == source) & 
                                       (df_relationships['to_factor_id'] == target)]['polarity'].values[0]
-            #add polarity to title
+            # Add polarity to title
             polarity_symbol = 'same' if polarity == 'positive' else 'opposite'
 
             # Calculate subplot position in 2 columns
-            row = (i-1) // 2
-            col = (i-1) % 2
             ax = fig.add_subplot(num_rows, 2, i)
             
             pos_values = [flow[edge][0] for flow in self.edge_flows_over_time]
             neg_values = [-flow[edge][1] for flow in self.edge_flows_over_time] # Negate for plotting below x-axis
             
-            # Plot bars
+            # Plot bars with reduced dpi
             x = range(len(pos_values))
             ax.bar(x, pos_values, color='g', label='Target Increase')
             ax.bar(x, neg_values, color='r', label='Target Decrease')
             
-            ax.set_title(f'{source_name} ---[{polarity_symbol}]---> {target_name}')
-            ax.set_xlabel('Time Step')
-            ax.set_ylabel('Number of Tokens in Transit')
-            ax.legend()
+            # Use smaller font sizes
+            ax.set_title(f'{source_name} ---[{polarity_symbol}]---> {target_name}', fontsize=8)
+            ax.set_xlabel('Time Step', fontsize=8)
+            ax.set_ylabel('Number of Tokens in Transit', fontsize=8)
+            ax.tick_params(labelsize=8)
+            ax.legend(fontsize=8)
             ax.grid(True)
             
         plt.tight_layout()
-        st.pyplot(fig)
+        # Save with reduced DPI and quality
+        st.pyplot(fig, dpi=150)
         logger.info("Edge flow plots displayed in Streamlit")
 
 

@@ -12,13 +12,13 @@ else:
 
 ### APP CONFIGURATION ###
 
-apptitle = 'PYSM: Participatory Systems Mapping Workbench'
+apptitle = 'CST: Collaborative Systems Thinking Workbench'
 
 st.set_page_config(page_title=apptitle, layout="wide", page_icon=":house:")
 
 ### APP MAIN PAGE ###
 
-st.markdown("# Welcome to the Collaborative Systems Mapping Workbench (CSM Workbench)")
+st.markdown("# Welcome to the Collaborative Systems Thinking Workbench (CST Workbench)")
 st.markdown("## An open-source tool to enhance management effectiveness, monitoring, evaluation and learning in complex socio-environmental systems")
 
 # Display the landing image

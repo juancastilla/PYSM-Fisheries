@@ -24,6 +24,7 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
+import numpy as np
 
 
 
@@ -552,50 +553,393 @@ def create_causal_diagram(df_factors, df_relationships):
     
     return G
 
-def NEW_pulse_diffusion_network_model(G, initial_tokens, edited_df):
+# def NEW_pulse_diffusion_network_model(G, initial_tokens, edited_df):
 
-    model = run_simulation(G, num_tokens=100, num_steps=100, initial_allocation=initial_tokens)
+#     model = run_simulation(G, num_tokens=100, num_steps=100, initial_allocation=initial_tokens)
 
 
-    # Calculate the percentage of nodes with non-zero token counts from model.node_flows_over_time
-    # Convert list of node flows to a format we can analyze
-    node_flows_df = pd.DataFrame(model.node_flows_over_time)
+#     # Calculate the percentage of nodes with non-zero token counts from model.node_flows_over_time
+#     # Convert list of node flows to a format we can analyze
+#     node_flows_df = pd.DataFrame(model.node_flows_over_time)
     
-    st.write("✅ Calculating system controllability...")
-    # Calculate percentage of nodes that had tokens at any point
-    nodes_with_tokens = sum(1 for node in G.nodes() if any(
-        flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['positive'] > 0 or
-        flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['negative'] > 0 or 
-        flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['accumulated'] > 0
-        for flow in model.node_flows_over_time
-    ))
-    non_zero_tokens_percentage = (nodes_with_tokens / len(G.nodes())) * 100
+#     st.write("✅ Calculating system controllability...")
+#     # Calculate percentage of nodes that had tokens at any point
+#     nodes_with_tokens = sum(1 for node in G.nodes() if any(
+#         flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['positive'] > 0 or
+#         flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['negative'] > 0 or 
+#         flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['accumulated'] > 0
+#         for flow in model.node_flows_over_time
+#     ))
+#     non_zero_tokens_percentage = (nodes_with_tokens / len(G.nodes())) * 100
 
-    st.markdown("<h2 style='text-align: center;'>% System Controlability</h2>", unsafe_allow_html=True)
+#     st.markdown("<h2 style='text-align: center;'>% System Controlability</h2>", unsafe_allow_html=True)
 
-    # Create a gauge chart
+#     # Create a gauge chart
+#     fig = go.Figure(go.Indicator(
+#         mode="gauge+number",
+#         value=non_zero_tokens_percentage,
+#         number={'suffix': "%"},  # Add a '%' suffix to the number displayed
+#         gauge={'axis': {'range': [None, 100]}}
+#     ))
+
+#     # Display the gauge chart in Streamlit
+#     st.plotly_chart(fig, use_container_width=True, key="gauge_chart1")
+
+#     st.write("✅ Plotting outcome net effects...")
+#     st.markdown("<h2 style='text-align: center;'>Net Effects Over Time on Outcome Nodes</h2>", unsafe_allow_html=True)
+#     model.plot_outcome_net_effects(edited_df)
+
+#     st.write("✅ Plotting edge flows...")
+#     st.markdown("<h2 style='text-align: center;'>Edge Flows Over Time</h2>", unsafe_allow_html=True)
+#     model.plot_edge_flows(st.session_state.df_factors, st.session_state.df_relationships)
+    
+#     st.write("✅ Plotting node flows...")
+#     st.markdown("<h2 style='text-align: center;'>Node Flows Over Time</h2>", unsafe_allow_html=True)
+#     model.plot_node_flows()
+    
+#     st.write("✅ Plotting net effects...")
+#     st.markdown("<h2 style='text-align: center;'>Net Effects Over Time</h2>", unsafe_allow_html=True)
+#     model.plot_net_effects()
+
+    #####
+
+def NEW_pulse_diffusion_network_model(G, initial_tokens, edited_df, n_simulations=100):
+    """Run multiple simulations and show ensemble statistics"""
+
+    # Lists to store results from all simulations
+    all_models = []
+    all_node_flows = []
+    all_edge_flows = []
+    all_controllability = []
+
+    st.write(f"✅ Running {n_simulations} simulations...")
+    progress_bar = st.progress(0)
+
+    # Run multiple simulations
+    for i in range(n_simulations):
+        model = run_simulation(G, num_tokens=100, num_steps=100, initial_allocation=initial_tokens)
+        all_models.append(model)
+        all_node_flows.append(model.node_flows_over_time)
+        all_edge_flows.append(model.edge_flows_over_time)
+        
+        # Calculate controllability for this simulation
+        nodes_with_tokens = sum(1 for node in G.nodes() if any(
+            flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['positive'] > 0 or
+            flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['negative'] > 0 or 
+            flow.get(node, {'positive': 0, 'negative': 0, 'accumulated': 0})['accumulated'] > 0
+            for flow in model.node_flows_over_time
+        ))
+        controllability = (nodes_with_tokens / len(G.nodes())) * 100
+        all_controllability.append(controllability)
+        
+        progress_bar.progress((i + 1) / n_simulations)
+
+    # Calculate average controllability and confidence bounds
+    avg_controllability = np.mean(all_controllability)
+    min_controllability = np.min(all_controllability)
+    max_controllability = np.max(all_controllability)
+
+    st.markdown("<h2 style='text-align: center;'>% System Controllability</h2>", unsafe_allow_html=True)
+
+    # Create a gauge chart with error bounds
     fig = go.Figure(go.Indicator(
-        mode="gauge+number",
-        value=non_zero_tokens_percentage,
-        number={'suffix': "%"},  # Add a '%' suffix to the number displayed
-        gauge={'axis': {'range': [None, 100]}}
+        mode="gauge+number+delta",
+        value=avg_controllability,
+        number={'suffix': "%"},
+        delta={'reference': min_controllability,
+                'increasing': {'color': "green"},
+                'decreasing': {'color': "red"}},
+        gauge={
+            'axis': {'range': [None, 100]},
+            'steps': [
+                {'range': [min_controllability, max_controllability], 'color': "lightgray"}
+            ],
+            'threshold': {
+                'line': {'color': "red", 'width': 4},
+                'thickness': 0.75,
+                'value': avg_controllability
+            }
+        }
     ))
 
-    # Display the gauge chart in Streamlit
     st.plotly_chart(fig, use_container_width=True, key="gauge_chart1")
 
+    # Plot ensemble statistics for outcome nodes
     st.write("✅ Plotting outcome net effects...")
-    st.markdown("<h2 style='text-align: center;'>Net Effects Over Time on Outcome Nodes</h2>", unsafe_allow_html=True)
-    model.plot_outcome_net_effects(edited_df)
+    st.markdown("<h2 style='text-align: center;'>Net Effects Over Time on Outcome Nodes (Ensemble)</h2>", unsafe_allow_html=True)
+    plot_ensemble_outcome_effects(all_models, G, edited_df)
 
     st.write("✅ Plotting edge flows...")
-    st.markdown("<h2 style='text-align: center;'>Edge Flows Over Time</h2>", unsafe_allow_html=True)
-    model.plot_edge_flows(st.session_state.df_factors, st.session_state.df_relationships)
-    
+    st.markdown("<h2 style='text-align: center;'>Edge Flows Over Time (Ensemble)</h2>", unsafe_allow_html=True)
+    plot_ensemble_edge_flows(all_models, G, st.session_state.df_factors, st.session_state.df_relationships)
+
     st.write("✅ Plotting node flows...")
-    st.markdown("<h2 style='text-align: center;'>Node Flows Over Time</h2>", unsafe_allow_html=True)
-    model.plot_node_flows()
-    
+    st.markdown("<h2 style='text-align: center;'>Node Flows Over Time (Ensemble)</h2>", unsafe_allow_html=True)
+    plot_ensemble_node_flows(all_models, G)
+
     st.write("✅ Plotting net effects...")
-    st.markdown("<h2 style='text-align: center;'>Net Effects Over Time</h2>", unsafe_allow_html=True)
-    model.plot_net_effects()
+    st.markdown("<h2 style='text-align: center;'>Net Effects Over Time (Ensemble)</h2>", unsafe_allow_html=True)
+    plot_ensemble_net_effects(all_models, G)
+
+def plot_ensemble_outcome_effects(models, G, edited_df):
+    """Plot ensemble statistics for outcome nodes"""
+    outcome_node_ids = edited_df[edited_df['OUTCOME NODE'] == True]['factor_id'].tolist()
+    if not outcome_node_ids:
+        logger.warning("No outcome nodes found in the dataframe")
+        return
+    
+    num_steps = len(models[0].node_flows_over_time)
+    num_nodes = len(outcome_node_ids)
+    num_rows = (num_nodes + 1) // 2
+    
+    fig = plt.figure(figsize=(15, 4*num_rows))
+    
+    for i, node in enumerate(outcome_node_ids, 1):
+        ax = fig.add_subplot(num_rows, 2, i)
+        
+        # Calculate net effects for all simulations
+        net_effects = []
+        cumulative_effects = []
+        for model in models:
+            net_values = [
+                flow.get(node, {'positive':0, 'negative':0})['positive'] - 
+                flow.get(node, {'positive':0, 'negative':0})['negative']
+                for flow in model.node_flows_over_time
+            ]
+            net_effects.append(net_values)
+            # Calculate cumulative effect
+            cumulative = np.cumsum(net_values)
+            cumulative_effects.append(cumulative)
+        
+        net_effects = np.array(net_effects)
+        cumulative_effects = np.array(cumulative_effects)
+        
+        # Calculate statistics for both net and cumulative effects
+        mean_effect = np.mean(net_effects, axis=0)
+        min_effect = np.min(net_effects, axis=0)
+        max_effect = np.max(net_effects, axis=0)
+        
+        mean_cumulative = np.mean(cumulative_effects, axis=0)
+        min_cumulative = np.min(cumulative_effects, axis=0)
+        max_cumulative = np.max(cumulative_effects, axis=0)
+        
+        x = range(num_steps)
+        
+        # Plot mean and confidence interval for net effects
+        ax.bar(x, mean_effect, color='b', alpha=0.5, label='Mean Net Effect')
+        ax.fill_between(x, min_effect, max_effect, color='b', alpha=0.1)
+        
+        # Plot mean and confidence interval for cumulative effects
+        ax.plot(x, mean_cumulative, 'r-', label='Mean Cumulative Effect', linewidth=2)
+        ax.fill_between(x, min_cumulative, max_cumulative, color='r', alpha=0.1)
+        
+        node_label = G.nodes[node]['label']
+        ax.set_title(f'{node_label}')
+        ax.set_xlabel('Time Step')
+        ax.set_ylabel('Token Effect')
+        ax.legend()
+        ax.grid(True)
+        ax.axhline(y=0, color='k', linestyle='-', alpha=0.2)
+    
+    plt.tight_layout()
+    st.pyplot(fig)
+
+def plot_ensemble_edge_flows(models, G, df_factors, df_relationships):
+    """Plot ensemble statistics for edge flows"""
+    if not models:
+        logger.warning("No models available for plotting")
+        return
+        
+    edges = list(models[0].edge_flows_over_time[0].keys())
+    num_edges = len(edges)
+    num_rows = (num_edges + 1) // 2
+    
+    fig = plt.figure(figsize=(12, 3*num_rows))
+    
+    for i, edge in enumerate(edges, 1):
+        # Parse edge info
+        source, target = map(int, edge.split('->'))
+        source_name = df_factors[df_factors['factor_id'] == source]['short_name'].values[0]
+        target_name = df_factors[df_factors['factor_id'] == target]['short_name'].values[0]
+        polarity = df_relationships[
+            (df_relationships['from_factor_id'] == source) & 
+            (df_relationships['to_factor_id'] == target)
+        ]['polarity'].values[0]
+        polarity_symbol = 'same' if polarity == 'positive' else 'opposite'
+        
+        ax = fig.add_subplot(num_rows, 2, i)
+        
+        # Collect flow data from all simulations
+        pos_flows = []
+        neg_flows = []
+        for model in models:
+            pos_values = [flow[edge][0] for flow in model.edge_flows_over_time]
+            neg_values = [-flow[edge][1] for flow in model.edge_flows_over_time]
+            pos_flows.append(pos_values)
+            neg_flows.append(neg_values)
+        
+        pos_flows = np.array(pos_flows)
+        neg_flows = np.array(neg_flows)
+        
+        # Calculate statistics
+        mean_pos = np.mean(pos_flows, axis=0)
+        min_pos = np.min(pos_flows, axis=0)
+        max_pos = np.max(pos_flows, axis=0)
+        
+        mean_neg = np.mean(neg_flows, axis=0)
+        min_neg = np.min(neg_flows, axis=0)
+        max_neg = np.max(neg_flows, axis=0)
+        
+        x = range(len(mean_pos))
+        
+        # Plot means and ranges
+        ax.bar(x, mean_pos, color='g', alpha=0.5, label='Mean Increase')
+        ax.fill_between(x, min_pos, max_pos, color='g', alpha=0.2)
+        
+        ax.bar(x, mean_neg, color='r', alpha=0.5, label='Mean Decrease')
+        ax.fill_between(x, min_neg, max_neg, color='r', alpha=0.2)
+        
+        ax.set_title(f'{source_name} ---[{polarity_symbol}]---> {target_name}', fontsize=8)
+        ax.set_xlabel('Time Step', fontsize=8)
+        ax.set_ylabel('Tokens in Transit', fontsize=8)
+        ax.tick_params(labelsize=8)
+        ax.legend(fontsize=8)
+        ax.grid(True)
+        
+    plt.tight_layout()
+    st.pyplot(fig)
+
+def plot_ensemble_node_flows(models, G):
+    """Plot ensemble statistics for node flows"""
+    if not models:
+        logger.warning("No models available for plotting")
+        return
+        
+    nodes = list(G.nodes())
+    num_nodes = len(nodes)
+    num_rows = (num_nodes + 1) // 2
+    
+    fig = plt.figure(figsize=(15, 4*num_rows))
+    
+    for i, node in enumerate(nodes, 1):
+        ax = fig.add_subplot(num_rows, 2, i)
+        
+        # Collect flow data from all simulations
+        pos_flows = []
+        neg_flows = []
+        acc_flows = []
+        
+        for model in models:
+            pos_values = [flow.get(node, {'positive':0, 'negative':0, 'accumulated':0})['positive'] 
+                         for flow in model.node_flows_over_time]
+            neg_values = [-flow.get(node, {'positive':0, 'negative':0, 'accumulated':0})['negative'] 
+                         for flow in model.node_flows_over_time]
+            acc_values = [flow.get(node, {'positive':0, 'negative':0, 'accumulated':0})['accumulated'] 
+                         for flow in model.node_flows_over_time]
+            
+            pos_flows.append(pos_values)
+            neg_flows.append(neg_values)
+            acc_flows.append(acc_values)
+        
+        pos_flows = np.array(pos_flows)
+        neg_flows = np.array(neg_flows)
+        acc_flows = np.array(acc_flows)
+        
+        # Calculate statistics
+        mean_pos = np.mean(pos_flows, axis=0)
+        min_pos = np.min(pos_flows, axis=0)
+        max_pos = np.max(pos_flows, axis=0)
+        
+        mean_neg = np.mean(neg_flows, axis=0)
+        min_neg = np.min(neg_flows, axis=0)
+        max_neg = np.max(neg_flows, axis=0)
+        
+        mean_acc = np.mean(acc_flows, axis=0)
+        min_acc = np.min(acc_flows, axis=0)
+        max_acc = np.max(acc_flows, axis=0)
+        
+        x = range(len(mean_pos))
+        
+        # Plot means and ranges
+        ax.bar(x, mean_pos, color='g', alpha=0.5, label='Mean Increase')
+        ax.fill_between(x, min_pos, max_pos, color='g', alpha=0.2)
+        
+        ax.bar(x, mean_neg, color='r', alpha=0.5, label='Mean Decrease')
+        ax.fill_between(x, min_neg, max_neg, color='r', alpha=0.2)
+        
+        ax.plot(x, mean_acc, 'b--', label='Mean Accumulation', linewidth=2)
+        ax.fill_between(x, min_acc, max_acc, color='b', alpha=0.2)
+        
+        node_label = G.nodes[node]['label']
+        ax.set_title(f'{node_label}')
+        ax.set_xlabel('Time Step')
+        ax.set_ylabel('Number of Tokens')
+        ax.legend()
+        ax.grid(True)
+        
+    plt.tight_layout()
+    st.pyplot(fig)
+
+def plot_ensemble_net_effects(models, G):
+    """Plot ensemble statistics for net effects"""
+    if not models:
+        logger.warning("No models available for plotting")
+        return
+        
+    nodes = list(G.nodes())
+    num_nodes = len(nodes)
+    num_rows = (num_nodes + 1) // 2
+    
+    fig = plt.figure(figsize=(15, 4*num_rows))
+    
+    for i, node in enumerate(nodes, 1):
+        ax = fig.add_subplot(num_rows, 2, i)
+        
+        # Collect net effect data from all simulations
+        net_effects = []
+        cumulative_effects = []
+        
+        for model in models:
+            # Calculate net effect (positive - negative)
+            net_values = [
+                flow.get(node, {'positive':0, 'negative':0})['positive'] - 
+                flow.get(node, {'positive':0, 'negative':0})['negative']
+                for flow in model.node_flows_over_time
+            ]
+            net_effects.append(net_values)
+            
+            # Calculate cumulative effect
+            cumulative = np.cumsum(net_values)
+            cumulative_effects.append(cumulative)
+        
+        net_effects = np.array(net_effects)
+        cumulative_effects = np.array(cumulative_effects)
+        
+        # Calculate statistics
+        mean_net = np.mean(net_effects, axis=0)
+        min_net = np.min(net_effects, axis=0)
+        max_net = np.max(net_effects, axis=0)
+        
+        mean_cumulative = np.mean(cumulative_effects, axis=0)
+        min_cumulative = np.min(cumulative_effects, axis=0)
+        max_cumulative = np.max(cumulative_effects, axis=0)
+        
+        x = range(len(mean_net))
+        
+        # Plot means and ranges
+        ax.bar(x, mean_net, color='b', alpha=0.5, label='Mean Net Effect')
+        ax.fill_between(x, min_net, max_net, color='b', alpha=0.1)
+        
+        ax.plot(x, mean_cumulative, 'r-', label='Mean Cumulative Effect', linewidth=2)
+        ax.fill_between(x, min_cumulative, max_cumulative, color='r', alpha=0.1)
+        
+        node_label = G.nodes[node]['label']
+        ax.set_title(f'{node_label}')
+        ax.set_xlabel('Time Step')
+        ax.set_ylabel('Token Effect')
+        ax.legend()
+        ax.grid(True)
+        ax.axhline(y=0, color='k', linestyle='-', alpha=0.2)
+        
+    plt.tight_layout()
+    st.pyplot(fig)

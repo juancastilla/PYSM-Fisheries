@@ -14,4 +14,4 @@ deap
 plotapi
 SALib
 scikit-learn
-scinkit-network
+scikit-network

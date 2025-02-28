@@ -727,7 +727,7 @@ def plot_ensemble_outcome_effects(models, G, edited_df):
         
         # Plot mean and confidence interval for net effects
         ax.bar(x, mean_effect, color='b', alpha=0.5, label='Mean Net Effect')
-        ax.fill_between(x, min_effect, max_effect, color='b', alpha=0.1)
+        # ax.fill_between(x, min_effect, max_effect, color='b', alpha=0.1)
         
         # Plot mean and confidence interval for cumulative effects
         ax.plot(x, mean_cumulative, 'r-', label='Mean Cumulative Effect', linewidth=2)
@@ -794,10 +794,10 @@ def plot_ensemble_edge_flows(models, G, df_factors, df_relationships):
         
         # Plot means and ranges
         ax.bar(x, mean_pos, color='g', alpha=0.5, label='Mean Increase')
-        ax.fill_between(x, min_pos, max_pos, color='g', alpha=0.2)
+        # ax.fill_between(x, min_pos, max_pos, color='g', alpha=0.2)
         
         ax.bar(x, mean_neg, color='r', alpha=0.5, label='Mean Decrease')
-        ax.fill_between(x, min_neg, max_neg, color='r', alpha=0.2)
+        # ax.fill_between(x, min_neg, max_neg, color='r', alpha=0.2)
         
         ax.set_title(f'{source_name} ---[{polarity_symbol}]---> {target_name}', fontsize=8)
         ax.set_xlabel('Time Step', fontsize=8)
@@ -862,13 +862,13 @@ def plot_ensemble_node_flows(models, G):
         
         # Plot means and ranges
         ax.bar(x, mean_pos, color='g', alpha=0.5, label='Mean Increase')
-        ax.fill_between(x, min_pos, max_pos, color='g', alpha=0.2)
+        # ax.fill_between(x, min_pos, max_pos, color='g', alpha=0.2)
         
         ax.bar(x, mean_neg, color='r', alpha=0.5, label='Mean Decrease')
-        ax.fill_between(x, min_neg, max_neg, color='r', alpha=0.2)
+        # ax.fill_between(x, min_neg, max_neg, color='r', alpha=0.2)
         
         ax.plot(x, mean_acc, 'b--', label='Mean Accumulation', linewidth=2)
-        ax.fill_between(x, min_acc, max_acc, color='b', alpha=0.2)
+        # ax.fill_between(x, min_acc, max_acc, color='b', alpha=0.2)
         
         node_label = G.nodes[node]['label']
         ax.set_title(f'{node_label}')

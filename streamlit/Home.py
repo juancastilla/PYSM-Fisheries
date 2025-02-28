@@ -25,7 +25,7 @@ st.markdown("## Version: 0.0.1")
 # Display the landing image
 landing_image_path = main_path / "landing_gpt.png"
 if landing_image_path.exists():
-    st.image(str(landing_image_path), use_container_width=True)
+    st.image(str(landing_image_path), width=1500)
 else:
     st.error("Landing image not found. Please ensure 'landing_gpt.png' is in the correct directory.")
 
@@ -44,7 +44,7 @@ else:
 # with q2:
 #    st.markdown("### Question 2")
 #    st.divider()
-#    st.markdown("Across the focal fisheries’ systems, what are the key elements and human behaviors that are prohibiting a transition to more sustainable fisheries?")
+#    st.markdown("Across the focal fisheries' systems, what are the key elements and human behaviors that are prohibiting a transition to more sustainable fisheries?")
 
 # with q3:
 #    st.markdown("### Question 3")

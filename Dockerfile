@@ -1,5 +1,5 @@
 #Set base image in Python 3.11
-FROM python:3.11
+FROM python:3.12
 
 #Set working directory
 WORKDIR /app
@@ -25,10 +25,10 @@ RUN python3 -m pip install numpy==1.26.4
 RUN python3 -m pip install -r requirements.txt  
 
 #Expose Port 8502
-EXPOSE 8502
+EXPOSE 8500
 
 #Run healthcheck
-HEALTHCHECK CMD curl --fail http://localhost:8502/_stcore/health
+HEALTHCHECK CMD curl --fail http://localhost:8500/_stcore/health
 
 #Run Streamlit application
-ENTRYPOINT ["streamlit", "run", "streamlit/Home.py", "--server.port=8502", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "streamlit/Home.py", "--server.port=8500", "--server.address=0.0.0.0"]

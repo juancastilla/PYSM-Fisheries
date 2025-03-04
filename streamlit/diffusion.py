@@ -617,7 +617,7 @@ def NEW_pulse_diffusion_network_model(G, initial_tokens, edited_df, n_simulation
 
     # Run multiple simulations
     for i in range(n_simulations):
-        model = run_simulation(G, num_tokens=100, num_steps=100, initial_allocation=initial_tokens)
+        model = run_simulation(G, num_tokens=100, num_steps=n_simulations, initial_allocation=initial_tokens)
         all_models.append(model)
         all_node_flows.append(model.node_flows_over_time)
         all_edge_flows.append(model.edge_flows_over_time)

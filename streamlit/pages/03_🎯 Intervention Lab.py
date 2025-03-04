@@ -38,7 +38,7 @@ with st.expander('Exploratory Scenario Analysis (single intervention package)'):
     with col1:
         diffusion_model = st.selectbox('Choose a model:', ('one-time investment', 'continuous investment'), key='diffusion_model_1')
     with col2:
-        time_horizon = st.slider('Time horizon (timesteps):', 1, 50, 25, key='time_horizon_1')
+        time_horizon = st.slider('Time horizon (timesteps):', 1, 100, 50, key='time_horizon_1')
 
 
     if st.button('Run simulation', key='run_simulation_1'):
@@ -49,7 +49,7 @@ with st.expander('Exploratory Scenario Analysis (single intervention package)'):
                 st.write("✅ Building causal diagram...")
                 G = create_causal_diagram(st.session_state.df_factors, st.session_state.df_relationships)
                 st.write("✅ Running simulation...")
-                NEW_pulse_diffusion_network_model(G, token_dict, edited_df)
+                NEW_pulse_diffusion_network_model(G, token_dict, edited_df, n_simulations=time_horizon)
             else:
                 pass
 
